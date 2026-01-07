@@ -1,0 +1,150 @@
+% quiver style
+\usepackage{tikz-cd}
+% `calc` is necessary to draw curved arrows.
+\usetikzlibrary{calc}
+% `pathmorphing` is necessary to draw squiggly arrows.
+\usetikzlibrary{decorations.pathmorphing}
+
+% A TikZ style for curved arrows of a fixed height, due to AndréC.
+\tikzset{curve/.style={settings={#1},to path={(\tikztostart)
+					.. controls ($(\tikztostart)!\pv{pos}!(\tikztotarget)!\pv{height}!270:(\tikztotarget)$)
+					and ($(\tikztostart)!1-\pv{pos}!(\tikztotarget)!\pv{height}!270:(\tikztotarget)$)
+					.. (\tikztotarget)\tikztonodes}},
+	settings/.code={\tikzset{quiver/.cd,#1}
+			\def\pv##1{\pgfkeysvalueof{/tikz/quiver/##1}}},
+	quiver/.cd,pos/.initial=0.35,height/.initial=0}
+
+% TikZ arrowhead/tail styles.
+\tikzset{tail reversed/.code={\pgfsetarrowsstart{tikzcd to}}}
+\tikzset{2tail/.code={\pgfsetarrowsstart{Implies[reversed]}}}
+\tikzset{2tail reversed/.code={\pgfsetarrowsstart{Implies}}}
+% TikZ arrow styles.
+\tikzset{no body/.style={/tikz/dash pattern=on 0 off 1mm}}
+
+% useful macro for class
+\newcommand{\at}[3]{\left.#1\right\vert_{#2}^{#3}}
+\newcommand\quotient[2]{
+	\mathchoice
+	{% \displaystyle
+		\text{\raise1ex\hbox{$#1$}\Big/\lower1ex\hbox{$#2$}}%
+	}
+	{% \textstyle
+		#1\,/\,#2
+	}
+	{% \scriptstyle
+		#1\,/\,#2
+	}
+	{% \scriptscriptstyle
+		#1\,/\,#2
+	}
+}
+
+\newcommand{\True}{\textsf{True}}
+\newcommand{\T}{\textsf{T}}
+\newcommand{\False}{\textsf{False}}
+\newcommand{\F}{\textsf{F}}
+\newcommand{\act}{\rotatebox[origin=c]{-180}{\(\,\circlearrowright\,\)}}
+
+\usepackage{physics}
+\usepackage{complexity}
+
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\vol}{vol}
+\DeclareMathOperator{\dist}{dist}
+\DeclareMathOperator{\diam}{diam}
+\DeclareMathOperator{\im}{Im}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\Int}{Int}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator{\Var}{Var}
+\DeclareMathOperator{\Cov}{Cov}
+\DeclareMathOperator{\Corr}{Corr}
+\DeclareMathOperator{\lcm}{lcm}
+\DeclareMathOperator{\coker}{coker} % cokernel
+\DeclareMathOperator{\Sym}{Sym} % symmetric group
+\DeclareMathOperator{\Aut}{Aut} % automorphism group
+\DeclareMathOperator{\End}{End} % endomorphism group
+\DeclareMathOperator{\Hom}{Hom} % homomorphisms
+\DeclareMathOperator{\Gal}{Gal} % galois group
+\DeclareMathOperator{\ob}{Ob} % objects in category theory
+\DeclareMathOperator{\vect}{Vect} % Vector objects in category theory
+\DeclareMathOperator{\sets}{Sets} % set objects in category theory
+\DeclareMathOperator{\GL}{GL} % general linear group
+\DeclareMathOperator{\Id}{Id} % identity map
+\DeclareMathOperator{\Fun}{Fun} % function group
+\DeclareMathOperator{\reg}{reg} % regular representation
+\DeclareMathOperator{\Span}{span} % span of vector space generator
+\DeclareMathOperator{\Ind}{Ind} % induced representation
+\DeclareMathOperator{\Gps}{Gps} % group category
+\DeclareMathOperator{\Top}{Top} % topological space category
+
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+
+\let\implies\Rightarrow
+\let\impliedby\Leftarrow
+\let\iff\Leftrightarrow
+
+\usepackage{stmaryrd} % for \lightning
+\newcommand\conta{\scalebox{1.1}{\(\lightning\)}}
+
+\usepackage{bm}
+\usepackage{bbm}
+
+% figure support
+\usepackage{import}
+\usepackage{xifthen}
+\pdfminorversion=7
+\usepackage{pdfpages}
+\usepackage{transparent}
+\newcommand{\incfig}[2][\columnwidth]{%
+	\def\svgwidth{#1}
+	\import{Figures/}{#2.pdf_tex}
+}
+
+% some efficient math alias
+\newcommand{\CC}{\mathbb{C}} % Complex numbers
+\newcommand{\FF}{\mathbb{F}} % Finite fields
+\newcommand{\NN}{\mathbb{N}} % Natural numbers
+\newcommand{\QQ}{\mathbb{Q}} % Rational numbers
+\newcommand{\RR}{\mathbb{R}} % Real numbers
+\newcommand{\ZZ}{\mathbb{Z}} % Integers
+\newcommand{\KK}{\mathbb{K}} % general fields
+\newcommand{\qo}{\quotient} % easier way to type quotient
+\newcommand{\mb}{\mathbf}
+
+% Automated Letter Loops (The "Magic" Part)
+\foreach \x in {A,...,Z} {
+    \expandafter\xdef\csname c\x\endcsname{\noexpand\mathcal{\x}} % mathcal 
+    \expandafter\xdef\csname b\x\endcsname{\noexpand\mathbb{\x}} % mathbb 
+    \expandafter\xdef\csname f\x\endcsname{\noexpand\mathfrak{\x}} % mathfrak 
+    \expandafter\xdef\csname s\x\endcsname{\noexpand\mathscr{\x}} % mathscr 
+}
+
+% Paired Delimiters (Auto-sizing)
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}  % Ceiling function
+\DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor} % Floor function
+\DeclarePairedDelimiter{\angl}{\langle}{\rangle} % inner product or genrated idea
+\DeclarePairedDelimiter{\br}{\llbracket}{\rrbracket} % french styled integer expression
+\DeclarePairedDelimiter{\baceInner}{(}{)} % auto resized braces
+\NewDocumentCommand{\bace}{s m}{
+  \IfBooleanTF{#1}
+    {\baceInner{#2}} % normal sized if \bace*
+    {\baceInner*{#2}} % auto resized if \bace
+}
+
+% greek and msic symbols
+\newcommand{\eps}{\varepsilon} % Better looking epsilon
+\newcommand{\vp}{\varphi}      % Better looking phi
+\newcommand{\lam}{\lambda}     % Shorthand for lambda
+\newcommand{\half}{\frac{1}{2}} % Very common fraction
+\newcommand{\inv}{^{-1}}       % Inverse operator shorthand
+\newcommand{\rsa}{\rightsquigarrow} % some abution of arrow
+% \newcommand{\iff}{\Longleftrightarrow} % Make 'iff' arrow longer if desired
+
+% quotient 
+% \newcommand{\quotient}[2]{{#1}/\mkern-2mu{#2}}
