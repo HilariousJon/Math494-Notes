@@ -126,11 +126,25 @@ We've learnt about group theories which represents the symmetry for objects, whi
 \begin{remark}
   \leavevmode 
   \begin{enumerate}
-    \item If \( f:R\to S \) is a ring hom., then \( f:(R,+) \to  (S,+)\) is a group homomorphism, with \( f(0_R) = 0_S, \; f(a-b) = f(a)-f(b) \; \forall \; a,b \in R \).
+    \item If \( f:R\to S \) is a ring homo., then \( f:(R,+) \to  (S,+)\) is a group homomorphism, with \( f(0_R) = 0_S, \; f(a-b) = f(a)-f(b) \; \forall \; a,b \in R \).
     \item However, in def of ring hom. condition 3 \textbf{does not} implied by 1 and 2. 
   \end{enumerate}
 \end{remark}
 
 \begin{eg}
-  
+  If \( R = \{0_R\} \), then the only map \( f: R\to S \) that satisfies 1 and 2 in definition of ring homo. will satisfy:
+  \[
+    f(0_R) = 0_S
+  \] 
+
+  however, this does not satisfy condition 3 if \( S \ne \{0_S\} \).
 \end{eg}
+
+\begin{remark}
+  In homework, we shall see if \( f: R\to S \), \( g: S\to T \) are ring homomorphisms, then \( g\circ f: R\to T \) is again a ring homomorphisms. In particular we have a category \underline{Rings}:
+  \begin{itemize}
+    \item Objects: rings.
+    \item Morphisms: ring homomorphisms. 
+    \item composition: usual function composition.
+  \end{itemize}
+\end{remark}
