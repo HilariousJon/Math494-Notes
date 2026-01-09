@@ -2,10 +2,10 @@
 
 We've learnt about group theories which represents the symmetry for objects, which is kind of abstract. Rings are groups with extra structures, it is naturally more complicated, however it is closer to our intuition due to the same reason.
 
-\section{Basic Definition}
+\section{Ring and Ring Homomorphism}
 
 \begin{definition}[\textbf{Ring}]
-  A \underline{Ring} is a tuple \( (R,+,\cdot) \) being a set \( R \) endowed with \( 2 \) binary operations \( (+) \) and \( (\cdot) \), s.t.:
+A \underline{Ring} is a tuple \( (R,+,\cdot) \) being a set \( R \) endowed with \( 2 \) binary operations \( (+) \) and \( (\cdot) \), s.t.:
   \begin{enumerate}
     \item \( (R, +) \) is an \textbf{abelian} group, with identity element \( 0_R \) or \( 0 \).
     \item \( (\cdot) \) is associative, and has an identity element \( 1_R \) or \( 1 \).
@@ -23,6 +23,8 @@ We've learnt about group theories which represents the symmetry for objects, whi
     \item Usually write \( ab \) for \( a\cdot b \).
     \item If we don't use parentheses, the order of operations is First \( (\cdot) \) then \( (+) \).
     \item If \( (+), (\cdot) \) are understood, simply denote the ring by \( R \).
+    \item Write \( na \) for \( a\in R \) and \( n \in \ZZ \) for addition for multiple times.
+    \item Write \( a^n \) for \( a\in R \) and \( n\in \ZZ_{\geq 0} \) for multiplication for multiple times.
   \end{enumerate}
 \end{notation}
 
@@ -148,3 +150,39 @@ We've learnt about group theories which represents the symmetry for objects, whi
     \item composition: usual function composition.
   \end{itemize}
 \end{remark}
+
+\begin{definition}[\textbf{Ring Isomorphism}]
+  If \( R, S \) are rings, a \underline{ring isomorphism} \( R\to S \) is a ring homomorphism \( f : R \to S\), s.t. \( \exists \; g : S \to R \) to be ring homomorphism, s.t. \( g\circ f = \Id_R, \; f\circ g = \Id_S \).
+
+  Such is equivalent that \( f: R\to S \) is an isomorphism in the category of \underline{Rings}.
+
+  We say \( R \) and \( S \) are isomorphic, write \( R \cong S \) if \( \exists \) ring isomorphism \( R\to S \).
+\end{definition}
+
+\begin{proposition}
+  A ring isomorphism \( f: R \to S \) is an isomorphism if and only if \( f \) is bijective.
+\end{proposition}
+
+\begin{proof}
+  The only if part is trivial, consider the if part. We know \( f \) is homomorphism and bijection, we need to see \( f^{-1} \) is still a ring homomorphism. We already have corresponding results for group isomoprhism for \( (R,+) \):
+  \[
+    f^{-1} (a+b) = f^{-1}(a) + f^{-1}(b)
+  \] 
+
+  Since \( f(1_R) = 1_S \implies f^{-1}(1_S) = 1_R\). Remains to show: \( f^{-1}(ab) = f^{-1}(a) f^{-1}(b) \; \forall \; a,b\in S \). Since \( f \) is injective, it is enough to show:
+  \[
+    \underbrace{f(f^{-1}(ab))}_{=ab} = \underbrace{f\bace{f^{-1}(a) \cdot f^{-1}(b)}}_{=f(f^{-1}(a))\cdot f(f^{-1}(b)) = ab}
+  \] 
+\end{proof}
+
+\begin{eg}[\textbf{Chinese Remainder Theorem}]
+  Suppose \( m,n\in \ZZ_{>0} \) be relative primes:
+  \[
+    \begin{aligned}
+      f: \qo{\ZZ}{mn\ZZ} &\to \qo{\ZZ}{m\ZZ} \times \qo{\ZZ}{n\ZZ} \\ 
+      [a]_{mn} &\to ([a]_m, [a]_n) 
+    \end{aligned}
+  \] 
+
+  easily seen before that such is well-defined and being a ring homomorphism in homework. In particular, \( \gcd(m,n) = 1\implies \ker(f) = \{0\} \implies f \) is injective, thus \#LHS  \(= mn =\) \#RHS thus it is surjective. We thus obtain a ring \textbf{isomoprhism}.
+\end{eg}
