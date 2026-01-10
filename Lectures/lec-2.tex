@@ -83,6 +83,32 @@ The proof is straightforward. With side note that \( f(1_R) = 1_S \in \im(f) \).
 \begin{eg}
   \leavevmode
   \begin{enumerate}
-    \item
+    \item \( R \) and \( \{0\} \) are always two-sided ideals in \( R \).
+    \item Say \( R \) is \textbf{commutative} and \( a \in R \), let \( (a) \) to be the subset of \( R \) which contain all multiples of \( a \):
+      \[
+        (a) \coloneqq \{ab \; | \; b \in R\}
+      \] 
+
+      is an ideal in \( R \), such ideal are called \textbf{Principal Ideals}.
+      \begin{itemize}
+        \item \( (a) \ne \emptyset \) since \( a = a \cdot 1 \in (a) \).
+        \item \( ab_1 + ab_2 = a(b_1 + b_2) \in (a) \).
+        \item \( c\in R \), \( (ab)c = a(bc) \in (a) \)
+      \end{itemize}
   \end{enumerate}
 \end{eg}
+
+\begin{proposition}
+  If \( f: R \to S \) is a ring homomorphism, then \( \ker(f) := \{a\in R \; | \; f(a) = 0 \} \) is a two-sided ideal of \( R \).
+\end{proposition}
+
+\begin{proof}
+  We know it is a subgroup of \( (R, +) \), see that:
+  \[
+    a\in \ker(f) \implies f(ba) = f(b) \cdot f(a) = f(b) \cdot 0 = 0 \implies ba \in \ker(f)
+  \] 
+
+  similarly, \( ab\in \ker(f) \; \forall \; b \in R \).
+\end{proof}
+
+Also note, \( f: R\to S \) be ring homomorphism, it is injective iff \( \ker(f) = \{0\} \).
