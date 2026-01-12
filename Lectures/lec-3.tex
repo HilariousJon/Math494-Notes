@@ -1,0 +1,59 @@
+\section{Quotient Rings}
+
+In this section we construct quotient rings. Main heuristics is to follow the construction of quotient groups while maintainning the compatibility with multiplication, in particular, with \textbf{ring homomorphism}.
+
+Let \( (R, +, \cdot) \) be a ring, if \( I \subseteq R \) be subgroup, then \( I \) is automatically normal since \( (R, +) \) is abelian. Thus we can construct \( \qo{R}{I} \) as a group:
+\[
+  \qo{R}{I} \coloneqq \qo{R}{\equiv \bmod I} \quad a \equiv b \bmod I \text{ if } a - b \in I 
+\] 
+
+Write \( a+ I \) or simply \( \overline{a} \) or \( [a] \) for the image of \( a\in R \) in \( \qo{R}{I} \). The group structure is \textbf{defined} s.t.:
+\[
+  \begin{aligned}
+    \pi : R &\to \qo{R}{I} \\ 
+    a &\mapsto a+I 
+  \end{aligned}
+\] 
+
+is \textbf{group homomorphism}. which is:
+\[
+  \overline{a} + \overline{b} =\overline{a+b}
+\] 
+
+We then want to see that \( \qo{R}{I} \) to be not just a group, but make it a \textbf{ring}, which is: \( \pi \) to be a \textbf{ring homomorphism}.
+
+Since \( \ker(\pi) = I \), for the above to work, we need \( I\subseteq R \) is a \textbf{2-sided ideal}. So let's just assume \( I \) is a 2-sided ideal.
+
+Since we want \( \pi \) to be a ring homomorphism, we have to define multiplication on \( \qo{R}{I} \), which is by the most obvious way:
+\[
+  \overline{a} \cdot \overline{b} = \overline{ab}
+\] 
+
+The \textbf{key point} here is then to show that it is \textbf{well-defined}. And we need: if \( \overline{a} = \overline{a'}, \overline{b} = \overline{b'}  \implies \overline{ab} = \overline{a'b'}\).
+
+We know that \( a - a' \in I, b - b' \in I \) and we want \( ab - a'b' \in I \), which is:
+\[
+  \begin{aligned}
+    ab - a'b' &= (ab-ab') + (ab' - a'b;) \\ 
+              &= \underbrace{a\underbrace{(b-b')}_{\in I}}_{\in I \text{ since left ideal}} + \underbrace{\underbrace{(a-a')}_{\in I}b'}_{\in I \text{ since right ideal}} \in I
+  \end{aligned}
+\] 
+
+Once we know that multiplication is well-defined, need the following:
+\begin{itemize}
+  \item multiplication is associative.
+    \[
+    \underbrace{\underbrace{( \overline{a} \overline{b} ) \overline{c}}_{=\overline{ab} \overline{c} = \overline{(ab)c}} = \underbrace{\overline{a} ( \overline{b} \overline{c} )}_{=\overline{a}\overline{bc} = \overline{a(bc)}}}_{\text{by associativity in } R} \quad \forall \; \overline{a}, \overline{b}, \overline{c} \in \qo{R}{I}
+    \] 
+  \item distributivity holds by similar argument as above.
+  \item identity element for multiplication.
+    \[
+      \begin{aligned}
+        \overline{1} \overline{a} &= \overline{1a} = \overline{a} \\ 
+        \overline{a} \overline{1} &= \overline{a1} = \overline{a} 
+      \end{aligned}
+    \] 
+  \item if \( R \) is commutative, then \textbf{so is} \( \qo{R}{I} \).
+\end{itemize}
+
+The \textbf{upshot} is: \( \qo{R}{I} \) is a ring and \( \pi: R \to \qo{R}{I} \) is a ring homomorphism, note that \( \pi(1_R) = 1_{\qo{R}{I}} \).
