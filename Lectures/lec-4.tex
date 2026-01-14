@@ -1,0 +1,92 @@
+\section{Polynomial Ring and Formal Power Series Ring}
+
+In this section we define two important examples of commutative ring derived from a given commutative ring, namely the polynomial rings and formal power series ring. They are recursively define so one shall first define them for one variable.
+
+\begin{definition}
+  Fix \( R \) to be a \textbf{commutative ring}, define:
+  \[
+    R[X] \coloneqq  \{a_0 + a_1 x + \cdots + a_n x^n \; | \; n \in \ZZ_{\geq 0}, \; a_0,\ldots, a_n \in R\}
+  \] 
+
+  note that \( x \) which is the variable here is to help track how ring multiplication is defined.
+
+  Define the operations as:
+  \begin{enumerate}
+    \item \( \sum_{i=0}^n a_i x^i + \sum_{i=0}^n b_i x^i := \sum_{i=0}^n(a_i + b_i)x^i \).
+    \item \( (\sum_{i=0}^n a_ix^i)\cdot (\sum_{j=0}^m b_j x^j) := \sum_{k=0}^{m+n}(\sum_{i+j = k}a_i b_j)x^k \).
+  \end{enumerate}
+
+  See that \( (R[X], +, \cdot) \) is a \textbf{commutative ring}, with
+  \begin{itemize}
+    \item zero element: \( 0 \), all coefficients being \( 0 \).
+    \item unit element: \( 1 \), all coefficients of \( x^i, \; i\geq 1 \) are 0.
+  \end{itemize}
+\end{definition}
+
+One shall see that we have a \textbf{injective} ring homomorphism:
+\[
+  \begin{aligned}
+    R &\xrightarrow{i} R[X] \\ 
+    a &\mapsto a 
+  \end{aligned}
+\] 
+
+which yields the universal property of \( R[X] \).
+
+\begin{theorem}[\textbf{Universal Property of} \( \mathbf{R[X]} \)]
+  For every ring homomorphism \( \vp: R \to S \) with \( R,S \) commutative and for every \( a\in S \), there is a \textbf{unique} ring homomorphism \( \psi: R[X] \to S \), s.t. 
+  \begin{enumerate}
+    \item The following diagram is commutative:
+      \[
+        \begin{tikzcd}[row sep=large, column sep=large]
+        R \arrow[r, "\varphi"] \arrow[d, "i"'] & S \\
+        R[X] \arrow[ru, "\psi"'] & 
+        \end{tikzcd}
+      \]
+      
+      i.e. \( \psi(b) = \vp(b) \; \forall \; b \in R \).
+    \item \( \psi(x) = a \).
+  \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+  Suppose we have such \( \psi: \psi(x^i) = a^i \; \forall i >0 \), then \( \psi \circ i = \vp \implies \) if \( P = \alpha_0 + \alpha_1 x + \cdots + \alpha_n x^n \implies \)
+  \[
+    \psi(P) = \underbrace{\vp(\alpha_0) + \vp(\alpha_1)a + \cdots + \vp(\alpha_n)a^n}_{\text{denoted by } P(a)}
+  \] 
+
+  this is explicitly defined, yields uniqueness.
+
+  For existence, we use this formula to define \( \psi: R[X] \to S \) explicitly, thus property 1 and 2 is clear, only left to check that \( \psi \) is actually a ring homomorphism:
+  \begin{itemize}
+    \item \( \psi(P+Q)  = \psi(P) + \psi(Q)\) is straightforward.
+    \item \( \psi(1) = 1 \) is also straightforward.
+    \item \( \psi(PQ) = \psi(P) \psi(Q)  \; \forall P, Q\). Suppose that \( P = \sum_{i=0}^n \alpha_i x^i, \; Q = \sum_{j=0}^m \beta_j x^j \), then:
+      \[
+        \begin{aligned}
+           PQ &= \sum_{k=0}^{m+n} \bace{\sum_{i+j=k}\alpha_i \beta_j} x^k \\ 
+           \implies \psi(PQ) &= \sum_{k=0}^{m+n} \vp\bace{\sum_{i+j=k}\alpha_i \beta_j} a^k \\ 
+                             &= \sum_{k=0}^{m+n}\bace{\sum_{i+j=k}\vp(\alpha_i)\cdot \vp(\beta_j)} a^k \quad (\vp \text{ is a ring homomorphism}) \\ 
+           \text{And} \quad \psi(P)\psi(Q) &= \bace{\sum_{i=0}^n \vp(\alpha_i) a^i} \cdot \bace{\sum_{j=0}^{m}\vp(\beta_j)a^j} \\ 
+                                           &= \sum_{i=0}^n \sum_{j=0}^m \vp(\alpha_i)\vp(\beta_j) a^j \\ 
+                                           &= \sum_{k\geq 0} \bace{\sum_{i+j=k}\vp(\alpha_i)\vp(\beta_j)} a^{i+j = k} \quad (R \text{ is commutative})\\
+                                           &= \psi(PQ)
+        \end{aligned}
+      \] 
+  \end{itemize}
+\end{proof}
+
+One can iterate this since \( R[X] \) is still a commutative ring, and thus get multi-variable polynomial ring over \( R \), which is defined recursively by:
+\[
+  R[X_1,\ldots, X_n]\coloneqq \bace{R[X_1, \ldots, X_{n-1}]} [X_n]
+\] 
+
+This is again a commutative ring.
+
+\begin{theorem}[\textbf{Universal Property of }\( \mathbf{R[X_1, \ldots, X_n]} \)]
+  \( \forall \) ring homomorphism \( \vp: R\to S \), \( R,S \) commutative, and \( \forall \; a_1,\ldots, a_n \in S \), there exists a \textbf{unique} ring homomorphism \( \psi: R[X_1, \ldots, X_n] \to S \), s.t.
+  \begin{enumerate}
+    \item the following diagram is commutative:
+    \item \( \psi(x_i) = a_i \; \forall i \in \br{1,n} \).
+  \end{enumerate}
+\end{theorem}
