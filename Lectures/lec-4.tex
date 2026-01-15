@@ -87,6 +87,102 @@ This is again a commutative ring.
   \( \forall \) ring homomorphism \( \vp: R\to S \), \( R,S \) commutative, and \( \forall \; a_1,\ldots, a_n \in S \), there exists a \textbf{unique} ring homomorphism \( \psi: R[X_1, \ldots, X_n] \to S \), s.t.
   \begin{enumerate}
     \item the following diagram is commutative:
+    \[
+      \begin{tikzcd}[column sep=1.5em, row sep=3em]
+        R \arrow[r] \arrow[rd, "\varphi"'] & R[x_1] \arrow[r] & R[x_1, x_2] \arrow[r] & \dots  \arrow[r] & R[x_1, \dots, x_n] \arrow[llld, "\psi"] \\
+                                          & S & & & 
+      \end{tikzcd}
+    \]
     \item \( \psi(x_i) = a_i \; \forall i \in \br{1,n} \).
   \end{enumerate}
 \end{theorem}
+
+\begin{eg}
+  \leavevmode 
+  \( X_1^2 + X_1X_3 + X_2^4 \in R[X_1, X_2, X_3] \)
+\end{eg}
+
+The proof is straightforward by using induction on \( n \) with the previous universal property of \( R[X] \).
+
+\begin{eg}
+  If \( \sigma \in S_n \implies \exists ! \) ring homomoprhism, s.t. the following diagram is commutative:
+  \[
+    \begin{tikzcd}
+      R \arrow[r] \arrow[d] & R[X_1, \ldots, X_n] \\ 
+      R[X_1, \ldots, X_n] \arrow[ru, "f_\sigma"]
+    \end{tikzcd}
+  \] 
+  and \( f_{\sigma}(x_i) = X_{\sigma(i)} \quad \forall i \). In fact this is a ring isomoprhism, thus be a automorphism, with inverse being \( f_{\sigma^{-1}} \). In particular it shows that the process of constructing \( R[X_1, \ldots, X_n] \) is just labelling anmd \textbf{doesn't matter with order} of \( X_1, \ldots, X_n \).
+\end{eg}
+
+\begin{notation}
+  Every element of \( R[X_1, \ldots, X_n] \) can be written as
+  \[
+    f = \sum_{u = (u_1,\ldots, u_n) \in \ZZ^n_{\geq 0}} a_u X^u 
+  \] 
+
+  where \( X^u = X_1^{u_1}\cdots X_n^{u_n} \) with \( a_u \in R \) which is a \underline{monomial}.
+
+  \begin{eg}
+    \leavevmode 
+    \[
+      f(x,y) = 3x^2 y + 5xy^2 + 7 
+    \] 
+  \end{eg}
+\end{notation}
+
+We then define the ring for formal power series, basically it allows infinite sum in this case.
+
+\begin{definition}[\textbf{Ring of Formal Power Series}]
+  Suppose \( R \) a commutative ring, define the ring of \underline{formal power series} as:
+  \[
+    R[[X]] \coloneqq \{\sum_{i\geq 0}a_ix^i \; | \; a_i \in R, \; \forall \; i \geq 0\}
+  \] 
+
+  with the operations defined:
+  \begin{itemize}
+    \item addition: \( \sum_{i\geq 0}a_i x^i + \sum_{i\geq 0} b_i x^i := \sum_{i\geq 0}(a_i + b_i) x^i \).
+    \item multiplication: 
+      \[
+        \begin{aligned}
+          \bace{\sum_{i\geq 0}a_i x^i} \cdot \bace{\sum_{j\geq 0} b_j x^j} &\coloneqq \sum_{k\geq 0}c_k x^k \\ 
+          \text{where} \qquad c_k = \sum_{i+j =k} a_i b_j &\in R 
+        \end{aligned}
+      \] 
+  \end{itemize}
+
+  See that \( (R[[X]], +, \cdot) \) is again a \textbf{commutative ring}, s.t. we have \( R[X] \subseteq R[[X]] \) being a subring.
+\end{definition}
+
+\subsection{R-Algebra}
+
+\begin{definition}[\textbf{R-Algebra}]
+  Suppose that \( R \) is a commutative ring, an \underline{\( R \)-Algebra} is a ring \( S \) together with a ring homomorphism \( R \xrightarrow{\vp}S \), s.t. \( \vp(a) b = b\vp(a) \; \; \forall\;  a \in R, b\in S \).
+\end{definition}
+
+\begin{eg}
+  \leavevmode 
+  \begin{enumerate}
+    \item \( R[X], R[[X]] \) have natural structures of \( R \)-Algebras \( R[X_1, \ldots, X_n] \).
+    \item here is a non-commutative ring example: \( M_n(R) \) with the ring homomorphism defined as:
+      \[
+        \begin{aligned}
+          R &\to M_n(R) \\ 
+          a &\mapsto \begin{pmatrix}
+            a & & 0 \\ 
+              & \ddots & \\ 
+            0 & & a 
+          \end{pmatrix}
+        \end{aligned}
+      \] 
+  \end{enumerate}
+\end{eg}
+
+See that we can derive a category of \( R \)-Algebras, with objects being the \( R \)-algebras and the morphisms are given by the ring homomorphism that makes the following diagram commutative:
+\[
+  \begin{tikzcd}
+    R \arrow[r] \arrow[dr] & S_1 \arrow[d, "u_1"] \\ 
+                          & S_2 
+  \end{tikzcd}
+\] 
+such category is w.r.t. the usual function composition.
