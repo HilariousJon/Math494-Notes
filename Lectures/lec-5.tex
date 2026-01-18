@@ -145,5 +145,83 @@ Our goal then now switch to focus on \( R \) being a domain implies that \( R[X]
 \end{corollary}
 
 \begin{proof}
-  
+  Arguing by induction on \( n \), and it is enough to treat \( n = 1 \). \( R \) being a domain implies that \( R[X] \) also be a domain. And if \( R[X] \) being a domain, we have a injective ring homomorphism \( R \hookrightarrow R[X] \), thus it is a subring of a domain, thus be a domain.
 \end{proof}
+
+
+\section{Ring Fraction}
+
+In this section, we want to construt the ring fraction. Our goal is to show that starting with a domain, we want to have fraction field. More generally, we don't require \( R \) to be a domain, and start with arbitrary ``set of denominators'', just like from \( \ZZ \) to get \( \QQ \).
+
+\begin{definition}[\textbf{Multiplication System}]
+  Fix \( R \) be commutative ring, \( S\subseteq R \) be a \underline{multiplication system} if:
+  \begin{enumerate}
+    \item \( 1\in S \).
+    \item If \( s_1, s_2 \in S \implies s_1\cdot s_2 \in S\).
+  \end{enumerate}
+\end{definition}
+
+We can make an attempt to construct ring fraction:
+
+Consider pairs \( (a,s) \) where \( a\in R, s\in S \), up to equivalence relation, we want to see:
+\[
+  \begin{aligned}
+    (a_1, s_1) \sim (a_2, s_2) &\iff s_2 a_1 = s_1 a_2 \\ 
+    \text{denoted as} \qquad \frac{a_1}{s_1} &= \frac{a_2}{s_2}
+  \end{aligned}
+\] 
+
+The issue is that in general this is not an equivalence relation, as it will fail \textbf{transitivity}: Let 
+\[
+  \begin{aligned}
+    (a,s) \sim (a',s') &\quad (a',s') \sim (a'', s'') \\ 
+    \iff s'a = sa' &\quad s''a' = s' a''
+  \end{aligned}
+\] 
+
+We want to see that \( (a,s)\sim (a'', s'') \iff s'' a = s a'' \). And see that:
+\[
+  \textcolor{blue}{s's''a} = s''sa' = ss'a'' = \textcolor{red}{s'sa''}
+\]
+
+And it is not clear that the \textcolor{blue}{blue} one is equal to the \textcolor{red}{red} one by definition. Thus we make some modification to the definition.
+
+\begin{definition}
+  Let \( R \) be a commutative ring and \( S\subseteq R \) be a multiplication system. Consider pairs \( a,s \) where \( a\in R. s\in S \), write \( (a,s) \sim (a',s') \) if there exists \( t\in S \), s.t. \( t(s'a - sa') = 0 \).
+
+  Note that \( 0 \) is not necessarily in \( S \).
+\end{definition}
+
+\begin{claim}
+  Above definition is a \textbf{equiavlence relation}.
+\end{claim}
+
+\begin{notation}
+  Write \( \frac{a}{s} \) denote the equivalence class of \( (a,s) \).
+\end{notation}
+
+\begin{proof}[\textbf{Proof of Claim}]
+  \leavevmode 
+  \begin{itemize}
+    \item Reflexive and symmetric is straightforward.
+    \item Consider Transitivity:
+    \[
+      \begin{aligned}
+        (a,s) \sim (a',s') &\quad (a',s') \sim (a'', s'') \\ 
+        \implies t_1(s'a-sa') = 0 &\quad t_2(s''a' - s'a'') = 0 \quad \text{for some } t_1, t_2 \in S 
+      \end{aligned}
+    \] 
+
+    We now interest in:
+    \[
+      \begin{aligned}
+        \textcolor{red}{t_1 t_2 s'}(s''a - sa'') &= t_2 s'' \underbrace{t_1(s'a-sa')}_{=0} + \underbrace{t_2t_1s''sa'-t_1t_2s'sa''}_{=t_1s \underbrace{t_2(s''a'-s'a'')}_{=0}} \\ 
+         &= 0 \\ 
+        \implies (a,s) &\sim (a'', s'')
+      \end{aligned}
+    \] 
+
+    note that \( \textcolor{red}{t_1t_2 s'} \in S \) since \( s', t_1, t_2 \in S \) and \( S \) being a multiplication system.
+  \end{itemize}
+\end{proof}
+
