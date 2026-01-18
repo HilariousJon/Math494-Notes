@@ -1,0 +1,125 @@
+\section{Fields and Integral Domain}
+
+It will be better to think fields and integral domain as very special ring, as they are already endowed with relatively complex structure, thus they are more closer to our intuition sometimes, and easier to construct examples from \( \ZZ, \QQ, \RR \).
+
+\begin{definition}[\textbf{Invertible}]
+  Fix a ring \( R \), \( a\in R \) is \underline{invertible} if there exists \( b \in R \), s.t. \( ab = 1_R = ba \). 
+
+  \( b \) is the inverse of \( a \) and denoted as \( a^{-1} \).
+\end{definition}
+
+\begin{definition}[\textbf{Field}]
+  A ring \( R \) is a field if;
+  \begin{enumerate}
+    \item \( R \) is commutative.
+    \item \( 1_R \ne 0_R \), namely it is not a \( 0 \) ring.
+    \item Every \( a \in R \backslash \{0\} \) is invertible.
+  \end{enumerate}
+\end{definition}
+
+\begin{eg}
+  \( \QQ, \RR, \CC \) are fields, \( \ZZ \) is not a field.
+\end{eg}
+
+\begin{definition}[\textbf{Zero-Divisor}]
+  If \( R \) is a commutative ring, \( a\in R \) is a \underline{zero-divisor} if \( \exists \; b \ne 0 \) in \( R \), s.t. \( ab = 0 \). Otherwise, we say \( a \) is a non-zero-divisor.
+\end{definition}
+
+\begin{definition}[\textbf{Integral Domain}]
+  A ring \( R \) is an \underline{integral domain} or simply a \underline{domain} if:
+  \begin{enumerate}
+    \item \( R \) is commutative.
+    \item \( 1_R \ne 0_R \).
+    \item Every \( a \ne 0 \) is a non-zero-divisor. Or it is equivalent to say:
+      \[
+        \forall \; a,b\in R, \; ab=0 \implies a = 0 \text{ or } b = 0 
+      \] 
+  \end{enumerate}
+\end{definition}
+
+\begin{remark}
+  If \( R \) is a domain, then we have \textbf{cancellation rule w.r.t. multiplication}. Namely if \( ab = bc \), \( a.b.c \in R, \; a\ne 0 \implies b = c \).
+\end{remark}
+
+\begin{proof}
+  \( a(b-c) = 0 \implies b-c=0 \).
+\end{proof}
+
+\begin{eg}
+  If \( n>0 \), then \( \qo{\ZZ}{n\ZZ} \) is a domain if and only if \( n \) is \textbf{prime number}.
+\end{eg}
+
+\begin{proof}
+  Suppose \( \overline{a}, \overline{b} \in \qo{\ZZ}{n\ZZ} \), with \( \overline{a}, \overline{b} \ne 0 \iff a \nmid a, n \nmid b \), and \( \overline{a} \overline{b} = 0 \iff n \mid ab \). Now if \( n \) is prime number, then \( n\nmid a, n\nmid b \implies n\nmid ab \), hence \( \qo{\ZZ}{n\ZZ} \) is a domain. 
+
+  Now if \( n \) is not a prime, then \( n = n_1\cdot n_2 \) for some \( n_1, n_2 > 1 \), which means \( \overline{n_1}, \overline{n_2} \ne 0 \), but \( \overline{n_1}\cdot \overline{n_2} = 0 \) in \( \qo{\ZZ}{n\ZZ} \).
+\end{proof}
+
+\begin{proposition}
+  If \( \KK \) is a field, then \( \KK \) is an integral domain.
+\end{proposition}
+
+\begin{proof}
+  \( \KK \) is commutative with \( 1_\KK \ne 0_\KK \). Suppose that \( a,b\in\KK, \; ab=0 \), \( a\ne 0 \) means that it will attain an inverse by field property, denote it as \( a^{-1} \). Thus we have:
+  \[
+    \begin{aligned}
+      b &= (a^{-1}a)b = a^{-1}(ab) = a^{-1} 0 = 0 \\ 
+      \implies b&= 0 
+    \end{aligned}
+  \] 
+\end{proof}
+
+\begin{proposition}
+  If \( R \) is a finite domain, then \( R \) is a field.
+\end{proposition}
+
+\begin{proof}
+  \( R \) being a domain means that \( R \) is commutative and \( 1_R \ne 0_R \).
+
+  Now fix \( a\in R \), \( a\ne 0 \), and consider the function given by:
+  \[
+    \begin{aligned}
+      f: R &\to R \\ 
+      f(b)&= ab 
+    \end{aligned}
+  \]
+
+  By cancellation w.r.t. multiplication, since \( a \ne 0 \), this function is thus injective. But \( R \) is finite, meaning \( f \) is also surjective, and thus bijective. So there exists \( b \in R \), s.t. \( ab = 1 \implies a \) is invertible, thus being a field.
+\end{proof}
+
+\begin{eg}
+  If \( n\in \ZZ_{>0} \), then \( \qo{\ZZ}{n\ZZ} \) is field if and only if \( n \) is prime.
+\end{eg}
+
+\begin{remark}
+  If \( R \) is a domain, then every subring of \( R \) is a domain. In particular, every subring of a field is a domain.
+\end{remark}
+
+Our goal then now switch to focus on \( R \) being a domain implies that \( R[X] \) is also a domain, for formal power series, the proof is almost the same.
+
+\begin{definition}[\textbf{Degree of} \( \mathbf{R[X]} \)]
+  Fix \( R \) to be a commutative ring. If \( f \in R[X] \), \( f\ne 0 \), write:
+  \[
+    f = a_0 + a_1 x + \cdots + a_n x^n 
+  \] 
+
+  s.t. \( a_n \ne 0 \), then the \underline{degree} of \( f \) is \( \deg(f) = n \). And we follow the convention that \( \deg(0) = -\infty \).
+\end{definition}
+
+\begin{remark}
+  \leavevmode 
+  \( \deg(f+g) \leq \max\{\deg(f), \deg(g)\} \)
+\end{remark}
+
+\begin{proposition}
+  If \( R \) is a domain, and \( f,g \in R[X]\) are non-zero, we have:
+  \[
+    \deg(f\cdot g) = \deg(f) + \deg(g)
+  \] 
+
+  In particular, \( f\cdot g \ne 0 \) thus being a domain by contraposition. Note that if it is not a domain, it is not generally true as one can cancel out the highest degree coeffecient by product.
+\end{proposition}
+
+\begin{proof}
+  
+\end{proof}
