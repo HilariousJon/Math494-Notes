@@ -121,5 +121,29 @@ Our goal then now switch to focus on \( R \) being a domain implies that \( R[X]
 \end{proposition}
 
 \begin{proof}
+  Suppose that:
+  \[
+    \begin{aligned}
+      f &= a_0 + a_1 x + \cdots + a_m x^m \quad a_m \ne 0 \quad \deg(f) = m \\ 
+      g &= b_0 + b_1 x + \cdots + b_n x^n \quad b_n \ne 0 \quad \deg(g) = n 
+    \end{aligned}
+  \] 
+
+  then:
+  \[
+    \begin{aligned}
+      fg &= \sum_{k\geq 0} \bace{\sum_{i+j=l} a_i b_j} x^k \\ 
+         &= \underbrace{a_m b_n}_{\ne 0} x^{m+n} + \text{ lower degree monomials}
+    \end{aligned}
+  \] 
+
+  Since \( R \) is a domain, then \( a_m b_n \ne 0 \implies \deg(f\cdot g) = m+n \).
+\end{proof}
+
+\begin{corollary}
+  If \( n\geq 1 \), then \( R \) is a domain if and only if \( R[X_1, \ldots, X_n] \) is a domain.
+\end{corollary}
+
+\begin{proof}
   
 \end{proof}
