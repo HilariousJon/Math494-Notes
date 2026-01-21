@@ -1,0 +1,122 @@
+And thus we denote:
+\[
+  S^{-1}R \coloneqq  \{(a,s) \; | \; a\in R, \; s \in S \}
+\] 
+
+We want to then define the \( (+) \) and \( (\cdot) \) operations on it to make it a ring.
+
+Define:
+\[
+  \begin{aligned}
+    \frac{a_1}{s_1} + \frac{a_2}{s_2} &\coloneqq  \frac{s_2 a_1 + s_1 a_2}{s_1 s_1} \\ 
+    \frac{a_1}{s_1} \cdot \frac{a_2}{s_2} &\coloneqq \frac{a_1 a_2}{s_1 s_2}
+  \end{aligned}
+\] 
+
+See that it is well-defined: suppose \( \frac{a_1}{s_1} = \frac{b_1}{t_1} \) and \( \frac{a_2}{t_2} = \frac{b_2}{t_2} \), we want:
+\begin{equation}
+  \label{eq:1}
+  \frac{s_2 a_1 + s_1 a_2}{s_1 s_2} = \frac{t_2b_1 + t_1 b_2}{t_1 t_2}
+\end{equation}
+
+\begin{equation}
+  \label{eq:2}
+  \frac{a_1 a_2 }{s_1 s_2} = \frac{b_1 b_2}{t_1 t_2}
+\end{equation}
+
+\begin{proof}[\textbf{Proof of Equation \ref{eq:1}}]
+  By our hypothesis, there exists \( u,v \in S \), s.t.:
+  \[
+    \begin{aligned}
+      u(t_1 a_1 - s_1 b_1) &= 0 \\ 
+      v(t_2a_2 - s_2 b_2) &= 0 
+    \end{aligned}
+  \] 
+
+  Consider:
+  \[
+    t_1 t_2 (s_2 a_1 + s_1 a_2) - s_1 s_2(t_2b_1 + t_1 b_2) = t_2 s_2 (t_1 a_1 - s_1b_1) + t_1s_1(t_2a_2 - s_2 b_2) 
+  \] 
+
+  If we multiply with \( uv\in S \), we get \( 0 \), which shows that they are in the same equivalence class thus equal.
+\end{proof}
+
+\begin{proof}[\textbf{Proof of Equation \ref{eq:2}}]
+  Similarly:
+  \[
+    t_1 t_2 a_1 a_2 - s_1s_2 b_1 b_2 = t_2a_2 (t_1 a_1 - s_1 b_1) + s_1 b_1 (t_2a_2 - s_2 b_2) 
+  \] 
+
+  Multiply \( uv\in S \), we get \( 0 \).
+\end{proof}
+
+\begin{proposition}
+  With \( (+) \) and \( (\cdot) \), \( S^{-1}R \) is a \textbf{commutative ring}. This is the \underline{ring of fraction} of ``\( R \) with \underline{denominator} in \( S \)'' or the ``\underline{localization of \( R \) w.r.t. \( S \)}''.
+\end{proposition}
+
+\begin{proof}[\textbf{Sketch of Proof}]
+  It's easy to see that both \( (+) \) and \( (\cdot) \) are commutative.
+
+  The \( 0 \) element is given by \( \frac{0}{1} \), see that:
+  \[
+    \frac{0}{1} + \frac{a}{s} = \frac{0\cdot s + 1 \cdot a}{1\cdot s} = \frac{a}{s}
+  \] 
+  
+  and the inverse of \( \frac{a}{s} \) is \( -\frac{a}{s} \).
+
+  The \( 1 \) element is given by \( \frac{1}{1} \).
+
+  Associativity of \( (+) \):
+  \[
+    \begin{aligned}
+      \bace{\frac{a_1}{s_1} + \frac{a_2}{s_2}} + \frac{a_{3}}{s_3} &= \frac{s_2a_1+a_2s_1}{s_1s_2} + \frac{a_3}{s_3} \\ 
+                                                                   &= \frac{s_3s_2a_1+s_3a_2s_1+a_3s_1s_2}{s_1s_2s_3} \\ 
+                                                                   &= \frac{a_1}{s_1} + \bace{\frac{a_2}{s_2} + \frac{a_3}{s_3}} \qquad \text{by symmetry}
+    \end{aligned}
+  \] 
+
+  Associativity of \( (\cdot) \) is clear, and distributivity is similar manner.
+\end{proof}
+
+\begin{remark}
+  \( S^{-1}R \) has a canonical structure of \( R \)-Algebra with the following canonical ring homomoprhism:
+  \[
+    \begin{aligned}
+      \vp: R &\to S^{-1}R \\ 
+      \vp(r) &= \frac{r}{1}
+    \end{aligned}
+  \] 
+
+  Note that it is not injective in general, we care whether it is injective because we want not to lose information.
+\end{remark}
+
+\begin{remark}
+  \( a\in \ker(\vp) \iff \frac{a}{1} = \frac{0}{1} \iff \exists \; s\in S \), s.t. \( sa = 0 \).
+
+  Hence: \(\vp \) is not injective if and only if \( \exists \; s\in S \), which is a \textbf{zero divisor}.
+\end{remark}
+
+\begin{remark}
+  \( S^{-1}R = \{0\} \) iff \( 0\in S \), it tells us in general we don't care about the case where \( 0 \in S \).
+\end{remark}
+
+\begin{eg}
+  Let \( R \) be a integral domain, \( S = R \backslash \{0\} \). Then \( \vp : R \to S^{-1} R \) is injective. Note that in this case \( S^{-1}R \) is a field: it is clearly not \( \{0\} \), it is commutative, and if \( \frac{a}{s} \ne 0 \iff a \ne 0 \), it has multiplicative inverse \( \frac{s}{a} \):
+  \[
+    \frac{a}{s} \cdot \frac{s}{a} = \frac{as}{as} = \frac{1}{1}
+  \] 
+
+  We give some examples here on what we can construct:
+  \begin{enumerate}
+    \item If \( R = \ZZ \rsa \QQ \).
+    \item If \( F \) be a field, \( R = F[X_1, \ldots, X_n] \rsa \) field of rational function \( F(X_1, \ldots, X_n) \), this is the quotient of polynomial.
+      \begin{note}
+        In this case, \( \frac{a_1}{s_1} = \frac{a_2}{s_2} \) if and only if \( s_2a_1 - s_1 a_2 = 0 \).
+      \end{note}
+  \end{enumerate}
+\end{eg}
+
+% \begin{eg}
+%   Let \( f \in R \) and let \( S = \{1, f, f^2, \ldots\} = \{f^n \; | \; n \in \ZZ_{>0}\}\) be a multiplicative system, in this case \( S^{-1}R \) is denoted by \( R_f \), and we have the \textbf{universal property} of \( S^{-1}R \). 
+% \end{eg}
+
