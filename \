@@ -140,87 +140,11 @@ See that it is well-defined: suppose \( \frac{a_1}{s_1} = \frac{b_1}{t_1} \) and
         \begin{itemize}
           \item \textbf{Uniqueness}: Suppose \( f: S^{-1}R \to T \) is a morphism of \( R \)-Algebra, s.t. \( f(\frac{a}{1}) = \psi(a) \; \forall \; a\in R\). Given any \( \frac{a}{s} \in S^{-1}R \), we have \( \frac{a}{s}\cdot \frac{s}{1} = \frac{a}{1} \), see that since \( f \) is a ring homomorphism:
             \[
-              \begin{aligned}
-                f(\frac{a}{s}) \cdot \underbrace{f(\frac{s}{1})}_{\psi(s)} &= \underbrace{f(\frac{a}{1})}_{\psi(a)} \\ 
-                \implies f(\frac{a}{s}) &= \psi(a) \psi (s)^{-1} \qquad (\psi(s) \text{ is invertible by hypothesis.})
-              \end{aligned}
+              f(\frac{a}{s}) \cdot f(\frac{s}{1}) = f(\frac{a}{1})
             \] 
-
-            Hence \( f \) is unique, as we have it a formula, and clearly it is unique.
-
-          \item \textbf{Existence}: Define \( f: S^{-1} R \to T \) by \( f(\frac{a}{s}) = \psi(a) \psi(s)^{-1} \), need to check the following:
-            \begin{enumerate}
-              \item \( f \) is well-defined: Suppose \( \frac{a}{s} = \frac{b}{t} \) then there exists \( u\in S \), s.t. \( u(ta-sb) = 0 \). Apply \( \psi \) to both sides we get:
-                \[
-                  \psi(u) \bace{\psi(t)\psi(a) - \psi(s) \psi(b)} = 0 
-                \] 
-
-                Multiply by \( \psi(u)^{-1} \psi(s)^{-1} \psi(t)^{-1}\) on both sides:
-                \[
-                  \psi(a)\psi(s)^{-1} - \psi(b)\psi(t)^{-1} = 0 
-                \] 
-
-                Thus definition is unique.
-
-              \item \( f\circ \vp = \psi \): \( f(\frac{a}{1}) = \psi(a)\psi(1)^{-1} = \psi(a) \).
-              \item \( f \) is a ring homomorphism:
-                \[
-                  \begin{aligned}
-                    f(\frac{a}{s} + \frac{b}{t}) &= f(\frac{ta+sb}{st}) \\ 
-                                                 &= \psi(ta+sb) \psi(st)^{-1} \\ 
-                                                 &= \bace{\psi (t)\psi (a) + \psi (s)\psi (b)} \psi (s)^{-1} \psi (t)^{-1} \\ 
-                                                 &= \psi (a) \psi (s)^{-1} + \psi (b)\psi (t)^{-1} \\ 
-                                                 &= f(\frac{a}{s}) + f(\frac{b}{t})
-                  \end{aligned}
-                \] 
-
-                and 
-                \[
-                  \begin{aligned}
-                    f(\frac{a}{s} \frac{b}{t}) &= f(\frac{ab}{st}) \\ 
-                                               &= \psi (ab) \psi (st)^{-1} \\ 
-                                               &= \psi (a) \psi (s)^{-1} \psi (b) \psi (t)^{-1} \\ 
-                                               &= f(\frac{a}{s}) \cdot f(\frac{b}{t})
-                  \end{aligned}
-                \] 
-
-                and 
-                \[
-                  f(1) = 1
-                \] 
-            \end{enumerate}
         \end{itemize}
     \end{itemize}
   \end{proof}
 \end{eg}
 
-\section{Prime Ideals and Maximal Ideals}
-
-In this section we shall discuss prime ideals and maximal ideals \todo{leave some overview!}
-
-\begin{definition}[\textbf{Prime Ideal}]
-  Let \( R \) be a commutative ring, an ideal \( P \subseteq R \) is a \underline{prime ideal} if:
-  \begin{enumerate}
-    \item \( P \ne R \).
-    \item If \( x,y\in R \) are s.t. \( xy \in P \implies x\in P \) or \( y\in P \).
-  \end{enumerate}
-\end{definition}
-
-\begin{parenthesis}
-  If \( P \) is a prime ideal, then \( S = R - P \) is a \textbf{multiplicative system}, in this case \( S^{-1}R \) is denoted as \( R_p \), which is called \underline{local ring}.
-\end{parenthesis}
-
-\begin{proposition}
-  An ideal \( P \subseteq R \) is prime ideal if and only if \( \qo{R}{P} \) is an integral domain.
-\end{proposition}
-
-\begin{proof}
-  See that \( \qo{R}{P} \) is always commutative. \( \qo{R}{P} \ne \{0\} \iff P \ne R\).
-
-  (Let \( \overline{x},\overline{y} \ne 0 \in \qo{R}{P} \implies \overline{x}\cdot \overline{y} \ne 0 \)) \( \iff \) ( \( \forall \; x,y \in R, \; x,y\not\in P \implies xy \not\in P \) ), which, LHS is definition of integral domain, and RHS is deifnition of prime ideal.
-\end{proof}
-
-\begin{eg}
-  If \( R = \ZZ \), then \( \{0\} \) is a prime ideal (\( \ZZ \) is an intergal domain). If \( n \in \ZZ_{>0} \), then \( (n) \) is a prime ideal if and only if \( \qo{\ZZ}{n\ZZ} \) is an integral domain if and only if \( n \) is prime number.
-\end{eg}
 
