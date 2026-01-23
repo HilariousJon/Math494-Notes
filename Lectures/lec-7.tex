@@ -1,0 +1,122 @@
+\begin{note}
+  If \( I \) is an ideal in \( R \), then all ideals in \( \qo{R}{I} \) are of the form \( \qo{P}{I} \) where \( I \subseteq P \) is an ideal. See that by Isomorphism theorem:
+  \[
+    \qo{\qo{R}{I}}{\qo{P}{I}} \cong \; \qo{R}{P}
+  \] 
+
+  Hence \( \qo{P}{I} \) is prime ideal if and only if \( P \) is prime ideal.
+\end{note}
+
+\begin{eg}
+  The following are equivalent:
+  \begin{itemize}
+    \item \( R \) is a domain.
+    \item \( (x):= \{xf \; | \; f\in R[X]\} \) inside \( R[X] \) is a prime ideal.
+  \end{itemize}
+
+  \begin{proof}
+    This follows if we show the following, which gives the result be \textbf{Proposition} \ref{prop:domain-qo-prime}:
+    \[
+      \qo{R[x]}{(x)} \cong \; R 
+    \] 
+
+    Consider the \( R \)-algebra homomorphism:
+    \[
+      \begin{aligned}
+        R[x] &\xrightarrow{\vp} R \\ 
+        \vp(x) &= 0 \\ 
+        a_0 + a_1x + \cdots + a_nx^n &\to a_0 
+      \end{aligned}
+    \] 
+
+    This is a surjective homomorphism, with kernel being:
+    \[
+      \ker(\vp) = (x)
+    \] 
+
+    Then by isomomorphism theorem \ref{thm:fundemental-isomorphism}, yields the result.
+  \end{proof}
+\end{eg}
+
+\begin{question}
+  What about now consider \( (x-a) \subseteq R[x] \)?
+\end{question}
+
+\begin{note}
+  There exists a \( R \)-Algebra isomorphism:
+  \[
+    \begin{aligned}
+      f: R[x] &\to R[x] \\ 
+      f(x) &= (x-a)
+    \end{aligned}
+  \] 
+
+  So see that \( (x) \) is prime ideal if and only if \( (x-a) \) is prime ideal, if and only if \( R \) is a domain, thus if and only if \( (x-a) \) is also a prime ideal.
+
+  By the universal property of \( R[x] \): there exists a unique such morphism \( f \) of \( R \)-Algebra, and exists a unique morphism of \( R \)-Algebra \( R[X] \xrightarrow{g} R[X], \; x\mapsto x+a \), thus \( g = f^{-1} \), and we can use the universal property to show that the composition \( f\circ g \) and \( g\circ f \) are identity, which yields isomorphism property.
+\end{note}
+
+\subsection{Maximal Ideals}
+
+\begin{definition}[\textbf{Maximal Ideal}]
+  An ideal \( M \subseteq R \) is a \underline{maximal ideal} if:
+  \begin{enumerate}
+    \item \( M \ne R \).
+    \item If \( M \subseteq I \subseteq R \) and \( I \) be an ideal, then \( I = M \) or \( I = R \).
+  \end{enumerate}
+\end{definition}
+
+\begin{lemma}
+  \label{lem:maximal-ideal-field}
+  If \( R \) is a commutative ring, then \( R \) is a field if and only if \( \{0\} \) is a maximal ideal.
+\end{lemma}
+
+\begin{proof}
+  \leavevmode
+  \begin{itemize}
+    \item Suppose that \( R \) is a field, then \( R \ne \{0\} \). If \( I \subseteq R \) is an ideal, and \( I \ne \{0\} \). Let \( a\in I \backslash\{0\} \), since \( R \) is a field, see that \( a \) is \textbf{invertible}. Then:
+      \[
+        \forall \; b\in R, \; \; b = (ba^{-1})a \in I \implies I = R 
+      \] 
+    \item If \( \{0\} \) is a maximal ideal, then \( R \ne \{0\} \). \( \forall \; a\in R \) with \( a \ne 0 \), then \( a\in (a) \ne \{0\} \implies  (a) = R \implies \exists \; b \in R \), s.t. \( ab=1 \implies a\) is invertible.
+  \end{itemize}
+\end{proof}
+
+\begin{corollary}
+  \label{cor:maximal-field}
+  An ideal \( M \subseteq R \) is maximal if and only if \( \qo{R}{M} \) is a field.
+\end{corollary}
+
+\begin{proof}
+  By correspondance between ideals of \( \qo{R}{M} \) and ideals in \( R \) \textbf{containing} \( M \), this follows from \textbf{Lemma} \ref{lem:maximal-ideal-field}.
+\end{proof}
+
+\begin{corollary}
+  Every maximal ideal is prime ideal.
+\end{corollary}
+
+\begin{proof}
+  This follows since \textbf{every field is a domain}. And by \textbf{Corollary} \ref{cor:maximal-field} and \textbf{Proposition} \ref{prop:domain-qo-prime}.
+\end{proof}
+
+\begin{eg}
+  The following are ideals that are prime but not maximal:
+  \begin{enumerate}
+    \item \( \{0\} \subseteq \ZZ \) is a prime ideal, but not maximal ideal.
+    \item \( (x) \subseteq \ZZ[x] \) is a prime ideal, but not maximal ideal.\todo{why?}
+  \end{enumerate}
+\end{eg}
+
+\begin{theorem}
+  If \( I \subsetneq R \) is a proper ideal in a commutative ring \( R \), then there exists \( M \) being a maximal ideal, s.t. \( I \subseteq M \).
+\end{theorem}
+
+To prove it we'll need the famous \textbf{Zorn's Lemma}.
+
+\begin{lemma}[\textbf{Zorn's Lemma}]
+  If \( (A, \leq) \) is a non-empty partially ordered set, s.t. every totally ordered subset \( B \subseteq A \) has an upper bound in \( A \) (\( \exists \; a\in A \), s.t. \( b\leq a \; \forall \; b \in B \)), then \( A \) has at least a maximal element. (\( \exists \; a\in A \), s.t. if \( a\leq a' \in A \implies a = a' \))
+\end{lemma}
+
+\begin{proof}[\textbf{Proof uses Zorn's Lemma}]
+  Fix \( I \) be in the theorem, and let \( \cJ = \{J \subseteq R \text{ is ideal} \; | \; I \subseteq J\} \).
+\end{proof}

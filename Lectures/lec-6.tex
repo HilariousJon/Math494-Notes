@@ -198,6 +198,8 @@ See that it is well-defined: suppose \( \frac{a_1}{s_1} = \frac{b_1}{t_1} \) and
 
 In this section we shall discuss prime ideals and maximal ideals \todo{leave some overview!}
 
+\subsection{Prime Ideals}
+
 \begin{definition}[\textbf{Prime Ideal}]
   Let \( R \) be a commutative ring, an ideal \( P \subseteq R \) is a \underline{prime ideal} if:
   \begin{enumerate}
@@ -211,6 +213,7 @@ In this section we shall discuss prime ideals and maximal ideals \todo{leave som
 \end{parenthesis}
 
 \begin{proposition}
+  \label{prop:domain-qo-prime}
   An ideal \( P \subseteq R \) is prime ideal if and only if \( \qo{R}{P} \) is an integral domain.
 \end{proposition}
 
@@ -221,6 +224,10 @@ In this section we shall discuss prime ideals and maximal ideals \todo{leave som
 \end{proof}
 
 \begin{eg}
-  If \( R = \ZZ \), then \( \{0\} \) is a prime ideal (\( \ZZ \) is an intergal domain). If \( n \in \ZZ_{>0} \), then \( (n) \) is a prime ideal if and only if \( \qo{\ZZ}{n\ZZ} \) is an integral domain if and only if \( n \) is prime number.
+  If \( R = \ZZ \), then 
+  \begin{enumerate}
+    \item \( \{0\} \) is a prime ideal (\( \ZZ \) is an intergal domain).
+    \item If \( n \in \ZZ_{>0} \), then \( (n) \) is a prime ideal if and only if \( \qo{\ZZ}{n\ZZ} \) is an integral domain if and only if \( n \) is prime number. Namely \( n\ZZ \) is prime ideal if and only if \( n \) is prime number.
+  \end{enumerate}
 \end{eg}
 
