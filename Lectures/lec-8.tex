@@ -1,0 +1,38 @@
+\begin{eg}
+  \leavevmode 
+  \begin{enumerate}
+    \item \( \KK \) is a field \( \implies \KK \) is a local ring.
+    \item Let \( R \) be a commutative ring, \( P\subseteq R \) be a prime ideal, define \( S = R - P \), and thus be a multiplicative system. Define \( R_p := S^{-1} R \). By HW \#3: 
+      \[
+        \{\text{Prime ideal in } S^{-1}R\} \xleftrightarrow{\text{order preserving bij.}} \{\text{Prime ideal }q \text{ in } R \text{ with } S\cap q = \emptyset \iff q \subseteq P\}
+      \] 
+      where order preserving means the bijection is compatible with inclusion. This implies that \( S^{-1} R \) is a local ring with maximal ideal:
+      \[
+        S^{-1}P = \{\frac{a}{s} \in R_p \; | \; a\in P\}
+      \] 
+      \begin{eg}
+        If \( p\in \ZZ_{>0} \) is a prime integer, then:
+        \[
+          \ZZ_{(p)} = \{\frac{a}{b} \; | \; a,b \in \ZZ, \; (p\nmid b) \iff (S = \ZZ - (p))\}
+        \] 
+        with the maximal ideal being:
+        \[
+          \{\frac{pa}{b} \; | \; a,b \in \ZZ, \; p\nmid b\} \quad \text{by } pa \in (p)
+        \] 
+      \end{eg}
+  \end{enumerate}
+\end{eg}
+
+The point is that if we want to study the property of the ring, we can sometimes go to the local ring and use their properties.
+
+\section{Radical Ideals}
+
+In this section we shall discuss radical rings.\todo{leave some overview!}
+
+\begin{definition}[\textbf{Radical Ideal}]
+  Let \( R \) be commutative ring, and \( I\subseteq R \) be an ideal. \( I \) is a \underline{radical ideal} if \( \forall \; a\in R \), s.t. \( a^n \in I \) for some \( n\geq 1 \implies a\in I \).
+\end{definition}
+
+\begin{definition}[\textbf{Reduced Ring}]
+  Let \( R \) commutative ring, \( R \) is called a \underline{reduced ring} if \( \{0\} \) is a radical ideal.
+\end{definition}

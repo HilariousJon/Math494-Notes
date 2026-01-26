@@ -141,6 +141,7 @@ To prove it we'll need the famous \textbf{Zorn's Lemma}.
 \end{proof}
 
 \begin{corollary}
+  \label{cor:maximal-exists}
   If \( R\ne \{0\} \) is a commutative ring, then there exists a maximal ideals in \( R \), in particular, there exists a prime ideal.
 \end{corollary}
 
@@ -168,4 +169,23 @@ In this section we shall discuss local rings. \todo{leave some overview!}
   Suppose that \( R \) is a local ring with maximal ideal \( M \), then \( M \subseteq \{a \in R \; | \; a \text{ is not invertible}\} \) since \( M \ne R \). If \( a\in R \) is not invertible, then \( (a) \ne R \), by \textbf{Theorem} \ref{thm:maximal}, it is contained in a maximal ideal \( \implies (a) \subseteq M \implies a \in M \).
 
   In this case, \( R \ne \{0\} \) since \( M \ne R \). If \( a+b = 1 \), since \( 1 \not\in M \) and \( M \) being a subgroup, then either \( a\not\in M \) or \( b \not \in M \implies a\) is invertible or \( b \) is invertible.
+
+  Define \( M = \{a \in R \; | \; a \ne \text{ invertible.}\} \). We claim that \( M \) is an ideal:
+  \begin{itemize}
+    \item \( 0\in M \) since \( R \ne \{0\} \).
+    \item If \( a \in M, \lambda \in R \implies \lambda a \in M \), otherwise \( \exists \; \mu \in R \), s.t. \( (\mu\lambda)a = 1\implies a \) is invertible, leading to contradiction $\lightning$.
+    \item If \( a,b\in M \implies c:= a+b \in M \), otherwise, If \( c \) is invertible, then:
+      \[
+        (a+b)c^{-1} = ac^{-1} + bc^{-1} = 1 
+      \] 
+      then this implies that \( ac^{-1} \) or \( bc^{-1} \) is invertible, then \( a = (ac^{-1})c \) is also invertible, similar for \( b \) is invertible, leading to contradiction \( \lightning \).
+  \end{itemize}
+
+  So we see that \( M \) is an ideal, remains to check that it is the only maximal ideal.
+  \begin{itemize}
+    \item \( 1\not\in M \implies M \ne R \).
+    \item If \( I \ne R \) is an ideal, then \( I \subseteq M \): \( I\ne R \implies 1 \not\in I \), thus \( \forall \; a\in I \), see that \( a \) is not invertible, since \( (a) \subseteq I \ne R \implies 1 \not\in (a) \implies a\in M \).
+  \end{itemize}
+
+  Since we know \( R \) has an maximal ideal by \textbf{Corollary} \ref{cor:maximal-exists}, then \( M \) is a maximal ideal, and in fact the unique one. See that any maximal ideal \( M' \subseteq M \implies M' = M \).
 \end{proof}
