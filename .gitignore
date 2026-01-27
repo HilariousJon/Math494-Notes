@@ -13,3 +13,4 @@
 *.bcf-SAVE-ERROR
 *.synctex(busy)
 *.fls
+.DS_Store
