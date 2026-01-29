@@ -114,6 +114,34 @@ In fact, we can define a \textbf{functor} as follows:
 \] 
 where LHS is the category of commutative rings, and the RHS is the dual of the category of topological spaces.
 
+Recall the definition of a functor:
+
+\begin{definition}[\textbf{Functor}]
+  If \( \cC \) and \( \cD \) are categories, then a functor:
+  \[
+    F: \cC \to \cD 
+  \] 
+
+  is given by:
+  \begin{enumerate}
+    \item For every \( X \in \ob(\cC) \), we have \( F(X) \in \ob(\cD) \).
+    \item For all \( X, Y \in \ob(\cC) \), we have a map 
+      \[
+        \Hom_\cC(X,Y) \to \Hom_\cD(F(X), F(Y))
+      \] 
+
+      s.t.
+      \begin{enumerate}
+        \item \( F(1_X) = 1_{F(X)} \quad \forall \; X \in \ob(\cC)\).
+        \item \( \forall \; u \in \Hom_\cC(X,Y), v \in \Hom_\cC(Y,Z) \), preserving the composition structures of the morphisms.
+          \[
+            F(u\circ v) = F(v) \circ F(u)
+          \] 
+      \end{enumerate}
+  \end{enumerate}
+\end{definition}
+
+
 If \( f: R \to S \supseteq P \) to be a ring homomorphism between commutative rings, one can define:
 \[
   \begin{aligned}
