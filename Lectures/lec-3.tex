@@ -4,21 +4,21 @@ In this section we construct quotient rings. Main heuristics is to follow the co
 
 Let \( (R, +, \cdot) \) be a ring, if \( I \subseteq R \) be subgroup, then \( I \) is automatically normal since \( (R, +) \) is abelian. Thus we can construct \( \qo{R}{I} \) as a group:
 \[
-  \qo{R}{I} \coloneqq \qo{R}{\equiv \bmod I} \quad a \equiv b \bmod I \text{ if } a - b \in I 
-\] 
+	\qo{R}{I} \coloneqq \qo{R}{\equiv \bmod I} \quad a \equiv b \bmod I \text{ if } a - b \in I
+\]
 
 Write \( a+ I \) or simply \( \overline{a} \) or \( [a] \) for the image of \( a\in R \) in \( \qo{R}{I} \). The group structure is \textbf{defined} s.t.:
 \[
-  \begin{aligned}
-    \pi : R &\to \qo{R}{I} \\ 
-    a &\mapsto a+I 
-  \end{aligned}
-\] 
+	\begin{aligned}
+		\pi : R & \to \qo{R}{I} \\
+		a       & \mapsto a+I
+	\end{aligned}
+\]
 
 is \textbf{group homomorphism}. which is:
 \[
-  \overline{a} + \overline{b} =\overline{a+b}
-\] 
+	\overline{a} + \overline{b} =\overline{a+b}
+\]
 
 We then want to see that \( \qo{R}{I} \) to be not just a group, but make it a \textbf{ring}, which is: \( \pi \) to be a \textbf{ring homomorphism}.
 
@@ -26,69 +26,69 @@ Since \( \ker(\pi) = I \), for the above to work, we need \( I\subseteq R \) is 
 
 Since we want \( \pi \) to be a ring homomorphism, we have to define multiplication on \( \qo{R}{I} \), which is by the most obvious way:
 \[
-  \overline{a} \cdot \overline{b} = \overline{ab}
-\] 
+	\overline{a} \cdot \overline{b} = \overline{ab}
+\]
 
 The \textbf{key point} here is then to show that it is \textbf{well-defined}. And we need: if \( \overline{a} = \overline{a'}, \overline{b} = \overline{b'}  \implies \overline{ab} = \overline{a'b'}\).
 
 We know that \( a - a' \in I, b - b' \in I \) and we want \( ab - a'b' \in I \), which is:
 \[
-  \begin{aligned}
-    ab - a'b' &= (ab-ab') + (ab' - a'b;) \\ 
-              &= \underbrace{a\underbrace{(b-b')}_{\in I}}_{\in I \text{ since left ideal}} + \underbrace{\underbrace{(a-a')}_{\in I}b'}_{\in I \text{ since right ideal}} \in I
-  \end{aligned}
-\] 
+	\begin{aligned}
+		ab - a'b' & = (ab-ab') + (ab' - a'b;)                                                                                                                                         \\
+		          & = \underbrace{a\underbrace{(b-b')}_{\in I}}_{\in I \text{ since left ideal}} + \underbrace{\underbrace{(a-a')}_{\in I}b'}_{\in I \text{ since right ideal}} \in I
+	\end{aligned}
+\]
 
 Once we know that multiplication is well-defined, need the following:
 \begin{itemize}
-  \item multiplication is associative.
-    \[
-    \underbrace{\underbrace{( \overline{a} \overline{b} ) \overline{c}}_{=\overline{ab} \overline{c} = \overline{(ab)c}} = \underbrace{\overline{a} ( \overline{b} \overline{c} )}_{=\overline{a}\overline{bc} = \overline{a(bc)}}}_{\text{by associativity in } R} \quad \forall \; \overline{a}, \overline{b}, \overline{c} \in \qo{R}{I}
-    \] 
-  \item distributivity holds by similar argument as above.
-  \item identity element for multiplication.
-    \[
-      \begin{aligned}
-        \overline{1} \overline{a} &= \overline{1a} = \overline{a} \\ 
-        \overline{a} \overline{1} &= \overline{a1} = \overline{a} 
-      \end{aligned}
-    \] 
-  \item if \( R \) is commutative, then \textbf{so is} \( \qo{R}{I} \).
+	\item multiplication is associative.
+	      \[
+		      \underbrace{\underbrace{( \overline{a} \overline{b} ) \overline{c}}_{=\overline{ab} \overline{c} = \overline{(ab)c}} = \underbrace{\overline{a} ( \overline{b} \overline{c} )}_{=\overline{a}\overline{bc} = \overline{a(bc)}}}_{\text{by associativity in } R} \quad \forall \; \overline{a}, \overline{b}, \overline{c} \in \qo{R}{I}
+	      \]
+	\item distributivity holds by similar argument as above.
+	\item identity element for multiplication.
+	      \[
+		      \begin{aligned}
+			      \overline{1} \overline{a} & = \overline{1a} = \overline{a} \\
+			      \overline{a} \overline{1} & = \overline{a1} = \overline{a}
+		      \end{aligned}
+	      \]
+	\item if \( R \) is commutative, then \textbf{so is} \( \qo{R}{I} \).
 \end{itemize}
 
 The \textbf{upshot} is: \( \qo{R}{I} \) is a ring and \( \pi: R \to \qo{R}{I} \) is a ring homomorphism, note that \( \pi(1_R) = 1_{\qo{R}{I}} \).
 
 \begin{proposition}[\textbf{Universal Property of Quotient Rings}]
-  Suppose \( R, I \) are as before, let \( f: R \to S \) be a ring homomoprhism, s.t. \( I\subseteq \ker(f) \). There is a \textbf{unique} ring homomophrism \( \overline{f}: \qo{R}{I} \to S \), s.t. the following diagram is \textbf{commutative}:
-  \[
-    \begin{tikzcd}
-      R \arrow[r, "\pi"] \arrow[d, "f"'] & \qo{R}{I} \arrow[ld, "\bar{f}", dashed] \\
-    S & 
-    \end{tikzcd}
-  \] 
+	Suppose \( R, I \) are as before, let \( f: R \to S \) be a ring homomoprhism, s.t. \( I\subseteq \ker(f) \). There is a \textbf{unique} ring homomophrism \( \overline{f}: \qo{R}{I} \to S \), s.t. the following diagram is \textbf{commutative}:
+	\[
+		\begin{tikzcd}
+			R \arrow[r, "\pi"] \arrow[d, "f"'] & \qo{R}{I} \arrow[ld, "\bar{f}", dashed] \\
+			S &
+		\end{tikzcd}
+	\]
 
-  which is \( f = \overline{f}\circ \pi \).
+	which is \( f = \overline{f}\circ \pi \).
 \end{proposition}
 
 The main idea of the proof is to inherit from our idea for universal property of quotient groups and see that is compatible with ring multiplication.
 \begin{proof}
-  The condition \( f = \overline{f} \circ \pi \iff \overline{f}( \overline{a} ) = f(a) \; \forall \; a \in R \), this implies uniqueness, since \( \pi \) is surjective, as it is explicitely defined for the whole domain \( \qo{R}{I} \).
+	The condition \( f = \overline{f} \circ \pi \iff \overline{f}( \overline{a} ) = f(a) \; \forall \; a \in R \), this implies uniqueness, since \( \pi \) is surjective, as it is explicitely defined for the whole domain \( \qo{R}{I} \).
 
-  By the corresponding results for groups, there exists \( \overline{f}: \qo{R}{I} \to S \) to be group homomorphism, s.t. \( f = \overline{f}\circ \pi \). Hence, it is enough to show:
-  \begin{itemize}
-    \item \( \overline{f}(u\cdot v)=\overline{f}(u)\overline{f}(v) \; \forall \; u,v\in \qo{R}{I} \).
-    \item \( \overline{f}(1_{\qo{R}{I}}) = 1_S \).
-  \end{itemize}
+	By the corresponding results for groups, there exists \( \overline{f}: \qo{R}{I} \to S \) to be group homomorphism, s.t. \( f = \overline{f}\circ \pi \). Hence, it is enough to show:
+	\begin{itemize}
+		\item \( \overline{f}(u\cdot v)=\overline{f}(u)\overline{f}(v) \; \forall \; u,v\in \qo{R}{I} \).
+		\item \( \overline{f}(1_{\qo{R}{I}}) = 1_S \).
+	\end{itemize}
 
-  the second assertion follows directly:
-  \[
-    \overline{f}(1_{\qo{R}{I}}) = \overline{f}(\pi(1_R)) = f(1_R) = 1_S 
-  \] 
+	the second assertion follows directly:
+	\[
+		\overline{f}(1_{\qo{R}{I}}) = \overline{f}(\pi(1_R)) = f(1_R) = 1_S
+	\]
 
-  for the first assertion, write \( u = \overline{a}, v=\overline{b} \) for some \( a,b \in R \), then:
-  \[
-    \overline{f}(uv) = \overline{f} (\overline{ab}) = f(ab) = f(a) \cdot f(b) = \overline{f}(\overline{a}) \overline{f} (\overline{b}) = \overline{f}(u) \overline{f}(v)
-  \] 
+	for the first assertion, write \( u = \overline{a}, v=\overline{b} \) for some \( a,b \in R \), then:
+	\[
+		\overline{f}(uv) = \overline{f} (\overline{ab}) = f(ab) = f(a) \cdot f(b) = \overline{f}(\overline{a}) \overline{f} (\overline{b}) = \overline{f}(u) \overline{f}(v)
+	\]
 \end{proof}
 
 \section{Isomorphism Theorem}
@@ -96,91 +96,91 @@ The main idea of the proof is to inherit from our idea for universal property of
 Follow similarly with group, there is also corresponding isomorphism for rings. One should notice that the quotient ring is quite restricted since it requires \( I \) to be a \textbf{two-sided ideals}, not either left or right ideal.
 
 \begin{theorem}[\textbf{Fundemental Isomorphism Theorem}]
-  \label{thm:fundemental-isomorphism}
-If \( f: R \to S \) is a \textbf{surjective} ring homomorphism, and \( I = \ker(f) \implies S \cong \; \qo{R}{I} \).
+	\label{thm:fundemental-isomorphism}
+	If \( f: R \to S \) is a \textbf{surjective} ring homomorphism, and \( I = \ker(f) \implies S \cong \; \qo{R}{I} \).
 
-\begin{note}
-Note that the theorem implies that \( \im(f) \cong \; \qo{R}{I} \).
-\end{note}  
+	\begin{note}
+		Note that the theorem implies that \( \im(f) \cong \; \qo{R}{I} \).
+	\end{note}
 \end{theorem}
 
 \begin{remark}
-  If \( f \) be arbitrary ring homomorphism, then \( \im(f) \subseteq S \) is a subring.
+	If \( f \) be arbitrary ring homomorphism, then \( \im(f) \subseteq S \) is a subring.
 \end{remark}
 
 \begin{proof}
-  Since \( I = \ker(f) \implies I\) is a two-sided ideal. Apply the universal property of \( \qo{R}{I} \), the following diagram is commutative:
-  \[
-    \begin{tikzcd}
-      R \arrow[r, "\pi"] \arrow[d, "f"'] & \qo{R}{I} \arrow[ld, "\bar{f}", dashed] \\
-      S & 
-    \end{tikzcd}
-  \] 
+	Since \( I = \ker(f) \implies I\) is a two-sided ideal. Apply the universal property of \( \qo{R}{I} \), the following diagram is commutative:
+	\[
+		\begin{tikzcd}
+			R \arrow[r, "\pi"] \arrow[d, "f"'] & \qo{R}{I} \arrow[ld, "\bar{f}", dashed] \\
+			S &
+		\end{tikzcd}
+	\]
 
-  there exists a unique ring homomorphism \( \overline{f}: \qo{R}{I} \to S \), s.t. \( \overline{f}\circ \pi =  f \). In the context of group, we've shown that \( \overline{f} \) is a group isomorphism, so \( \overline{f} \) is bijective, thus it is a ring isomorphism.
+	there exists a unique ring homomorphism \( \overline{f}: \qo{R}{I} \to S \), s.t. \( \overline{f}\circ \pi =  f \). In the context of group, we've shown that \( \overline{f} \) is a group isomorphism, so \( \overline{f} \) is bijective, thus it is a ring isomorphism.
 \end{proof}
 
 We then consider the analog of the third isomorphism for groups. We want to describe the left/right/two-sided ideals of \( \qo{R}{I} \) in terms of the ones for \( R \), and in fact we have the following proposition.
 \begin{proposition}
-  We have an order preserving bijection:
-  \[
-    \begin{tikzcd}[column sep=huge, row sep=large]
-      \left\{ \begin{tabular}{c} left/right/2-sided \\ ideals in $\qo{R}{I}$ \end{tabular} \right\} 
-      \arrow[r, shift left=1.5ex, "J \longrightarrow \pi^{-1}(J)"] 
-      & 
-      \left\{ \begin{tabular}{c} left/right/2-sided \\ ideals of $R$ containing $I$ \end{tabular} \right\}
-      \arrow[l, shift left=1.5ex, "\pi(I') \longleftarrow I' \supseteq I"]
-    \end{tikzcd}
-  \] 
-  
-  where
-  \[
-    \pi: R \to \qo{R}{I}
-  \] 
+	We have an order preserving bijection:
+	\[
+		\begin{tikzcd}[column sep=huge, row sep=large]
+			\left\{ \begin{tabular}{c} left/right/2-sided \\ ideals in $\qo{R}{I}$ \end{tabular} \right\}
+			\arrow[r, shift left=1.5ex, "J \longrightarrow \pi^{-1}(J)"]
+			&
+			\left\{ \begin{tabular}{c} left/right/2-sided \\ ideals of $R$ containing $I$ \end{tabular} \right\}
+			\arrow[l, shift left=1.5ex, "\pi(I') \longleftarrow I' \supseteq I"]
+		\end{tikzcd}
+	\]
+
+	where
+	\[
+		\pi: R \to \qo{R}{I}
+	\]
 \end{proposition}
 
 \begin{proof}
-  We have already seen these two maps given \textbf{mutual inverses} for corresponding in groups, to conlcude, we only need to show:
-  \begin{itemize}
-    \item \( J \subseteq \qo{R}{I} \) is a left/right/two-sided ideal, then so is \( \pi^{-1}(J) \subseteq R \).
-    \item \( I'\subseteq R \) is a left/right/two-sided ideal, then so is \( \pi(I') \).
-  \end{itemize}
+	We have already seen these two maps given \textbf{mutual inverses} for corresponding in groups, to conlcude, we only need to show:
+	\begin{itemize}
+		\item \( J \subseteq \qo{R}{I} \) is a left/right/two-sided ideal, then so is \( \pi^{-1}(J) \subseteq R \).
+		\item \( I'\subseteq R \) is a left/right/two-sided ideal, then so is \( \pi(I') \).
+	\end{itemize}
 
-  It will be proved in homework.
+	It will be proved in homework.
 \end{proof}
 
 \begin{notation}
-  if \( I' \subseteq I \) be ideal, we denote \( \pi(I') \) by \( \qo{I'}{I} \).
+	if \( I' \subseteq I \) be ideal, we denote \( \pi(I') \) by \( \qo{I'}{I} \).
 \end{notation}
 
 \begin{theorem}[\textbf{Third Isomoprhism Theorem}]
-  If \( R \) is a ring and \( I\subseteq I' \) are two-sided ideals, then:
-  \[
-    \qo{\qo{R}{I}}{\qo{I'}{I}} \cong \; \qo{R}{I'}
-  \] 
+	If \( R \) is a ring and \( I\subseteq I' \) are two-sided ideals, then:
+	\[
+		\qo{\qo{R}{I}}{\qo{I'}{I}} \cong \; \qo{R}{I'}
+	\]
 
-  Note that quotient rings doesn't make sense when \( I \) is left ideal or right ideal.
+	Note that quotient rings doesn't make sense when \( I \) is left ideal or right ideal.
 \end{theorem}
 
 \begin{proof}
-  By the universal property of \( \qo{R}{I} \) for \( R \xrightarrow{p} \qo{R}{I'} \), there exists a unique \( \overline{p}: \qo{R}{I} \to \qo{R}{I'} \), s.t. \( p(a+I) = a+I' \; \forall \; a\in R \).
+	By the universal property of \( \qo{R}{I} \) for \( R \xrightarrow{p} \qo{R}{I'} \), there exists a unique \( \overline{p}: \qo{R}{I} \to \qo{R}{I'} \), s.t. \( p(a+I) = a+I' \; \forall \; a\in R \).
 
-  Easy to see that \( \overline{p} \) is surjective and \( \ker(\overline{p}) = \qo{I'}{I}\) as we've concluded in context of groups, then by the fundemental isomorphism theorem, yields the result.
+	Easy to see that \( \overline{p} \) is surjective and \( \ker(\overline{p}) = \qo{I'}{I}\) as we've concluded in context of groups, then by the fundemental isomorphism theorem, yields the result.
 \end{proof}
 
 \begin{eg}
-  Let \( n \in \ZZ_{>0} \), in \( \ZZ \), we have ideal:
-  \[
-    (n)\coloneqq \{nk \; | \; k \in \ZZ\}
-  \] 
+	Let \( n \in \ZZ_{>0} \), in \( \ZZ \), we have ideal:
+	\[
+		(n)\coloneqq \{nk \; | \; k \in \ZZ\}
+	\]
 
-  then \( \qo{\ZZ}{(n)} \) is exactly \( \qo{\ZZ}{n\ZZ} \). \( d\in \ZZ_{>0}, \; (d) \supseteq (n) \iff d \big| n \). We have an ideal:
-  \[
-    (\overline{d}) \coloneqq  \{\overline{d} a \; | \; a\in \qo{\ZZ}{n\ZZ}\} = \qo{(d)}{(n)}
-  \] 
+	then \( \qo{\ZZ}{(n)} \) is exactly \( \qo{\ZZ}{n\ZZ} \). \( d\in \ZZ_{>0}, \; (d) \supseteq (n) \iff d \big| n \). We have an ideal:
+	\[
+		(\overline{d}) \coloneqq  \{\overline{d} a \; | \; a\in \qo{\ZZ}{n\ZZ}\} = \qo{(d)}{(n)}
+	\]
 
-  and the theorem implies:
-  \[
-    \qo{\qo{\ZZ}{n\ZZ}}{(\overline{d})} \cong \; \qo{\ZZ}{d\ZZ}
-  \] 
+	and the theorem implies:
+	\[
+		\qo{\qo{\ZZ}{n\ZZ}}{(\overline{d})} \cong \; \qo{\ZZ}{d\ZZ}
+	\]
 \end{eg}

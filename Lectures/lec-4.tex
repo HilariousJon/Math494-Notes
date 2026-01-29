@@ -3,186 +3,186 @@
 In this section we define two important examples of commutative ring derived from a given commutative ring, namely the polynomial rings and formal power series ring. They are recursively define so one shall first define them for one variable.
 
 \begin{definition}
-  Fix \( R \) to be a \textbf{commutative ring}, define:
-  \[
-    R[X] \coloneqq  \{a_0 + a_1 x + \cdots + a_n x^n \; | \; n \in \ZZ_{\geq 0}, \; a_0,\ldots, a_n \in R\}
-  \] 
+	Fix \( R \) to be a \textbf{commutative ring}, define:
+	\[
+		R[X] \coloneqq  \{a_0 + a_1 x + \cdots + a_n x^n \; | \; n \in \ZZ_{\geq 0}, \; a_0,\ldots, a_n \in R\}
+	\]
 
-  note that \( x \) which is the variable here is to help track how ring multiplication is defined.
+	note that \( x \) which is the variable here is to help track how ring multiplication is defined.
 
-  Define the operations as:
-  \begin{enumerate}
-    \item \( \sum_{i=0}^n a_i x^i + \sum_{i=0}^n b_i x^i := \sum_{i=0}^n(a_i + b_i)x^i \).
-    \item \( (\sum_{i=0}^n a_ix^i)\cdot (\sum_{j=0}^m b_j x^j) := \sum_{k=0}^{m+n}(\sum_{i+j = k}a_i b_j)x^k \).
-  \end{enumerate}
+	Define the operations as:
+	\begin{enumerate}
+		\item \( \sum_{i=0}^n a_i x^i + \sum_{i=0}^n b_i x^i := \sum_{i=0}^n(a_i + b_i)x^i \).
+		\item \( (\sum_{i=0}^n a_ix^i)\cdot (\sum_{j=0}^m b_j x^j) := \sum_{k=0}^{m+n}(\sum_{i+j = k}a_i b_j)x^k \).
+	\end{enumerate}
 
-  See that \( (R[X], +, \cdot) \) is a \textbf{commutative ring}, with
-  \begin{itemize}
-    \item zero element: \( 0 \), all coefficients being \( 0 \).
-    \item unit element: \( 1 \), all coefficients of \( x^i, \; i\geq 1 \) are 0.
-  \end{itemize}
+	See that \( (R[X], +, \cdot) \) is a \textbf{commutative ring}, with
+	\begin{itemize}
+		\item zero element: \( 0 \), all coefficients being \( 0 \).
+		\item unit element: \( 1 \), all coefficients of \( x^i, \; i\geq 1 \) are 0.
+	\end{itemize}
 \end{definition}
 
 One shall see that we have a \textbf{injective} ring homomorphism:
 \[
-  \begin{aligned}
-    R &\xrightarrow{i} R[X] \\ 
-    a &\mapsto a 
-  \end{aligned}
-\] 
+	\begin{aligned}
+		R & \xrightarrow{i} R[X] \\
+		a & \mapsto a
+	\end{aligned}
+\]
 
 which yields the universal property of \( R[X] \).
 
 \begin{theorem}[\textbf{Universal Property of} \( \mathbf{R[X]} \)]
-  For every ring homomorphism \( \vp: R \to S \) with \( R,S \) commutative and for every \( a\in S \), there is a \textbf{unique} ring homomorphism \( \psi: R[X] \to S \), s.t. 
-  \begin{enumerate}
-    \item The following diagram is commutative:
-      \[
-        \begin{tikzcd}[row sep=large, column sep=large]
-        R \arrow[r, "\varphi"] \arrow[d, "i"'] & S \\
-        R[X] \arrow[ru, "\psi"'] & 
-        \end{tikzcd}
-      \]
-      
-      i.e. \( \psi(b) = \vp(b) \; \forall \; b \in R \).
-    \item \( \psi(x) = a \).
-  \end{enumerate}
+	For every ring homomorphism \( \vp: R \to S \) with \( R,S \) commutative and for every \( a\in S \), there is a \textbf{unique} ring homomorphism \( \psi: R[X] \to S \), s.t.
+	\begin{enumerate}
+		\item The following diagram is commutative:
+		      \[
+			      \begin{tikzcd}[row sep=large, column sep=large]
+				      R \arrow[r, "\varphi"] \arrow[d, "i"'] & S \\
+				      R[X] \arrow[ru, "\psi"'] &
+			      \end{tikzcd}
+		      \]
+
+		      i.e. \( \psi(b) = \vp(b) \; \forall \; b \in R \).
+		\item \( \psi(x) = a \).
+	\end{enumerate}
 \end{theorem}
 
 \begin{proof}
-  Suppose we have such \( \psi: \psi(x^i) = a^i \; \forall i >0 \), then \( \psi \circ i = \vp \implies \) if \( P = \alpha_0 + \alpha_1 x + \cdots + \alpha_n x^n \implies \)
-  \[
-    \psi(P) = \underbrace{\vp(\alpha_0) + \vp(\alpha_1)a + \cdots + \vp(\alpha_n)a^n}_{\text{denoted by } P(a)}
-  \] 
+	Suppose we have such \( \psi: \psi(x^i) = a^i \; \forall i >0 \), then \( \psi \circ i = \vp \implies \) if \( P = \alpha_0 + \alpha_1 x + \cdots + \alpha_n x^n \implies \)
+	\[
+		\psi(P) = \underbrace{\vp(\alpha_0) + \vp(\alpha_1)a + \cdots + \vp(\alpha_n)a^n}_{\text{denoted by } P(a)}
+	\]
 
-  this is explicitly defined, yields uniqueness.
+	this is explicitly defined, yields uniqueness.
 
-  For existence, we use this formula to define \( \psi: R[X] \to S \) explicitly, thus property 1 and 2 is clear, only left to check that \( \psi \) is actually a ring homomorphism:
-  \begin{itemize}
-    \item \( \psi(P+Q)  = \psi(P) + \psi(Q)\) is straightforward.
-    \item \( \psi(1) = 1 \) is also straightforward.
-    \item \( \psi(PQ) = \psi(P) \psi(Q)  \; \forall P, Q\). Suppose that \( P = \sum_{i=0}^n \alpha_i x^i, \; Q = \sum_{j=0}^m \beta_j x^j \), then:
-      \[
-        \begin{aligned}
-           PQ &= \sum_{k=0}^{m+n} \bace{\sum_{i+j=k}\alpha_i \beta_j} x^k \\ 
-           \implies \psi(PQ) &= \sum_{k=0}^{m+n} \vp\bace{\sum_{i+j=k}\alpha_i \beta_j} a^k \\ 
-                             &= \sum_{k=0}^{m+n}\bace{\sum_{i+j=k}\vp(\alpha_i)\cdot \vp(\beta_j)} a^k \quad (\vp \text{ is a ring homomorphism}) \\ 
-           \text{And} \quad \psi(P)\psi(Q) &= \bace{\sum_{i=0}^n \vp(\alpha_i) a^i} \cdot \bace{\sum_{j=0}^{m}\vp(\beta_j)a^j} \\ 
-                                           &= \sum_{i=0}^n \sum_{j=0}^m \vp(\alpha_i)\vp(\beta_j) a^j \\ 
-                                           &= \sum_{k\geq 0} \bace{\sum_{i+j=k}\vp(\alpha_i)\vp(\beta_j)} a^{i+j = k} \quad (R \text{ is commutative})\\
-                                           &= \psi(PQ)
-        \end{aligned}
-      \] 
-  \end{itemize}
+	For existence, we use this formula to define \( \psi: R[X] \to S \) explicitly, thus property 1 and 2 is clear, only left to check that \( \psi \) is actually a ring homomorphism:
+	\begin{itemize}
+		\item \( \psi(P+Q)  = \psi(P) + \psi(Q)\) is straightforward.
+		\item \( \psi(1) = 1 \) is also straightforward.
+		\item \( \psi(PQ) = \psi(P) \psi(Q)  \; \forall P, Q\). Suppose that \( P = \sum_{i=0}^n \alpha_i x^i, \; Q = \sum_{j=0}^m \beta_j x^j \), then:
+		      \[
+			      \begin{aligned}
+				      PQ                              & = \sum_{k=0}^{m+n} \bace{\sum_{i+j=k}\alpha_i \beta_j} x^k                                                          \\
+				      \implies \psi(PQ)               & = \sum_{k=0}^{m+n} \vp\bace{\sum_{i+j=k}\alpha_i \beta_j} a^k                                                       \\
+				                                      & = \sum_{k=0}^{m+n}\bace{\sum_{i+j=k}\vp(\alpha_i)\cdot \vp(\beta_j)} a^k \quad (\vp \text{ is a ring homomorphism}) \\
+				      \text{And} \quad \psi(P)\psi(Q) & = \bace{\sum_{i=0}^n \vp(\alpha_i) a^i} \cdot \bace{\sum_{j=0}^{m}\vp(\beta_j)a^j}                                  \\
+				                                      & = \sum_{i=0}^n \sum_{j=0}^m \vp(\alpha_i)\vp(\beta_j) a^j                                                           \\
+				                                      & = \sum_{k\geq 0} \bace{\sum_{i+j=k}\vp(\alpha_i)\vp(\beta_j)} a^{i+j = k} \quad (R \text{ is commutative})          \\
+				                                      & = \psi(PQ)
+			      \end{aligned}
+		      \]
+	\end{itemize}
 \end{proof}
 
 One can iterate this since \( R[X] \) is still a commutative ring, and thus get multi-variable polynomial ring over \( R \), which is defined recursively by:
 \[
-  R[X_1,\ldots, X_n]\coloneqq \bace{R[X_1, \ldots, X_{n-1}]} [X_n]
-\] 
+	R[X_1,\ldots, X_n]\coloneqq \bace{R[X_1, \ldots, X_{n-1}]} [X_n]
+\]
 
 This is again a commutative ring.
 
 \begin{theorem}[\textbf{Universal Property of }\( \mathbf{R[X_1, \ldots, X_n]} \)]
-  \( \forall \) ring homomorphism \( \vp: R\to S \), \( R,S \) commutative, and \( \forall \; a_1,\ldots, a_n \in S \), there exists a \textbf{unique} ring homomorphism \( \psi: R[X_1, \ldots, X_n] \to S \), s.t.
-  \begin{enumerate}
-    \item the following diagram is commutative:
-    \[
-      \begin{tikzcd}[column sep=1.5em, row sep=3em]
-        R \arrow[r] \arrow[rd, "\varphi"'] & R[x_1] \arrow[r] & R[x_1, x_2] \arrow[r] & \dots  \arrow[r] & R[x_1, \dots, x_n] \arrow[llld, "\psi"] \\
-                                          & S & & & 
-      \end{tikzcd}
-    \]
-    \item \( \psi(x_i) = a_i \; \forall i \in \br{1,n} \).
-  \end{enumerate}
+	\( \forall \) ring homomorphism \( \vp: R\to S \), \( R,S \) commutative, and \( \forall \; a_1,\ldots, a_n \in S \), there exists a \textbf{unique} ring homomorphism \( \psi: R[X_1, \ldots, X_n] \to S \), s.t.
+	\begin{enumerate}
+		\item the following diagram is commutative:
+		      \[
+			      \begin{tikzcd}[column sep=1.5em, row sep=3em]
+				      R \arrow[r] \arrow[rd, "\varphi"'] & R[x_1] \arrow[r] & R[x_1, x_2] \arrow[r] & \dots  \arrow[r] & R[x_1, \dots, x_n] \arrow[llld, "\psi"] \\
+				      & S & & &
+			      \end{tikzcd}
+		      \]
+		\item \( \psi(x_i) = a_i \; \forall i \in \br{1,n} \).
+	\end{enumerate}
 \end{theorem}
 
 \begin{eg}
-  \leavevmode 
-  \( X_1^2 + X_1X_3 + X_2^4 \in R[X_1, X_2, X_3] \)
+	\leavevmode
+	\( X_1^2 + X_1X_3 + X_2^4 \in R[X_1, X_2, X_3] \)
 \end{eg}
 
 The proof is straightforward by using induction on \( n \) with the previous universal property of \( R[X] \).
 
 \begin{eg}
-  If \( \sigma \in S_n \implies \exists ! \) ring homomoprhism, s.t. the following diagram is commutative:
-  \[
-    \begin{tikzcd}
-      R \arrow[r] \arrow[d] & R[X_1, \ldots, X_n] \\ 
-      R[X_1, \ldots, X_n] \arrow[ru, "f_\sigma"]
-    \end{tikzcd}
-  \] 
-  and \( f_{\sigma}(x_i) = X_{\sigma(i)} \quad \forall i \). In fact this is a ring isomoprhism, thus be a automorphism, with inverse being \( f_{\sigma^{-1}} \). In particular it shows that the process of constructing \( R[X_1, \ldots, X_n] \) is just labelling anmd \textbf{doesn't matter with order} of \( X_1, \ldots, X_n \).
+	If \( \sigma \in S_n \implies \exists ! \) ring homomoprhism, s.t. the following diagram is commutative:
+	\[
+		\begin{tikzcd}
+			R \arrow[r] \arrow[d] & R[X_1, \ldots, X_n] \\
+			R[X_1, \ldots, X_n] \arrow[ru, "f_\sigma"]
+		\end{tikzcd}
+	\]
+	and \( f_{\sigma}(x_i) = X_{\sigma(i)} \quad \forall i \). In fact this is a ring isomoprhism, thus be a automorphism, with inverse being \( f_{\sigma^{-1}} \). In particular it shows that the process of constructing \( R[X_1, \ldots, X_n] \) is just labelling anmd \textbf{doesn't matter with order} of \( X_1, \ldots, X_n \).
 \end{eg}
 
 \begin{notation}
-  Every element of \( R[X_1, \ldots, X_n] \) can be written as
-  \[
-    f = \sum_{u = (u_1,\ldots, u_n) \in \ZZ^n_{\geq 0}} a_u X^u 
-  \] 
+	Every element of \( R[X_1, \ldots, X_n] \) can be written as
+	\[
+		f = \sum_{u = (u_1,\ldots, u_n) \in \ZZ^n_{\geq 0}} a_u X^u
+	\]
 
-  where \( X^u = X_1^{u_1}\cdots X_n^{u_n} \) with \( a_u \in R \) which is a \underline{monomial}.
+	where \( X^u = X_1^{u_1}\cdots X_n^{u_n} \) with \( a_u \in R \) which is a \underline{monomial}.
 
-  \begin{eg}
-    \leavevmode 
-    \[
-      f(x,y) = 3x^2 y + 5xy^2 + 7 
-    \] 
-  \end{eg}
+	\begin{eg}
+		\leavevmode
+		\[
+			f(x,y) = 3x^2 y + 5xy^2 + 7
+		\]
+	\end{eg}
 \end{notation}
 
 We then define the ring for formal power series, basically it allows infinite sum in this case.
 
 \begin{definition}[\textbf{Ring of Formal Power Series}]
-  Suppose \( R \) a commutative ring, define the ring of \underline{formal power series} as:
-  \[
-    R[[X]] \coloneqq \{\sum_{i\geq 0}a_ix^i \; | \; a_i \in R, \; \forall \; i \geq 0\}
-  \] 
+	Suppose \( R \) a commutative ring, define the ring of \underline{formal power series} as:
+	\[
+		R[[X]] \coloneqq \{\sum_{i\geq 0}a_ix^i \; | \; a_i \in R, \; \forall \; i \geq 0\}
+	\]
 
-  with the operations defined:
-  \begin{itemize}
-    \item addition: \( \sum_{i\geq 0}a_i x^i + \sum_{i\geq 0} b_i x^i := \sum_{i\geq 0}(a_i + b_i) x^i \).
-    \item multiplication: 
-      \[
-        \begin{aligned}
-          \bace{\sum_{i\geq 0}a_i x^i} \cdot \bace{\sum_{j\geq 0} b_j x^j} &\coloneqq \sum_{k\geq 0}c_k x^k \\ 
-          \text{where} \qquad c_k = \sum_{i+j =k} a_i b_j &\in R 
-        \end{aligned}
-      \] 
-  \end{itemize}
+	with the operations defined:
+	\begin{itemize}
+		\item addition: \( \sum_{i\geq 0}a_i x^i + \sum_{i\geq 0} b_i x^i := \sum_{i\geq 0}(a_i + b_i) x^i \).
+		\item multiplication:
+		      \[
+			      \begin{aligned}
+				      \bace{\sum_{i\geq 0}a_i x^i} \cdot \bace{\sum_{j\geq 0} b_j x^j} & \coloneqq \sum_{k\geq 0}c_k x^k \\
+				      \text{where} \qquad c_k = \sum_{i+j =k} a_i b_j                  & \in R
+			      \end{aligned}
+		      \]
+	\end{itemize}
 
-  See that \( (R[[X]], +, \cdot) \) is again a \textbf{commutative ring}, s.t. we have \( R[X] \subseteq R[[X]] \) being a subring.
+	See that \( (R[[X]], +, \cdot) \) is again a \textbf{commutative ring}, s.t. we have \( R[X] \subseteq R[[X]] \) being a subring.
 \end{definition}
 
 \subsection{R-Algebra}
 
 \begin{definition}[\textbf{R-Algebra}]
-  Suppose that \( R \) is a commutative ring, an \underline{\( R \)-Algebra} is a ring \( S \) together with a ring homomorphism \( R \xrightarrow{\vp}S \), s.t. \( \vp(a) b = b\vp(a) \; \; \forall\;  a \in R, b\in S \).
+	Suppose that \( R \) is a commutative ring, an \underline{\( R \)-Algebra} is a ring \( S \) together with a ring homomorphism \( R \xrightarrow{\vp}S \), s.t. \( \vp(a) b = b\vp(a) \; \; \forall\;  a \in R, b\in S \).
 \end{definition}
 
 \begin{eg}
-  \leavevmode 
-  \begin{enumerate}
-    \item \( R[X], R[[X]] \) have natural structures of \( R \)-Algebras \( R[X_1, \ldots, X_n] \).
-    \item here is a non-commutative ring example: \( M_n(R) \) with the ring homomorphism defined as:
-      \[
-        \begin{aligned}
-          R &\to M_n(R) \\ 
-          a &\mapsto \begin{pmatrix}
-            a & & 0 \\ 
-              & \ddots & \\ 
-            0 & & a 
-          \end{pmatrix}
-        \end{aligned}
-      \] 
-  \end{enumerate}
+	\leavevmode
+	\begin{enumerate}
+		\item \( R[X], R[[X]] \) have natural structures of \( R \)-Algebras \( R[X_1, \ldots, X_n] \).
+		\item here is a non-commutative ring example: \( M_n(R) \) with the ring homomorphism defined as:
+		      \[
+			      \begin{aligned}
+				      R & \to M_n(R)             \\
+				      a & \mapsto \begin{pmatrix}
+					                  a &        & 0 \\
+					                    & \ddots &   \\
+					                  0 &        & a
+				                  \end{pmatrix}
+			      \end{aligned}
+		      \]
+	\end{enumerate}
 \end{eg}
 
 See that we can derive a category of \( R \)-Algebras, with objects being the \( R \)-algebras and the morphisms are given by the ring homomorphism that makes the following diagram commutative:
 \[
-  \begin{tikzcd}
-    R \arrow[r] \arrow[dr] & S_1 \arrow[d, "u_1"] \\ 
-                          & S_2 
-  \end{tikzcd}
-\] 
+	\begin{tikzcd}
+		R \arrow[r] \arrow[dr] & S_1 \arrow[d, "u_1"] \\
+		& S_2
+	\end{tikzcd}
+\]
 such category is w.r.t. the usual function composition.

@@ -3,149 +3,149 @@
 It will be better to think fields and integral domain as very special ring, as they are already endowed with relatively complex structure, thus they are more closer to our intuition sometimes, and easier to construct examples from \( \ZZ, \QQ, \RR \).
 
 \begin{definition}[\textbf{Invertible}]
-  Fix a ring \( R \), \( a\in R \) is \underline{invertible} if there exists \( b \in R \), s.t. \( ab = 1_R = ba \). 
+	Fix a ring \( R \), \( a\in R \) is \underline{invertible} if there exists \( b \in R \), s.t. \( ab = 1_R = ba \).
 
-  \( b \) is the inverse of \( a \) and denoted as \( a^{-1} \).
+	\( b \) is the inverse of \( a \) and denoted as \( a^{-1} \).
 \end{definition}
 
 \begin{definition}[\textbf{Field}]
-  A ring \( R \) is a field if;
-  \begin{enumerate}
-    \item \( R \) is commutative.
-    \item \( 1_R \ne 0_R \), namely it is not a \( 0 \) ring.
-    \item Every \( a \in R \backslash \{0\} \) is invertible.
-  \end{enumerate}
+	A ring \( R \) is a field if;
+	\begin{enumerate}
+		\item \( R \) is commutative.
+		\item \( 1_R \ne 0_R \), namely it is not a \( 0 \) ring.
+		\item Every \( a \in R \backslash \{0\} \) is invertible.
+	\end{enumerate}
 \end{definition}
 
 \begin{eg}
-  \( \QQ, \RR, \CC \) are fields, \( \ZZ \) is not a field.
+	\( \QQ, \RR, \CC \) are fields, \( \ZZ \) is not a field.
 \end{eg}
 
 \begin{definition}[\textbf{Zero-Divisor}]
-  If \( R \) is a commutative ring, \( a\in R \) is a \underline{zero-divisor} if \( \exists \; b \ne 0 \) in \( R \), s.t. \( ab = 0 \). Otherwise, we say \( a \) is a non-zero-divisor.
+	If \( R \) is a commutative ring, \( a\in R \) is a \underline{zero-divisor} if \( \exists \; b \ne 0 \) in \( R \), s.t. \( ab = 0 \). Otherwise, we say \( a \) is a non-zero-divisor.
 \end{definition}
 
 \begin{definition}[\textbf{Integral Domain}]
-  A ring \( R \) is an \underline{integral domain} or simply a \underline{domain} if:
-  \begin{enumerate}
-    \item \( R \) is commutative.
-    \item \( 1_R \ne 0_R \).
-    \item Every \( a \ne 0 \) is a non-zero-divisor. Or it is equivalent to say:
-      \[
-        \forall \; a,b\in R, \; ab=0 \implies a = 0 \text{ or } b = 0 
-      \] 
-  \end{enumerate}
+	A ring \( R \) is an \underline{integral domain} or simply a \underline{domain} if:
+	\begin{enumerate}
+		\item \( R \) is commutative.
+		\item \( 1_R \ne 0_R \).
+		\item Every \( a \ne 0 \) is a non-zero-divisor. Or it is equivalent to say:
+		      \[
+			      \forall \; a,b\in R, \; ab=0 \implies a = 0 \text{ or } b = 0
+		      \]
+	\end{enumerate}
 \end{definition}
 
 \begin{remark}
-  If \( R \) is a domain, then we have \textbf{cancellation rule w.r.t. multiplication}. Namely if \( ab = bc \), \( a.b.c \in R, \; a\ne 0 \implies b = c \).
+	If \( R \) is a domain, then we have \textbf{cancellation rule w.r.t. multiplication}. Namely if \( ab = bc \), \( a.b.c \in R, \; a\ne 0 \implies b = c \).
 \end{remark}
 
 \begin{proof}
-  \( a(b-c) = 0 \implies b-c=0 \).
+	\( a(b-c) = 0 \implies b-c=0 \).
 \end{proof}
 
 \begin{eg}
-  If \( n>0 \), then \( \qo{\ZZ}{n\ZZ} \) is a domain if and only if \( n \) is \textbf{prime number}.
+	If \( n>0 \), then \( \qo{\ZZ}{n\ZZ} \) is a domain if and only if \( n \) is \textbf{prime number}.
 \end{eg}
 
 \begin{proof}
-  Suppose \( \overline{a}, \overline{b} \in \qo{\ZZ}{n\ZZ} \), with \( \overline{a}, \overline{b} \ne 0 \iff a \nmid a, n \nmid b \), and \( \overline{a} \overline{b} = 0 \iff n \mid ab \). Now if \( n \) is prime number, then \( n\nmid a, n\nmid b \implies n\nmid ab \), hence \( \qo{\ZZ}{n\ZZ} \) is a domain. 
+	Suppose \( \overline{a}, \overline{b} \in \qo{\ZZ}{n\ZZ} \), with \( \overline{a}, \overline{b} \ne 0 \iff a \nmid a, n \nmid b \), and \( \overline{a} \overline{b} = 0 \iff n \mid ab \). Now if \( n \) is prime number, then \( n\nmid a, n\nmid b \implies n\nmid ab \), hence \( \qo{\ZZ}{n\ZZ} \) is a domain.
 
-  Now if \( n \) is not a prime, then \( n = n_1\cdot n_2 \) for some \( n_1, n_2 > 1 \), which means \( \overline{n_1}, \overline{n_2} \ne 0 \), but \( \overline{n_1}\cdot \overline{n_2} = 0 \) in \( \qo{\ZZ}{n\ZZ} \).
+	Now if \( n \) is not a prime, then \( n = n_1\cdot n_2 \) for some \( n_1, n_2 > 1 \), which means \( \overline{n_1}, \overline{n_2} \ne 0 \), but \( \overline{n_1}\cdot \overline{n_2} = 0 \) in \( \qo{\ZZ}{n\ZZ} \).
 \end{proof}
 
 \begin{proposition}
-  If \( \KK \) is a field, then \( \KK \) is an integral domain.
+	If \( \KK \) is a field, then \( \KK \) is an integral domain.
 \end{proposition}
 
 \begin{proof}
-  \( \KK \) is commutative with \( 1_\KK \ne 0_\KK \). Suppose that \( a,b\in\KK, \; ab=0 \), \( a\ne 0 \) means that it will attain an inverse by field property, denote it as \( a^{-1} \). Thus we have:
-  \[
-    \begin{aligned}
-      b &= (a^{-1}a)b = a^{-1}(ab) = a^{-1} 0 = 0 \\ 
-      \implies b&= 0 
-    \end{aligned}
-  \] 
+	\( \KK \) is commutative with \( 1_\KK \ne 0_\KK \). Suppose that \( a,b\in\KK, \; ab=0 \), \( a\ne 0 \) means that it will attain an inverse by field property, denote it as \( a^{-1} \). Thus we have:
+	\[
+		\begin{aligned}
+			b          & = (a^{-1}a)b = a^{-1}(ab) = a^{-1} 0 = 0 \\
+			\implies b & = 0
+		\end{aligned}
+	\]
 \end{proof}
 
 \begin{proposition}
-  If \( R \) is a finite domain, then \( R \) is a field.
+	If \( R \) is a finite domain, then \( R \) is a field.
 \end{proposition}
 
 \begin{proof}
-  \( R \) being a domain means that \( R \) is commutative and \( 1_R \ne 0_R \).
+	\( R \) being a domain means that \( R \) is commutative and \( 1_R \ne 0_R \).
 
-  Now fix \( a\in R \), \( a\ne 0 \), and consider the function given by:
-  \[
-    \begin{aligned}
-      f: R &\to R \\ 
-      f(b)&= ab 
-    \end{aligned}
-  \]
+	Now fix \( a\in R \), \( a\ne 0 \), and consider the function given by:
+	\[
+		\begin{aligned}
+			f: R & \to R \\
+			f(b) & = ab
+		\end{aligned}
+	\]
 
-  By cancellation w.r.t. multiplication, since \( a \ne 0 \), this function is thus injective. But \( R \) is finite, meaning \( f \) is also surjective, and thus bijective. So there exists \( b \in R \), s.t. \( ab = 1 \implies a \) is invertible, thus being a field.
+	By cancellation w.r.t. multiplication, since \( a \ne 0 \), this function is thus injective. But \( R \) is finite, meaning \( f \) is also surjective, and thus bijective. So there exists \( b \in R \), s.t. \( ab = 1 \implies a \) is invertible, thus being a field.
 \end{proof}
 
 \begin{eg}
-  If \( n\in \ZZ_{>0} \), then \( \qo{\ZZ}{n\ZZ} \) is field if and only if \( n \) is prime.
+	If \( n\in \ZZ_{>0} \), then \( \qo{\ZZ}{n\ZZ} \) is field if and only if \( n \) is prime.
 \end{eg}
 
 \begin{remark}
-  If \( R \) is a domain, then every subring of \( R \) is a domain. In particular, every subring of a field is a domain.
+	If \( R \) is a domain, then every subring of \( R \) is a domain. In particular, every subring of a field is a domain.
 \end{remark}
 
 Our goal then now switch to focus on \( R \) being a domain implies that \( R[X] \) is also a domain, for formal power series, the proof is almost the same.
 
 \begin{definition}[\textbf{Degree of} \( \mathbf{R[X]} \)]
-  Fix \( R \) to be a commutative ring. If \( f \in R[X] \), \( f\ne 0 \), write:
-  \[
-    f = a_0 + a_1 x + \cdots + a_n x^n 
-  \] 
+	Fix \( R \) to be a commutative ring. If \( f \in R[X] \), \( f\ne 0 \), write:
+	\[
+		f = a_0 + a_1 x + \cdots + a_n x^n
+	\]
 
-  s.t. \( a_n \ne 0 \), then the \underline{degree} of \( f \) is \( \deg(f) = n \). And we follow the convention that \( \deg(0) = -\infty \).
+	s.t. \( a_n \ne 0 \), then the \underline{degree} of \( f \) is \( \deg(f) = n \). And we follow the convention that \( \deg(0) = -\infty \).
 \end{definition}
 
 \begin{remark}
-  \leavevmode 
-  \( \deg(f+g) \leq \max\{\deg(f), \deg(g)\} \)
+	\leavevmode
+	\( \deg(f+g) \leq \max\{\deg(f), \deg(g)\} \)
 \end{remark}
 
 \begin{proposition}
-  If \( R \) is a domain, and \( f,g \in R[X]\) are non-zero, we have:
-  \[
-    \deg(f\cdot g) = \deg(f) + \deg(g)
-  \] 
+	If \( R \) is a domain, and \( f,g \in R[X]\) are non-zero, we have:
+	\[
+		\deg(f\cdot g) = \deg(f) + \deg(g)
+	\]
 
-  In particular, \( f\cdot g \ne 0 \) thus being a domain by contraposition. Note that if it is not a domain, it is not generally true as one can cancel out the highest degree coeffecient by product.
+	In particular, \( f\cdot g \ne 0 \) thus being a domain by contraposition. Note that if it is not a domain, it is not generally true as one can cancel out the highest degree coeffecient by product.
 \end{proposition}
 
 \begin{proof}
-  Suppose that:
-  \[
-    \begin{aligned}
-      f &= a_0 + a_1 x + \cdots + a_m x^m \quad a_m \ne 0 \quad \deg(f) = m \\ 
-      g &= b_0 + b_1 x + \cdots + b_n x^n \quad b_n \ne 0 \quad \deg(g) = n 
-    \end{aligned}
-  \] 
+	Suppose that:
+	\[
+		\begin{aligned}
+			f & = a_0 + a_1 x + \cdots + a_m x^m \quad a_m \ne 0 \quad \deg(f) = m \\
+			g & = b_0 + b_1 x + \cdots + b_n x^n \quad b_n \ne 0 \quad \deg(g) = n
+		\end{aligned}
+	\]
 
-  then:
-  \[
-    \begin{aligned}
-      fg &= \sum_{k\geq 0} \bace{\sum_{i+j=l} a_i b_j} x^k \\ 
-         &= \underbrace{a_m b_n}_{\ne 0} x^{m+n} + \text{ lower degree monomials}
-    \end{aligned}
-  \] 
+	then:
+	\[
+		\begin{aligned}
+			fg & = \sum_{k\geq 0} \bace{\sum_{i+j=l} a_i b_j} x^k                        \\
+			   & = \underbrace{a_m b_n}_{\ne 0} x^{m+n} + \text{ lower degree monomials}
+		\end{aligned}
+	\]
 
-  Since \( R \) is a domain, then \( a_m b_n \ne 0 \implies \deg(f\cdot g) = m+n \).
+	Since \( R \) is a domain, then \( a_m b_n \ne 0 \implies \deg(f\cdot g) = m+n \).
 \end{proof}
 
 \begin{corollary}
-  If \( n\geq 1 \), then \( R \) is a domain if and only if \( R[X_1, \ldots, X_n] \) is a domain.
+	If \( n\geq 1 \), then \( R \) is a domain if and only if \( R[X_1, \ldots, X_n] \) is a domain.
 \end{corollary}
 
 \begin{proof}
-  Arguing by induction on \( n \), and it is enough to treat \( n = 1 \). \( R \) being a domain implies that \( R[X] \) also be a domain. And if \( R[X] \) being a domain, we have a injective ring homomorphism \( R \hookrightarrow R[X] \), thus it is a subring of a domain, thus be a domain.
+	Arguing by induction on \( n \), and it is enough to treat \( n = 1 \). \( R \) being a domain implies that \( R[X] \) also be a domain. And if \( R[X] \) being a domain, we have a injective ring homomorphism \( R \hookrightarrow R[X] \), thus it is a subring of a domain, thus be a domain.
 \end{proof}
 
 
@@ -154,74 +154,74 @@ Our goal then now switch to focus on \( R \) being a domain implies that \( R[X]
 In this section, we want to construt the ring fraction. Our goal is to show that starting with a domain, we want to have fraction field. More generally, we don't require \( R \) to be a domain, and start with arbitrary ``set of denominators'', just like from \( \ZZ \) to get \( \QQ \).
 
 \begin{definition}[\textbf{Multiplicative System}]
-  Fix \( R \) be commutative ring, \( S\subseteq R \) be a \underline{multiplicative system} if:
-  \begin{enumerate}
-    \item \( 1\in S \).
-    \item If \( s_1, s_2 \in S \implies s_1\cdot s_2 \in S\).
-  \end{enumerate}
+	Fix \( R \) be commutative ring, \( S\subseteq R \) be a \underline{multiplicative system} if:
+	\begin{enumerate}
+		\item \( 1\in S \).
+		\item If \( s_1, s_2 \in S \implies s_1\cdot s_2 \in S\).
+	\end{enumerate}
 \end{definition}
 
 We can make an attempt to construct ring fraction:
 
 Consider pairs \( (a,s) \) where \( a\in R, s\in S \), up to equivalence relation, we want to see:
 \[
-  \begin{aligned}
-    (a_1, s_1) \sim (a_2, s_2) &\iff s_2 a_1 = s_1 a_2 \\ 
-    \text{denoted as} \qquad \frac{a_1}{s_1} &= \frac{a_2}{s_2}
-  \end{aligned}
-\] 
+	\begin{aligned}
+		(a_1, s_1) \sim (a_2, s_2)               & \iff s_2 a_1 = s_1 a_2 \\
+		\text{denoted as} \qquad \frac{a_1}{s_1} & = \frac{a_2}{s_2}
+	\end{aligned}
+\]
 
-The issue is that in general this is not an equivalence relation, as it will fail \textbf{transitivity}: Let 
+The issue is that in general this is not an equivalence relation, as it will fail \textbf{transitivity}: Let
 \[
-  \begin{aligned}
-    (a,s) \sim (a',s') &\quad (a',s') \sim (a'', s'') \\ 
-    \iff s'a = sa' &\quad s''a' = s' a''
-  \end{aligned}
-\] 
+	\begin{aligned}
+		(a,s) \sim (a',s') & \quad (a',s') \sim (a'', s'') \\
+		\iff s'a = sa'     & \quad s''a' = s' a''
+	\end{aligned}
+\]
 
 We want to see that \( (a,s)\sim (a'', s'') \iff s'' a = s a'' \). And see that:
 \[
-  \textcolor{blue}{s's''a} = s''sa' = ss'a'' = \textcolor{red}{s'sa''}
+	\textcolor{blue}{s's''a} = s''sa' = ss'a'' = \textcolor{red}{s'sa''}
 \]
 
 And it is not clear that the \textcolor{blue}{blue} one is equal to the \textcolor{red}{red} one by definition. Thus we make some modification to the definition.
 
 \begin{definition}
-  Let \( R \) be a commutative ring and \( S\subseteq R \) be a multiplication system. Consider pairs \( a,s \) where \( a\in R. s\in S \), write \( (a,s) \sim (a',s') \) if there exists \( t\in S \), s.t. \( t(s'a - sa') = 0 \).
+	Let \( R \) be a commutative ring and \( S\subseteq R \) be a multiplication system. Consider pairs \( a,s \) where \( a\in R. s\in S \), write \( (a,s) \sim (a',s') \) if there exists \( t\in S \), s.t. \( t(s'a - sa') = 0 \).
 
-  Note that \( 0 \) is not necessarily in \( S \).
+	Note that \( 0 \) is not necessarily in \( S \).
 \end{definition}
 
 \begin{claim}
-  Above definition is a \textbf{equiavlence relation}.
+	Above definition is a \textbf{equiavlence relation}.
 \end{claim}
 
 \begin{notation}
-  Write \( \frac{a}{s} \) denote the equivalence class of \( (a,s) \).
+	Write \( \frac{a}{s} \) denote the equivalence class of \( (a,s) \).
 \end{notation}
 
 \begin{proof}[\textbf{Proof of Claim}]
-  \leavevmode 
-  \begin{itemize}
-    \item Reflexive and symmetric is straightforward.
-    \item Consider Transitivity:
-    \[
-      \begin{aligned}
-        (a,s) \sim (a',s') &\quad (a',s') \sim (a'', s'') \\ 
-        \implies t_1(s'a-sa') = 0 &\quad t_2(s''a' - s'a'') = 0 \quad \text{for some } t_1, t_2 \in S 
-      \end{aligned}
-    \] 
+	\leavevmode
+	\begin{itemize}
+		\item Reflexive and symmetric is straightforward.
+		\item Consider Transitivity:
+		      \[
+			      \begin{aligned}
+				      (a,s) \sim (a',s')        & \quad (a',s') \sim (a'', s'')                                      \\
+				      \implies t_1(s'a-sa') = 0 & \quad t_2(s''a' - s'a'') = 0 \quad \text{for some } t_1, t_2 \in S
+			      \end{aligned}
+		      \]
 
-    We now interest in:
-    \[
-      \begin{aligned}
-        \textcolor{red}{t_1 t_2 s'}(s''a - sa'') &= t_2 s'' \underbrace{t_1(s'a-sa')}_{=0} + \underbrace{t_2t_1s''sa'-t_1t_2s'sa''}_{=t_1s \underbrace{t_2(s''a'-s'a'')}_{=0}} \\ 
-         &= 0 \\ 
-        \implies (a,s) &\sim (a'', s'')
-      \end{aligned}
-    \] 
+		      We now interest in:
+		      \[
+			      \begin{aligned}
+				      \textcolor{red}{t_1 t_2 s'}(s''a - sa'') & = t_2 s'' \underbrace{t_1(s'a-sa')}_{=0} + \underbrace{t_2t_1s''sa'-t_1t_2s'sa''}_{=t_1s \underbrace{t_2(s''a'-s'a'')}_{=0}} \\
+				                                               & = 0                                                                                                                          \\
+				      \implies (a,s)                           & \sim (a'', s'')
+			      \end{aligned}
+		      \]
 
-    note that \( \textcolor{red}{t_1t_2 s'} \in S \) since \( s', t_1, t_2 \in S \) and \( S \) being a multiplication system.
-  \end{itemize}
+		      note that \( \textcolor{red}{t_1t_2 s'} \in S \) since \( s', t_1, t_2 \in S \) and \( S \) being a multiplication system.
+	\end{itemize}
 \end{proof}
 

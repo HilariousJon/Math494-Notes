@@ -1,198 +1,198 @@
 And thus we denote:
 \[
-  S^{-1}R \coloneqq  \{(a,s) \; | \; a\in R, \; s \in S \}
-\] 
+	S^{-1}R \coloneqq  \{(a,s) \; | \; a\in R, \; s \in S \}
+\]
 
 We want to then define the \( (+) \) and \( (\cdot) \) operations on it to make it a ring.
 
 Define:
 \[
-  \begin{aligned}
-    \frac{a_1}{s_1} + \frac{a_2}{s_2} &\coloneqq  \frac{s_2 a_1 + s_1 a_2}{s_1 s_1} \\ 
-    \frac{a_1}{s_1} \cdot \frac{a_2}{s_2} &\coloneqq \frac{a_1 a_2}{s_1 s_2}
-  \end{aligned}
-\] 
+	\begin{aligned}
+		\frac{a_1}{s_1} + \frac{a_2}{s_2}     & \coloneqq  \frac{s_2 a_1 + s_1 a_2}{s_1 s_1} \\
+		\frac{a_1}{s_1} \cdot \frac{a_2}{s_2} & \coloneqq \frac{a_1 a_2}{s_1 s_2}
+	\end{aligned}
+\]
 
 See that it is well-defined: suppose \( \frac{a_1}{s_1} = \frac{b_1}{t_1} \) and \( \frac{a_2}{t_2} = \frac{b_2}{t_2} \), we want:
 \begin{equation}
-  \label{eq:1}
-  \frac{s_2 a_1 + s_1 a_2}{s_1 s_2} = \frac{t_2b_1 + t_1 b_2}{t_1 t_2}
+	\label{eq:1}
+	\frac{s_2 a_1 + s_1 a_2}{s_1 s_2} = \frac{t_2b_1 + t_1 b_2}{t_1 t_2}
 \end{equation}
 
 \begin{equation}
-  \label{eq:2}
-  \frac{a_1 a_2 }{s_1 s_2} = \frac{b_1 b_2}{t_1 t_2}
+	\label{eq:2}
+	\frac{a_1 a_2 }{s_1 s_2} = \frac{b_1 b_2}{t_1 t_2}
 \end{equation}
 
 \begin{proof}[\textbf{Proof of Equation \ref{eq:1}}]
-  By our hypothesis, there exists \( u,v \in S \), s.t.:
-  \[
-    \begin{aligned}
-      u(t_1 a_1 - s_1 b_1) &= 0 \\ 
-      v(t_2a_2 - s_2 b_2) &= 0 
-    \end{aligned}
-  \] 
+	By our hypothesis, there exists \( u,v \in S \), s.t.:
+	\[
+		\begin{aligned}
+			u(t_1 a_1 - s_1 b_1) & = 0 \\
+			v(t_2a_2 - s_2 b_2)  & = 0
+		\end{aligned}
+	\]
 
-  Consider:
-  \[
-    t_1 t_2 (s_2 a_1 + s_1 a_2) - s_1 s_2(t_2b_1 + t_1 b_2) = t_2 s_2 (t_1 a_1 - s_1b_1) + t_1s_1(t_2a_2 - s_2 b_2) 
-  \] 
+	Consider:
+	\[
+		t_1 t_2 (s_2 a_1 + s_1 a_2) - s_1 s_2(t_2b_1 + t_1 b_2) = t_2 s_2 (t_1 a_1 - s_1b_1) + t_1s_1(t_2a_2 - s_2 b_2)
+	\]
 
-  If we multiply with \( uv\in S \), we get \( 0 \), which shows that they are in the same equivalence class thus equal.
+	If we multiply with \( uv\in S \), we get \( 0 \), which shows that they are in the same equivalence class thus equal.
 \end{proof}
 
 \begin{proof}[\textbf{Proof of Equation \ref{eq:2}}]
-  Similarly:
-  \[
-    t_1 t_2 a_1 a_2 - s_1s_2 b_1 b_2 = t_2a_2 (t_1 a_1 - s_1 b_1) + s_1 b_1 (t_2a_2 - s_2 b_2) 
-  \] 
+	Similarly:
+	\[
+		t_1 t_2 a_1 a_2 - s_1s_2 b_1 b_2 = t_2a_2 (t_1 a_1 - s_1 b_1) + s_1 b_1 (t_2a_2 - s_2 b_2)
+	\]
 
-  Multiply \( uv\in S \), we get \( 0 \).
+	Multiply \( uv\in S \), we get \( 0 \).
 \end{proof}
 
 \begin{proposition}
-  With \( (+) \) and \( (\cdot) \), \( S^{-1}R \) is a \textbf{commutative ring}. This is the \underline{ring of fraction} of ``\( R \) with \underline{denominator} in \( S \)'' or the ``\underline{localization of \( R \) w.r.t. \( S \)}''.
+	With \( (+) \) and \( (\cdot) \), \( S^{-1}R \) is a \textbf{commutative ring}. This is the \underline{ring of fraction} of ``\( R \) with \underline{denominator} in \( S \)'' or the ``\underline{localization of \( R \) w.r.t. \( S \)}''.
 \end{proposition}
 
 \begin{proof}[\textbf{Sketch of Proof}]
-  It's easy to see that both \( (+) \) and \( (\cdot) \) are commutative.
+	It's easy to see that both \( (+) \) and \( (\cdot) \) are commutative.
 
-  The \( 0 \) element is given by \( \frac{0}{1} \), see that:
-  \[
-    \frac{0}{1} + \frac{a}{s} = \frac{0\cdot s + 1 \cdot a}{1\cdot s} = \frac{a}{s}
-  \] 
-  
-  and the inverse of \( \frac{a}{s} \) is \( -\frac{a}{s} \).
+	The \( 0 \) element is given by \( \frac{0}{1} \), see that:
+	\[
+		\frac{0}{1} + \frac{a}{s} = \frac{0\cdot s + 1 \cdot a}{1\cdot s} = \frac{a}{s}
+	\]
 
-  The \( 1 \) element is given by \( \frac{1}{1} \).
+	and the inverse of \( \frac{a}{s} \) is \( -\frac{a}{s} \).
 
-  Associativity of \( (+) \):
-  \[
-    \begin{aligned}
-      \bace{\frac{a_1}{s_1} + \frac{a_2}{s_2}} + \frac{a_{3}}{s_3} &= \frac{s_2a_1+a_2s_1}{s_1s_2} + \frac{a_3}{s_3} \\ 
-                                                                   &= \frac{s_3s_2a_1+s_3a_2s_1+a_3s_1s_2}{s_1s_2s_3} \\ 
-                                                                   &= \frac{a_1}{s_1} + \bace{\frac{a_2}{s_2} + \frac{a_3}{s_3}} \qquad \text{by symmetry}
-    \end{aligned}
-  \] 
+	The \( 1 \) element is given by \( \frac{1}{1} \).
 
-  Associativity of \( (\cdot) \) is clear, and distributivity is similar manner.
+	Associativity of \( (+) \):
+	\[
+		\begin{aligned}
+			\bace{\frac{a_1}{s_1} + \frac{a_2}{s_2}} + \frac{a_{3}}{s_3} & = \frac{s_2a_1+a_2s_1}{s_1s_2} + \frac{a_3}{s_3}                                       \\
+			                                                             & = \frac{s_3s_2a_1+s_3a_2s_1+a_3s_1s_2}{s_1s_2s_3}                                      \\
+			                                                             & = \frac{a_1}{s_1} + \bace{\frac{a_2}{s_2} + \frac{a_3}{s_3}} \qquad \text{by symmetry}
+		\end{aligned}
+	\]
+
+	Associativity of \( (\cdot) \) is clear, and distributivity is similar manner.
 \end{proof}
 
 \begin{remark}
-  \( S^{-1}R \) has a canonical structure of \( R \)-Algebra with the following canonical ring homomoprhism:
-  \[
-    \begin{aligned}
-      \vp: R &\to S^{-1}R \\ 
-      \vp(r) &= \frac{r}{1}
-    \end{aligned}
-  \] 
+	\( S^{-1}R \) has a canonical structure of \( R \)-Algebra with the following canonical ring homomoprhism:
+	\[
+		\begin{aligned}
+			\vp: R & \to S^{-1}R   \\
+			\vp(r) & = \frac{r}{1}
+		\end{aligned}
+	\]
 
-  Note that it is not injective in general, we care whether it is injective because we want not to lose information.
+	Note that it is not injective in general, we care whether it is injective because we want not to lose information.
 \end{remark}
 
 \begin{remark}
-  \( a\in \ker(\vp) \iff \frac{a}{1} = \frac{0}{1} \iff \exists \; s\in S \), s.t. \( sa = 0 \).
+	\( a\in \ker(\vp) \iff \frac{a}{1} = \frac{0}{1} \iff \exists \; s\in S \), s.t. \( sa = 0 \).
 
-  Hence: \(\vp \) is not injective if and only if \( \exists \; s\in S \), which is a \textbf{zero divisor}.
+	Hence: \(\vp \) is not injective if and only if \( \exists \; s\in S \), which is a \textbf{zero divisor}.
 \end{remark}
 
 \begin{remark}
-  \( S^{-1}R = \{0\} \) iff \( 0\in S \), it tells us in general we don't care about the case where \( 0 \in S \).
+	\( S^{-1}R = \{0\} \) iff \( 0\in S \), it tells us in general we don't care about the case where \( 0 \in S \).
 \end{remark}
 
 \begin{eg}
-  Let \( R \) be a integral domain, and \( S = R \backslash \{0\} \), then \( \vp : R \to S^{-1} R \) is injective, see that \( S^{-1}R \) in this case is a field: it is not \( 0 \), it is commutative, and if \( \frac{a}{s} \ne 0 (\iff a\ne 0) \implies\) this has the multiplicative inverse \( \frac{s}{a} \) since:
-  \[
-    \frac{a}{s} \cdot \frac{s}{a} = \frac{as}{as} = \frac{1}{1}
-  \] 
+	Let \( R \) be a integral domain, and \( S = R \backslash \{0\} \), then \( \vp : R \to S^{-1} R \) is injective, see that \( S^{-1}R \) in this case is a field: it is not \( 0 \), it is commutative, and if \( \frac{a}{s} \ne 0 (\iff a\ne 0) \implies\) this has the multiplicative inverse \( \frac{s}{a} \) since:
+	\[
+		\frac{a}{s} \cdot \frac{s}{a} = \frac{as}{as} = \frac{1}{1}
+	\]
 
-  We then give some example on how things are constructed:
-  \begin{enumerate}
-    \item If \( R = \ZZ \rsa \QQ \).
-    \item If \( F \) be a field, and \( R = F[X_1, \ldots, X_n] \rsa \) field of rational function \( F(X_1, \ldots, X_n) \) which is quotients of polynomials.
-  \end{enumerate}
-  \begin{note}
-    In this case, by property of intergal domain and property of \( S \) that \( 0 \not\in S \), \( \frac{a_1}{s_1}=\frac{a_2}{s_2} \) if and only if \( s_2 a_1 - s_1 a_2 = 0 \).
-  \end{note}
+	We then give some example on how things are constructed:
+	\begin{enumerate}
+		\item If \( R = \ZZ \rsa \QQ \).
+		\item If \( F \) be a field, and \( R = F[X_1, \ldots, X_n] \rsa \) field of rational function \( F(X_1, \ldots, X_n) \) which is quotients of polynomials.
+	\end{enumerate}
+	\begin{note}
+		In this case, by property of intergal domain and property of \( S \) that \( 0 \not\in S \), \( \frac{a_1}{s_1}=\frac{a_2}{s_2} \) if and only if \( s_2 a_1 - s_1 a_2 = 0 \).
+	\end{note}
 \end{eg}
 
 \begin{eg}
-  Let \( f \in R \) and \( S = \{1, f, f^2, \ldots\} = \{f^n \; | \; n \in \ZZ_{>0}\}\) be a multiplicative system, then \( S^{-1} R \) is denoted by \( R_f \). There is a \textbf{universal property} of \( S^{-1} R \):
+	Let \( f \in R \) and \( S = \{1, f, f^2, \ldots\} = \{f^n \; | \; n \in \ZZ_{>0}\}\) be a multiplicative system, then \( S^{-1} R \) is denoted by \( R_f \). There is a \textbf{universal property} of \( S^{-1} R \):
 
-  Suppose \( S \subseteq R \) is a multiplicative system and \( \vp: R \to S^{-1} R \) is the canonical ring homomorphism, then:
-  \begin{enumerate}
-    \item \( \forall s\in S \), \( \vp(s) \) is invertible.
-    \item \( S^{-1} R \) is universal with the following property: if \( R \xrightarrow{\psi} T\) is commute \( R \)-Algebra, s.t. \( \psi (s) \) is invertible \( \forall \; s\in S \), then there exists a \textbf{unique} \( R \)-Algbera homomorphism \( S^{-1}R \xrightarrow{f} T \), s.t. the following diagram is commutative;
-    \[
-      \begin{tikzcd}
-      R \arrow[r, "\varphi"] \arrow[rd, "\psi"'] & S^{-1}R \arrow[d, "f", dashed] \\
-      & T
-      \end{tikzcd}
-    \]
-  \end{enumerate}
-  \begin{note}
-    Proof manner is very similar to what we do for those universal property: We first suppose that it exists, try to prove uniqueness, in such process we may be able to write out the explicit formula of such morphism, so we can then proof the well-definedness and so on to see the existence.
-  \end{note}
-  \begin{proof}
-    \leavevmode
-    \begin{itemize}
-      \item \( \vp(s) = \frac{s}{1} \) with inverse \( \frac{1}{s} \).
-      \item First uniqueness then existence:
-        \begin{itemize}
-          \item \textbf{Uniqueness}: Suppose \( f: S^{-1}R \to T \) is a morphism of \( R \)-Algebra, s.t. \( f(\frac{a}{1}) = \psi(a) \; \forall \; a\in R\). Given any \( \frac{a}{s} \in S^{-1}R \), we have \( \frac{a}{s}\cdot \frac{s}{1} = \frac{a}{1} \), see that since \( f \) is a ring homomorphism:
-            \[
-              \begin{aligned}
-                f(\frac{a}{s}) \cdot \underbrace{f(\frac{s}{1})}_{\psi(s)} &= \underbrace{f(\frac{a}{1})}_{\psi(a)} \\ 
-                \implies f(\frac{a}{s}) &= \psi(a) \psi (s)^{-1} \qquad (\psi(s) \text{ is invertible by hypothesis.})
-              \end{aligned}
-            \] 
+	Suppose \( S \subseteq R \) is a multiplicative system and \( \vp: R \to S^{-1} R \) is the canonical ring homomorphism, then:
+	\begin{enumerate}
+		\item \( \forall s\in S \), \( \vp(s) \) is invertible.
+		\item \( S^{-1} R \) is universal with the following property: if \( R \xrightarrow{\psi} T\) is commute \( R \)-Algebra, s.t. \( \psi (s) \) is invertible \( \forall \; s\in S \), then there exists a \textbf{unique} \( R \)-Algbera homomorphism \( S^{-1}R \xrightarrow{f} T \), s.t. the following diagram is commutative;
+		      \[
+			      \begin{tikzcd}
+				      R \arrow[r, "\varphi"] \arrow[rd, "\psi"'] & S^{-1}R \arrow[d, "f", dashed] \\
+				      & T
+			      \end{tikzcd}
+		      \]
+	\end{enumerate}
+	\begin{note}
+		Proof manner is very similar to what we do for those universal property: We first suppose that it exists, try to prove uniqueness, in such process we may be able to write out the explicit formula of such morphism, so we can then proof the well-definedness and so on to see the existence.
+	\end{note}
+	\begin{proof}
+		\leavevmode
+		\begin{itemize}
+			\item \( \vp(s) = \frac{s}{1} \) with inverse \( \frac{1}{s} \).
+			\item First uniqueness then existence:
+			      \begin{itemize}
+				      \item \textbf{Uniqueness}: Suppose \( f: S^{-1}R \to T \) is a morphism of \( R \)-Algebra, s.t. \( f(\frac{a}{1}) = \psi(a) \; \forall \; a\in R\). Given any \( \frac{a}{s} \in S^{-1}R \), we have \( \frac{a}{s}\cdot \frac{s}{1} = \frac{a}{1} \), see that since \( f \) is a ring homomorphism:
+				            \[
+					            \begin{aligned}
+						            f(\frac{a}{s}) \cdot \underbrace{f(\frac{s}{1})}_{\psi(s)} & = \underbrace{f(\frac{a}{1})}_{\psi(a)}                                       \\
+						            \implies f(\frac{a}{s})                                    & = \psi(a) \psi (s)^{-1} \qquad (\psi(s) \text{ is invertible by hypothesis.})
+					            \end{aligned}
+				            \]
 
-            Hence \( f \) is unique, as we have it a formula, and clearly it is unique.
+				            Hence \( f \) is unique, as we have it a formula, and clearly it is unique.
 
-          \item \textbf{Existence}: Define \( f: S^{-1} R \to T \) by \( f(\frac{a}{s}) = \psi(a) \psi(s)^{-1} \), need to check the following:
-            \begin{enumerate}
-              \item \( f \) is well-defined: Suppose \( \frac{a}{s} = \frac{b}{t} \) then there exists \( u\in S \), s.t. \( u(ta-sb) = 0 \). Apply \( \psi \) to both sides we get:
-                \[
-                  \psi(u) \bace{\psi(t)\psi(a) - \psi(s) \psi(b)} = 0 
-                \] 
+				      \item \textbf{Existence}: Define \( f: S^{-1} R \to T \) by \( f(\frac{a}{s}) = \psi(a) \psi(s)^{-1} \), need to check the following:
+				            \begin{enumerate}
+					            \item \( f \) is well-defined: Suppose \( \frac{a}{s} = \frac{b}{t} \) then there exists \( u\in S \), s.t. \( u(ta-sb) = 0 \). Apply \( \psi \) to both sides we get:
+					                  \[
+						                  \psi(u) \bace{\psi(t)\psi(a) - \psi(s) \psi(b)} = 0
+					                  \]
 
-                Multiply by \( \psi(u)^{-1} \psi(s)^{-1} \psi(t)^{-1}\) on both sides:
-                \[
-                  \psi(a)\psi(s)^{-1} - \psi(b)\psi(t)^{-1} = 0 
-                \] 
+					                  Multiply by \( \psi(u)^{-1} \psi(s)^{-1} \psi(t)^{-1}\) on both sides:
+					                  \[
+						                  \psi(a)\psi(s)^{-1} - \psi(b)\psi(t)^{-1} = 0
+					                  \]
 
-                Thus definition is unique.
+					                  Thus definition is unique.
 
-              \item \( f\circ \vp = \psi \): \( f(\frac{a}{1}) = \psi(a)\psi(1)^{-1} = \psi(a) \).
-              \item \( f \) is a ring homomorphism:
-                \[
-                  \begin{aligned}
-                    f(\frac{a}{s} + \frac{b}{t}) &= f(\frac{ta+sb}{st}) \\ 
-                                                 &= \psi(ta+sb) \psi(st)^{-1} \\ 
-                                                 &= \bace{\psi (t)\psi (a) + \psi (s)\psi (b)} \psi (s)^{-1} \psi (t)^{-1} \\ 
-                                                 &= \psi (a) \psi (s)^{-1} + \psi (b)\psi (t)^{-1} \\ 
-                                                 &= f(\frac{a}{s}) + f(\frac{b}{t})
-                  \end{aligned}
-                \] 
+					            \item \( f\circ \vp = \psi \): \( f(\frac{a}{1}) = \psi(a)\psi(1)^{-1} = \psi(a) \).
+					            \item \( f \) is a ring homomorphism:
+					                  \[
+						                  \begin{aligned}
+							                  f(\frac{a}{s} + \frac{b}{t}) & = f(\frac{ta+sb}{st})                                                    \\
+							                                               & = \psi(ta+sb) \psi(st)^{-1}                                              \\
+							                                               & = \bace{\psi (t)\psi (a) + \psi (s)\psi (b)} \psi (s)^{-1} \psi (t)^{-1} \\
+							                                               & = \psi (a) \psi (s)^{-1} + \psi (b)\psi (t)^{-1}                         \\
+							                                               & = f(\frac{a}{s}) + f(\frac{b}{t})
+						                  \end{aligned}
+					                  \]
 
-                and 
-                \[
-                  \begin{aligned}
-                    f(\frac{a}{s} \frac{b}{t}) &= f(\frac{ab}{st}) \\ 
-                                               &= \psi (ab) \psi (st)^{-1} \\ 
-                                               &= \psi (a) \psi (s)^{-1} \psi (b) \psi (t)^{-1} \\ 
-                                               &= f(\frac{a}{s}) \cdot f(\frac{b}{t})
-                  \end{aligned}
-                \] 
+					                  and
+					                  \[
+						                  \begin{aligned}
+							                  f(\frac{a}{s} \frac{b}{t}) & = f(\frac{ab}{st})                              \\
+							                                             & = \psi (ab) \psi (st)^{-1}                      \\
+							                                             & = \psi (a) \psi (s)^{-1} \psi (b) \psi (t)^{-1} \\
+							                                             & = f(\frac{a}{s}) \cdot f(\frac{b}{t})
+						                  \end{aligned}
+					                  \]
 
-                and 
-                \[
-                  f(1) = 1
-                \] 
-            \end{enumerate}
-        \end{itemize}
-    \end{itemize}
-  \end{proof}
+					                  and
+					                  \[
+						                  f(1) = 1
+					                  \]
+				            \end{enumerate}
+			      \end{itemize}
+		\end{itemize}
+	\end{proof}
 \end{eg}
 
 \section{Prime Ideals and Maximal Ideals}
@@ -202,33 +202,33 @@ In this section we shall discuss prime ideals and maximal ideals \todo{leave som
 \subsection{Prime Ideals}
 
 \begin{definition}[\textbf{Prime Ideal}]
-  Let \( R \) be a commutative ring, an ideal \( P \subseteq R \) is a \underline{prime ideal} if:
-  \begin{enumerate}
-    \item \( P \ne R \).
-    \item If \( x,y\in R \) are s.t. \( xy \in P \implies x\in P \) or \( y\in P \).
-  \end{enumerate}
+	Let \( R \) be a commutative ring, an ideal \( P \subseteq R \) is a \underline{prime ideal} if:
+	\begin{enumerate}
+		\item \( P \ne R \).
+		\item If \( x,y\in R \) are s.t. \( xy \in P \implies x\in P \) or \( y\in P \).
+	\end{enumerate}
 \end{definition}
 
 \begin{parenthesis}
-  If \( P \) is a prime ideal, then \( S = R - P \) is a \textbf{multiplicative system}, in this case \( S^{-1}R \) is denoted as \( R_p \), which is called \underline{local ring}.
+	If \( P \) is a prime ideal, then \( S = R - P \) is a \textbf{multiplicative system}, in this case \( S^{-1}R \) is denoted as \( R_p \), which is called \underline{local ring}.
 \end{parenthesis}
 
 \begin{proposition}
-  \label{prop:domain-qo-prime}
-  An ideal \( P \subseteq R \) is prime ideal if and only if \( \qo{R}{P} \) is an integral domain.
+	\label{prop:domain-qo-prime}
+	An ideal \( P \subseteq R \) is prime ideal if and only if \( \qo{R}{P} \) is an integral domain.
 \end{proposition}
 
 \begin{proof}
-  See that \( \qo{R}{P} \) is always commutative. \( \qo{R}{P} \ne \{0\} \iff P \ne R\).
+	See that \( \qo{R}{P} \) is always commutative. \( \qo{R}{P} \ne \{0\} \iff P \ne R\).
 
-  (Let \( \overline{x},\overline{y} \ne 0 \in \qo{R}{P} \implies \overline{x}\cdot \overline{y} \ne 0 \)) \( \iff \) ( \( \forall \; x,y \in R, \; x,y\not\in P \implies xy \not\in P \) ), which, LHS is definition of integral domain, and RHS is deifnition of prime ideal.
+	(Let \( \overline{x},\overline{y} \ne 0 \in \qo{R}{P} \implies \overline{x}\cdot \overline{y} \ne 0 \)) \( \iff \) ( \( \forall \; x,y \in R, \; x,y\not\in P \implies xy \not\in P \) ), which, LHS is definition of integral domain, and RHS is deifnition of prime ideal.
 \end{proof}
 
 \begin{eg}
-  If \( R = \ZZ \), then 
-  \begin{enumerate}
-    \item \( \{0\} \) is a prime ideal (\( \ZZ \) is an intergal domain).
-    \item If \( n \in \ZZ_{>0} \), then \( (n) \) is a prime ideal if and only if \( \qo{\ZZ}{n\ZZ} \) is an integral domain if and only if \( n \) is prime number. Namely \( n\ZZ \) is prime ideal if and only if \( n \) is prime number.
-  \end{enumerate}
+	If \( R = \ZZ \), then
+	\begin{enumerate}
+		\item \( \{0\} \) is a prime ideal (\( \ZZ \) is an intergal domain).
+		\item If \( n \in \ZZ_{>0} \), then \( (n) \) is a prime ideal if and only if \( \qo{\ZZ}{n\ZZ} \) is an integral domain if and only if \( n \) is prime number. Namely \( n\ZZ \) is prime ideal if and only if \( n \) is prime number.
+	\end{enumerate}
 \end{eg}
 

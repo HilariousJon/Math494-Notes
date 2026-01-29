@@ -5,184 +5,184 @@ We've learnt about group theories which represents the symmetry for objects, whi
 \section{Ring and Ring Homomorphism}
 
 \begin{definition}[\textbf{Ring}]
-A \underline{Ring} is a tuple \( (R,+,\cdot) \) being a set \( R \) endowed with \( 2 \) binary operations \( (+) \) and \( (\cdot) \), s.t.:
-  \begin{enumerate}
-    \item \( (R, +) \) is an \textbf{abelian} group, with identity element \( 0_R \) or \( 0 \).
-    \item \( (\cdot) \) is associative, and has an identity element \( 1_R \) or \( 1 \) (any element multiply with it will be itself).
-    \item It satisfy distributivity:
-      \begin{itemize}
-        \item \( a \cdot (b+c) = (a\cdot b)+(a\cdot c), \; \forall \; a,b,c \in R\).
-        \item \( (b+c)\cdot a = (b\cdot a) + (c\cdot a), \; \forall \; a,b,c \in R \).
-      \end{itemize}
-  \end{enumerate}
+	A \underline{Ring} is a tuple \( (R,+,\cdot) \) being a set \( R \) endowed with \( 2 \) binary operations \( (+) \) and \( (\cdot) \), s.t.:
+	\begin{enumerate}
+		\item \( (R, +) \) is an \textbf{abelian} group, with identity element \( 0_R \) or \( 0 \).
+		\item \( (\cdot) \) is associative, and has an identity element \( 1_R \) or \( 1 \) (any element multiply with it will be itself).
+		\item It satisfy distributivity:
+		      \begin{itemize}
+			      \item \( a \cdot (b+c) = (a\cdot b)+(a\cdot c), \; \forall \; a,b,c \in R\).
+			      \item \( (b+c)\cdot a = (b\cdot a) + (c\cdot a), \; \forall \; a,b,c \in R \).
+		      \end{itemize}
+	\end{enumerate}
 \end{definition}
 
 \begin{notation}
-  \leavevmode 
-  \begin{enumerate}
-    \item Usually write \( ab \) for \( a\cdot b \).
-    \item If we don't use parentheses, the order of operations is First \( (\cdot) \) then \( (+) \).
-    \item If \( (+), (\cdot) \) are understood, simply denote the ring by \( R \).
-    \item Write \( na \) for \( a\in R \) and \( n \in \ZZ \) for addition for multiple times.
-    \item Write \( a^n \) for \( a\in R \) and \( n\in \ZZ_{\geq 0} \) for multiplication for multiple times.
-  \end{enumerate}
+	\leavevmode
+	\begin{enumerate}
+		\item Usually write \( ab \) for \( a\cdot b \).
+		\item If we don't use parentheses, the order of operations is First \( (\cdot) \) then \( (+) \).
+		\item If \( (+), (\cdot) \) are understood, simply denote the ring by \( R \).
+		\item Write \( na \) for \( a\in R \) and \( n \in \ZZ \) for addition for multiple times.
+		\item Write \( a^n \) for \( a\in R \) and \( n\in \ZZ_{\geq 0} \) for multiplication for multiple times.
+	\end{enumerate}
 \end{notation}
 
 \begin{remark}
-  \leavevmode
-  \begin{enumerate}
-    \item As always, with identity elements \( 0_R, 1_R \) are unique.
-    \item For every \( a\in R \), we have a unique inverse w.r.t \( (+) \), denoted by \( -a \).
-    \item In general, don't require \( xy=yx \; \forall \; x,y \in R \), if this is the case, then \( R \) is a \underline{commutative ring}.
-    \item Sometimes the definition of a ring does not require existence of \( 1_R \), then when there is an identity it is called as \underline{unitary ring}.
-  \end{enumerate}
+	\leavevmode
+	\begin{enumerate}
+		\item As always, with identity elements \( 0_R, 1_R \) are unique.
+		\item For every \( a\in R \), we have a unique inverse w.r.t \( (+) \), denoted by \( -a \).
+		\item In general, don't require \( xy=yx \; \forall \; x,y \in R \), if this is the case, then \( R \) is a \underline{commutative ring}.
+		\item Sometimes the definition of a ring does not require existence of \( 1_R \), then when there is an identity it is called as \underline{unitary ring}.
+	\end{enumerate}
 \end{remark}
 
 \begin{eg}
-  \leavevmode 
-  \begin{enumerate}
-    \item \( \ZZ, \RR, \QQ, \CC \) are rings w.r.t. \( (+), (\cdot) \).
-    \item If \( n \in \ZZ_{>0} \), then \( \qo{\ZZ}{n\ZZ} \) carries two operations:
-      \[
-        \begin{aligned}
-          [a]+[b] &\coloneqq  [a+b] \\ 
-          [a]\cdot[b]&\coloneqq [ab]
-        \end{aligned}
-      \] 
+	\leavevmode
+	\begin{enumerate}
+		\item \( \ZZ, \RR, \QQ, \CC \) are rings w.r.t. \( (+), (\cdot) \).
+		\item If \( n \in \ZZ_{>0} \), then \( \qo{\ZZ}{n\ZZ} \) carries two operations:
+		      \[
+			      \begin{aligned}
+				      [a]+[b]     & \coloneqq  [a+b] \\
+				      [a]\cdot[b] & \coloneqq [ab]
+			      \end{aligned}
+		      \]
 
-      where \( [a]:=a+n\ZZ \), this is well-defined since operations holds regardless of the choice of representatives This is a ring with \( 0_{\qo{\ZZ}{n\ZZ}} = [0] \) and \( 1_{\qo{\ZZ}{n\ZZ}} = [1] \).
-    \item Let \( R \) be any ring, then:
-      \[
-        M_{n}(R) \coloneqq  \{A = (a_{ij})_{1\leq i,j\leq n} \; | \; a_{ij} \in R \; \forall \; i,j\}
-      \] 
+		      where \( [a]:=a+n\ZZ \), this is well-defined since operations holds regardless of the choice of representatives This is a ring with \( 0_{\qo{\ZZ}{n\ZZ}} = [0] \) and \( 1_{\qo{\ZZ}{n\ZZ}} = [1] \).
+		\item Let \( R \) be any ring, then:
+		      \[
+			      M_{n}(R) \coloneqq  \{A = (a_{ij})_{1\leq i,j\leq n} \; | \; a_{ij} \in R \; \forall \; i,j\}
+		      \]
 
-      with ``usual'' addition and mult. for matrices:
-      \[
-        \begin{aligned}
-          (a_{ij}) + (b_{ij}) &\coloneqq  (a_{ij}+ b_{ij}) \\ 
-          (a_{ij})\cdot (b_{ij}) & \coloneqq  (c_{ij}) \rsa c_{ij} = \sum_{k=1}^n a_{ik} b_{kj}
-        \end{aligned}
-      \] 
+		      with ``usual'' addition and mult. for matrices:
+		      \[
+			      \begin{aligned}
+				      (a_{ij}) + (b_{ij})    & \coloneqq  (a_{ij}+ b_{ij})                                  \\
+				      (a_{ij})\cdot (b_{ij}) & \coloneqq  (c_{ij}) \rsa c_{ij} = \sum_{k=1}^n a_{ik} b_{kj}
+			      \end{aligned}
+		      \]
 
-      then \( (M_n(R), +, \cdot) \) is a ring with w.r.t. \( 1_{M_{n}(R)} = \begin{pmatrix}
-        1_R & & 0_R \\ 
-            & \ddots & \\ 
-        0_R & & 1_R 
-      \end{pmatrix} \).
+		      then \( (M_n(R), +, \cdot) \) is a ring with w.r.t. \( 1_{M_{n}(R)} = \begin{pmatrix}
+			      1_R &        & 0_R \\
+			          & \ddots &     \\
+			      0_R &        & 1_R
+		      \end{pmatrix} \).
 
-      \begin{note}
-        If \( n\geq 2 \), even if \( R \) is commutative, \( M_n(R) \) is not commutative in general.
-      \end{note}
+		      \begin{note}
+			      If \( n\geq 2 \), even if \( R \) is commutative, \( M_n(R) \) is not commutative in general.
+		      \end{note}
 
-    \item Given a family \( (R_i)_{i\in I} \) of rings, where \( I \) may not be finite, define the following by \textbf{Cartesian Prod.}:
-      \[
-        \prod_{i\in I} R_i \coloneqq  \{(a_i)_{i\in I} \; | \; a_{i} \in R_i \; \forall \; i\}
-      \] 
+		\item Given a family \( (R_i)_{i\in I} \) of rings, where \( I \) may not be finite, define the following by \textbf{Cartesian Prod.}:
+		      \[
+			      \prod_{i\in I} R_i \coloneqq  \{(a_i)_{i\in I} \; | \; a_{i} \in R_i \; \forall \; i\}
+		      \]
 
-      define the operations \textbf{componentwise}:
-      \[
-        \begin{aligned}
-          (a_i)_{i\in I} + (b_i)_{i\in I} &\coloneqq (a_i + b_i)_{i\in I} \\ 
-          (a_i)_{i\in I} \cdot (b_i)_{i\in I} &\coloneqq  (a_i \cdot b_i)_{i\in I}
-        \end{aligned}
-      \] 
+		      define the operations \textbf{componentwise}:
+		      \[
+			      \begin{aligned}
+				      (a_i)_{i\in I} + (b_i)_{i\in I}     & \coloneqq (a_i + b_i)_{i\in I}      \\
+				      (a_i)_{i\in I} \cdot (b_i)_{i\in I} & \coloneqq  (a_i \cdot b_i)_{i\in I}
+			      \end{aligned}
+		      \]
 
-      with \( 0 = (0_{R_i})_{i\in I} \) and \( 1 = (1_{R_i})_{i\in I} \). If \( I = [n] \), simly write: \( R_1 \times \cdots \times R_n \).
-  \end{enumerate}
+		      with \( 0 = (0_{R_i})_{i\in I} \) and \( 1 = (1_{R_i})_{i\in I} \). If \( I = [n] \), simly write: \( R_1 \times \cdots \times R_n \).
+	\end{enumerate}
 \end{eg}
 
 \begin{proposition}
-  If \( R \) is a ring and \( a,b\in R \), then:
-  \begin{enumerate}
-    \item \( a\cdot 0_R = 0_R = 0_R \cdot a\).
-    \item \( -(ab) = (-a)\cdot b = a\cdot (-b) \).
-  \end{enumerate}
+	If \( R \) is a ring and \( a,b\in R \), then:
+	\begin{enumerate}
+		\item \( a\cdot 0_R = 0_R = 0_R \cdot a\).
+		\item \( -(ab) = (-a)\cdot b = a\cdot (-b) \).
+	\end{enumerate}
 
-  The proof follows quickly from distributivity and the fact that \( (R,+) \) is an abelian group.
-  \begin{note}
-    If \( R \) is a set with \( 1 \) element \(\star \), then we can make it into a ring in a unique way, namely:
-    \[
-      0_R = 1_R = \star 
-    \] 
+	The proof follows quickly from distributivity and the fact that \( (R,+) \) is an abelian group.
+	\begin{note}
+		If \( R \) is a set with \( 1 \) element \(\star \), then we can make it into a ring in a unique way, namely:
+		\[
+			0_R = 1_R = \star
+		\]
 
-    If \( R \) is a ring, then the following are equiv.:
-    \begin{enumerate}
-      \item \( \# R = 1 \). 
-      \item \( R = \{0_R\} \).
-      \item \( 1_R = 0_R \).
-    \end{enumerate}
+		If \( R \) is a ring, then the following are equiv.:
+		\begin{enumerate}
+			\item \( \# R = 1 \).
+			\item \( R = \{0_R\} \).
+			\item \( 1_R = 0_R \).
+		\end{enumerate}
 
-    proof is also trivial.
-  \end{note}
+		proof is also trivial.
+	\end{note}
 \end{proposition}
 
 \begin{definition}[\textbf{Ring Homomorphism}]
-  Let \( R, S \) be two rings, the \underline{ring homomorphism} is a map \( f:R \to S \), such that:
-  \begin{enumerate}
-    \item \( f(a+b) = f(a)+f(b) \; \forall \; a,b \in R \).
-    \item \( f(a\cdot b) = f(a) \cdot f(b) \; \forall \; a,b \in R\).
-    \item \( f(1_R) = 1_S \).
-  \end{enumerate}
+	Let \( R, S \) be two rings, the \underline{ring homomorphism} is a map \( f:R \to S \), such that:
+	\begin{enumerate}
+		\item \( f(a+b) = f(a)+f(b) \; \forall \; a,b \in R \).
+		\item \( f(a\cdot b) = f(a) \cdot f(b) \; \forall \; a,b \in R\).
+		\item \( f(1_R) = 1_S \).
+	\end{enumerate}
 \end{definition}
 
 \begin{remark}
-  \leavevmode 
-  \begin{enumerate}
-    \item If \( f:R\to S \) is a ring homo., then \( f:(R,+) \to  (S,+)\) is a group homomorphism, with \( f(0_R) = 0_S, \; f(a-b) = f(a)-f(b) \; \forall \; a,b \in R \).
-    \item However, in def of ring hom. condition 3 \textbf{does not} implied by 1 and 2. 
-  \end{enumerate}
+	\leavevmode
+	\begin{enumerate}
+		\item If \( f:R\to S \) is a ring homo., then \( f:(R,+) \to  (S,+)\) is a group homomorphism, with \( f(0_R) = 0_S, \; f(a-b) = f(a)-f(b) \; \forall \; a,b \in R \).
+		\item However, in def of ring hom. condition 3 \textbf{does not} implied by 1 and 2.
+	\end{enumerate}
 \end{remark}
 
 \begin{eg}
-  If \( R = \{0_R\} \), then the only map \( f: R\to S \) that satisfies 1 and 2 in definition of ring homo. will satisfy:
-  \[
-    f(0_R) = 0_S
-  \] 
+	If \( R = \{0_R\} \), then the only map \( f: R\to S \) that satisfies 1 and 2 in definition of ring homo. will satisfy:
+	\[
+		f(0_R) = 0_S
+	\]
 
-  however, this does not satisfy condition 3 if \( S \ne \{0_S\} \).
+	however, this does not satisfy condition 3 if \( S \ne \{0_S\} \).
 \end{eg}
 
 \begin{remark}
-  In homework, we shall see if \( f: R\to S \), \( g: S\to T \) are ring homomorphisms, then \( g\circ f: R\to T \) is again a ring homomorphisms. In particular we have a \textbf{category} \underline{Rings}:
-  \begin{itemize}
-    \item Objects: rings.
-    \item Morphisms: ring homomorphisms. 
-    \item composition: usual function composition.
-  \end{itemize}
+	In homework, we shall see if \( f: R\to S \), \( g: S\to T \) are ring homomorphisms, then \( g\circ f: R\to T \) is again a ring homomorphisms. In particular we have a \textbf{category} \underline{Rings}:
+	\begin{itemize}
+		\item Objects: rings.
+		\item Morphisms: ring homomorphisms.
+		\item composition: usual function composition.
+	\end{itemize}
 \end{remark}
 
 \begin{definition}[\textbf{Ring Isomorphism}]
-  If \( R, S \) are rings, a \underline{ring isomorphism} \( R\to S \) is a ring homomorphism \( f : R \to S\), s.t. \( \exists \; g : S \to R \) to be ring homomorphism, s.t. \( g\circ f = \Id_R, \; f\circ g = \Id_S \).
+	If \( R, S \) are rings, a \underline{ring isomorphism} \( R\to S \) is a ring homomorphism \( f : R \to S\), s.t. \( \exists \; g : S \to R \) to be ring homomorphism, s.t. \( g\circ f = \Id_R, \; f\circ g = \Id_S \).
 
-  Such is equivalent that \( f: R\to S \) is an isomorphism in the category of \underline{Rings}.
+	Such is equivalent that \( f: R\to S \) is an isomorphism in the category of \underline{Rings}.
 
-  We say \( R \) and \( S \) are isomorphic, write \( R \cong S \) if \( \exists \) ring isomorphism \( R\to S \).
+	We say \( R \) and \( S \) are isomorphic, write \( R \cong S \) if \( \exists \) ring isomorphism \( R\to S \).
 \end{definition}
 
 \begin{proposition}
-  A ring isomorphism \( f: R \to S \) is an isomorphism if and only if \( f \) is bijective.
+	A ring isomorphism \( f: R \to S \) is an isomorphism if and only if \( f \) is bijective.
 \end{proposition}
 
 \begin{proof}
-  The only if part is trivial, consider the if part. We know \( f \) is homomorphism and bijection, we need to see \( f^{-1} \) is still a ring homomorphism. We already have corresponding results for group isomoprhism for \( (R,+) \):
-  \[
-    f^{-1} (a+b) = f^{-1}(a) + f^{-1}(b)
-  \] 
+	The only if part is trivial, consider the if part. We know \( f \) is homomorphism and bijection, we need to see \( f^{-1} \) is still a ring homomorphism. We already have corresponding results for group isomoprhism for \( (R,+) \):
+	\[
+		f^{-1} (a+b) = f^{-1}(a) + f^{-1}(b)
+	\]
 
-  Since \( f(1_R) = 1_S \implies f^{-1}(1_S) = 1_R\). Remains to show: \( f^{-1}(ab) = f^{-1}(a) f^{-1}(b) \; \forall \; a,b\in S \). Since \( f \) is injective, it is enough to show:
-  \[
-    \underbrace{f(f^{-1}(ab))}_{=ab} = \underbrace{f\bace{f^{-1}(a) \cdot f^{-1}(b)}}_{=f(f^{-1}(a))\cdot f(f^{-1}(b)) = ab}
-  \] 
+	Since \( f(1_R) = 1_S \implies f^{-1}(1_S) = 1_R\). Remains to show: \( f^{-1}(ab) = f^{-1}(a) f^{-1}(b) \; \forall \; a,b\in S \). Since \( f \) is injective, it is enough to show:
+	\[
+		\underbrace{f(f^{-1}(ab))}_{=ab} = \underbrace{f\bace{f^{-1}(a) \cdot f^{-1}(b)}}_{=f(f^{-1}(a))\cdot f(f^{-1}(b)) = ab}
+	\]
 \end{proof}
 
 \begin{eg}[\textbf{Chinese Remainder Theorem}]
-  Suppose \( m,n\in \ZZ_{>0} \) be relative primes:
-  \[
-    \begin{aligned}
-      f: \qo{\ZZ}{mn\ZZ} &\to \qo{\ZZ}{m\ZZ} \times \qo{\ZZ}{n\ZZ} \\ 
-      [a]_{mn} &\to ([a]_m, [a]_n) 
-    \end{aligned}
-  \] 
+	Suppose \( m,n\in \ZZ_{>0} \) be relative primes:
+	\[
+		\begin{aligned}
+			f: \qo{\ZZ}{mn\ZZ} & \to \qo{\ZZ}{m\ZZ} \times \qo{\ZZ}{n\ZZ} \\
+			[a]_{mn}           & \to ([a]_m, [a]_n)
+		\end{aligned}
+	\]
 
-  easily seen before that such is well-defined and being a ring homomorphism in homework. In particular, \( \gcd(m,n) = 1\implies \ker(f) = \{0\} \implies f \) is injective, thus \#LHS  \(= mn =\) \#RHS thus it is surjective. We thus obtain a ring \textbf{isomoprhism}.
+	easily seen before that such is well-defined and being a ring homomorphism in homework. In particular, \( \gcd(m,n) = 1\implies \ker(f) = \{0\} \implies f \) is injective, thus \#LHS  \(= mn =\) \#RHS thus it is surjective. We thus obtain a ring \textbf{isomoprhism}.
 \end{eg}

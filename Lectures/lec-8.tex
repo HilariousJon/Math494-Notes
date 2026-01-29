@@ -1,26 +1,26 @@
 \begin{eg}
-  \leavevmode 
-  \begin{enumerate}
-    \item \( \KK \) is a field \( \implies \KK \) is a local ring.
-    \item Let \( R \) be a commutative ring, \( P\subseteq R \) be a prime ideal, define \( S = R - P \), and thus be a multiplicative system. Define \( R_p := S^{-1} R \). By HW \#3: 
-      \[
-        \{\text{Prime ideal in } S^{-1}R\} \xleftrightarrow{\text{order preserving bij.}} \{\text{Prime ideal }q \text{ in } R \text{ with } S\cap q = \emptyset \iff q \subseteq P\}
-      \] 
-      where order preserving means the bijection is compatible with inclusion. This implies that \( S^{-1} R \) is a local ring with maximal ideal:
-      \[
-        S^{-1}P = \{\frac{a}{s} \in R_p \; | \; a\in P\}
-      \] 
-      \begin{eg}
-        If \( p\in \ZZ_{>0} \) is a prime integer, then:
-        \[
-          \ZZ_{(p)} = \{\frac{a}{b} \; | \; a,b \in \ZZ, \; (p\nmid b) \iff (S = \ZZ - (p))\}
-        \] 
-        with the maximal ideal being:
-        \[
-          \{\frac{pa}{b} \; | \; a,b \in \ZZ, \; p\nmid b\} \quad \text{by } pa \in (p)
-        \] 
-      \end{eg}
-  \end{enumerate}
+	\leavevmode
+	\begin{enumerate}
+		\item \( \KK \) is a field \( \implies \KK \) is a local ring.
+		\item Let \( R \) be a commutative ring, \( P\subseteq R \) be a prime ideal, define \( S = R - P \), and thus be a multiplicative system. Define \( R_p := S^{-1} R \). By HW \#3:
+		      \[
+			      \{\text{Prime ideal in } S^{-1}R\} \xleftrightarrow{\text{order preserving bij.}} \{\text{Prime ideal }q \text{ in } R \text{ with } S\cap q = \emptyset \iff q \subseteq P\}
+		      \]
+		      where order preserving means the bijection is compatible with inclusion. This implies that \( S^{-1} R \) is a local ring with maximal ideal:
+		      \[
+			      S^{-1}P = \{\frac{a}{s} \in R_p \; | \; a\in P\}
+		      \]
+		      \begin{eg}
+			      If \( p\in \ZZ_{>0} \) is a prime integer, then:
+			      \[
+				      \ZZ_{(p)} = \{\frac{a}{b} \; | \; a,b \in \ZZ, \; (p\nmid b) \iff (S = \ZZ - (p))\}
+			      \]
+			      with the maximal ideal being:
+			      \[
+				      \{\frac{pa}{b} \; | \; a,b \in \ZZ, \; p\nmid b\} \quad \text{by } pa \in (p)
+			      \]
+		      \end{eg}
+	\end{enumerate}
 \end{eg}
 
 The point is that if we want to study the property of the ring, we can sometimes go to the local ring and use their properties.
@@ -30,99 +30,99 @@ The point is that if we want to study the property of the ring, we can sometimes
 In this section we shall discuss radical rings.\todo{leave some overview!}
 
 \begin{definition}[\textbf{Radical Ideal}]
-  Let \( R \) be commutative ring, and \( I\subseteq R \) be an ideal. \( I \) is a \underline{radical ideal} if \( \forall \; a\in R \), s.t. \( a^n \in I \) for some \( n\geq 1 \implies a\in I \).
+	Let \( R \) be commutative ring, and \( I\subseteq R \) be an ideal. \( I \) is a \underline{radical ideal} if \( \forall \; a\in R \), s.t. \( a^n \in I \) for some \( n\geq 1 \implies a\in I \).
 \end{definition}
 
 \begin{definition}[\textbf{Reduced Ring}]
-  Let \( R \) commutative ring, \( R \) is called a \underline{reduced ring} if \( \{0\} \) is a radical ideal.
+	Let \( R \) commutative ring, \( R \) is called a \underline{reduced ring} if \( \{0\} \) is a radical ideal.
 \end{definition}
 
 \begin{eg}
-  \leavevmode 
-  \begin{enumerate}
-    \item \( I \) is a prime ideal \( \implies I\) is a radical ideal. As one can consider \( a^n \in I \implies (a^{n-1})a\in I \implies \) either \( a^{n-1}\in I \) or \( a\in I \) and doing this repeatedly eventually leads to \( a\in I \).
-    \item If \( n\in \ZZ_{>0} \), then \( (n) \) is radical ideal if and only if \( n \) is square free, namely if \( n = p_1^{a_1} \cdots p_r^{a_r} \) to be the prime decomposition, then \( a_i = 1 \; \forall \; i \).
-      \begin{proof}[\textbf{Sketch of Proof}]
-        One can consider the prime factorization of \( n \) as:
-        \[
-          n = p_{i_1}^{a_{i_1}} \cdots p_{i_r}^{a_{i_r}}
-        \] 
-        and consider arbitrary element \( a\in \ZZ \) such that \( a^k \in (n) \), the prime factorization of \( a^k \) given by:
-        \[
-          a^k = p_{j_1}^{b_{j_1}}\cdots p_{j_l}^{b_{j_l}} = c n \qquad \text{for some } c \in \ZZ 
-        \] 
-        and since \( c \) is integer it means that LHS should cancel out all the prime factors of \( n \), in particular, this means that:
-        \[
-          \{i_1, \ldots, i_r\} \subseteq \{j_1, \ldots, j_l\}
-        \] 
-        and cancel things out one can still write \( a = dn \) for some \( d\in \ZZ \).
-      \end{proof}
-  \end{enumerate}
+	\leavevmode
+	\begin{enumerate}
+		\item \( I \) is a prime ideal \( \implies I\) is a radical ideal. As one can consider \( a^n \in I \implies (a^{n-1})a\in I \implies \) either \( a^{n-1}\in I \) or \( a\in I \) and doing this repeatedly eventually leads to \( a\in I \).
+		\item If \( n\in \ZZ_{>0} \), then \( (n) \) is radical ideal if and only if \( n \) is square free, namely if \( n = p_1^{a_1} \cdots p_r^{a_r} \) to be the prime decomposition, then \( a_i = 1 \; \forall \; i \).
+		      \begin{proof}[\textbf{Sketch of Proof}]
+			      One can consider the prime factorization of \( n \) as:
+			      \[
+				      n = p_{i_1}^{a_{i_1}} \cdots p_{i_r}^{a_{i_r}}
+			      \]
+			      and consider arbitrary element \( a\in \ZZ \) such that \( a^k \in (n) \), the prime factorization of \( a^k \) given by:
+			      \[
+				      a^k = p_{j_1}^{b_{j_1}}\cdots p_{j_l}^{b_{j_l}} = c n \qquad \text{for some } c \in \ZZ
+			      \]
+			      and since \( c \) is integer it means that LHS should cancel out all the prime factors of \( n \), in particular, this means that:
+			      \[
+				      \{i_1, \ldots, i_r\} \subseteq \{j_1, \ldots, j_l\}
+			      \]
+			      and cancel things out one can still write \( a = dn \) for some \( d\in \ZZ \).
+		      \end{proof}
+	\end{enumerate}
 \end{eg}
 
 \begin{remark}
-  \leavevmode 
-  \begin{enumerate}
-    \item We showed in HW\#2, that:
-      \[
-        \rad(I) = \{a\in R \; | \; a^n \in I \text{ for some } n\geq 1\}
-      \] 
-      is an ideal in \( R \). See that \( I\subseteq \rad(I) \), with equality if and only if \( I \) is a \textbf{radical ideal}.
-      \begin{proof}[\textbf{Sketch of Proof}]
-        Its straightforward to see that \( I \subseteq \rad(I) \). When \( I \) is a radical ideal, this means that \( a^n \in I \implies a\in I \implies \rad(I) \subseteq I \implies I = \rad(I)\). When \( I = \rad(I) \), then \( \rad(I) \subseteq I \implies a^n \in I \implies a \in I \).
-      \end{proof}
-    \item \( \rad(I) \) is a radical ideal. Just check above proof.
-    \item \( \rad(I) \) is the \textbf{smallest} radical ideal containing \( I \).
-    \item \leavevmode 
-      \begin{parenthesis}
-        If \( (I_\alpha)_\alpha \) is a family of left/right/two-sided ideals in \textbf{any ring} \( R \), then:
-        \[
-          \bigcap_{\alpha}I_\alpha \text{ has the same property.}
-        \] 
-      \end{parenthesis}
-    \item If each \( I_\alpha \) is a radical ideal, then \( \bigcap_{\alpha}I_\alpha \) is also a radical ideal. The proof is quite straightforward.
-      \begin{note}
-        This is \textbf{false} for prime ideals, see that in \( \ZZ \), \( (2) \cap (3) = (6) \), where \( (6) \) is not a prime ideal.
+	\leavevmode
+	\begin{enumerate}
+		\item We showed in HW\#2, that:
+		      \[
+			      \rad(I) = \{a\in R \; | \; a^n \in I \text{ for some } n\geq 1\}
+		      \]
+		      is an ideal in \( R \). See that \( I\subseteq \rad(I) \), with equality if and only if \( I \) is a \textbf{radical ideal}.
+		      \begin{proof}[\textbf{Sketch of Proof}]
+			      Its straightforward to see that \( I \subseteq \rad(I) \). When \( I \) is a radical ideal, this means that \( a^n \in I \implies a\in I \implies \rad(I) \subseteq I \implies I = \rad(I)\). When \( I = \rad(I) \), then \( \rad(I) \subseteq I \implies a^n \in I \implies a \in I \).
+		      \end{proof}
+		\item \( \rad(I) \) is a radical ideal. Just check above proof.
+		\item \( \rad(I) \) is the \textbf{smallest} radical ideal containing \( I \).
+		\item \leavevmode
+		      \begin{parenthesis}
+			      If \( (I_\alpha)_\alpha \) is a family of left/right/two-sided ideals in \textbf{any ring} \( R \), then:
+			      \[
+				      \bigcap_{\alpha}I_\alpha \text{ has the same property.}
+			      \]
+		      \end{parenthesis}
+		\item If each \( I_\alpha \) is a radical ideal, then \( \bigcap_{\alpha}I_\alpha \) is also a radical ideal. The proof is quite straightforward.
+		      \begin{note}
+			      This is \textbf{false} for prime ideals, see that in \( \ZZ \), \( (2) \cap (3) = (6) \), where \( (6) \) is not a prime ideal.
 
-        However, if the family is a \textbf{totally ordered set characterized by set inclusion}, then this statement is true. See homework related to Zorn's Lemma, this also gives us the statement that \textbf{every prime ideals have a minimal prime ideal}.
-      \end{note}
-  \end{enumerate}
+			      However, if the family is a \textbf{totally ordered set characterized by set inclusion}, then this statement is true. See homework related to Zorn's Lemma, this also gives us the statement that \textbf{every prime ideals have a minimal prime ideal}.
+		      \end{note}
+	\end{enumerate}
 \end{remark}
 
 \begin{proposition}
-  For every ideal \( I \subseteq R \), see that:
-  \[
-    \rad(I) = \bigcap_{P\supseteq I, P \text{ prime ideal.}} P
-  \] 
+	For every ideal \( I \subseteq R \), see that:
+	\[
+		\rad(I) = \bigcap_{P\supseteq I, P \text{ prime ideal.}} P
+	\]
 \end{proposition}
 
 \begin{proof}
-  First note that:
-  \[
-    I\subseteq \underbrace{\bigcap_{I\subseteq P, P \text{ prime ideal}} P}_{\text{radical, since prime is radical and intersection of radical is radical}} \implies \rad(I) \subseteq \bigcap_{I\subseteq P, P \text{ prime ideal}} P
-  \] 
-  since \( \rad(I) \) is the smallest radical ideal that contains \( I \).
+	First note that:
+	\[
+		I\subseteq \underbrace{\bigcap_{I\subseteq P, P \text{ prime ideal}} P}_{\text{radical, since prime is radical and intersection of radical is radical}} \implies \rad(I) \subseteq \bigcap_{I\subseteq P, P \text{ prime ideal}} P
+	\]
+	since \( \rad(I) \) is the smallest radical ideal that contains \( I \).
 
-  Suppose \( f\in \bigcap_{I\subseteq P, P \text{ prime ideal}} P \), we want to see that \( f^n \in I \) for some \( n\geq 1 \). 
+	Suppose \( f\in \bigcap_{I\subseteq P, P \text{ prime ideal}} P \), we want to see that \( f^n \in I \) for some \( n\geq 1 \).
 
-  \textcolor{red}{The general ideal here is to replace \( (R, I, f) \) by \( (\qo{R}{I}, \{0\}, \overline{f}) \)}, as one can see that:
-  \[
-    \overline{f}^n = 0 \iff f^n \in I
-  \]
-  big picture is that the property \( f^n \in I \) is \textbf{carried} by ring homomorphism, and one will make it easier to consider in quotient ring, and further to fraction it out using the multiplicative system \( S = \{1,f,f^2,\ldots\} \).
+	\textcolor{red}{The general ideal here is to replace \( (R, I, f) \) by \( (\qo{R}{I}, \{0\}, \overline{f}) \)}, as one can see that:
+	\[
+		\overline{f}^n = 0 \iff f^n \in I
+	\]
+	big picture is that the property \( f^n \in I \) is \textbf{carried} by ring homomorphism, and one will make it easier to consider in quotient ring, and further to fraction it out using the multiplicative system \( S = \{1,f,f^2,\ldots\} \).
 
-  May assume \( I = \{0\} \), thus \( f\in P \) for all prime ideal \( P \). The \textbf{tricks} here is to consider \( R_f = S^{-1}R \) where \( S \) is defined as above. The prime ideals in \( R_f \) is the same as the prime ideals \( P \) in \( R \), s.t. \( S\cap P = \emptyset \iff f\not\in P \). And see that there are no such prime ideals in \( R \), and so there will be no such prime ideal in \( S^{-1}R \), but we've seen in \textbf{Theorem} \ref{thm:maximal} that every commutative ring who have a proper ideal should have a maximal ideal, and maximal ideal is prime ideal, and itself is an ideal, it follows that \( R_f = \{0\} \). So:
-  \[
-    R_f = \{0\} \implies \frac{0}{1} = \frac{1}{1} \iff \exists\; n, \; s.t. \; f^n = 0
-  \] 
+	May assume \( I = \{0\} \), thus \( f\in P \) for all prime ideal \( P \). The \textbf{tricks} here is to consider \( R_f = S^{-1}R \) where \( S \) is defined as above. The prime ideals in \( R_f \) is the same as the prime ideals \( P \) in \( R \), s.t. \( S\cap P = \emptyset \iff f\not\in P \). And see that there are no such prime ideals in \( R \), and so there will be no such prime ideal in \( S^{-1}R \), but we've seen in \textbf{Theorem} \ref{thm:maximal} that every commutative ring who have a proper ideal should have a maximal ideal, and maximal ideal is prime ideal, and itself is an ideal, it follows that \( R_f = \{0\} \). So:
+	\[
+		R_f = \{0\} \implies \frac{0}{1} = \frac{1}{1} \iff \exists\; n, \; s.t. \; f^n = 0
+	\]
 \end{proof}
 
 \begin{corollary}
-  An ideal is a radical ideal if and only if it is the intersection of all prime ideals who contains it.
+	An ideal is a radical ideal if and only if it is the intersection of all prime ideals who contains it.
 \end{corollary}
 
 \begin{proof}
-  As prime ideals are radical ideal, the forward direction trivially holds. The reverse direction directly yields combining the proposition and the fact that \( I \) is radical if and only if \( I = \rad(I) \).
+	As prime ideals are radical ideal, the forward direction trivially holds. The reverse direction directly yields combining the proposition and the fact that \( I \) is radical if and only if \( I = \rad(I) \).
 \end{proof}
 
 \section{Operations with Ideals}
@@ -135,24 +135,24 @@ Let \( R \) be any ring, then we've seen that the intersection of ideals are ide
 
 Let \( I_\alpha \) be left/right/2-sided ideal in \( R \), define the sum of them as:
 \[
-  \sum_{\alpha \in \Lambda} I_\alpha \coloneqq \bigcap_{I \text{ be \underline{such}\todo{such here means corresponding left/right/2-sided} ideal } I_\alpha \subseteq I \; \forall \; \alpha} I
-\] 
+	\sum_{\alpha \in \Lambda} I_\alpha \coloneqq \bigcap_{I \text{ be \underline{such}\todo{such here means corresponding left/right/2-sided} ideal } I_\alpha \subseteq I \; \forall \; \alpha} I
+\]
 This is the unique \textbf{smallest} ideal containing all \( I_\alpha \). Note that we consider \textbf{finite sum} here, if it is infinite sum, then we put finitely of them that are non-zero.
 
 \begin{proposition}
-  \leavevmode 
-  \[
-    \sum_{\alpha \in \Lambda}I_\alpha = \{\sum_{\alpha \in \Lambda} a_\alpha \; | \; a_\alpha \in I_\alpha \; \forall \; \alpha, \text{ only finitely many } a_\alpha \text{ are } \ne 0\}
-  \] 
+	\leavevmode
+	\[
+		\sum_{\alpha \in \Lambda}I_\alpha = \{\sum_{\alpha \in \Lambda} a_\alpha \; | \; a_\alpha \in I_\alpha \; \forall \; \alpha, \text{ only finitely many } a_\alpha \text{ are } \ne 0\}
+	\]
 \end{proposition}
 
 \begin{proof}[\textbf{Sketch of Proof}]
-  It is straightforward to verify that the RHS is an ideal, and it contains all \( I_\alpha \), thus ``\( \subseteq \)'' part directly yields.
+	It is straightforward to verify that the RHS is an ideal, and it contains all \( I_\alpha \), thus ``\( \subseteq \)'' part directly yields.
 
-  On the other hand, if \( I \) is an ideal, s.t. \( I_\alpha \subseteq I \; \forall \; \alpha \), then  RHS \( \subseteq I \), which then yields ``\( \supseteq \)'' part.
+	On the other hand, if \( I \) is an ideal, s.t. \( I_\alpha \subseteq I \; \forall \; \alpha \), then  RHS \( \subseteq I \), which then yields ``\( \supseteq \)'' part.
 \end{proof}
 More generally, given any subset \( A \subseteq R \), may consider the smallest left/right/2-sided ideal \textbf{generated} by \( A \):
 \[
-  \bigcap_{I \text{ be \underline{such} ideal } A \subseteq I} I 
-\] 
+	\bigcap_{I \text{ be \underline{such} ideal } A \subseteq I} I
+\]
 If \( R \) is commutative, write \( (A) \) for this ideal.

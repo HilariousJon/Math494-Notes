@@ -1,152 +1,152 @@
 \begin{note}
-  If \( I \) is an ideal in \( R \), then all ideals in \( \qo{R}{I} \) are of the form \( \qo{P}{I} \) where \( I \subseteq P \) is an ideal. See that by Isomorphism theorem:
-  \[
-    \qo{\qo{R}{I}}{\qo{P}{I}} \cong \; \qo{R}{P}
-  \] 
+	If \( I \) is an ideal in \( R \), then all ideals in \( \qo{R}{I} \) are of the form \( \qo{P}{I} \) where \( I \subseteq P \) is an ideal. See that by Isomorphism theorem:
+	\[
+		\qo{\qo{R}{I}}{\qo{P}{I}} \cong \; \qo{R}{P}
+	\]
 
-  Hence \( \qo{P}{I} \) is prime ideal if and only if \( P \) is prime ideal.
+	Hence \( \qo{P}{I} \) is prime ideal if and only if \( P \) is prime ideal.
 \end{note}
 
 \begin{eg}
-  The following are equivalent:
-  \begin{itemize}
-    \item \( R \) is a domain.
-    \item \( (x):= \{xf \; | \; f\in R[X]\} \) inside \( R[X] \) is a prime ideal.
-  \end{itemize}
+	The following are equivalent:
+	\begin{itemize}
+		\item \( R \) is a domain.
+		\item \( (x):= \{xf \; | \; f\in R[X]\} \) inside \( R[X] \) is a prime ideal.
+	\end{itemize}
 
-  \begin{proof}
-    This follows if we show the following, which gives the result be \textbf{Proposition} \ref{prop:domain-qo-prime}:
-    \[
-      \qo{R[x]}{(x)} \cong \; R 
-    \] 
+	\begin{proof}
+		This follows if we show the following, which gives the result be \textbf{Proposition} \ref{prop:domain-qo-prime}:
+		\[
+			\qo{R[x]}{(x)} \cong \; R
+		\]
 
-    Consider the \( R \)-algebra homomorphism:
-    \[
-      \begin{aligned}
-        R[x] &\xrightarrow{\vp} R \\ 
-        \vp(x) &= 0 \\ 
-        a_0 + a_1x + \cdots + a_nx^n &\to a_0 
-      \end{aligned}
-    \] 
+		Consider the \( R \)-algebra homomorphism:
+		\[
+			\begin{aligned}
+				R[x]                         & \xrightarrow{\vp} R \\
+				\vp(x)                       & = 0                 \\
+				a_0 + a_1x + \cdots + a_nx^n & \to a_0
+			\end{aligned}
+		\]
 
-    This is a surjective homomorphism, with kernel being:
-    \[
-      \ker(\vp) = (x)
-    \] 
+		This is a surjective homomorphism, with kernel being:
+		\[
+			\ker(\vp) = (x)
+		\]
 
-    Then by isomomorphism theorem \ref{thm:fundemental-isomorphism}, yields the result.
-  \end{proof}
+		Then by isomomorphism theorem \ref{thm:fundemental-isomorphism}, yields the result.
+	\end{proof}
 \end{eg}
 
 \begin{question}
-  What about now consider \( (x-a) \subseteq R[x] \)?
+	What about now consider \( (x-a) \subseteq R[x] \)?
 \end{question}
 
 \begin{note}
-  There exists a \( R \)-Algebra isomorphism:
-  \[
-    \begin{aligned}
-      f: R[x] &\to R[x] \\ 
-      f(x) &= (x-a)
-    \end{aligned}
-  \] 
+	There exists a \( R \)-Algebra isomorphism:
+	\[
+		\begin{aligned}
+			f: R[x] & \to R[x] \\
+			f(x)    & = (x-a)
+		\end{aligned}
+	\]
 
-  So see that \( (x) \) is prime ideal if and only if \( (x-a) \) is prime ideal, if and only if \( R \) is a domain, thus if and only if \( (x-a) \) is also a prime ideal.
+	So see that \( (x) \) is prime ideal if and only if \( (x-a) \) is prime ideal, if and only if \( R \) is a domain, thus if and only if \( (x-a) \) is also a prime ideal.
 
-  By the universal property of \( R[x] \): there exists a unique such morphism \( f \) of \( R \)-Algebra, and exists a unique morphism of \( R \)-Algebra \( R[X] \xrightarrow{g} R[X], \; x\mapsto x+a \), thus \( g = f^{-1} \), and we can use the universal property to show that the composition \( f\circ g \) and \( g\circ f \) are identity, which yields isomorphism property.
+	By the universal property of \( R[x] \): there exists a unique such morphism \( f \) of \( R \)-Algebra, and exists a unique morphism of \( R \)-Algebra \( R[X] \xrightarrow{g} R[X], \; x\mapsto x+a \), thus \( g = f^{-1} \), and we can use the universal property to show that the composition \( f\circ g \) and \( g\circ f \) are identity, which yields isomorphism property.
 \end{note}
 
 \subsection{Maximal Ideals}
 
 \begin{definition}[\textbf{Maximal Ideal}]
-  An ideal \( M \subseteq R \) is a \underline{maximal ideal} if:
-  \begin{enumerate}
-    \item \( M \ne R \).
-    \item If \( M \subseteq I \subseteq R \) and \( I \) be an ideal, then \( I = M \) or \( I = R \).
-  \end{enumerate}
+	An ideal \( M \subseteq R \) is a \underline{maximal ideal} if:
+	\begin{enumerate}
+		\item \( M \ne R \).
+		\item If \( M \subseteq I \subseteq R \) and \( I \) be an ideal, then \( I = M \) or \( I = R \).
+	\end{enumerate}
 \end{definition}
 
 \begin{lemma}
-  \label{lem:maximal-ideal-field}
-  If \( R \) is a commutative ring, then \( R \) is a field if and only if \( \{0\} \) is a maximal ideal.
+	\label{lem:maximal-ideal-field}
+	If \( R \) is a commutative ring, then \( R \) is a field if and only if \( \{0\} \) is a maximal ideal.
 \end{lemma}
 
 \begin{proof}
-  \leavevmode
-  \begin{itemize}
-    \item Suppose that \( R \) is a field, then \( R \ne \{0\} \). If \( I \subseteq R \) is an ideal, and \( I \ne \{0\} \). Let \( a\in I \backslash\{0\} \), since \( R \) is a field, see that \( a \) is \textbf{invertible}. Then:
-      \[
-        \forall \; b\in R, \; \; b = (ba^{-1})a \in I \implies I = R 
-      \] 
-    \item If \( \{0\} \) is a maximal ideal, then \( R \ne \{0\} \). \( \forall \; a\in R \) with \( a \ne 0 \), then \( a\in (a) \ne \{0\} \implies  (a) = R \implies \exists \; b \in R \), s.t. \( ab=1 \implies a\) is invertible.
-  \end{itemize}
+	\leavevmode
+	\begin{itemize}
+		\item Suppose that \( R \) is a field, then \( R \ne \{0\} \). If \( I \subseteq R \) is an ideal, and \( I \ne \{0\} \). Let \( a\in I \backslash\{0\} \), since \( R \) is a field, see that \( a \) is \textbf{invertible}. Then:
+		      \[
+			      \forall \; b\in R, \; \; b = (ba^{-1})a \in I \implies I = R
+		      \]
+		\item If \( \{0\} \) is a maximal ideal, then \( R \ne \{0\} \). \( \forall \; a\in R \) with \( a \ne 0 \), then \( a\in (a) \ne \{0\} \implies  (a) = R \implies \exists \; b \in R \), s.t. \( ab=1 \implies a\) is invertible.
+	\end{itemize}
 \end{proof}
 
 \begin{corollary}
-  \label{cor:maximal-field}
-  An ideal \( M \subseteq R \) is maximal if and only if \( \qo{R}{M} \) is a field.
+	\label{cor:maximal-field}
+	An ideal \( M \subseteq R \) is maximal if and only if \( \qo{R}{M} \) is a field.
 \end{corollary}
 
 \begin{proof}
-  By correspondance between ideals of \( \qo{R}{M} \) and ideals in \( R \) \textbf{containing} \( M \), this follows from \textbf{Lemma} \ref{lem:maximal-ideal-field}.
+	By correspondance between ideals of \( \qo{R}{M} \) and ideals in \( R \) \textbf{containing} \( M \), this follows from \textbf{Lemma} \ref{lem:maximal-ideal-field}.
 \end{proof}
 
 \begin{corollary}
-  Every maximal ideal is prime ideal.
+	Every maximal ideal is prime ideal.
 \end{corollary}
 
 \begin{proof}
-  This follows since \textbf{every field is a domain}. And by \textbf{Corollary} \ref{cor:maximal-field} and \textbf{Proposition} \ref{prop:domain-qo-prime}.
+	This follows since \textbf{every field is a domain}. And by \textbf{Corollary} \ref{cor:maximal-field} and \textbf{Proposition} \ref{prop:domain-qo-prime}.
 \end{proof}
 
 \begin{eg}
-  The following are ideals that are prime but not maximal:
-  \begin{enumerate}
-    \item \( \{0\} \subseteq \ZZ \) is a prime ideal, but not maximal ideal.
-    \item \( (x) \subseteq \ZZ[x] \) is a prime ideal, but not maximal ideal.\todo{why?}
-  \end{enumerate}
+	The following are ideals that are prime but not maximal:
+	\begin{enumerate}
+		\item \( \{0\} \subseteq \ZZ \) is a prime ideal, but not maximal ideal.
+		\item \( (x) \subseteq \ZZ[x] \) is a prime ideal, but not maximal ideal.\todo{why?}
+	\end{enumerate}
 \end{eg}
 
 \begin{theorem}
-  \label{thm:maximal}
-  If \( I \subsetneq R \) is a proper ideal in a commutative ring \( R \), then there exists \( M \) being a maximal ideal, s.t. \( I \subseteq M \).
+	\label{thm:maximal}
+	If \( I \subsetneq R \) is a proper ideal in a commutative ring \( R \), then there exists \( M \) being a maximal ideal, s.t. \( I \subseteq M \).
 \end{theorem}
 
 To prove it we'll need the famous \textbf{Zorn's Lemma}.
 
 \begin{lemma}[\textbf{Zorn's Lemma}]
-  \label{lem:zorn}
-  If \( (A, \leq) \) is a non-empty partially ordered set, s.t. every totally ordered subset \( B \subseteq A \) has an upper bound in \( A \) (\( \exists \; a\in A \), s.t. \( b\leq a \; \forall \; b \in B \)), then \( A \) has at least a maximal element. (\( \exists \; a\in A \), s.t. if \( a\leq a' \in A \implies a = a' \))
+	\label{lem:zorn}
+	If \( (A, \leq) \) is a non-empty partially ordered set, s.t. every totally ordered subset \( B \subseteq A \) has an upper bound in \( A \) (\( \exists \; a\in A \), s.t. \( b\leq a \; \forall \; b \in B \)), then \( A \) has at least a maximal element. (\( \exists \; a\in A \), s.t. if \( a\leq a' \in A \implies a = a' \))
 \end{lemma}
 
 \begin{proof}[\textbf{Proof uses Zorn's Lemma \ref{lem:zorn}}]
-  Fix \( I \) be in the theorem, and let \( \cJ = \{J \subseteq R \text{ is ideal} \; | \; I \subseteq J\} \). See that it is ordered by inclusion: \( J \leq J' \iff J \subseteq J' \). Note that \( \cJ \ne \emptyset \) since \( I \in \cJ \).
+	Fix \( I \) be in the theorem, and let \( \cJ = \{J \subseteq R \text{ is ideal} \; | \; I \subseteq J\} \). See that it is ordered by inclusion: \( J \leq J' \iff J \subseteq J' \). Note that \( \cJ \ne \emptyset \) since \( I \in \cJ \).
 
-  So our basic task is to check it satisfies the hypothesis in \textbf{Zorn's Lemma} \ref{lem:zorn}.
+	So our basic task is to check it satisfies the hypothesis in \textbf{Zorn's Lemma} \ref{lem:zorn}.
 
-  Let \( \cJ' \subseteq \cJ \) be a totally orderded subset: namely if \( J_1, J_2 \in \cJ' \implies (J_1 \subseteq J_2) \lor (J_2 \subseteq J_1) \). Now let:
-  \[
-    J \coloneqq  \bigcup_{J' \in \cJ'} J' 
-  \] 
+	Let \( \cJ' \subseteq \cJ \) be a totally orderded subset: namely if \( J_1, J_2 \in \cJ' \implies (J_1 \subseteq J_2) \lor (J_2 \subseteq J_1) \). Now let:
+	\[
+		J \coloneqq  \bigcup_{J' \in \cJ'} J'
+	\]
 
-  The \textbf{key point} is that \( J \) is an ideal. Suppose \( a,b \in J \), let \( J', J'' \in \cJ' \) are s.t. \( a\in J', \; b\in J'' \). If \( J'\subseteq J''\implies a \in J''\implies a+b \in J'' \implies a+b \in J \). Similarly for \( J'' \subseteq J' \).
+	The \textbf{key point} is that \( J \) is an ideal. Suppose \( a,b \in J \), let \( J', J'' \in \cJ' \) are s.t. \( a\in J', \; b\in J'' \). If \( J'\subseteq J''\implies a \in J''\implies a+b \in J'' \implies a+b \in J \). Similarly for \( J'' \subseteq J' \).
 
-  If \( x\in J \) and \( \lambda \in R \), then there exists \( J' \in \cJ' \), s.t. \( x\in J' \implies \lambda x \in J' \subseteq J \).
+	If \( x\in J \) and \( \lambda \in R \), then there exists \( J' \in \cJ' \), s.t. \( x\in J' \implies \lambda x \in J' \subseteq J \).
 
-  See that \( J \ne \emptyset \) since \( 0 \in J \). So the \textbf{conclusion} is \( J \) is an ideal. And it is clear that \( I \subseteq J \).
+	See that \( J \ne \emptyset \) since \( 0 \in J \). So the \textbf{conclusion} is \( J \) is an ideal. And it is clear that \( I \subseteq J \).
 
-  See that \( J \ne R \), otherwise \( 1\in J \implies 1 \in J' \) for some \( J' \in \cJ' \), contradict to the fact that \( J' \ne R \).
+	See that \( J \ne R \), otherwise \( 1\in J \implies 1 \in J' \) for some \( J' \in \cJ' \), contradict to the fact that \( J' \ne R \).
 
-  It is clear that \( J' \leq J \; \forall \; J' \in \cJ' \implies J \) is the upperbound for \( \cJ' \). The Apply \textbf{Zorn's Lemma} \ref{lem:zorn}: there exists \( M \in \cJ \) to be the maximal element, and this is a maximal ideal that containing \( I \).
+	It is clear that \( J' \leq J \; \forall \; J' \in \cJ' \implies J \) is the upperbound for \( \cJ' \). The Apply \textbf{Zorn's Lemma} \ref{lem:zorn}: there exists \( M \in \cJ \) to be the maximal element, and this is a maximal ideal that containing \( I \).
 \end{proof}
 
 \begin{corollary}
-  \label{cor:maximal-exists}
-  If \( R\ne \{0\} \) is a commutative ring, then there exists a maximal ideals in \( R \), in particular, there exists a prime ideal.
+	\label{cor:maximal-exists}
+	If \( R\ne \{0\} \) is a commutative ring, then there exists a maximal ideals in \( R \), in particular, there exists a prime ideal.
 \end{corollary}
 
 \begin{proof}
-  Apply the theorem with \( I = \{0\} \) shows the existence of maximal ideal.
+	Apply the theorem with \( I = \{0\} \) shows the existence of maximal ideal.
 \end{proof}
 
 \section{Local Ring}
@@ -154,38 +154,38 @@ To prove it we'll need the famous \textbf{Zorn's Lemma}.
 In this section we shall discuss local rings. \todo{leave some overview!}
 
 \begin{definition}[\textbf{Local Ring}]
-  A commutative ring \( R \) is a \underline{local ring} if \( R \) has a \textbf{unique} maximal ideal.
+	A commutative ring \( R \) is a \underline{local ring} if \( R \) has a \textbf{unique} maximal ideal.
 \end{definition}
 
 \begin{proposition}
-  For a commutative ring \( R \), the following are equivalent:
-  \begin{enumerate}
-    \item \( R \) is a local ring. (with maximal ideal \( M = \{a \in R \; | \; a \text{ is not invertible}\} \))
-    \item \( R \ne \{0\} \) and for all \( a,b \in R \), s.t. \( a+b = 1 \), either \( a \) or \( b \) is invertible.
-  \end{enumerate}
+	For a commutative ring \( R \), the following are equivalent:
+	\begin{enumerate}
+		\item \( R \) is a local ring. (with maximal ideal \( M = \{a \in R \; | \; a \text{ is not invertible}\} \))
+		\item \( R \ne \{0\} \) and for all \( a,b \in R \), s.t. \( a+b = 1 \), either \( a \) or \( b \) is invertible.
+	\end{enumerate}
 \end{proposition}
 
 \begin{proof}
-  Suppose that \( R \) is a local ring with maximal ideal \( M \), then \( M \subseteq \{a \in R \; | \; a \text{ is not invertible}\} \) since \( M \ne R \). If \( a\in R \) is not invertible, then \( (a) \ne R \), by \textbf{Theorem} \ref{thm:maximal}, it is contained in a maximal ideal \( \implies (a) \subseteq M \implies a \in M \).
+	Suppose that \( R \) is a local ring with maximal ideal \( M \), then \( M \subseteq \{a \in R \; | \; a \text{ is not invertible}\} \) since \( M \ne R \). If \( a\in R \) is not invertible, then \( (a) \ne R \), by \textbf{Theorem} \ref{thm:maximal}, it is contained in a maximal ideal \( \implies (a) \subseteq M \implies a \in M \).
 
-  In this case, \( R \ne \{0\} \) since \( M \ne R \). If \( a+b = 1 \), since \( 1 \not\in M \) and \( M \) being a subgroup, then either \( a\not\in M \) or \( b \not \in M \implies a\) is invertible or \( b \) is invertible.
+	In this case, \( R \ne \{0\} \) since \( M \ne R \). If \( a+b = 1 \), since \( 1 \not\in M \) and \( M \) being a subgroup, then either \( a\not\in M \) or \( b \not \in M \implies a\) is invertible or \( b \) is invertible.
 
-  Define \( M = \{a \in R \; | \; a \ne \text{ invertible.}\} \). We claim that \( M \) is an ideal:
-  \begin{itemize}
-    \item \( 0\in M \) since \( R \ne \{0\} \).
-    \item If \( a \in M, \lambda \in R \implies \lambda a \in M \), otherwise \( \exists \; \mu \in R \), s.t. \( (\mu\lambda)a = 1\implies a \) is invertible, leading to contradiction $\lightning$.
-    \item If \( a,b\in M \implies c:= a+b \in M \), otherwise, If \( c \) is invertible, then:
-      \[
-        (a+b)c^{-1} = ac^{-1} + bc^{-1} = 1 
-      \] 
-      then this implies that \( ac^{-1} \) or \( bc^{-1} \) is invertible, then \( a = (ac^{-1})c \) is also invertible, similar for \( b \) is invertible, leading to contradiction \( \lightning \).
-  \end{itemize}
+	Define \( M = \{a \in R \; | \; a \ne \text{ invertible.}\} \). We claim that \( M \) is an ideal:
+	\begin{itemize}
+		\item \( 0\in M \) since \( R \ne \{0\} \).
+		\item If \( a \in M, \lambda \in R \implies \lambda a \in M \), otherwise \( \exists \; \mu \in R \), s.t. \( (\mu\lambda)a = 1\implies a \) is invertible, leading to contradiction $\lightning$.
+		\item If \( a,b\in M \implies c:= a+b \in M \), otherwise, If \( c \) is invertible, then:
+		      \[
+			      (a+b)c^{-1} = ac^{-1} + bc^{-1} = 1
+		      \]
+		      then this implies that \( ac^{-1} \) or \( bc^{-1} \) is invertible, then \( a = (ac^{-1})c \) is also invertible, similar for \( b \) is invertible, leading to contradiction \( \lightning \).
+	\end{itemize}
 
-  So we see that \( M \) is an ideal, remains to check that it is the only maximal ideal.
-  \begin{itemize}
-    \item \( 1\not\in M \implies M \ne R \).
-    \item If \( I \ne R \) is an ideal, then \( I \subseteq M \): \( I\ne R \implies 1 \not\in I \), thus \( \forall \; a\in I \), see that \( a \) is not invertible, since \( (a) \subseteq I \ne R \implies 1 \not\in (a) \implies a\in M \).
-  \end{itemize}
+	So we see that \( M \) is an ideal, remains to check that it is the only maximal ideal.
+	\begin{itemize}
+		\item \( 1\not\in M \implies M \ne R \).
+		\item If \( I \ne R \) is an ideal, then \( I \subseteq M \): \( I\ne R \implies 1 \not\in I \), thus \( \forall \; a\in I \), see that \( a \) is not invertible, since \( (a) \subseteq I \ne R \implies 1 \not\in (a) \implies a\in M \).
+	\end{itemize}
 
-  Since we know \( R \) has an maximal ideal by \textbf{Corollary} \ref{cor:maximal-exists}, then \( M \) is a maximal ideal, and in fact the unique one. See that any maximal ideal \( M' \subseteq M \implies M' = M \).
+	Since we know \( R \) has an maximal ideal by \textbf{Corollary} \ref{cor:maximal-exists}, then \( M \) is a maximal ideal, and in fact the unique one. See that any maximal ideal \( M' \subseteq M \implies M' = M \).
 \end{proof}

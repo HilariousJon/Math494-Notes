@@ -122,11 +122,11 @@
 
 % Automated Letter Loops (The "Magic" Part)
 \foreach \x in {A,...,Z} {
-    \expandafter\xdef\csname c\x\endcsname{\noexpand\mathcal{\x}} % mathcal 
-    \expandafter\xdef\csname b\x\endcsname{\noexpand\mathbb{\x}} % mathbb 
-    \expandafter\xdef\csname f\x\endcsname{\noexpand\mathfrak{\x}} % mathfrak 
-    \expandafter\xdef\csname s\x\endcsname{\noexpand\mathscr{\x}} % mathscr 
-}
+		\expandafter\xdef\csname c\x\endcsname{\noexpand\mathcal{\x}} % mathcal 
+		\expandafter\xdef\csname b\x\endcsname{\noexpand\mathbb{\x}} % mathbb 
+		\expandafter\xdef\csname f\x\endcsname{\noexpand\mathfrak{\x}} % mathfrak 
+		\expandafter\xdef\csname s\x\endcsname{\noexpand\mathscr{\x}} % mathscr 
+	}
 
 % Paired Delimiters (Auto-sizing)
 \DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}  % Ceiling function
@@ -135,9 +135,9 @@
 \DeclarePairedDelimiter{\br}{\llbracket}{\rrbracket} % french styled integer expression
 \DeclarePairedDelimiter{\baceInner}{(}{)} % auto resized braces
 \NewDocumentCommand{\bace}{s m}{
-  \IfBooleanTF{#1}
-    {\baceInner{#2}} % normal sized if \bace*
-    {\baceInner*{#2}} % auto resized if \bace
+	\IfBooleanTF{#1}
+	{\baceInner{#2}} % normal sized if \bace*
+	{\baceInner*{#2}} % auto resized if \bace
 }
 
 % greek and msic symbols
