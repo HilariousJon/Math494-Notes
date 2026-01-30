@@ -1,0 +1,174 @@
+\section{Noetherian Rings}
+
+In this section we focus on the context of \( R \) being any ring instead of being commutative ring.
+
+\begin{definition}[\textbf{Noetherian Rings and Artirian Rings}]
+	Let \( R \) be any ring. Then \( R \) is \underline{left/right}  \underline{Noetherian ring} if there exists \textbf{no} strictly increasing sequence:
+	\[
+		I_1 \subsetneq I_2 \subsetneq \cdots \text{ of left/right ideals. }
+	\]
+	\( R \) is \underline{left/right Artirian ring} if there exists \textbf{no} strictly decreasing sequence
+	\[
+		I_1 \supsetneq I_2 \supsetneq \cdots \text{ of left/right ideals.}
+	\]
+\end{definition}
+
+\begin{note}
+	Aritirian ring is a stronger property, most of the rings doesn't satisfy the property of artirian ring.
+\end{note}
+
+\begin{eg}
+	\leavevmode
+	\begin{enumerate}
+		\item A field is both noetherian and artirian.
+		\item Every finite ring is both noetherian and artirian.
+		\item \( \ZZ \) is not a artirian ring, because there exists the following strictly decreasing ideal sequence:
+		      \[
+			      2\ZZ \supsetneq 2^2 \ZZ \supsetneq 2^3 \ZZ \supsetneq \cdots
+		      \]
+	\end{enumerate}
+\end{eg}
+
+\begin{proposition}
+	\label{prop:noetherian-equiv}
+	For a ring \( R \), \textbf{TFAE}:
+	\begin{enumerate}
+		\item \( R \) is left/right Noetherian ring.
+		\item Every non-empty family \( \cI \) of left/right ideals of \( R \) contains a maximal element. The maximal element namely is:
+		      \[
+			      \exists \; I \in \cI \; \text{s.t. if } I \subseteq J, \; J \in \cI \implies I=J
+		      \]
+		\item Every left/right ideal of \( R \) is finitely generated. Namely:
+		      \[
+			      \exists \; a_1, \ldots, a_n \in R, \text{ s.t. } I = \sum_{i=1}^n Ra_i \quad \bace{I = \sum_{i=1}^n a_i R}
+		      \]
+	\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+	\leavevmode
+	\begin{itemize}
+		\item \( (2)\implies (1) \): This is clear as one cannot find family of ideals that form a strictly increasing sequence family given the condition of existence of maximal element.
+		\item \( (1)\implies (2) \): One can reason by contraposition, non-existing maximal element means we can always find ideal that is strictly bigger than the current one, and thus construct a infinite increasing sequence, fail the property of Noetherian ring.
+		\item \( (1)\implies (3) \): Given a left ideal \( I \) that is not finitely generated. We can construct inductively \( a_1, a_2, \ldots \in i \), s.t.:
+		      \[
+			      a_{n+1} \not\in \sum_{i=1}^n Ra_i \; \forall \; n
+		      \]
+		      This implies that the sequence of ideals \( \bace{\sum_{i=1}^n Ra_i} \) is strictly increasing and infinite, thus fail the property of Noetherian ring.
+		\item \( (3)\implies (1) \): Suppose we have \( I_1\subseteq I_2\subseteq I_3 \subseteq \cdots \) is a sequence of left ideals. Let:
+		      \[
+			      I \coloneqq  \bigcup_{n\geq 1} I_n
+		      \]
+		      we've seen before in the proof of \textbf{Theorem} \ref{thm:maximal}, \( I \) is also a left ideal given that \( \{I_\alpha\} \) is a total ordered set. Now \textbf{by (3)}, \( I \) is finitely generated, so we can write:
+		      \[
+			      I = \sum_{i=1}^n Ra_i \text{ for some } a_1,\ldots, a_n \in R
+		      \]
+		      Suppose that \( a_i \in I_{r_i} \) for \( 1\leq i \leq n \), let \( r = \max\{r_i\} \), this implies that:
+		      \[
+			      \sum_{i=1}^n Ra_i \subseteq I_r \subseteq I = \sum_{i=1}^n Ra_i \quad \forall \; s \geq r
+		      \]
+		      thus \( I_s = I_r \; \forall \; s\geq r \). So we see that the sequence \textbf{stablize to some ideal}, leading to the property of Noetherian ring.
+	\end{itemize}
+\end{proof}
+
+The following theorem gives us a basic idea that in fact a lot of rings a actually Noetherian, because the property can inherit from some other ring. So we can build up Noetherian ring from the existing one.
+
+\begin{theorem}[\textbf{Hilbert's Basis Theorem}]
+	\label{thm:hilbert-basis}
+	If \( R \) is a \textbf{Noetherian commutative ring}, then \( R[X] \) is also a Noetherian ring.
+\end{theorem}
+In fact this proof is quite influentiall and this is actually the first result in Commutative Algebra. Commutative property here basically only help us construct the polynomial ring.
+
+\begin{proof}
+	We will show basically every ideal \( I \subseteq R[x] \) is finitely generated, and yield that \( R[x] \) is Noetherian by \textbf{Proposition} \ref{prop:noetherian-equiv}.
+
+	Suppose \( I \) is not finitely generated. Then we can inductively construct a sequence of element as follow, each time of iteration, the condition on the degree of such element is a little bit stronger than before.
+	\[
+		\begin{aligned}
+			I & \ne \{0\} \implies \text{chose } f_1 \in I \backslash \{0\} \text{ of minimal degree } d_{1} \\
+			I & \ne (f_1) \implies \text{chose } f_2 \in I \backslash (f_1) \text{ of minimal degree } d_{2} \\
+		\end{aligned}
+	\]
+	We repeat this to construct \( f_1,f_2,\ldots \), s.t.:
+	\[
+		\forall n \geq 0, \; f_{n+1} \in I \backslash (f_1,f_2,\ldots, f_n)
+	\]
+	and \(\deg(f_{n+1} = d_{n+1}) \) is minimal among such \( f_{n+1} \). The reason why we can construct \( f_i \) in this way is that \( I \) is not finitely generated, so there is always some element between \( (f_1,\ldots,f_n) \subset I \).
+	\begin{note}
+		By constuction and \textbf{minimality} of \( d_n \), we have:
+		\[
+			d_1\leq d_2\leq \cdots
+		\]
+	\end{note}
+	We then want to make contradiction to this minimality. For every \( n\geq 1 \), let's write:
+	\[
+		f_n = a_n x^{d_n} + \text{ lower degree monomials}
+	\]
+	Let \( J \subseteq R \) be the ideal generated by \( \{a_n \; | \; n\geq 1\} \). Since \( R \) is a Noetherian ring, \( J \) is then \textbf{finitely generated}. So we can write:
+	\[
+		J = (b_1, \ldots, b_k)
+	\]
+	We can write each \( b_i \) as an linear combination of \( a_j \)'s, by the fact that \( J \) be the ideal generated by the whole sequence \( \{a_n \; | \; n\geq 1\} \). Namely:
+	\[
+		b_i = \sum_{j=1}^{m_i} \lambda_{ij}a_j \quad \lambda_{ij} \in R
+	\]
+	Now if we let \( m = \max\{m_i\} \), then \( (a_1,ldots, a_m) \supseteq (b_1,\ldots, b_k) = (a_1,a_2,\ldots) \), and it is clear that \( (a_1,\ldots, a_m) \subseteq (b_1,\ldots, b_k) \). Thus we conclude.
+	\begin{conclusion}
+		\( J = (a_1,\ldots, a_m) \).
+	\end{conclusion}
+
+	Thus see that \( a_{m+1}\in (a_1,\ldots, a_m) \implies \) we can write \( a_{m+1} = \lambda_1a_1 + \cdots + \lambda_m a_m \). One can then define:
+	\[
+		\begin{aligned}
+			g & = \underbrace{f_{m+1}}_{=a_{m+1}x^{d_{m+1}} + \text{l.d.m.}} - \sum_{i=1}^m \underbrace{\underbrace{\lambda_i x^{\overbrace{d_{m+1}-d_i}}}^{\text{\textbf{by non-dec.}}}_{\in \mathbf{R[x]} }f_i}_{\lambda_i a_i x^{d_{m+1}} + \text{ l.d.m. \todo{l.d.m. stands for lower degree monomials.}}} \\
+			g & = f_{m+1} - \sum_{i=1}^m \lambda_i x^{d_{m+1}-d_i} f_i
+		\end{aligned}
+	\]
+	\begin{note}
+		\leavevmode
+		\begin{enumerate}
+			\item \( \deg(g) < d_{m+1} \) \hypertarget{contra}{$(\star)$}.
+			\item \( g\in I \) and \( g\not\in (f_1,\ldots, f_n) \), otherwise, see that:
+			      \[
+				      f_{m+1} = g + \sum_{i=1}^m \lambda_i x^{d_{m+1}-d_i} f_i \in (f_1, \ldots, f_m)
+			      \]
+			      which is \textbf{not} ok.
+		\end{enumerate}
+	\end{note}
+
+	Thus see that \hyperlink{contra}{\( (\star) \)} implies a contradiction with minimality of \( d_{m+1} \).
+\end{proof}
+
+\begin{corollary}
+	If \( \KK \) is a field, then \( \KK[x_1,\ldots, x_n] \) is Noetherian ring for all \( n\geq 1\).
+\end{corollary}
+
+\begin{proof}
+	Basically use \textbf{Theorem} \ref{thm:hilbert-basis} and induction on \( n \) and the fact that \( \KK \) is a Noetherian ring.
+\end{proof}
+
+\section{PIDs and Euclidean Domains}
+
+\begin{definition}[\textbf{PID}]
+	Let \( R \) be a domain, then \( R \) is a \underline{Principal ideal domain (PID)} if every ideal in \( R \) is \underline{principal}: namely it is of the form \( (a) \) for some \( a\in R \).
+\end{definition}
+
+\begin{eg}[\textbf{Non-PID Example}]
+	\leavevmode
+	\begin{enumerate}
+		\item \( (2,x) \subseteq \ZZ[x] \) is not a principal ideal, and thus \( \ZZ[x] \ne \) PID.
+		      \begin{proof}
+			      Suppose that \( (2,x) = (f) \) for some \( f\in \ZZ[x] \), then \( 2\in (f) \implies 2 = fg\) for some \( g\in \ZZ[x] \implies \deg(f) = 0 \). Thus see that \( f = n \in \ZZ\backslash \{0\} \), and see that \( x = ng \implies n = \pm 1 \) by considering the fact that the coefficient of \( x \) is \( 1 \), and in the domain \( \ZZ \), the only way to get \( 1 \) is by multiplying \( \pm1 \).
+
+			      Hence \( (2,x) = \ZZ[x] \) by the fact that \( \pm1 \) is in the ideal. Then it means that there exists \( P, Q \in \ZZ[x] \), s.t. \( 1 = 2 P + x Q \).
+			      \[
+				      \begin{aligned}
+					      P & = a_0 + a_1 x + \cdot \\
+					      Q & = b_0 + b_1x + \cdots
+				      \end{aligned}
+			      \]
+			      \( \implies 1 = 2a_0 \), but it cannot happen since \( a_0 \in \ZZ \).
+		      \end{proof}
+		\item If \( \KK \) is a field, then \( (x,y) \subseteq \KK[x,y] \) is not finitely generated. \todo{exer!}
+	\end{enumerate}
+\end{eg}
