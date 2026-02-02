@@ -1,0 +1,76 @@
+\section{The Rings \( \ZZ[\sqrt{d}] \) and \( \QQ[\sqrt{d}] \)}
+
+\begin{definition}
+	Fix \( \mathbf{d\in \ZZ} \), with \( \abs{d} \) not a \underline{square}: namely \( \not\exists \; n \in \ZZ \), s.t. \( n^2 = d \). This implies that \( \sqrt{\abs{d}} \not\in\QQ \). We write \( \sqrt{\abs{d}} = \sqrt{-d} \) if \( d< 0 \). Thus define:
+	\[
+		\begin{aligned}
+			\ZZ[\sqrt{d}] & = \{a+ b \sqrt{d} \; | \; a,b \in \ZZ\} \subseteq \CC \\
+			\QQ[\sqrt{d}] & = \{a + b\sqrt{d} \; | \; a,b \in \QQ\} \subseteq \CC
+		\end{aligned}
+	\]
+\end{definition}
+
+\begin{remark}
+	\leavevmode
+	\begin{enumerate}
+		\item Since \( \sqrt{d} \not\in \QQ \), thus if \( a+b\sqrt{d} = a'+b'\sqrt{d}\) for some \( a,a',b,b' \in \QQ \implies a=a', b=b' \).
+		\item \( \ZZ[\sqrt{d}] \) and \( \QQ[\sqrt{d}] \) are subring of \( \CC \), thus they are \textbf{domains}.
+		\item \( \QQ[\sqrt{d}] \) is a field, as one can multiply by its conjugate. If \( u = a+b\sqrt{d} \implies u \cdot (a-b\sqrt{d}) = a^2 -b^2 d \in \QQ \backslash \{0\} \), thus:
+		      \[
+			      u^{-1} = \frac{a}{a^2 - db^2} - \frac{b}{a^2-db^2} \sqrt{d}
+		      \]
+		\item Since \( \ZZ[\sqrt{d}] \subseteq \QQ[\sqrt{d}] \), by the universal property of fraction field \( \KK \) of \( \ZZ[\sqrt{d}] \) gives us: \(f: \KK \to \QQ[\sqrt{d}] \) as a ring homomorphism.
+		      \begin{itemize}
+			      \item This is injective since \( \KK \) is a field, since clearly the map is induced by \( \ZZ[\sqrt{d}] \subseteq \QQ[\sqrt{d}]\) so it is not a zero map. The field has no non-trivial ideals, thus the only case would be \( \ker(f) = \{0\} \), yields injectivity.
+			      \item This is surjective as for \( a+b\sqrt{d} \in \QQ[\sqrt{d}] \), one can always write:
+			            \[
+				            a+b\sqrt{d} = \frac{p_1q_2+p_2q_1\sqrt{d}}{q_1q_2} \text{ with }p_1 q_2 +p_2q_1 \sqrt{d} \text{ and }q_1 q_2 \in \ZZ[\sqrt{d}]
+			            \]
+			            Thus yields to be \textbf{isomorphism}. Note here the multiplicative system yields to be \( \ZZ[\sqrt{d}] \backslash\{0\} \) which is the only case can be constructed as field for \( \KK \).
+		      \end{itemize}
+		      In particular this tells us \textbf{up to isomorphism}, the fraction field of \( \ZZ[\sqrt{d}] \) is \( \QQ[\sqrt{d}] \).
+		\item Define:
+		      \[
+			      \begin{aligned}
+				      \ZZ[\sqrt{d}]    & \xrightarrow{\vp} \ZZ[\sqrt{d}]
+				      \vp(a+b\sqrt{d}) & = a - b\sqrt{d}
+			      \end{aligned}
+		      \]
+		      when \( d \) is negative, this is exactly the conjugation for complex number. See that \( \vp \) is actually a \textbf{ring homomorphism} and in particular \( \vp \circ \vp = \Id \implies \vp \) is actually a ring isomorphism.
+		\item Define:
+		      \[
+			      \begin{aligned}
+				      N : \ZZ[\sqrt{d}] & \to \ZZ[\sqrt{d}]                                  \\
+				      N(u)              & = u \cdot \vp(u)                                   \\
+				      N(a+b\sqrt{d})    & = (a+b\sqrt{d}) (a-b\sqrt{d}) = a^2 - db^2 \in \ZZ
+			      \end{aligned}
+		      \]
+		      \begin{note}
+			      \leavevmode
+			      \[
+				      N(uv) = N(u) N(v) \quad \forall \; u,v
+			      \]
+			      since \( \vp(uv) = \vp(u)\vp(v) \). But similar result doesn't holds for addition.
+		      \end{note}
+	\end{enumerate}
+	\begin{eg}
+		\( u = a+b\sqrt{d} \) is invertible in \( \ZZ[\sqrt{d}] \) if and only if \( N(u) = \pm 1 \).
+		\begin{proof}
+			If \( u \) is invertible, then \( uv = 1 \) for some \( v \in \ZZ[\sqrt{d}] \), thus:
+			\[
+				N(u)N(v) = N(uv) = N(1) = 1
+			\]
+			Since \( N(u), N(v) \) are integers, this implies that \( N(u) = \pm 1 \).
+
+			Conversely, if \( u\cdot \vp(u) = N(u) = \pm 1 \implies u^{-1} = \pm \vp(u) \).
+		\end{proof}
+	\end{eg}
+\end{remark}
+
+\begin{eg}[\textbf{Gauss Integers: \( d = -1 \)}]
+	The \underline{Gauss Integers} is given as:
+	\[
+		\ZZ[i] \coloneqq  \{a+bi \; | \; a,b \in \ZZ\}
+	\]
+	and \( N(a+bi) = a^2 + b^2 \). We see \( a+bi \) is a \underline{unit} (invertible elments in a ring) if and only if \( a^2 + b^2 = 1 \implies \) the units are exactly \( \pm 1, \pm i \).
+\end{eg}
