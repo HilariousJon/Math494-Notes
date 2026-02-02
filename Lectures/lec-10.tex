@@ -172,3 +172,95 @@ In fact this proof is quite influentiall and this is actually the first result i
 		\item If \( \KK \) is a field, then \( (x,y) \subseteq \KK[x,y] \) is not finitely generated. \todo{exer!}
 	\end{enumerate}
 \end{eg}
+
+\begin{definition}[\textbf{Euclidean Domain}]
+	A domain \( R \) is an \underline{Euclidean Domain} if there eixsts \( N: R\backslash\{0\} \to \ZZ_{\geq 0} \) being \textbf{arbitrary} functions, such that, \( \forall \; a,b \in R \) with \( b\ne 0 \), there exists \( q,r\in R \) (\textbf{not necessarily unique}), such that:
+	\begin{itemize}
+		\item \( a = bq + r \).
+		\item Either \( r= 0 \) or (\( r\ne 0 \) and \( N(r)<N(b) \)).
+	\end{itemize}
+\end{definition}
+
+\begin{proposition}
+	Every Euclidean Domain \( R \) is a PID.
+\end{proposition}
+
+\begin{proof}
+	Let \( I \subseteq R \) be an ideal, If \( I = \{0\} \), clearly that \( I \) is principl. If \( I \ne \{0\} \) and \( N \) is as in the definition of Euclidean domain. Let \( b \in I \backslash\{0\} \) be s.t. \( N(b) \) is minimal.
+	\begin{claim}
+		We claim that \( I = (b) \).
+	\end{claim}
+	``\( \supseteq \)'' part is clear as \( b\in I \). For ``\( \subseteq \)'' part, Suppose that \( a\in I \), with \( b\ne 0 \), then \( \exists \; q,r \in R \), s.t. \( a = bq + r \) and:
+	\begin{itemize}
+		\item \( r = 0\implies a\in (b) \) which is ok.
+		\item \( r\ne 0 \) and \( N(r) < N(b) \), thus \( r = a-bq \in I \) by the ideal property, which contradict to the minimality assumption of \( N(b) \) $\lightning$. So this case cannot happen.
+	\end{itemize}
+\end{proof}
+
+\begin{eg}
+	\leavevmode
+	\begin{enumerate}
+		\item \( \ZZ \) is an Euclidean domain, with:
+		      \[
+			      \begin{aligned}
+				      N: \ZZ\backslash \{0\} & \to \ZZ_{\geq 0} \\
+				      N(a)                   & = \abs{a}
+			      \end{aligned}
+		      \]
+		      \begin{proof}
+			      Suppose \( b \in \ZZ\backslash\{0\} \), then there are two cases:
+			      \begin{itemize}
+				      \item \( b>0 \): we know \( a = qb+r \), \( 0\leq r < b = N(b) \) for some \( q,r \in \ZZ \) with the usual division algorithm.
+				      \item \( b<0 \): do the same for \( -a, -b \). Have \( -a = (-b)q+r \iff a = bq - r \) for \( 0\leq r < -b \), with \(N(r) \abs{-r} = r < -b = \abs{b} = N(b) \).
+			      \end{itemize}
+		      \end{proof}
+		\item \( \ZZ[i] \) is a Euclidean domain, with:
+		      \[
+			      \begin{aligned}
+				      N: \ZZ[i] & \to \ZZ_{\geq 0} \\
+				      N(a+bi)   & = a^2 + b^2
+			      \end{aligned}
+		      \]
+		      \begin{proof}
+			      Let \( a+bi, c+di \ne 0 \in \ZZ[i] \), in \( \QQ[i] \), have:
+			      \[
+				      \begin{aligned}
+					      \frac{a+bi}{c+di} & = p+qi \quad p,q \in \QQ                                                                                         \\
+					                        & = (\alpha + \beta i) + (\gamma + \delta i)                                                                       \\
+					                        & \text{where } \alpha, \beta \in \ZZ, \; \gamma, \delta \in \QQ, \; \abs{\gamma}, \abs{\delta } \leq \frac{1}{2}.
+				      \end{aligned}
+			      \]
+			      This implies that:
+			      \[
+				      \begin{aligned}
+					      \underbrace{a+bi}_{\in \ZZ[i]} & = \underbrace{(c+di)}_{\in \ZZ[i]} \cdot \underbrace{(\alpha + \beta i)}_{\in \ZZ[i]} + r \\
+					                                     & \text{where } r = (c+di)(\gamma + \delta i)                                               \\
+					      \implies r                     & \in \ZZ[i]
+				      \end{aligned}
+			      \]
+			      thus:
+			      \[
+				      N(r) = N(c+di) \cdot \underbrace{N(\gamma + \delta_i)}_{=\gamma^2 + \delta^2 \leq \frac{1}{4} + \frac{1}{4} = \frac{1}{2}} \quad \text{by \hyperlink{eq:hom}{\( (\star \star) \)}}
+			      \]
+			      thus either \( r = 0 \) or \( N(r) < N(c+di) \) since \( N(c+di)\ne 0 \).
+		      \end{proof}
+		\item If \( \KK \) is a field, then \( \KK[x] \) is an Euclidean domain, with:
+		      \[
+			      \begin{aligned}
+				      N: \KK[x] \backslash \{0\} & \to \ZZ_{\geq 0} \\
+				      N(f)                       & = \deg(f)
+			      \end{aligned}
+		      \]
+		      We verify the condition by showing the following proposition.
+		      \begin{proposition}
+
+		      \end{proposition}
+		      \begin{proof}[\textbf{Proof of Existence is Enough}]
+
+		      \end{proof}
+	\end{enumerate}
+\end{eg}
+
+\begin{remark}
+	It is very hard to say a domain is not an euclidean domain, because it's very hard to tell that \( N \) doesn't exists for sure.
+\end{remark}
