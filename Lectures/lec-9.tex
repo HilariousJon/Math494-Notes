@@ -99,6 +99,12 @@ Note that we consider it as some sort of topology with closed set being \( V(I) 
 
 		      We try to show that \( V(I_1) \cup V(I_2) = V(I_1\cap I_2) \), the ``\( \subseteq \)'' part is clear simply by the fact that \( I_1\cap I_2 \subseteq I_1 \) and \( I_1\cap I_2 \subseteq I_2 \). Now suppose that \( P \in V(I_1\cap I_2) \), then see that \( I_1\cap I_2 \subseteq P \). If \( I_1\not\subseteq P, I_2 \not\subseteq P \implies \exists \; x_1\in I_1 - P, \; x_2 \in I_2 - P \), s.t. \( x_1x_2 \in I_1 \cap I_2 \) (follows by ideal property) but \( x_1 x_2 \not\in P \) since \( P \) is prime ideal, and reason by contraposition. This leads to contradiction $\lightning$. Hence by contradiction, either \( P \supseteq I_1 \) or \( P \supseteq I_2 \), thus \( P \in V(I_1) \cup V(I_2) \).
 	\end{enumerate}
+	\begin{note}
+		Note that the formula only holds for ideal \( I_1, I_2 \subseteq R \):
+		\[
+			V(I_1) \cup V(I_2) = V (I_1 \cap I_2)
+		\]
+	\end{note}
 \end{proof}
 
 \begin{eg}
