@@ -56,6 +56,42 @@
 	By the universal property of \( R[x] \): there exists a unique such morphism \( f \) of \( R \)-Algebra, and exists a unique morphism of \( R \)-Algebra \( R[X] \xrightarrow{g} R[X], \; x\mapsto x+a \), thus \( g = f^{-1} \), and we can use the universal property to show that the composition \( f\circ g \) and \( g\circ f \) are identity, which yields isomorphism property.
 \end{note}
 
+\begin{definition}[\textbf{Coprime Ideal}]
+	Given \( R \) to be a commutative ring, let \( I_1, I_2 \) be two ideal s.t. \( I_1 \ne I_2 \), these two ideals are \underline{coprime} if:
+	\[
+		I_1 + I_2 = R
+	\]
+\end{definition}
+
+\begin{theorem}[\textbf{Generalized Chinese Remainder Theorem}]
+	Let \( I_1, \ldots, I_n \) be ideals in \( R \) such that \( I_i + I_j = R \) for all \( i\ne j \). Then:
+	\[
+		\qo{R}{I_1 \cap \cdots \cap I_n} \cong \; \prod_{i=1}^n \qo{R}{I_i}
+	\]
+\end{theorem}
+
+\begin{proof}[\textbf{Sketch}]
+	One should first prove the case that when \( I_1 + I_2 = R \), then:
+	\[
+		\qo{R}{I_1 \cap I_2} \cong \; \qo{R}{I_1} \times \qo{R}{I_2}
+	\]
+	By first isomorphism theorem, then show that:
+	\[
+		I_1 + (I_2 \cap I_3) = R
+	\]
+	by noticing that one can have such decomposition:
+	\[
+		\begin{aligned}
+			1        & = (x+y) \cdot(u+v)                                                       \\
+			         & = xu + yu + xv + yv                                                      \\
+			         & \text{where } x,u\in I_1, y\in I_2, v \in I_3                            \\
+			\implies & xu \in I_1, yu\in I_1 \cap I_2, xv \in I_1 \cap I_3, yv \in I_2 \cap I_3 \\
+			         & \text{with } xu + yu + xv \in I_1, yv \in I_2 \cap I_3
+		\end{aligned}
+	\]
+	and proceed on induction on \( n \).
+\end{proof}
+
 \subsection{Maximal Ideals}
 
 \begin{definition}[\textbf{Maximal Ideal}]
@@ -147,6 +183,17 @@ To prove it we'll need the famous \textbf{Zorn's Lemma}.
 
 \begin{proof}
 	Apply the theorem with \( I = \{0\} \) shows the existence of maximal ideal.
+\end{proof}
+
+\begin{proposition}
+	Let \( R \) be a commutative ring, and \( \mathfrak p_1, \mathfrak p_2 \) be two distinct maximal ideal, then:
+	\[
+		\mathfrak p_1 + \mathfrak p_2 = R
+	\]
+\end{proposition}
+
+\begin{proof}[\textbf{Sketch}]
+	It is straightforward once realized that \( \mathfrak p_1 + \mathfrak p_2 \) is actually an ideal by definition.
 \end{proof}
 
 \section{Local Ring}
