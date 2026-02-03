@@ -253,11 +253,22 @@ In fact this proof is quite influentiall and this is actually the first result i
 		      \]
 		      We verify the condition by showing the following proposition.
 		      \begin{proposition}
-
+			      Let \( R \) be any commutative ring, \( f,g \in R[x] \) and \( g \ne 0 \). Let
+			      \[
+				      g = a_n x^n + \cdots + a_1 x + a_0
+			      \]
+			      s.t. \( a_n \) is \textbf{invertible}, then there exists \textbf{unique} \( q,r \in R[x] \), s.t. \( f = gq + r \) and either \( r=0 \) or \( r\ne 0 \) and \( \deg(r) < n = \deg(g) \).
 		      \end{proposition}
 		      \begin{proof}[\textbf{Proof of Existence is Enough}]
-
+			      Proceed the proof by contradiction. If for given \( g \), there are \( f \)'s that don't satisfy this condition. Let's choose such \( f \) of minimal degree, clearly we have \( m := \deg(f) \geq n \implies f = b_m x^m + \) lower order term. Consider
+			      \[
+				      f' = f - b_m a_n^{-1} x^{m-n}g
+			      \]
+			      see that \( \deg(f') < \deg(f)\implies \exists \; q',r' \), s.t. \( f' = q'g + r' \implies f = \bace{b_m a^{-1}_n x^{m-n}+q'}g + r' \), which leads to contradiction $\lightning$, as we see that since \( f \) is minimal case that don't satisfy the condition, meaning we have either \( r'=0 \) or \( r'\ne 0 \) and \( \deg(r) < n = \deg(g) \).
 		      \end{proof}
+		      \begin{note}
+			      To show the \underline{uniqueness}, show that \( \deg(gh) = \deg(g) + \deg(h) \; \forall \; h\). We've proceed this for the case of domain, and it is crucial that \( a_n \) is invertible here.
+		      \end{note}
 	\end{enumerate}
 \end{eg}
 
