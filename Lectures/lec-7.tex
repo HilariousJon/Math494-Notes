@@ -101,6 +101,7 @@
 		\item If \( M \subseteq I \subseteq R \) and \( I \) be an ideal, then \( I = M \) or \( I = R \).
 	\end{enumerate}
 \end{definition}
+Notably, it is not necessarily for a ring to poccess a maximal ideal unless \( 1_R \ne 0_R \). One can make such ring by taking abelian groups that pocess no maixmal subgroup, for example \( \QQ \), and just set the multiplication into the trivial case \( ab = 0 \; \forall \; a,b\). \textbf{Theorem} \ref{thm:maximal} state that when \( 1_R \ne 0_R \) there's always maximal ideal. Hence any result related to maximal ideal forces the ring to be non-zero.
 
 \begin{lemma}
 	\label{lem:maximal-ideal-field}
@@ -126,6 +127,23 @@
 \begin{proof}
 	By correspondance between ideals of \( \qo{R}{M} \) and ideals in \( R \) \textbf{containing} \( M \), this follows from \textbf{Lemma} \ref{lem:maximal-ideal-field}.
 \end{proof}
+In particular this corollary basically tells us how to construct some fields, we later shall use it to construct all kinds of finite fields, by taking quotients on the ring \( \ZZ[x] \).
+
+\begin{eg}
+	\leavevmode
+	\begin{itemize}
+		\item Let \( R \) be the ring of all functions from \( [0,1] \to \RR \), see that for each \( a \in [0,1] \) define:
+		      \[
+			      M_a = \{ f \in R \; | \; f(a) = 0\}
+		      \]
+		      and since evaluation is a surjective ring homomoprhism from \( R \to \RR \), thus:
+		      \[
+			      \qo{R}{M_a} \cong \; \RR
+		      \]
+		      and thus \( M_a \) being a maximal ideal.
+		\item \( (x) \in \ZZ[x] \) is not a maixmal ideal. One can see that from either \( (x) \subsetneq (2,x) \subseteq \ZZ[x] \) or \( \qo{\ZZ[x]}{(x)} \cong\; \ZZ \) with \( \ZZ \) not being a field.
+	\end{itemize}
+\end{eg}
 
 \begin{corollary}
 	Every maximal ideal is prime ideal.
@@ -195,6 +213,7 @@ To prove it we'll need the famous \textbf{Zorn's Lemma}.
 \begin{proof}[\textbf{Sketch}]
 	It is straightforward once realized that \( \mathfrak p_1 + \mathfrak p_2 \) is actually an ideal by definition.
 \end{proof}
+Notably for \( \ZZ \) there is \textcolor{blue}{no difference} between the notion of maximal ideal and prime ideal, \( (p) \) is always maixmal. Consider \( (p_1, p_2) \) by Bezout's Theorem one shall notice that \( 1 \in (p_1, a) \) and they must be coprime if distinct and thus directly be \( \ZZ \).
 
 \section{Local Ring}
 
