@@ -112,3 +112,25 @@ The proof is straightforward. With side note that \( f(1_R) = 1_S \in \im(f) \).
 \end{proof}
 
 Also note, \( f: R\to S \) be ring homomorphism, it is injective iff \( \ker(f) = \{0\} \).
+
+\begin{proposition}
+	Let \( R_1, R_2 \) be a commutative ring, and let \( R = R_1 \times R_2 \). Then the ideal of \( R \) will take form of:
+	\[
+		I_1 \times I_2
+	\]
+	where \( I_1 \) and \( I_2 \) be some ideal of \( R_1, R_2 \) respectively. Moreover, if \( P \) be prime ideal of \( R \), then it will take form in:
+	\begin{itemize}
+		\item \( R_1 \times P_2 \) for some \( P_2 \) be prime ideal in \( R_2 \).
+		\item \( P_1 \times R_2 \) for some \( P_1 \) be prime ideal in \( R_1 \).
+	\end{itemize}
+\end{proposition}
+
+\begin{proof}[\textbf{Sketch}]
+	Consider the projection map \( \pi \) as the ring homomorphism, and see that the \textbf{images} are the ideal. As for the prime ideal case, write out the definition and one should observe that there are only two case for a prime ideal to take form:
+	\begin{itemize}
+		\item \( P_1 \times P_2 \), actually not a prime ideal, one can see by verify the definition.
+		\item \( R_1 \times R_2 \), not the prime ideal since it is the whole ring.
+		\item \( R_1 \times P_2 \), ok.
+		\item \( P_1 \times R_2 \), ok.
+	\end{itemize}
+\end{proof}
