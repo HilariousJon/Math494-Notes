@@ -97,5 +97,45 @@ In this section we restrict our view basically on \( R \) being a \textcolor{red
 \end{proposition}
 
 \begin{proof}
-
+	Let \( a,b \in (d) \implies d\mid a\) and \( d\mid b \). \( d\in (a,b) \implies \exists \; \alpha, \beta \in R \), s.t. \( d = a\alpha + b\beta \). If \( d'\mid a, d'\mid b \implies d'\mid d \). Hence \( d \) is a a gcd of \( a,b \).
 \end{proof}
+
+\begin{definition}[\textbf{Prime}]
+	If \( a\in R \) is \textbf{non-zero}, then \( a \) is \underline{prime} if \( (a) \) is a prime ideal, namely:
+	\begin{enumerate}
+		\item \( a\ne \) unit.
+		\item whenever \( b,c \in R \) are s.t. \( a\mid bc \implies a\mid b \) or \( a\mid c \).
+	\end{enumerate}
+\end{definition}
+
+\begin{definition}[\textbf{Irreducible}]
+	Let \( a\in R \) be \textbf{non-zero}, it is \underline{irreducible} if
+	\begin{enumerate}
+		\item \( a \ne \) unit.
+		\item whenever \( a=bc \) for some \( b,c \in R \), either \( b \) or \( c \) is a unit.
+	\end{enumerate}
+\end{definition}
+
+\begin{proposition}
+	If \( a\in R \) is prime, then \( a \) is irreducible.
+\end{proposition}
+
+\begin{proof}
+	It's clear that \( a \ne \) unit. If \( a =bc \) for some \( b,c \in R \implies a\mid bc \implies a\mid b\) or \( a\mid c \). Say \( a\mid b\implies b=au \) for some \( u\in R \). Thus \( a=auc \implies uc = 1 \implies \) \( c \) is a unit.
+\end{proof}
+
+\begin{remark}
+	The converse is \textcolor{red}{false} in general.
+\end{remark}
+
+\begin{definition}{\textbf{Unique Factorization Domain (UFD)}}
+	A domain \( R \) is a \underline{unique factorization domain} \underline{(UFD)} if:\todo{seems a compilation error}
+	\begin{itemize}
+		\item \( \forall \; a\in R, a\ne 0 \), \( a \) is not a unit. We can write \( a = p_1 \cdots p_r \) where \( p_1,\ldots, p_r \) are \textbf{irreducible elements}.
+		\item This decomposition is essentially \textbf{unique}: If \( a = q_1\cdots q_s \) is another such decomposition, then:
+		      \begin{itemize}
+			      \item \( r=s \).
+			      \item after reordering the \( q_i \), we have \( p_i \sim q_i \; \forall \; i \).
+		      \end{itemize}
+	\end{itemize}
+\end{definition}
