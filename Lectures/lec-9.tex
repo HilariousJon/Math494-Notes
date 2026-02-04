@@ -36,6 +36,22 @@ This means that it can be written as:
 	I_1\cdots I_n \coloneqq  \{\sum_{k=1}^d a_{k_1}a_{k_2}\cdots a_{k_n} \; | \; d\in \ZZ_{>0}, \; a_{k_j}\in I_j \; \forall \; j\}
 \]
 
+\begin{eg}
+	For example:
+	\[
+		I_1 \cdot I_2 = \{\sum_{i=1}^d a_i b_u \; | \; d\in \ZZ_{>0}, a_i \in I_1, b_i \in I_2\}
+	\]
+	Note that the sum here runs over all finite sum.
+\end{eg}
+
+\begin{note}
+	It should be stated clear that
+	\[
+		I_1 \cdot I_2 \ne \{ab \; | \; a\in I_1, b\in I_2\}
+	\]
+	such set is in general not closed under addition, thus \textbf{not} being an \textbf{ideal}.
+\end{note}
+
 Suppose that \( f: R \to S \) be a ring homomorphism of commutative rings. If \( I\subseteq R \) be an ideal, what can we say about \( f(I) \)?
 \begin{itemize}
 	\item \( f(I) \subseteq S \) is a subgroup.
