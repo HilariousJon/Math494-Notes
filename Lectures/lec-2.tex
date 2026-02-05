@@ -1,6 +1,7 @@
 \section{Subrings and Ideals}
 
-We consider the subobjects of ring in this section. In particular, note that sometimes people define rings by unitary ring, in such case Ideals are \textbf{unitary ring}.
+We consider the subobjects of ring in this section. In particular, note that sometimes people define
+rings by unitary ring, in such case Ideals are exactly normal \textbf{ring}.
 
 \begin{definition}[\textbf{Subring}]
 	Let \( R \) be a ring. A \underline{Subring} of \( R \) is a subset \( S \), s.t. \( (+), (\cdot) \) in \( R \) induce operations on \( S \) that make \( S \) a ring with unit \( 1_R \).
@@ -69,7 +70,7 @@ The proof is straightforward. With side note that \( f(1_R) = 1_S \in \im(f) \).
 \begin{remark}
 	\leavevmode
 	\begin{enumerate}
-		\item Every (left/right) ideal is a subgroup.
+		\item Every (left/right) ideal is a \textbf{subgroup}.
 		      \begin{itemize}
 			      \item \( I \ne \emptyset \implies \exists \; a\in I \implies 0a = 0 \in I \).
 			      \item \( \forall \; a\in I \implies -a \in I, \; -a = (-1)a = a \cdot (-1) \).
@@ -128,7 +129,9 @@ Also note, \( f: R\to S \) be ring homomorphism, it is injective iff \( \ker(f) 
 \end{proposition}
 
 \begin{proof}[\textbf{Sketch}]
-	Consider the projection map \( \pi \) as the ring homomorphism, and see that the \textbf{images} are the ideal. As for the prime ideal case, write out the definition and one should observe that there are only two case for a prime ideal to take form:
+	Consider the projection map \( \pi \) as the group homomorphism, and see that the \textbf{images}
+	are the ideal. As for the prime ideal case, write out the definition and one should observe that
+	there are only two case for a prime ideal to take form:
 	\begin{itemize}
 		\item \( P_1 \times P_2 \), actually not a prime ideal, one can see by verify the definition.
 		\item \( R_1 \times R_2 \), not the prime ideal since it is the whole ring.

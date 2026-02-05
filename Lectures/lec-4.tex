@@ -5,7 +5,7 @@ In this section we define two important examples of commutative ring derived fro
 \begin{definition}
 	Fix \( R \) to be a \textbf{commutative ring}, define:
 	\[
-		R[X] \coloneqq  \{a_0 + a_1 x + \cdots + a_n x^n \; | \; n \in \ZZ_{\geq 0}, \; a_0,\ldots, a_n \in R\}
+		R[x] \coloneqq  \{a_0 + a_1 x + \cdots + a_n x^n \; | \; n \in \ZZ_{\geq 0}, \; a_0,\ldots, a_n \in R\}
 	\]
 
 	note that \( x \) which is the variable here is to help track how ring multiplication is defined.
@@ -16,7 +16,7 @@ In this section we define two important examples of commutative ring derived fro
 		\item \( (\sum_{i=0}^n a_ix^i)\cdot (\sum_{j=0}^m b_j x^j) := \sum_{k=0}^{m+n}(\sum_{i+j = k}a_i b_j)x^k \).
 	\end{enumerate}
 
-	See that \( (R[X], +, \cdot) \) is a \textbf{commutative ring}, with
+	See that \( (R[x], +, \cdot) \) is a \textbf{commutative ring}, with
 	\begin{itemize}
 		\item zero element: \( 0 \), all coefficients being \( 0 \).
 		\item unit element: \( 1 \), all coefficients of \( x^i, \; i\geq 1 \) are 0.
@@ -26,15 +26,16 @@ In this section we define two important examples of commutative ring derived fro
 One shall see that we have a \textbf{injective} ring homomorphism:
 \[
 	\begin{aligned}
-		R & \xrightarrow{i} R[X] \\
+		R & \xrightarrow{i} R[x] \\
 		a & \mapsto a
 	\end{aligned}
 \]
 
-which yields the universal property of \( R[X] \).
+which yields the universal property of \( R[x] \).
 
-\begin{theorem}[\textbf{Universal Property of} \( \mathbf{R[X]} \)]
-	For every ring homomorphism \( \vp: R \to S \) with \( R,S \) commutative and for every \( a\in S \), there is a \textbf{unique} ring homomorphism \( \psi: R[X] \to S \), s.t.
+\begin{theorem}[\textbf{Universal Property of} \( \mathbf{R[x]} \)]
+	For every ring homomorphism \( \vp: R \to S \) with \( R,S \) commutative and for every
+	\( \mathbf{a\in S} \), there is a \textbf{unique} ring homomorphism \( \psi: R[x] \to S \), s.t.
 	\begin{enumerate}
 		\item The following diagram is commutative:
 		      \[
@@ -57,7 +58,8 @@ which yields the universal property of \( R[X] \).
 
 	this is explicitly defined, yields uniqueness.
 
-	For existence, we use this formula to define \( \psi: R[X] \to S \) explicitly, thus property 1 and 2 is clear, only left to check that \( \psi \) is actually a ring homomorphism:
+	For existence, we use this formula to define \( \psi: R[x] \to S \) explicitly, thus property 1
+	and 2 is clear, only left to check that \( \psi \) is actually a ring homomorphism:
 	\begin{itemize}
 		\item \( \psi(P+Q)  = \psi(P) + \psi(Q)\) is straightforward.
 		\item \( \psi(1) = 1 \) is also straightforward.
@@ -76,15 +78,17 @@ which yields the universal property of \( R[X] \).
 	\end{itemize}
 \end{proof}
 
-One can iterate this since \( R[X] \) is still a commutative ring, and thus get multi-variable polynomial ring over \( R \), which is defined recursively by:
+One can iterate this since \( R[x] \) is still a commutative ring, and thus get multi-variable
+polynomial ring over \( R \), which is defined recursively by:
 \[
-	R[X_1,\ldots, X_n]\coloneqq \bace{R[X_1, \ldots, X_{n-1}]} [X_n]
+	R[x_1,\ldots, x_n]\coloneqq \bace{R[x_1, \ldots, x_{n-1}]} [x_n]
 \]
 
 This is again a commutative ring.
 
-\begin{theorem}[\textbf{Universal Property of }\( \mathbf{R[X_1, \ldots, X_n]} \)]
-	\( \forall \) ring homomorphism \( \vp: R\to S \), \( R,S \) commutative, and \( \forall \; a_1,\ldots, a_n \in S \), there exists a \textbf{unique} ring homomorphism \( \psi: R[X_1, \ldots, X_n] \to S \), s.t.
+\begin{theorem}[\textbf{Universal Property of }\( \mathbf{R[x_1, \ldots, x_n]} \)]
+	\( \forall \) ring homomorphism \( \vp: R\to S \), \( R,S \) commutative, and \( \forall \; a_1,
+	\ldots, a_n \in S \), there exists a \textbf{unique} ring homomorphism \( \psi: R[x_1, \ldots, x_n] \to S \), s.t.
 	\begin{enumerate}
 		\item the following diagram is commutative:
 		      \[
@@ -93,35 +97,40 @@ This is again a commutative ring.
 				      & S & & &
 			      \end{tikzcd}
 		      \]
-		\item \( \psi(x_i) = a_i \; \forall i \in \br{1,n} \).
+		\item \( \textcolor{red}{\psi(x_i) = a_i \; \forall i \in \br{1,n}} \).
 	\end{enumerate}
 \end{theorem}
 
 \begin{eg}
 	\leavevmode
-	\( X_1^2 + X_1X_3 + X_2^4 \in R[X_1, X_2, X_3] \)
+	\( x_1^2 + x_1x_3 + x_2^4 \in R[x_1, x_2, x_3] \)
 \end{eg}
 
-The proof is straightforward by using induction on \( n \) with the previous universal property of \( R[X] \).
+The proof is straightforward by using induction on \( n \) with the previous universal property of
+\( R[x] \).
 
 \begin{eg}
-	If \( \sigma \in S_n \implies \exists ! \) ring homomoprhism, s.t. the following diagram is commutative:
+	If \( \sigma \in S_n \implies \exists ! \) ring homomoprhism, s.t. the following diagram is
+	commutative:
 	\[
 		\begin{tikzcd}
-			R \arrow[r] \arrow[d] & R[X_1, \ldots, X_n] \\
-			R[X_1, \ldots, X_n] \arrow[ru, "f_\sigma"]
+			R \arrow[r] \arrow[d] & R[x_1, \ldots, x_n] \\
+			R[x_1, \ldots, x_n] \arrow[ru, "f_\sigma"]
 		\end{tikzcd}
 	\]
-	and \( f_{\sigma}(x_i) = X_{\sigma(i)} \quad \forall i \). In fact this is a ring isomoprhism, thus be a automorphism, with inverse being \( f_{\sigma^{-1}} \). In particular it shows that the process of constructing \( R[X_1, \ldots, X_n] \) is just labelling anmd \textbf{doesn't matter with order} of \( X_1, \ldots, X_n \).
+	and \( f_{\sigma}(x_i) = x_{\sigma(i)} \quad \forall i \). In fact this is a ring isomoprhism,
+	thus be a automorphism, with inverse being \( f_{\sigma^{-1}} \). In particular it shows that the
+	process of constructing \( R[x_1, \ldots, x_n] \) is just labelling anmd \textbf{doesn't matter
+		with order} of \( x_1, \ldots, x_n \).
 \end{eg}
 
 \begin{notation}
-	Every element of \( R[X_1, \ldots, X_n] \) can be written as
+	Every element of \( R[x_1, \ldots, x_n] \) can be written as
 	\[
-		f = \sum_{u = (u_1,\ldots, u_n) \in \ZZ^n_{\geq 0}} a_u X^u
+		f = \sum_{u = (u_1,\ldots, u_n) \in \ZZ^n_{\geq 0}} a_u x^u
 	\]
 
-	where \( X^u = X_1^{u_1}\cdots X_n^{u_n} \) with \( a_u \in R \) which is a \underline{monomial}.
+	where \( x^u = x_1^{u_1}\cdots x_n^{u_n} \) with \( a_u \in R \) which is a \underline{monomial}.
 
 	\begin{eg}
 		\leavevmode
@@ -136,7 +145,7 @@ We then define the ring for formal power series, basically it allows infinite su
 \begin{definition}[\textbf{Ring of Formal Power Series}]
 	Suppose \( R \) a commutative ring, define the ring of \underline{formal power series} as:
 	\[
-		R[[X]] \coloneqq \{\sum_{i\geq 0}a_ix^i \; | \; a_i \in R, \; \forall \; i \geq 0\}
+		R[[x]] \coloneqq \{\sum_{i\geq 0}a_ix^i \; | \; a_i \in R, \; \forall \; i \geq 0\}
 	\]
 
 	with the operations defined:
@@ -151,19 +160,23 @@ We then define the ring for formal power series, basically it allows infinite su
 		      \]
 	\end{itemize}
 
-	See that \( (R[[X]], +, \cdot) \) is again a \textbf{commutative ring}, s.t. we have \( R[X] \subseteq R[[X]] \) being a subring.
+	See that \( (R[[x]], +, \cdot) \) is again a \textbf{commutative ring}, s.t. we have
+	\( R[x] \subseteq R[[x]] \) being a subring.
 \end{definition}
 
 \subsection{R-Algebra}
 
 \begin{definition}[\textbf{R-Algebra}]
-	Suppose that \( R \) is a commutative ring, an \underline{\( R \)-Algebra} is a ring \( S \) together with a ring homomorphism \( R \xrightarrow{\vp}S \), s.t. \( \vp(a) b = b\vp(a) \; \; \forall\;  a \in R, b\in S \).
+	\label{def:r-algebra}
+	Suppose that \( R \) is a commutative ring, an \underline{\( R \)-Algebra} is \textcolor{red}{a
+		ring \( S \) together with a ring homomorphism} \( R \xrightarrow{\vp}S \),
+	s.t. \( \vp(a) b = b\vp(a) \; \; \forall\;  a \in R, b\in S \).
 \end{definition}
 
 \begin{eg}
 	\leavevmode
 	\begin{enumerate}
-		\item \( R[X], R[[X]] \) have natural structures of \( R \)-Algebras \( R[X_1, \ldots, X_n] \).
+		\item \( R[x], R[[x]] \) have natural structures of \( R \)-Algebras \( R[x_1, \ldots, x_n] \).
 		\item here is a non-commutative ring example: \( M_n(R) \) with the ring homomorphism defined as:
 		      \[
 			      \begin{aligned}
