@@ -10,6 +10,8 @@
 		      \[
 			      S^{-1}P = \{\frac{a}{s} \in R_p \; | \; a\in P\}
 		      \]
+		      since \( P \) is the largest prime ideal for \( S^{-1} R \) with \( S = R - P \), s.t. \(
+		      S \cap P = \emptyset\).
 		      \begin{eg}
 			      If \( p\in \ZZ_{>0} \) is a prime integer, then:
 			      \[
@@ -22,7 +24,6 @@
 		      \end{eg}
 	\end{enumerate}
 \end{eg}
-
 The point is that if we want to study the property of the ring, we can sometimes go to the local ring and use their properties.
 
 \section{Radical Ideals}
@@ -90,7 +91,9 @@ The proof is straightforward by just formally write out the definition.
 		      \begin{note}
 			      This is \textbf{false} for prime ideals, see that in \( \ZZ \), \( (2) \cap (3) = (6) \), where \( (6) \) is not a prime ideal.
 
-			      However, if the family is a \textbf{totally ordered set characterized by set inclusion}, then this statement is true. See homework related to Zorn's Lemma, this also gives us the statement that \textbf{every prime ideals have a minimal prime ideal}.
+			      However, if the family is a \textbf{totally ordered set characterized by reverse set
+				      inclusion}, then this statement is true. See homework related to Zorn's Lemma, this also
+			      gives us the statement that \textbf{every prime ideals have a minimal prime ideal}.
 		      \end{note}
 	\end{enumerate}
 \end{remark}

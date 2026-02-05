@@ -14,14 +14,15 @@ It will be better to think fields and integral domain as very special ring, as t
 	\begin{enumerate}
 		\item \( R \) is commutative.
 		\item \( 1_R \ne 0_R \), namely it is not a \( 0 \) ring.
-		\item Every \( a \in R \backslash \{0\} \) is invertible.
+		\item \textbf{Every} \( a \in R \backslash \{0\} \) is invertible.
 	\end{enumerate}
 \end{definition}
 
 \begin{remark}
 	\leavevmode
 	\begin{itemize}
-		\item Note that for \( I \) being an ideal of \( R \), \( I=R \) if and only if \( I \) contains an unit of \( R \).
+		\item Note that for \( I \) being an ideal of \( R \), \( I=R \) \textcolor{red}{if and only if}
+		      \( I \) contains an unit of \( R \).
 		\item This directly shows that \( \KK \) being a field if and only if it attains no non-trivial ideal. In particular, see that the ideal structure of a field is \textcolor{red}{trivial}.
 		\item One result from this is that given any non-zero ring homomorphism \( \vp: \KK \to R \), such ring homomorphism is always \textbf{injective} as \( \ker(f) \) being a ideal of \( \KK \) and thus can only be \( \{0\} \) for a non-zero map.
 	\end{itemize}
@@ -48,7 +49,8 @@ It will be better to think fields and integral domain as very special ring, as t
 \end{definition}
 
 \begin{remark}
-	If \( R \) is a domain, then we have \textbf{cancellation rule w.r.t. multiplication}. Namely if \( ab = bc \), \( a.b.c \in R, \; a\ne 0 \implies b = c \).
+	If \( R \) is a domain, then we have \textcolor{red}{\textbf{cancellation rule w.r.t. multiplication}}.
+	Namely if \( ab = bc \), \( a.b.c \in R, \; a\ne 0 \implies b = c \).
 \end{remark}
 
 \begin{proof}
@@ -86,7 +88,7 @@ It will be better to think fields and integral domain as very special ring, as t
 \begin{proof}
 	\( R \) being a domain means that \( R \) is commutative and \( 1_R \ne 0_R \).
 
-	Now fix \( a\in R \), \( a\ne 0 \), and consider the function given by:
+	Now fix \( a\in R \), \( a\ne 0 \), and consider the map given by:
 	\[
 		\begin{aligned}
 			f: R & \to R \\
@@ -102,13 +104,15 @@ It will be better to think fields and integral domain as very special ring, as t
 \end{eg}
 
 \begin{remark}
-	If \( R \) is a domain, then every subring of \( R \) is a domain. In particular, every subring of a field is a domain.
+	If \( R \) is a domain, then \textbf{every subring} of \( R \) is a domain. In particular, every
+	subring of a \textbf{field} is a domain.
 \end{remark}
 
-Our goal then now switch to focus on \( R \) being a domain implies that \( R[X] \) is also a domain, for formal power series, the proof is almost the same.
+Our goal then now switch to focus on \( R \) being a domain implies that \( R[x] \) is also a
+domain, for formal power series, the proof is almost the same.
 
-\begin{definition}[\textbf{Degree of} \( \mathbf{R[X]} \)]
-	Fix \( R \) to be a commutative ring. If \( f \in R[X] \), \( f\ne 0 \), write:
+\begin{definition}[\textbf{Degree of} \( \mathbf{R[x]} \)]
+	Fix \( R \) to be a commutative ring. If \( f \in R[x] \), \( f\ne 0 \), write:
 	\[
 		f = a_0 + a_1 x + \cdots + a_n x^n
 	\]
@@ -122,12 +126,14 @@ Our goal then now switch to focus on \( R \) being a domain implies that \( R[X]
 \end{remark}
 
 \begin{proposition}
-	If \( R \) is a domain, and \( f,g \in R[X]\) are non-zero, we have:
+	If \( R \) is a \textcolor{blue}{domain}, and \( f,g \in R[x]\) are non-zero, we have:
 	\[
 		\deg(f\cdot g) = \deg(f) + \deg(g)
 	\]
 
-	In particular, \( f\cdot g \ne 0 \) thus being a domain by contraposition. Note that if it is not a domain, it is not generally true as one can cancel out the highest degree coeffecient by product on \textbf{zero divisor} on the coeffecient on the highest degree term.
+	In particular, \( f\cdot g \ne 0 \) thus \( R[x] \) being a domain by contraposition. Note that
+	if it is not a domain, it is not generally true as one can cancel out the highest degree
+	coeffecient by product on \textbf{zero divisor} on the coeffecient on the highest degree term.
 \end{proposition}
 
 \begin{proof}
@@ -151,13 +157,15 @@ Our goal then now switch to focus on \( R \) being a domain implies that \( R[X]
 \end{proof}
 
 \begin{corollary}
-	If \( n\geq 1 \), then \( R \) is a domain if and only if \( R[X_1, \ldots, X_n] \) is a domain.
+	If \( n\geq 1 \), then \( R \) is a domain if and only if \( R[x_1, \ldots, x_n] \) is a domain.
 \end{corollary}
 
 \begin{proof}
-	Arguing by induction on \( n \), and it is enough to treat \( n = 1 \). \( R \) being a domain implies that \( R[X] \) also be a domain. And if \( R[X] \) being a domain, we have a injective ring homomorphism \( R \hookrightarrow R[X] \), thus it is a subring of a domain, thus be a domain.
+	Arguing by induction on \( n \), and it is enough to treat \( n = 1 \). \( R \) being a domain
+	implies that \( R[x] \) also be a domain. And if \( R[x] \) being a domain, we have a injective
+	ring homomorphism \( R \hookrightarrow R[x] \), thus it is a \textcolor{blue}{subring of a domain},
+	thus be a domain.
 \end{proof}
-
 
 \section{Ring Fraction}
 
@@ -166,7 +174,7 @@ In this section, we want to construt the ring fraction. Our goal is to show that
 \begin{definition}[\textbf{Multiplicative System}]
 	Fix \( R \) be commutative ring, \( S\subseteq R \) be a \underline{multiplicative system} if:
 	\begin{enumerate}
-		\item \( 1\in S \).
+		\item \textcolor{red}{\( 1\in S \)}.
 		\item If \( s_1, s_2 \in S \implies s_1\cdot s_2 \in S\).
 	\end{enumerate}
 \end{definition}
@@ -197,9 +205,13 @@ We want to see that \( (a,s)\sim (a'', s'') \iff s'' a = s a'' \). And see that:
 And it is not clear that the \textcolor{blue}{blue} one is equal to the \textcolor{red}{red} one by definition. Thus we make some modification to the definition.
 
 \begin{definition}
-	Let \( R \) be a commutative ring and \( S\subseteq R \) be a multiplication system. Consider pairs \( a,s \) where \( a\in R. s\in S \), write \( (a,s) \sim (a',s') \) if there exists \( t\in S \), s.t. \( t(s'a - sa') = 0 \).
+	Let \( R \) be a \textcolor{blue}{commutative ring} and \( S\subseteq R \) be a multiplication system. Consider
+	pairs \( a,s \) where \( a\in R. s\in S \), write \( (a,s) \sim (a',s') \) if there exists
+	\textcolor{red}{\( t\in S \)}, s.t. \( t(s'a - sa') = 0 \).
 
-	Note that \( 0 \) is not necessarily in \( S \), and usually we don't care about the situation where a \textbf{zero divisor} in \( S \). When there is no zero-divisor in \( S \), the following canonical homomorphism is injective.
+	Note that \( 0 \) is not necessarily in \( S \), and usually we don't care about the situation
+	where a \textbf{zero divisor} in \( S \). When there is no zero-divisor in \( S \), the following
+	canonical homomorphism is injective. And when there is a zero-divisor in \( S \) it is not.
 	\[
 		\begin{aligned}
 			R & \to S^{-1} R        \\
@@ -231,8 +243,9 @@ And it is not clear that the \textcolor{blue}{blue} one is equal to the \textcol
 		      We now interest in:
 		      \[
 			      \begin{aligned}
-				      \textcolor{red}{t_1 t_2 s'}(s''a - sa'') & = t_2 s'' \underbrace{t_1(s'a-sa')}_{=0} + \underbrace{t_2t_1s''sa'-t_1t_2s'sa''}_{=t_1s \underbrace{t_2(s''a'-s'a'')}_{=0}} \\
-				                                               & = 0                                                                                                                          \\
+				      \textcolor{red}{t_1 t_2 s'}(s''a - sa'') & = t_2 s'' \underbrace{t_1(s'a-sa')}_{=0} +
+				      \underbrace{t_2t_1s''sa'-t_1t_2s'sa''}_{=t_1 s \underbrace{t_2(s''a'-s'a'')}_{=0}}    \\
+				                                               & = 0                                        \\
 				      \implies (a,s)                           & \sim (a'', s'')
 			      \end{aligned}
 		      \]

@@ -1,17 +1,18 @@
 \begin{note}
-	If \( I \) is an ideal in \( R \), then all ideals in \( \qo{R}{I} \) are of the form \( \qo{P}{I} \) where \( I \subseteq P \) is an ideal. See that by Isomorphism theorem:
+	If \( I \) is an ideal in \( R \), then all ideals in \( \qo{R}{I} \) are of the form \( \qo{P}{I} \)
+	where \( I \subseteq P \) is an ideal. See that by isomorphism theorem:
 	\[
 		\qo{\qo{R}{I}}{\qo{P}{I}} \cong \; \qo{R}{P}
 	\]
 
-	Hence \( \qo{P}{I} \) is prime ideal if and only if \( P \) is prime ideal.
+	Hence \textcolor{blue}{\( \qo{P}{I} \) is prime ideal if and only if \( P \) is prime ideal}.
 \end{note}
 
 \begin{eg}
 	The following are equivalent:
 	\begin{itemize}
 		\item \( R \) is a domain.
-		\item \( (x):= \{xf \; | \; f\in R[X]\} \) inside \( R[X] \) is a prime ideal.
+		\item \( (x):= \{xf \; | \; f\in R[x]\} \) inside \( R[x] \) is a prime ideal.
 	\end{itemize}
 
 	\begin{proof}
@@ -47,13 +48,18 @@
 	\[
 		\begin{aligned}
 			f: R[x] & \to R[x] \\
-			f(x)    & = (x-a)
+			f(x)    & = x-a
 		\end{aligned}
 	\]
 
-	So see that \( (x) \) is prime ideal if and only if \( (x-a) \) is prime ideal, if and only if \( R \) is a domain, thus if and only if \( (x-a) \) is also a prime ideal.
+	So see that \( (x) \) is prime ideal if and only if \( (x-a) \) is prime ideal, if and only if
+	\( R \) is a domain, thus if and only if \( (x-a) \) is also a prime ideal.
 
-	By the universal property of \( R[x] \): there exists a unique such morphism \( f \) of \( R \)-Algebra, and exists a unique morphism of \( R \)-Algebra \( R[X] \xrightarrow{g} R[X], \; x\mapsto x+a \), thus \( g = f^{-1} \), and we can use the universal property to show that the composition \( f\circ g \) and \( g\circ f \) are identity, which yields isomorphism property.
+	By the universal property of \( R[x] \): there exists a unique such morphism \( f \) of
+	\( R \)-Algebra, and exists a unique morphism of \( R \)-Algebra
+	\( R[X] \xrightarrow{g} R[X], \; x\mapsto x+a \), thus \( g = f^{-1} \), and we can use the
+	universal property to show that the composition \( f\circ g \) and \( g\circ f \) are identity,
+	which yields isomorphism property.
 \end{note}
 
 \begin{definition}[\textbf{Comaximal Ideal}]
@@ -94,7 +100,7 @@
 	\[
 		\qo{R}{I_1 \cap I_2} \cong \; \qo{R}{I_1} \times \qo{R}{I_2}
 	\]
-	By first isomorphism theorem, then show that:
+	by first isomorphism theorem. Then show that:
 	\[
 		I_1 + (I_2 \cap I_3) = R
 	\]
@@ -120,11 +126,16 @@
 		\item If \( M \subseteq I \subseteq R \) and \( I \) be an ideal, then \( I = M \) or \( I = R \).
 	\end{enumerate}
 \end{definition}
-Notably, it is not necessarily for a ring to poccess a maximal ideal unless \( 1_R \ne 0_R \). One can make such ring by taking abelian groups that pocess no maixmal subgroup, for example \( \QQ \), and just set the multiplication into the trivial case \( ab = 0 \; \forall \; a,b\). \textbf{Theorem} \ref{thm:maximal} state that when \( 1_R \ne 0_R \) there's always maximal ideal. Hence any result related to maximal ideal forces the ring to be non-zero.
+Notably, it is not necessarily for a ring to poccess a maximal ideal unless \( 1_R \ne 0_R \).
+One can make such ring by taking abelian groups that pocess no maixmal subgroup, for example
+\( \QQ \), and just set the multiplication into the trivial case \( ab = 0 \; \forall \; a,b\).
+\textbf{Theorem} \ref{thm:maximal} state that when \( 1_R \ne 0_R \) there's always
+maximal ideal. Hence any result related to maximal ideal forces the ring to be non-zero ring.
 
 \begin{lemma}
 	\label{lem:maximal-ideal-field}
-	If \( R \) is a commutative ring, then \( R \) is a field if and only if \( \{0\} \) is a maximal ideal.
+	If \( R \) is a commutative ring, then \( R \) is a field if and only if \( \{0\} \) is a maximal
+	ideal.
 \end{lemma}
 
 \begin{proof}
@@ -175,8 +186,14 @@ In particular this corollary basically tells us how to construct some fields, we
 \begin{eg}
 	The following are ideals that are prime but not maximal:
 	\begin{enumerate}
-		\item \( \{0\} \subseteq \ZZ \) is a prime ideal, but not maximal ideal.
-		\item \( (x) \subseteq \ZZ[x] \) is a prime ideal, but not maximal ideal.\todo{why?}
+		\item \( \{0\} \subseteq \ZZ \) is a prime ideal, but not maximal ideal, same ideal as the proof
+		      below.
+		\item \( (x) \subseteq \ZZ[x] \) is a prime ideal, but not maximal ideal. Since
+		      \[
+			      \qo{\ZZ[x]}{(x)} \cong \; \ZZ
+		      \]
+		      with \( \ZZ \) being an integral domain not a field, thus \( (x) \) is prime ideal but not
+		      maximal ideal.
 	\end{enumerate}
 \end{eg}
 
@@ -216,9 +233,12 @@ Similar technique can be used to prove the following proposition, which takes th
 \[
 	\mathfrak p_1 = \bigcap_{\mathfrak p' \in \mathfrak P }\mathfrak p'
 \]
-where in the following, \( \mathfrak p_0 \) is a fixed prime ideal in \( R \). Notably, \( \mathfrak p_1 \) is a prime ideal, only when \( \mathfrak P \subseteq \mathfrak p \) is a totally ordered set w.r.t. \textcolor{blue}{reverse set inclusion}.
+where in the following, \( \mathfrak p_0 \) is a fixed prime ideal in \( R \). Notably,
+\( \mathfrak p_1 \) is a prime ideal, only when \( \mathfrak P \subseteq \mathfrak p \) is arbitrary
+totally ordered set w.r.t. \textcolor{blue}{reverse set inclusion}.
 \[
-	\mathfrak p = \{\mathfrak q \subseteq \mathfrak p_0 \; | \; \mathfrak q \text{ is a prime ideal in } R\}
+	\mathfrak p = \{\mathfrak q \subseteq \mathfrak p_0 \; | \; \mathfrak q \text{ is a prime ideal in
+	} R\}
 \]
 
 \begin{proposition}
@@ -244,7 +264,10 @@ where in the following, \( \mathfrak p_0 \) is a fixed prime ideal in \( R \). N
 \begin{proof}[\textbf{Sketch}]
 	It is straightforward once realized that \( \mathfrak p_1 + \mathfrak p_2 \) is actually an ideal by definition.
 \end{proof}
-Notably for \( \ZZ \) there is \textcolor{blue}{no difference} between the notion of maximal ideal and prime ideal, \( (p) \) is always maixmal. Consider \( (p_1, p_2) \) by Bezout's Theorem one shall notice that \( 1 \in (p_1, a) \) and they must be coprime if distinct and thus directly be \( \ZZ \).
+Notably for \( \ZZ \) there is \textcolor{blue}{no difference} between the notion of maximal ideal
+and prime ideal except for \( \{0\} \) being a prime ideal but not a maximal ideal, \( (p) \) is
+always maixmal. Consider \( (p_1, p_2) \) by Bezout's Theorem one shall notice that
+\( 1 \in (p_1, a) \) and they must be coprime if distinct and thus directly be \( \ZZ \).
 
 \section{Local Ring}
 
