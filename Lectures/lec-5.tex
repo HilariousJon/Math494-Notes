@@ -126,7 +126,7 @@ Our goal then now switch to focus on \( R \) being a domain implies that \( R[X]
 		\deg(f\cdot g) = \deg(f) + \deg(g)
 	\]
 
-	In particular, \( f\cdot g \ne 0 \) thus being a domain by contraposition. Note that if it is not a domain, it is not generally true as one can cancel out the highest degree coeffecient by product.
+	In particular, \( f\cdot g \ne 0 \) thus being a domain by contraposition. Note that if it is not a domain, it is not generally true as one can cancel out the highest degree coeffecient by product on \textbf{zero divisor} on the coeffecient on the highest degree term.
 \end{proposition}
 
 \begin{proof}
@@ -198,7 +198,13 @@ And it is not clear that the \textcolor{blue}{blue} one is equal to the \textcol
 \begin{definition}
 	Let \( R \) be a commutative ring and \( S\subseteq R \) be a multiplication system. Consider pairs \( a,s \) where \( a\in R. s\in S \), write \( (a,s) \sim (a',s') \) if there exists \( t\in S \), s.t. \( t(s'a - sa') = 0 \).
 
-	Note that \( 0 \) is not necessarily in \( S \).
+	Note that \( 0 \) is not necessarily in \( S \), and usually we don't care about the situation where a \textbf{zero divisor} in \( S \). When there is no zero-divisor in \( S \), the following canonical homomorphism is injective.
+	\[
+		\begin{aligned}
+			R & \to S^{-1} R        \\
+			a & \mapsto \frac{a}{1}
+		\end{aligned}
+	\]
 \end{definition}
 
 \begin{claim}
