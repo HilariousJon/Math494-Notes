@@ -132,7 +132,11 @@ The proof is straightforward by just formally write out the definition.
 \end{proof}
 
 \begin{corollary}
-	A ring \( R \) is reduced if and only if
+	In a commutative ring \( R \), since all prime ideal contains \( 0 \), and thus contain \( (0) \), we have:
+	\[
+		\bigcap_{\mathfrak p \in \spec R} \mathfrak p = \rad((0)) = \{x\in R\; | \; \exists \; n \in \ZZ_{>0}, \; x^n = 0\} =: \sqrt{(0)}
+	\]
+	In particular, A ring \( R \) is reduced if and only if
 	\[
 		\bigcap_{\mathfrak p \in \spec R} \mathfrak p = \{0\}
 	\]
