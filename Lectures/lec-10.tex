@@ -2,27 +2,28 @@
 
 In this section we focus on the context of \( R \) being any ring instead of being commutative ring.
 
-\begin{definition}[\textbf{Noetherian Rings and Artirian Rings}]
+\begin{definition}[\textbf{Noetherian Rings and Artinian Rings}]
 	Let \( R \) be any ring. Then \( R \) is \underline{left/right}  \underline{Noetherian ring} if there exists \textbf{no} strictly increasing sequence:
 	\[
 		I_1 \subsetneq I_2 \subsetneq \cdots \text{ of left/right ideals. }
 	\]
-	\( R \) is \underline{left/right Artirian ring} if there exists \textbf{no} strictly decreasing sequence
+	\( R \) is \underline{left/right Artinian ring} if there exists \textbf{no} strictly decreasing sequence
 	\[
 		I_1 \supsetneq I_2 \supsetneq \cdots \text{ of left/right ideals.}
 	\]
 \end{definition}
 
 \begin{note}
-	Aritirian ring is a stronger property, most of the rings doesn't satisfy the property of artirian ring.
+	Aritinian ring is a stronger property, most of the rings doesn't satisfy the property of artinian
+	ring.
 \end{note}
 
 \begin{eg}
 	\leavevmode
 	\begin{enumerate}
-		\item A field is both noetherian and artirian.
-		\item Every finite ring is both noetherian and artirian.
-		\item \( \ZZ \) is not a artirian ring, because there exists the following strictly decreasing ideal sequence:
+		\item A field is both Noetherian and Artinian.
+		\item Every finite ring is both Noetherian and ArtiNian.
+		\item \( \ZZ \) is not a Artinian ring, because there exists the following strictly decreasing ideal sequence:
 		      \[
 			      2\ZZ \supsetneq 2^2 \ZZ \supsetneq 2^3 \ZZ \supsetneq \cdots
 		      \]
@@ -39,11 +40,11 @@ In this section we focus on the context of \( R \) being any ring instead of bei
 	For a ring \( R \), \textbf{TFAE}:
 	\begin{enumerate}
 		\item \( R \) is left/right Noetherian ring.
-		\item Every non-empty family \( \cI \) of left/right ideals of \( R \) contains a maximal element. The maximal element namely is:
+		\item \textcolor{red}{Every} non-empty family \( \cI \) of left/right ideals of \( R \) contains a maximal element. The maximal element namely is:
 		      \[
 			      \exists \; I \in \cI \; \text{s.t. if } I \subseteq J, \; J \in \cI \implies I=J
 		      \]
-		\item Every left/right ideal of \( R \) is finitely generated. Namely:
+		\item \textcolor{red}{Every} left/right ideal of \( R \) is finitely generated. Namely:
 		      \[
 			      \exists \; a_1, \ldots, a_n \in R, \text{ s.t. } I = \sum_{i=1}^n Ra_i \quad \bace{I = \sum_{i=1}^n a_i R}
 		      \]
@@ -75,12 +76,13 @@ In this section we focus on the context of \( R \) being any ring instead of bei
 		      thus \( I_s = I_r \; \forall \; s\geq r \). So we see that the sequence \textbf{stablize to some ideal}, leading to the property of Noetherian ring.
 	\end{itemize}
 \end{proof}
-
-The following theorem gives us a basic idea that in fact a lot of rings a actually Noetherian, because the property can inherit from some other ring. So we can build up Noetherian ring from the existing one.
+The following theorem gives us a basic idea that in fact a lot of rings a actually Noetherian,
+because the property can inherit from some other ring. So we can build up Noetherian ring from the
+existing one.
 
 \begin{theorem}[\textbf{Hilbert's Basis Theorem}]
 	\label{thm:hilbert-basis}
-	If \( R \) is a \textbf{Noetherian commutative ring}, then \( R[X] \) is also a Noetherian ring.
+	If \( R \) is a \textbf{Noetherian commutative ring}, then \( R[x] \) is also a Noetherian ring.
 \end{theorem}
 In fact this proof is quite influentiall and this is actually the first result in Commutative Algebra. Commutative property here basically only help us construct the polynomial ring.
 
@@ -155,8 +157,10 @@ In fact this proof is quite influentiall and this is actually the first result i
 \begin{remark}
 	Let \( R \) be a ring.
 	\begin{enumerate}
-		\item If \( I \) is a two-sided ideal in \( R \) and \( R \) is left (right) Noetherian, then \( qo{R}{I} \) is left (right) Noetherian.
-		\item If \( R \) is commutative and Noetherian, then for every multiplicative system \( S \subseteq R \), the ring fractions \( S^{-1} R \) is Noetherian.
+		\item If \( I \) is a two-sided ideal in \( R \) and \( R \) is left (right) Noetherian, then
+		      \( \qo{R}{I} \) is left (right) Noetherian.
+		\item If \( R \) is commutative and Noetherian, then for every multiplicative system
+		      \( S \subseteq R \), the ring fractions \( S^{-1} R \) is Noetherian.
 	\end{enumerate}
 \end{remark}
 
@@ -187,10 +191,14 @@ In fact this proof is quite influentiall and this is actually the first result i
 \end{eg}
 
 \begin{definition}[\textbf{Euclidean Domain}]
-	A domain \( R \) is an \underline{Euclidean Domain} if there eixsts \( N: R\backslash\{0\} \to \ZZ_{\geq 0} \) being \textbf{arbitrary} functions, such that, \( \forall \; a,b \in R \) with \( b\ne 0 \), there exists \( q,r\in R \) (\textbf{not necessarily unique}), such that:
+	A domain \( R \) is an \underline{Euclidean Domain} if there eixsts
+	\( N: R\backslash\{0\} \to \ZZ_{\geq 0} \) being \textbf{arbitrary} functions, such that,
+	\( \forall \; a,b \in R \) with \( b\ne 0 \), there exists \( q,r\in R \)
+	(\textbf{not necessarily unique}), such that:
 	\begin{itemize}
 		\item \( a = bq + r \).
-		\item Either \( r= 0 \) or (\( r\ne 0 \) and \( N(r)<N(b) \)).
+		\item Either \( r= 0 \) or (\( r\ne 0 \) and \( N(r)<N(b) \)). (the norm of \( r \) should be
+		      smaller than the norm of \( b \))
 	\end{itemize}
 \end{definition}
 
@@ -224,7 +232,7 @@ In particular it tells us that every ideal in an Euclidean domain is principal. 
 \end{proof}
 
 \begin{corollary}
-	If \( R \) be any commutativr ring such that \( R[x] \) is a PID, then \( R \) is a field.
+	If \( R \) be any commutative ring such that \( R[x] \) is a PID, then \( R \) is a field.
 \end{corollary}
 
 \begin{proof}

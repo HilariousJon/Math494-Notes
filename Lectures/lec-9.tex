@@ -110,12 +110,12 @@ This connects closely on topology. Basically it allow us to glue several ring to
 \begin{definition}
 	Given a commutative ring \( R \), define:
 	\[
-		\spec R \coloneqq  \{P \subset R \; | \; P \text{ is prime ideal.}\}
+		\spec R \coloneqq  \{\mathfrak p \subset R \; | \; \mathfrak p \text{ is prime ideal.}\}
 	\]
 
 	For every ideal (not necessarily prime) \( I \subset R \), let
 	\[
-		V(I) \coloneqq  \{P \in \spec R \; | \; I \subseteq P\}
+		V(I) \coloneqq  \{\mathfrak p \in \spec R \; | \; I \subseteq \mathfrak p\}
 	\]
 \end{definition}
 
@@ -156,7 +156,8 @@ Note that we consider it as some sort of topology with closed set being \( V(I) 
 \end{proof}
 
 \begin{eg}
-	Let \( R = \ZZ \implies \) the prime ideals are \textbf{precisely} \( \{\{0\}, p\ZZ \text{ for } p \text{ prime.}\} \)\todo{see next time every ideal is principal in this case}. Then:
+	Let \( R = \ZZ \implies \) the prime ideals are \textbf{precisely} \( \{\{0\}, p\ZZ \text{ for }
+	p \text{ prime}\} \)\todo{see next time every ideal is principal in this case}. Then:
 	\begin{itemize}
 		\item \( \{p\ZZ\} \) are closed.
 		\item \( \overline{\{(0)\}} = \overline{\{0\}} = \spec(\ZZ) \).
@@ -244,6 +245,8 @@ We can actually also do similar things for maximal ideal!
 	\]
 	\begin{itemize}
 		\item It \textbf{doesn't} give a functor in general.
-		\item It indeed \textbf{well-behaved} and useful in geometry if \( R \) is a quotient of a polynomial ring, namely: \( \qo{\KK[x_1, \ldots,x_n]}{I} \) where \( \KK \) be a field, and in this case, it indeed \textbf{gives a functor}.
+		\item It indeed \textbf{well-behaved} and useful in geometry if \( R \) is a quotient of a
+		      polynomial ring, namely: \( \frac{\KK[x_1, \ldots,x_n]}{I} \) where \( \KK \) be a field,
+		      and in this case, it indeed \textbf{gives a functor}.
 	\end{itemize}
 \end{remark}
