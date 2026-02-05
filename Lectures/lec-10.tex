@@ -189,6 +189,7 @@ In fact this proof is quite influentiall and this is actually the first result i
 \begin{proposition}
 	Every Euclidean Domain \( R \) is a PID.
 \end{proposition}
+In particular it tells us that every ideal in an Euclidean domain is principal. Thus it is a good theorem to tell that some integral domains are not Euclidean domains (with repsect to any norm \( N \)).
 
 \begin{proof}
 	Let \( I \subseteq R \) be an ideal, If \( I = \{0\} \), clearly that \( I \) is principl. If \( I \ne \{0\} \) and \( N \) is as in the definition of Euclidean domain. Let \( b \in I \backslash\{0\} \) be s.t. \( N(b) \) is minimal.
@@ -200,6 +201,29 @@ In fact this proof is quite influentiall and this is actually the first result i
 		\item \( r = 0\implies a\in (b) \) which is ok.
 		\item \( r\ne 0 \) and \( N(r) < N(b) \), thus \( r = a-bq \in I \) by the ideal property, which contradict to the minimality assumption of \( N(b) \) $\lightning$. So this case cannot happen.
 	\end{itemize}
+\end{proof}
+
+\begin{proposition}
+	Every nonzero prime ideal in a PID is a maximal ideal.
+\end{proposition}
+
+\begin{proof}
+	Let \( (p) \) be a nonzero prime ideal in the PID \( R \) and let \( I = (m) \) be any ideal containing \( (p) \), we want to see that \( I = (p) \) or \( I = R \). Now \( p \in (m) \) thus \( p= rm \) for some \( r \in R \). Since \( (p) \) is a prime ideal and \( rm \in (p) \), either \( r\in (p) \) or \( m \in (p) \). If \( m\in (p) \) then \( (p) = (m) = I \). If \( r \in (p) \), write \( r = ps \) for some \( s\in R \). Then:
+	\[
+		p = rm = psm \implies sm = 1 \quad (R\text{ is a domain.})
+	\]
+	thus \( m \) is a unit so \( I = R \).
+\end{proof}
+
+\begin{corollary}
+	If \( R \) be any commutativr ring such that \( R[x] \) is a PID, then \( R \) is a field.
+\end{corollary}
+
+\begin{proof}
+	\( (x) \) is maximal ideal, and see that:
+	\[
+		\qo{R[x]}{(x)} \cong \; R
+	\]
 \end{proof}
 
 \begin{eg}

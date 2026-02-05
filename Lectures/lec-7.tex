@@ -56,18 +56,37 @@
 	By the universal property of \( R[x] \): there exists a unique such morphism \( f \) of \( R \)-Algebra, and exists a unique morphism of \( R \)-Algebra \( R[X] \xrightarrow{g} R[X], \; x\mapsto x+a \), thus \( g = f^{-1} \), and we can use the universal property to show that the composition \( f\circ g \) and \( g\circ f \) are identity, which yields isomorphism property.
 \end{note}
 
-\begin{definition}[\textbf{Coprime Ideal}]
-	Given \( R \) to be a commutative ring, let \( I_1, I_2 \) be two ideal s.t. \( I_1 \ne I_2 \), these two ideals are \underline{coprime} if:
+\begin{definition}[\textbf{Comaximal Ideal}]
+	Given \( R \) to be a commutative ring, let \( I_1, I_2 \) be two ideal s.t. \( I_1 \ne I_2 \), these two ideals are \underline{comaximal} if:
 	\[
 		I_1 + I_2 = R
 	\]
 \end{definition}
+
+\begin{proposition}
+	When \( I_1 + I_2 = R\), namely when they are comaximal, we have:
+	\[
+		I_1 \cap I_2 = I_1 I_2
+	\]
+\end{proposition}
+
+\begin{proof}
+	The ideal \( I_1 I_2 \) always contained in \( I_1 \cap I_2 \). Since there exists \( 1 = x+y \) for some \( x \in I_1, y\in I_2 \) since \( I_1 + I_2 = R \). Thus for \( c\in I_1 \cap I_2 \) we have \( c = c1 = cx + cy \in I_1 I_2 \) thus \( I_1 \cap I_2 \subseteq I_1 I_2 \).
+\end{proof}
 
 \begin{theorem}[\textbf{Generalized Chinese Remainder Theorem}]
 	Let \( I_1, \ldots, I_n \) be ideals in \( R \) such that \( I_i + I_j = R \) for all \( i\ne j \). Then:
 	\[
 		\qo{R}{I_1 \cap \cdots \cap I_n} \cong \; \prod_{i=1}^n \qo{R}{I_i}
 	\]
+	with the ring homomorphism defined by:
+	\[
+		\begin{aligned}
+			R & \to \qo{R}{I_1} \times \cdots \times \qo{R}{I_n} \\
+			r & \mapsto (r+I_1,\ldots, r+I_n)
+		\end{aligned}
+	\]
+	with kernel being \( I_1 \cap I_2 \cap \cdots \cap I_n \).
 \end{theorem}
 
 \begin{proof}[\textbf{Sketch}]
