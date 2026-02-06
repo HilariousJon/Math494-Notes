@@ -1,0 +1,171 @@
+\begin{definition}[\textbf{Unique Factorization Domain (UFD)}]
+	A domain \( R \) is a \underline{unique factorization domain} \underline{(UFD)} if:\todo{seems a compilation error}
+	\begin{itemize}
+		\item \( \forall \; a\in R, a\ne 0 \), \( a \) is not a unit. We can write \( a = p_1 \cdots p_r \) where \( p_1,\ldots, p_r \) are \textbf{irreducible elements}.
+		\item This decomposition is essentially \textbf{unique}: If \( a = q_1\cdots q_s \) is another such decomposition, then:
+		      \begin{itemize}
+			      \item \( r=s \).
+			      \item after reordering the \( q_i \), we have \( p_i \sim q_i \; \forall \; i \).
+		      \end{itemize}
+	\end{itemize}
+\end{definition}
+
+\begin{conclusion}
+	fields \( \subset \) Euclidean Domains \( \subset \) PIDs \( \subset \) UFDs \( \subset \) integral domains.
+\end{conclusion}
+
+\begin{proposition}
+	If \( R \) is a UFD, then every irreducible element is prime.
+\end{proposition}
+
+\begin{proof}
+	Let \( a \) be irreducible, then \( a\ne 0 \) and \( a\ne \) unit. Suppose that \( a\mid bc
+	\implies bc = ad\) for some \( d\in R \). We write \( b,c,d \) as product of irreducible elements.
+	By condition \( \mathbf 2 \) in definition of \( UFD \), \( a \) is associated with one of the
+	irreducible factors of \( b (\implies a\mid b) \) or \( c (\implies a\mid c)\).
+\end{proof}
+
+\begin{proposition}
+	\label{prop:decomp-irred}
+	If every irreducible elements in \( R \) is prime, then we have essential uniqueness of
+	irreducible decomposition in \( R \).
+\end{proposition}
+
+\begin{proof}
+	We want to show that if \( p_1 \cdots p_r \sim q_1 \cdots q_s \), with \( p_i, q_j \) being
+	irreducible, then \( r=s \) and after reordering the \( q_j \) we have \( p_i \sim q_i \; \forall
+	i\)
+
+	We proceed induction on \( \min\{r,s\} \):
+	\begin{itemize}
+		\item Base case: if \( \min\{r,s\}=0 \), trivially holds.
+		\item Inductive step: Let \( r>0 \), if \( p_1 \) is irreducible, it is then prime by the
+		      hypothesis. Then \( p_1 \mid q_1\cdots q_s \implies \) after reordering the \( q_j \), may
+		      assume \( p_1 \mid q_1 \). Then \( q_1 = p_1 u \) for some \( u\in R \). Then \( q_1 \) is
+		      irreducible + \( p_1 \ne \) unit \( \implies u \) is a unit \( \implies p_1\sim q_1\).
+	\end{itemize}
+\end{proof}
+
+\begin{eg}
+	Take \( R = \ZZ[\sqrt{5} i] \), write
+	\[ 2\cdot 3 = 6 = (1+\sqrt{5}i)(1-\sqrt{5}i) \]
+	We have the following claim:
+	\begin{claim}
+		\( 2 \) is irreducible.
+	\end{claim}
+	\begin{claim}
+		\( 2\nmid 1+\sqrt{5}i \implies 2 \) is not prime.
+	\end{claim}
+	Combining the above two \textbf{Claim} we
+	have \( R \ne \) UFD. Recall that:
+	\[
+		N(a+b\sqrt{5}i) = a^2 + 5b^2
+	\]
+	We saw, \( u\in R \) is a unit iff \( N(u) = \pm 1 \) in \ref{eg:unit-condition}.
+	\begin{proof}[\textbf{Proof of Claim 1}]
+		Suppose that \( 2 = \alpha \beta \) for some \( \alpha, \beta \in R \) that are not units, then
+		\( N(\alpha), N(\beta) \ne 1 \). Then \( N(2) = 4 = N(\alpha)N(\beta) \implies \) they are
+		\( 2 \). However there is no \( a+\sqrt{5}i \), s.t. \( a^2 + 5b^2 = 2 (\implies b=0, \sqrt{2}
+		\not\in \ZZ) \). Hence \( 2 \) is irrecucible.
+	\end{proof}
+
+	\begin{proof}[\textbf{Proof of Claim 2}]
+		If \( 2 \mid 1+\sqrt{5}i \implies 2(a+b\sqrt{5}i) \) for some \( a,b\in \ZZ \implies 2a = 1\),
+		leading to contradiction \( \lightning \).
+	\end{proof}
+	The fact is that in the modern study, currently when \( b >0 \) things are still being open
+	problem. For \( b<0 \), things are already well-studied.
+\end{eg}
+
+\begin{proposition}
+	\label{prop:noetherian-ufd}
+	If \( R \) is Noetherian, then every \( a\in R, a\ne 0\), not being a unit is a product of
+	finitely many irreducible elements.
+\end{proposition}
+
+\begin{proof}
+	Suppose that there exists \( a\in R \) as above, which can't be written like this. By Noetherian,
+	we may choose \( a \) such that \( (a) \) is maximal w.r.t. \( \subseteq \) among all ideals. In
+	particular, \( a\ne \) irreducible, thus we can write \( a=bc \) with \( b,c \in R \) not units.
+	See that:
+	\begin{itemize}
+		\item \( (a) \subset (b) \ne R \): with equality cannot be taken, otherwise making \( b \) a
+		      unit and \( c\ne \) unit.
+		\item \( (a)\subset (c) \ne R \): similar reason.
+	\end{itemize}
+	Hence by maximality in the choice of \( a \), \( b \) and \( c \) are product of irreducible
+	elments, then so is \( a \), leading to a contradiction \( \lightning \).
+\end{proof}
+
+\begin{proposition}
+	Every PID is a UFD.
+\end{proposition}
+
+\begin{proof}
+	By \textbf{Proposition} \ref{prop:noetherian-ufd}, condition \( 1 \) in the
+	definition of UFD are satisfied, since PIDs are Noetherian ring. Moreover, by \textbf{Proposition}
+	\ref{prop:decomp-irred} tells us: to check condition \( 2 \) in the
+	definition of UFD, it is enough to show: if \( a\in R \) is irreducible, then \( a \) is prime.
+	\begin{itemize}
+		\item \( a \) irreducible \( \implies a \ne \) unit.
+		\item We want: if \( a\mid bc \implies a\mid b\) or \( a\mid c \). Let \( d \) be s.t.
+		      \( (a,b) = (d) \), then \( a\in (d) \implies a = dd' \) for some \( d' \in R \). \( a \) being
+		      irreducible leads to two cases:
+		      \begin{enumerate}
+			      \item \( d' \) is a unit, then \( a\sim d \). Since \( b \in (d)\implies d \mid b \implies
+			            a\mid b \).
+			      \item \( d \) is a unit, write \( d = \lambda a + \mu b \) for some \( \lambda, \mu
+			            \in R\). Then \( c \sim dc = \underbrace{\lambda ca}_{a \text{ divide this}} +
+			            \underbrace{\mu(bc)}_{a \text{ divide this}}\implies a\mid c \).
+		      \end{enumerate}
+	\end{itemize}
+\end{proof}
+
+\begin{corollary}
+	\( \ZZ \), \( \KK[x] \) with \( \KK \) being a field, \( \ZZ[i] \) are UFDs.
+\end{corollary}
+
+So for, we've seen:
+\[
+	\{\text{Euclidean Domain}\} \subseteq \{\text{PIDs}\} \subseteq \{\text{UFDs}\}
+\]
+\begin{itemize}
+	\item The first inclusion is strict since \( \ZZ[\frac{1+\sqrt{19}i}{2}] \) is PID but not
+	      Euclidean domain.
+	\item The second inclusion is strict, for example, \( \ZZ[x] \) is a UFD but not a PID.
+\end{itemize}
+
+\section{Parenthesis about Roots of Polynomial}
+General setup: suppose \( S \) be any commmutative ring, and \( a\in S \). If \( f \in S[x] \), say
+\( a \) is a \underline{root of $f$} if \( f(a) = 0 \). And we can define the root of \( f \) in \(
+T\) where \( S \to T = S \)-algebra.
+
+\begin{note}
+	since \( x-a \) has coefficient of \( x \) invertible. We know \( \exists ! \; q,r \), s.t.
+	\[
+		f = (x-a)q + r \text{ where } r \in S
+	\]
+	and clearly \( f(a) = r \). Hence \( a \) is a root of \( f \) if and only if \( \exists \; q \),
+	s.t. \( (x-a)q = f \).
+\end{note}
+
+\begin{proposition}
+	If \( S \) is a domain and \( \deg(f) = n \implies f \) has at most \( n \) distinct roots in \( S \).
+\end{proposition}
+
+\begin{proof}
+	We proceed induction on \( n\geq 0 \).
+	\begin{itemize}
+		\item It is ok if \( n=0 \).
+		\item Suppose \( a_1,\ldots, a_d \) are distinct roots of \( f \). We saw:
+		      \[
+			      f = (x-a_1) g \text{ for some } g \in S[x]
+		      \]
+		      then
+		      \begin{itemize}
+			      \item \( \deg(g) = n-1 \).
+			      \item \( f(a_i) = 0 = \underbrace{(a_i - a_1)}_{\ne 0} g(a_i) \implies a_1,\ldots, a_d \)
+			            are distinct roots of \( g \implies d-1 \leq n-1 \).
+		      \end{itemize}
+	\end{itemize}
+\end{proof}
