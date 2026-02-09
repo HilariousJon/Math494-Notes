@@ -1,0 +1,224 @@
+\begin{remark}
+	If \( R \) is a PID, see that \( (0) \) is always a prime ideal:
+	\begin{itemize}
+		\item It is the \textcolor{red}{unique} one iff \( R \) is a field.
+		\item Otherwise we have prime ideals \( (\pi) \) with \( \pi \) being some prime elements. These
+		      are all maximal ideals, then:
+		      \[
+			      (\pi) \subsetneq (a) \subsetneq R \implies \pi = ab
+		      \]
+		      where \( a,b \) are not unit, which contradicts to the fact that \( \pi \) is irreducible
+		      $\lightning$.
+	\end{itemize}
+\end{remark}
+
+\begin{remark}
+	Suppose now \( R = \KK[x] \) where \( \KK \) being a field. We have the following facts:
+	\begin{itemize}
+		\item It has units: \( \KK \backslash \{0\} \).
+		\item \( f \in \KK[x] \) being non-zero is irreducible if and only if:
+		      \begin{itemize}
+			      \item It has \( \deg > 0 \).
+			      \item It cannot be written as a product of two polynomials with positive degree, namely \(
+			            \deg \geq 1 \), which are not units.
+		      \end{itemize}
+	\end{itemize}
+\end{remark}
+
+\begin{note}
+	\leavevmode
+	\begin{enumerate}
+		\item If \( f \ne 0 \), \( f\in \KK[x] \) is irreducible \( \implies \) it has no roots.
+		\item The converse of the statements holds if \( 0 < \deg(f) \leq 3 \).
+	\end{enumerate}
+\end{note}
+
+\begin{proposition}
+	If \( f\in \KK[x] \) has \( \deg(f) > 0 \), then there exists a ring homomorphism \(
+	\KK\xrightarrow{i} \LL \) (automatically injective), with \( \LL \) being a field, and
+	\( a\in \LL \), s.t. \( f(a) = 0 \).
+\end{proposition}
+
+\begin{proof}
+	Let \( (f) \ne \KK[x] \implies \exists \) maximal ideal \( M \supseteq (f) \). Then take:
+	\[
+		i: \KK \to \frac{\KK[x]}{M}, \quad a = x + M \in \LL \implies f(a) = 0
+	\]
+\end{proof}
+
+\begin{definition}[\textbf{Algebraic Closed}]
+	A field \( \KK \) is \underline{algebraic closed} if every non-constant polynomial \( f \in \KK[x]
+	\) has a root in \( \KK \).
+\end{definition}
+
+\begin{theorem}[\textbf{Foundemental Theorem of Algebra}]
+	The field \( \CC \) is algebraic closed.
+\end{theorem}
+
+\begin{proposition}
+	If \( f \in \KK[x] \backslash \{0\} \) and \( \KK \) is algebraic closed, then \( f \) can be
+	written as a product of linear factors, i.e. there exists \( a_1, a_2, \dots, a_n \in \KK \) such
+	that:
+	\[
+		f = c \cdot (x-a_1)\cdots (x-a_n)
+	\]
+	where \( n = \deg(f) \) and \( c\in \KK\backslash\{0\} \).
+\end{proposition}
+
+\begin{proof}
+	Proceed the proof by induction on \( n = \deg(f) \).
+	\begin{itemize}
+		\item Case \( n=0,1 \) is clear.
+		\item Inductive step: \( n\geq 2 \), we know that \( \exists \; a_1\in \KK \), s.t. \( f(a_1) =
+		      0\) since \( \KK \) is algebraic closed. Then can write \( f = (x-a_1)g \) where \( g\in
+		      \KK\backslash \{0\} \). Since \( g \) is a domain, then \( \deg(g) = n-1 \), then apply
+		      induction on \( g \) yields the result.
+	\end{itemize}
+\end{proof}
+
+\begin{corollary}
+	If \( \KK \) is algebraic closed, and \( f\in \KK[x] \). Then \( f \) is irreducible if and only
+	if \( \deg(f) = 1 \).
+\end{corollary}
+We now take a closer look on what would happen if \( \KK= \RR\) which is not algebraic closed. Let
+\( f \in \RR[x] \backslash \RR \), and we know that there exists \( a\in \CC \), s.t. \( f(a) = 0
+\). There will be two cases:
+\begin{itemize}
+	\item Case 1: \( a\in \RR \implies f = (x-a)g\) for some \( g\in \RR[x] \).
+	\item Case 2: \( a\in \CC\backslash \RR \implies f(\overline{a}) = 0\), where \( \overline{a} \)
+	      is the conjugate of \( a \).
+	      \begin{note}
+		      We have such ring automorphism:
+		      \[
+			      \begin{aligned}
+				      \sigma : \CC & \to \CC        \\
+				      \sigma(z)    & = \overline{z}
+			      \end{aligned}
+		      \]
+		      and notice that \( f = c_n x^n + \cdots + c_1 x +c_0 \implies \overline{c_na^n + \cdots
+			      c_1 a + c_0} = 0 \). Since the coefficient being real numbers, then:
+		      \[
+			      c_n \overline{a}^n + \cdots + c_1 \overline{a} + c_0 = 0
+		      \]
+		      Since \( a\ne \overline{a} \) by the fact that \( a\in \CC\backslash \RR \), thus:
+		      \[
+			      f = \underbrace{(x-a)(x-\overline{a})}_{=x^2-2\Re(a)x + \abs{a}^2 \in \RR[x]}  g
+		      \]
+		      then one can apply the division algorithm to \( g \) and repeat the process until we get
+		      the factorization of \( f \) into linear and quadratic factors.
+	      \end{note}
+\end{itemize}
+
+\begin{conclusion}
+	The irreducible polynomials over \( \RR \) are (up to association) of the form:
+	\begin{itemize}
+		\item \( x-a \quad a\in R\).
+		\item \( (x-a)(x-\overline{a}) \) where \( a\in \CC\backslash \RR \).
+	\end{itemize}
+\end{conclusion}
+
+We then want to prove the theorem of Gauss, which states the following:
+\begin{theorem}[\textbf{Gauss's Theorem}]
+	\label{thm:guass}
+	If \( R \) is a UFD, then \( R[x] \) is also a UFD.
+\end{theorem}
+And one shall have following straightfoward results:
+
+\begin{corollary}
+	\leavevmode
+	\begin{enumerate}
+		\item If \( \KK \) is a field, then \( \KK[x_1,\ldots, x_n] \) is a UFD.
+		\item \( \ZZ[x_1,\ldots, x_n] \) is a UFD.
+	\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+	Use the Guass theorem + induction on \( n\geq 0 \) + the fact that \( \ZZ \) and \( \KK \) are
+	UFDs yields the corollary.
+\end{proof}
+
+\begin{remark}
+	We saw \( \ZZ[i] \) is not a PID, but it is a UFD.
+\end{remark}
+
+\begin{exercise}
+	Show that \( \KK[x_1,x_2] \) is not a PID, hint is to use \( (x_1,x_2) \).
+\end{exercise}
+To proof the theorem, one may need to prove a sequence of lemma first, we introduce the setup first:
+Let \( R \) be a UFD, and \( \KK \) is the corresponding fraction field. Which is:
+\[
+	\KK = S^{-1} R \quad \text{where} \quad S = R\backslash \{0\}
+\]
+
+\begin{definition}
+	If \( a_1,\ldots, a_n \in R \) are not all \( 0 \). A \underline{greatest common divisor} of \(
+	a_1,\ldots, a_n \) is an element \( d\in R\backslash \{0\} \) such that:
+	\begin{enumerate}
+		\item \( d \mid a_i \; \; \forall \; i\).
+		\item If \( d' \mid a_i \; \; \forall \; i \implies d' \mid d \).
+	\end{enumerate}
+\end{definition}
+
+\begin{lemma}
+	\label{lem:gcd-exists}
+	If \( R \) is a UFD, then any such \( a_1,\ldots, a_n \) have a gcd.
+\end{lemma}
+
+\begin{proof}
+	Ignoring those \( a_i \) that are \( 0 \). May assume \( a_i \ne 0 \; \forall \; i \). \( R \) is
+	UFD means that there exists prime elements \( p_1,\ldots, p_r \), s.t.
+	\[
+		a_i = (\text{unit}) \prod_{j} p_j^{n_{ij}}
+	\]
+	now let
+	\[
+		d \coloneqq  \prod_{j} p_j^{\min_i n_{ij}}
+	\]
+	may check:
+	\begin{itemize}
+		\item \( d\mid a_i \; \forall \; i \) is clear.
+		\item If \( d'\mid a_i \; \forall \; i \), consider the irreducible decomposition of \( d' \)
+		      and of all \( \frac{a_i}{d'} \), by uniqueness, this shows that \( d' \mid d \).
+	\end{itemize}
+\end{proof}
+
+\begin{remark}
+	The proof basically implies that if \( a_1,\ldots, a_n \) are as above, and \( b\in \R \backslash
+	\{0\}\), then \( b \cdot \gcd(a_1,\ldots, a_n) \) is a \( \gcd(ba_1,\ldots, ba_n) \).
+\end{remark}
+
+\begin{definition}[\textbf{Primitive Polynomial}]
+	A non-zero polynomial \( f = a_n x^n + \cdots + a_1 x + a_0 \in R[x] \) is \underline{primitive} if \(
+	\gcd(a_n,\ldots, a_0) = 1 \) \( \iff \nexists \) prime element \( p \), s.t. \( p \mid a_i \;
+	\forall \; i \).
+\end{definition}
+
+\begin{proof}
+	We need to show: \( \forall \; p \in R \) being prime element, we can't have \( p \mid \) all
+	coefficients of \( fg \), i.e. \( \overline{f} \overline{g} = \overline{fg} \in \overline{R}[x] \)
+	where \( \overline{R} = \qo{R}{(p)} \) is non-zero. This is ok since \( \overline{f},\overline{g} \)
+	are non-zero by hypothesis and \( \overline{R} \) is a domain since \( (p) \) is a prime idea is a
+	prime ideal.
+\end{proof}
+
+\begin{lemma}
+	\leavevmode
+	\begin{enumerate}
+		\item Given any \( f\in \KK[x] \) non-zero, there exists \( c(f) \in \KK\backslash \{0\} \) and
+		      \( g\in R[x] \) primitive, s.t. \( f = c(f)g \).
+		\item Moreover, \( c(f)'\) have the same property if and only if \( c(f) = c(f)'\cdot u \) where
+		      \( u \in R \) being a unit.
+	\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+	\leavevmode
+	\begin{enumerate}
+		\item Choose \( a \), s.t. \( af \in R[x] \). For example take \( a = \) product of denominators
+		      of coefficients of \( f \). Then take \( d = \gcd \) (coefficients of \( af \)), this implies
+		      that \( \frac{a}{d}f \) is primitive polynomial in \( R[x] \) bt the remark after
+		      \textbf{Lemma} \ref{lem:gcd-exists}. Then we can take \( g = \frac{a}{d}f
+		      \) and \( c(f) = \frac{d}{a} \).
+		\item
+	\end{enumerate}
+\end{proof}
