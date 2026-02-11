@@ -193,6 +193,11 @@ Let \( R \) be a UFD, and \( \KK \) is the corresponding fraction field. Which i
 	\forall \; i \).
 \end{definition}
 
+\begin{lemma}
+	\label{lem:primitive-mult}
+	If \( f, g \in R[x] \) are primitive, then \( f \cdot g \) is primitive.
+\end{lemma}
+
 \begin{proof}
 	We need to show: \( \forall \; p \in R \) being prime element, we can't have \( p \mid \) all
 	coefficients of \( fg \), i.e. \( \overline{f} \overline{g} = \overline{fg} \in \overline{R}[x] \)
@@ -202,6 +207,7 @@ Let \( R \) be a UFD, and \( \KK \) is the corresponding fraction field. Which i
 \end{proof}
 
 \begin{lemma}
+	\label{lem:primitive-decomp}
 	\leavevmode
 	\begin{enumerate}
 		\item Given any \( f\in \KK[x] \) non-zero, there exists \( c(f) \in \KK\backslash \{0\} \) and
@@ -219,6 +225,16 @@ Let \( R \) be a UFD, and \( \KK \) is the corresponding fraction field. Which i
 		      that \( \frac{a}{d}f \) is primitive polynomial in \( R[x] \) bt the remark after
 		      \textbf{Lemma} \ref{lem:gcd-exists}. Then we can take \( g = \frac{a}{d}f
 		      \) and \( c(f) = \frac{d}{a} \).
-		\item
+		\item Suppose we write:
+		      \[
+			      f = c(f) g = c(f)'h
+		      \]
+		      where \( g,h \) are primitive polynomials in \( R[x] \). Then can write:
+		      \[
+			      g = \underbrace{\frac{c(f)'}{c(f)}}_{=\frac{a}{b}} h \implies bg = ah
+		      \]
+		      Take the gcd of coefficients of \( bg \) and \( ah \) respectively, and using the fact
+		      that \( g,h \) are primitive, see that \( b = a \cdot \)unit, thus \( \frac{c(f)'}{c(f)} \)
+		      is a unit in \( R \).
 	\end{enumerate}
 \end{proof}

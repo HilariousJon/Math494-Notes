@@ -1,0 +1,167 @@
+\begin{remark}
+	\leavevmode
+	\begin{enumerate}
+		\item Given \( f_1, f_2 \in \KK[x] \) being nonzero, write
+		      \[
+			      \begin{aligned}
+				      f_1 & = c(f_1) g_1 \\
+				      f_2 & = c(f_2) g_2
+			      \end{aligned}
+		      \]
+		      where \( g_1,g_2 \in R[x] \) are primitive, then:
+		      \[
+			      f_1 f_2 = c(f_1)c(f_2) \underbrace{g_1 g_2}_{\text{primitive by lemma }
+			      \ref{lem:primitive-mult}}
+		      \]
+		      thus:
+		      \[
+			      c(f_1f_2) = c(f_1) \cdot c(f_2) \text{ up to units}
+		      \]
+		\item If \( f \in R[x] \implies c(f) = \gcd \) of coefficients of \( f \).
+	\end{enumerate}
+\end{remark}
+Let's fix \( R \) being a UFD, and \( \KK = \text{Frac}(R) \) being the fraction field of \( R \).
+
+\begin{proposition}
+	\label{prop:irred-criterion}
+	\( f \in R[x] \) nonzero polynomial being irreducible if and only if:
+	\begin{itemize}
+		\item \textbf{Case 1}: \( f \in R[x] \) is irreducible in \( R \).
+		\item \textbf{Case 2}: \( \deg(f) \geq 1 \), \( f \) is primitive, and irreducible in \( \KK[x] \).
+	\end{itemize}
+\end{proposition}
+
+\begin{note}
+	Invertible elements in \( R[x] \) is exactly the invertible elements in \( R \) (i.e. units in \(
+	R \)).
+\end{note}
+
+\begin{proof}
+	\leavevmode
+	\begin{itemize}
+		\item Suppose that \( 0 \ne f \in R[x] \) being invertible, then:
+		      \begin{enumerate}
+			      \item \textbf{Case 1}: \( f \in R \). It is not a unit in \( R \) since it is not a unit
+			            in \( R[x] \). Now suppose that \( f = gh \) with \( f \in R \) and clear that \(
+			            g,h \in R \implies g,h\) being unit in \( R[x] \) since \( f \) is irreducible in
+			            \( R[x] \) and \( g,h \in R[x] \) in the canonical sense, which means they are
+			            also unit in \( R \), thus \( f \) is irreducible as elements in \( R \).
+			      \item \textbf{Case 2}: Suppose \( \deg(f) \geq 1 \), with \( f \in \KK[x] \) being
+			            non-zero in the canonical sense. By \textbf{Lemma}
+			            \ref{lem:primitive-decomp}, can write:
+			            \[
+				            f = \underbrace{c(f)}_{\in R} \underbrace{g}_{\text{primitive in } R[x]}
+			            \]
+			            thus either \( c(f) \) is unit in \( R[x] \) and hence being unit in \( R \) or \(
+			            g\) is unit in \( R[x] \), by the irredcuible property of \( f \), with the latter
+			            case cannot happen, the former case holds. Hence \( c(f) \) being a unit in \( R \),
+			            hence \( f \) is primitive up to units, as \( g \) is primitive. We then want to
+			            show that \( f \) is irreducible in \( \KK[x] \). It is clear that it is not a
+			            unit in \( \KK[x] \). Suppose that for some \( g,h \in \KK[x] \), have
+			            \[
+				            \begin{aligned}
+					            f & = g\cdot h                                                                 \\
+					              & = c(g) g' c(h) h' \quad \text{where } g',h' \in R[x] \text{ are primitive}
+					            \\
+					              & = \underbrace{c(g) c(h)}_{\text{unit in } R} \underbrace{g'
+						            h'}_{\text{primitive by lemma \ref{lem:primitive-mult} }}
+				            \end{aligned}
+			            \]
+			            since \( f \) is irreducible in \( R[x] \implies g',h' \) are invertble in \( R[x]
+			            \implies g,h \) are invertible in \( \KK[x] \) and thus \( f \) is also
+			            irreducible in \( \KK[x] \).
+		      \end{enumerate}
+		\item Conversely, check in the two cases, \( f \) is indeed irreducible in \( R[x] \).
+		      \begin{enumerate}
+			      \item \textbf{Case 1}: Say \( f \in R \) is irreducible, we want to see that \( f \) is
+			            irreducible in \( R[x] \).
+			            \begin{itemize}
+				            \item It is not uit in \( R[x] \) as it is not unit in \( R \).
+				            \item If \( f = gh \) with \( g,h \in R[x] \implies g,h \in R \) by analyzing the degree
+				                  by the fact that \( R \) being a domain. Then either \( g \) or \( h \) is a unit in
+				                  \( R \), hence unit in \( R[x] \).
+			            \end{itemize}
+			      \item \textbf{Case 2}: Let \( f\in R[x] \backslash \{0\} \), \( \deg(f) \geq 1 \)
+			            being primitive, and is irreducible in \( \KK[x] \), we want to see that \( f \)
+			            is irreducible in \( R[x] \).
+			            \begin{itemize}
+				            \item It is not a unit in \( R[x] \) since \( \deg(f) > 0 \).
+				            \item Say \( f = gh \) where \( g,h \in R[x] \). Since \( f \) is irreducible in
+				                  \( \KK[x] \), then \( g \) or \( h \) have degree \( 0 \) (unit in \( \KK[x] \))
+				                  and since \( g,h \in R[x] \), may assume \( g \in R \). Since \( f \) is
+				                  primitive, and that \( g \) will be a gcd of the coefficients of \(
+				                  f\), this means that \( g \) will be a unit in \( R \), hence unit in \( R[x] \).
+			            \end{itemize}
+		      \end{enumerate}
+	\end{itemize}
+\end{proof}
+We are now fully equipped to prove the Guass Theorem, this theorem is important as it allows us to
+reduce the irreducibility of polynomials in \( R[x] \) to the irreducibility of \( R \).
+
+\begin{theorem}[\textbf{Gauss Theorem}]
+	\( R \) is a UFD \( \implies R[x] \) is a UFD.
+\end{theorem}
+
+\begin{proof}
+	\leavevmode
+	\begin{itemize}
+		\item Existence of irreducible decomposition: Let \( f \in R[x] \) with \( f \ne 0 \) and \( f \ne  \)
+		      unit, view it as polynomial in \( \KK[x] \) and one can write \( f = c(f) f' \) with \( c(f) \in
+		      R\) and \( f' \) primitive in \( R[x] \). Since \( \KK[x]\) is a UFD, then if \( \deg(f) > 0 \)
+		      can write:
+		      \[
+			      \begin{aligned}
+				      f' & = g_1\cdots g_r \quad \text{where } g_i \in \KK[x] \text{ are irreducible}                                               \\
+				         & = c_1(g_1) g_1' \cdots c_r(g_r) g_r' \quad \text{where } g_i' \in R[x] \text{ are
+				      primitive and irreducible in \( \KK[x] \) since \( g'_i \) is}                                                                \\
+				         & \implies \text{ By Proposition \ref{prop:irred-criterion}, \( g_i' \) is
+				      irreducible in \( R[x] \) }                                                                                                   \\
+				         & = \underbrace{c_1(g_1) \cdots c_r(g_r)}_{\text{a unit }\in R \text{ since }f' \text{ primitive}} \underbrace{g_1' \cdots
+					      g_r'}_{\text{primitive in } R[x]}
+			      \end{aligned}
+		      \]
+		      If \( c(f) \ne \) unit, since \( R \) is a UFD, then we can factor it out as:
+		      \[
+			      c(f) = \pi_1 \cdots \pi_s \quad \text{where } \pi_i \in R \text{ are irreducible, hence
+				      irreducible in } R[x] \text{ by Proposition \ref{prop:irred-criterion} }
+		      \]
+		      thus:
+		      \[
+			      f = \text{unit} \cdot \pi_1 \cdots \pi_s \cdot g_1' \cdots g_r'
+		      \]
+		      being the irreducible decomposition of \( f \).
+		\item Uniqueness of irreducible decomposition: We saw that it is enough to show that \( f \) is
+		      irreducible in \( R[x] \implies f\) is prime in \( R[x] \) as in the proof of
+		      \textbf{Proposition} \ref{prop:cond2-ufd}.
+		      \begin{itemize}
+			      \item \textbf{Case 1}: Let \( f \in R \) be irreducible in \( R \) and \( R \) being a
+			            UFD, this means \( f \) is prime element in \( R \). Consider the map:
+			            \[
+				            \begin{aligned}
+					            R                  & \to \qo{R}{(f)} \quad \text{domain}               \\
+					            \text{gives } R[x] & \to \qo{R}{(f)} [x] \quad \text{surj. ring homo.} \\
+					            x                  & \mapsto x
+				            \end{aligned}
+			            \]
+			            where \( qo{R}{(f)}[x]\) is a domain since \( \qo{R}{(f)} \) is a domain. Now what
+			            is the kernel of this ring homomorphism? being \( R[x]f \), see that \( R[x]f \)
+			            is prime ideal since \( \qo{R[x]}{R[x]f} \) is a domain, thus \( f \) is prime
+			            element in \( R[x] \).
+			      \item \textbf{Case 2}: Let \( \deg(f) \geq 1 \) with \( f \) primitive and
+			            irreducible in \( \KK[x] \). \( \KK[x] \) is a UFD, then \( f \) is prime in \(
+			            \KK[x] \) since \( f \) is irreducible in it. We want to see \( f \) is prime in
+			            \( R[x] \). Suppose \( f \mid gh \) where \( g,h \in R[x] \), the fact that \( f \)
+			            is prime in \( \KK[x] \) allows us to assume \( f\mid g \) in \( \KK[x] \). Then
+			            one can write \( g = fp \) for some \( p \in \KK[x] \). Since \( f \) is
+			            primitive, can write:
+			            \[
+				            c(g) = c(p) \cdot \text{unit}
+			            \]
+			            with \( c(g) \in R \implies c(p) \in R \implies p \in R[x] \) as
+			            \[
+				            p = c(p) \cdot p' \text{ where } p' \in R[x] \text{ is primitive in } R[x]
+			            \]
+			            thus \( f\mid g \) in \( R[x] \).
+		      \end{itemize}
+	\end{itemize}
+\end{proof}

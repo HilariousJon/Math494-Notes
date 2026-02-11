@@ -15,13 +15,14 @@
 \end{conclusion}
 
 \begin{proposition}
+	\label{prop:cond2-ufd}
 	If \( R \) is a UFD, then every irreducible element is prime.
 \end{proposition}
 
 \begin{proof}
 	Let \( a \) be irreducible, then \( a\ne 0 \) and \( a\ne \) unit. Suppose that \( a\mid bc
 	\implies bc = ad\) for some \( d\in R \). We write \( b,c,d \) as product of irreducible elements.
-	By condition \( \mathbf 2 \) in definition of \( UFD \), \( a \) is associated with one of the
+	By condition \( \mathbf 2 \) in definition of UFD, \( a \) is associated with one of the
 	irreducible factors of \( b (\implies a\mid b) \) or \( c (\implies a\mid c)\).
 \end{proof}
 
@@ -46,7 +47,7 @@
 	\end{itemize}
 \end{proof}
 
-\begin{eg}
+\begin{eg}[\textbf{Non-UFD Example}]
 	Take \( R = \ZZ[\sqrt{5} i] \), write
 	\[ 2\cdot 3 = 6 = (1+\sqrt{5}i)(1-\sqrt{5}i) \]
 	We have the following claim:
