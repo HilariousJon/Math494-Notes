@@ -1,0 +1,119 @@
+\section{Introduction to Algebraic Sets}
+
+In this section we shall give an introduction on algebraic geometry, basically try to build the
+bridge between algebra and geometry by showing the famous Hilbert's Nullstellensatz.
+
+Let's fix a algebraic closed field \( k \) (e.g. \( \CC \)) and define \( \bA_{k}^n = k^n\). Define:
+\[
+	R = k[x_1,\ldots, x_n]
+\]
+Now given fixed \( a = (a_1,\ldots, a_n) \in \bA^n \), we look into the surjective ring homomprhism:
+\[
+	\begin{aligned}
+		\vp: R & \longrightarrow k                     \\
+		f      & \longmapsto f(a_1,\ldots, a_n) = f(a)
+	\end{aligned}
+\]
+The map is simply given by the polynomial evaluation at the point \( a \). We can easily check that
+\( \vp \) is a ring homomorphism and it is surjective since \( k \) is algebraically closed. Now we
+want to understand the kernel of \( \vp \).
+\begin{claim}
+	\( \ker(\vp) = (x_1 - a_1, \ldots, x_n - a_n) \)
+\end{claim}
+
+\begin{proof}
+	For every \( f \in R \), apply the division algorithm for \( f \) w.r.t. \( x_1-a_1, \ldots, x_n -
+	a_n\), then for \( f\in R \) we can write:
+	\[
+		f = (x_1 - a_1)g_1 + \cdots + (x_n - a_n)g_n + b \quad b \in k
+	\]
+	which implies \( b = f(a) \). Hence \( f(a) = 0 \implies f \in (x_1 - a_1, \ldots, x_n - a_n) \).
+	This shows that \( (x_1-a_1,\ldots, x_n - a_n) \) is a maximal ideal since \( k \) being a field
+	and implied by first isomorphism theorem.
+\end{proof}
+Our goal then is to show that every maximal ideal is \textbf{of this form}. We shall define several
+useful notions first.
+
+\begin{definition}
+	For any ideal \( I \subseteq R \) be ideal, define
+	\[
+		V(I) \coloneqq  \{a \in \bA^n \; | \; f(a) = 0 \; \; \forall \; f \in I\}
+	\]
+	Namely those Nullstellen that shares among all the polynomials in the ideal.
+\end{definition}
+
+\begin{remark}
+	\leavevmode
+	\begin{enumerate}
+		\item If \( I = (f_1,\ldots, f_r)\implies V(I) = \{a \; | \; f_i (a) = 0 \; \; \forall \; 1 \leq
+		      i \leq r\} \).
+		      \begin{proof}
+			      By \( f = \sum f_i g_i \) and \( f_i (a) = 0 \; \forall \; i \implies f(a) = 0 \).
+		      \end{proof}
+		\item Since \( R \) is Noetherian, then every \( V(I) \) can be defined by finitely many
+		      equations. \( R \) is Noetherian is by the fact that \( k \) is Noetherian, as it only has
+		      two ideal, which follows definition of Noetherian. And that by the first remark, finitely
+		      generated ideal \( I \) will have \( V(I) \) being expressed by finitely many equations.
+	\end{enumerate}
+\end{remark}
+See that it shall have the following \textbf{Properties}.
+
+\begin{remark}
+	\leavevmode
+	\begin{enumerate}
+		\item \( I \subseteq J \implies V(J) \subseteq V(I) \). As clearly more polynomial adding in
+		      will decrease the number of common Nullstellen.
+		\item \( V(R) = \emptyset \). As one can clearly find polynomial that don't have any
+		      Nullstellens.
+		\item \( V(\{0\}) = \bA^n \). As the zero polynomial attains Nullstellen to be the whole space.
+		\item If \( (I_\alpha) \) is a family of ideals, shall have:
+		      \[
+			      V\bace{\sum_{\alpha} I_\alpha} = \bigcap_\alpha V(I_\alpha)
+		      \]
+		      Since the polynomial summing together will attains their Nullstellens being the
+		      intersections of the Nullstellen of the individual polynomial.
+		\item If \( I, J \) are ideals, then:
+		      \[
+			      V(I) \cup V(J) = V(I \cap J) = V(IJ)
+		      \]
+		      \begin{proof}
+			      One shall clearly see that
+			      $$
+				      \begin{aligned}
+					      IJ                      & \subseteq I\cap J                     \\
+					      I \cap J                & \subseteq I                           \\
+					      I \cap J                & \subseteq J                           \\
+					      \implies V(I) \cup V(J) & \subseteq V(I \cap J) \subseteq V(IJ)
+				      \end{aligned}
+			      $$
+			      we want to see that:
+			      \[
+				      V(IJ) \subseteq V(I) \cup V(J)
+			      \]
+			      If this is not the case, there exists \( a\in V(IJ) \), s.t. \( a\not\in V(I), a\not\in
+			      V(J)\). It means that there exists \( f \in I, g\in J \), s.t.
+			      \[
+				      f(a) \ne 0 \quad g(a) \ne 0 \implies fg \in IJ \text{ but } fg(a) = f(a) g(a) \ne 0
+				      \text{ as we are in a domain.}
+			      \]
+			      But this leads to contradiction as \( a \) is taken as the nullstellen of polys in
+			      \( IJ \) \( \lightning \), the proof directly finish the whole inclusion chain.
+		      \end{proof}
+	\end{enumerate}
+\end{remark}
+
+\begin{definition}[\textbf{Algebraic Subsets of \( \bA^n \)}]
+	The sets of the form \( V(I) \) are the \underline{algebraic subsets} \underline{of \( \bA^n \)}.
+\end{definition}
+
+\begin{definition}[\textbf{Zariski Topology}]
+	Properties 2, 3, 4, 5 in the above remark shows that \( V(I) \) forms the closed sets for a
+	topology \textbf{on} \( \bA^n \), which is the \underline{Zariski Topology}.
+\end{definition}
+One can also going the opposite direction by giving a sets of \textcolor{red}{``Nullstellens''} \( Z
+\subseteq \bA^n \) and ask the ideal who contains polynomials who have exactly those Nullstellens.
+
+\begin{definition}
+	Given \( Z \subseteq \bA^n \), can define:
+
+\end{definition}
