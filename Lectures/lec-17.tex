@@ -1,0 +1,200 @@
+\section{Modules of Rings}
+In this section we look into modules of rings. Basically special structures of rings endowed on a
+abelian group. Note that a vector space is a module of a field. So we can build more intuition on
+modules based on what we learnt in vector spaces. It is also somewhat like the extension of group
+actions.
+
+\begin{definition}[\textbf{\( R \)-Module}]
+	Fix a ring \( R \). A \underline{left \( R \)-module} \( M \) is an \textbf{abelian group} \( (M,+) \)
+	together with an operation \( R\times M \to M \), written as \( (a,u) \mapsto au \), such that
+	\begin{enumerate}
+		\item \( 1_R u = u \; \forall \; u \in M \).
+		\item \( a(bu) = (ab)u \; \forall \; a,b \in R, u\in M\).
+		\item \( a(u_1 + u_2) = au_1 + au_2 \; \forall \; a\in R, u_1 u_2 \in M \).
+		\item \( (a_1 + a_2)u = a_1 u + a_2 u \; \forall \; a_1, a_2 \in R, u\in M \).
+	\end{enumerate}
+	A \underline{right \( R \)-module} is defined similarly, with the operation \( M\times R \to M \)
+	written as \( (u,a) \mapsto ua \), with the similar conditions, with the difference on the second
+	one that:
+	\[
+		(ua)b = u(ab) \; \forall \; a,b \in R, u\in M
+	\]
+\end{definition}
+One may observe the duality between the left and right modules, and a direct question to ask is: How
+can we relate the notions of left module and right module?
+
+Basically fix \( R \), we can defined another ring \( R^{\text{op}} \) as the same abelian group of
+\( R \), with the same addition, but the multiplication is defined as:
+\[
+	a\star b \coloneqq  ba
+\]
+It is immediately clear that \( R^{\text{op}} \) with these operations is a ring, with \( 1_{R} =
+1_{R^{\text{op}}} \) and see that \( (R^{\text{op}})^{\text{op}} = R \).
+
+\begin{notation}
+	\leavevmode
+	\begin{enumerate}
+		\item \( R^M \): \( M \) is a left \( R \)-module.
+		\item \( M_R \): \( M \) is a right \( R \)-module.
+	\end{enumerate}
+\end{notation}
+
+\begin{remark}
+	\leavevmode
+	\begin{enumerate}
+		\item Left \( R \)-modules \( \iff \) Right \( R^{\text{op}} \)-modules.
+		\item Right \( R \)-modules \( \iff \) Left \( R^{\text{op}} \)-modules.
+	\end{enumerate}
+\end{remark}
+To check this, First fix \( M \) as a left modules of \( R \), for \( M_{R^{\text{op}}} \), define the scalar multiplication of modules as
+\[
+	ua \coloneqq  au \; \forall \; u\in M, a\in R
+\]
+One then want to check the difference between the second condition, thus have:
+\[
+	(ba) u = b(au) = \underbrace{(ua) b}_{\text{switch to }M_{R^{\text{op}}}} \xlongequal{?} u(a\star b)
+	= (a\star b) u = (ba) u
+\]
+thus the quality with the question mark holds, which is what we intended.
+
+\begin{remark}
+	\( R \) is commutative ring \( \iff \) \( R^{\text{op}} = R \; (R^{\text{op}} \cong R)\). In this
+	case, we simply say \underline{\( R \)-module}.
+\end{remark}
+
+\begin{eg}
+	\leavevmode
+	\begin{enumerate}
+		\item \( R \) has \underline{natural structures} of both left and right \( R \)-modules given by
+		      the usual ring multiplication:
+		      \begin{align*}
+			      R\times R & \to R      \\
+			      (a,b)     & \mapsto ab
+		      \end{align*}
+		      with condition 2 holds because of the associativity of the ring multiplication.
+		\item If \( R \) is a field, an \( R \)-module is usually called a \textbf{vector space over
+			      \( R \)}.
+		\item If \( R \) is commutative, and \( f: R\to S \) is an \( R \)-algebra, then one can
+		      view \( S \) has natural structure of both left and right \( R \)-modules, and they
+		      actually \textcolor{blue}{coincide} by definition of \( R \)-algebra, the image of \( f \) commutes in \(
+		      S\):
+		      \[
+			      a\in R, u\in S \implies \begin{cases}
+				      au \coloneqq f(a) u \\
+				      ua \coloneqq  uf(a)
+			      \end{cases}
+			      \implies au = ua
+		      \]
+	\end{enumerate}
+\end{eg}
+
+\begin{definition}[\textbf{Morphism of \( R \)-module}]
+	If \( M, N \) are left \( R \)-modules, a \underline{morphism} of left \( R \)-module \( f: M \to
+	N\) is an \( R \)-\textcolor{red}{linear map}, namely
+	\begin{enumerate}
+		\item \( f \) is a group homomprhism.
+		\item \( f(au) = af(u) \; \forall \; a\in R, u\in M \).
+	\end{enumerate}
+\end{definition}
+
+\begin{remark}
+	\leavevmode
+	\begin{enumerate}
+		\item \( \Id_{M} \) is a morphism of \( R \)-modules.
+		\item If \( M_1 \xrightarrow{f}M_2 \xrightarrow{g}M_3 \) are morphisms of left \( R \)-modules,
+		      then \( g\circ f: M_1 \to M_3 \) is also a morphism of left \( R \)-modules. Thus we get a
+		      \textcolor{red}{Catgeory} \( R \)-\underline{mod} of left \( R \)-modules. And similarly, have
+		      a category \underline{mod}-\( R \) of right \( R \)-modules.
+	\end{enumerate}
+\end{remark}
+
+\begin{note}
+	A morphism of left \( R \)-modules \( \iff \) A morphism of right \( R^{\text{op}} \)-modules.
+\end{note}
+
+\begin{definition}[\textbf{Isomorphism}]
+	An \underline{isomorphism} of left \( R \)-modules is a morphism of left \( R \)-modules \( f: M
+	\to M' \), s.t. there exists \( g: M' \to M \) be morphism of left \( R \)-modules, s.t.
+	\[
+		g\circ f = \Id_{M}; \; \; f\circ g = \Id_{M'}
+	\]
+\end{definition}
+There are some easy properties for the scalar multiplication of a modules, quite similar from what
+we have done for vector spaces.
+\begin{remark}
+	\leavevmode
+	\begin{enumerate}
+		\item \( 0_R u = 0_M \; \forall \; u \in M \).
+		      \begin{proof}
+			      \( 0_R u = (0_R + 0_R) u = 0_R u + 0_R u \) and by cancellation of the abelian group \(
+			      M\), done.
+		      \end{proof}
+		\item \( a 0_M = 0_M \; \forall \; a\in R \).
+		      \begin{proof}
+			      \( a0_M + a0_M = a(0_M + 0_M) = a 0_M \) and by cancellation of the abelian group \( M
+			      \), done.
+		      \end{proof}
+		\item \( (-a) u = -(au) = a(-u) \).
+		      \begin{proof}
+			      \leavevmode
+			      \[
+				      \begin{aligned}
+					      (-a)u + au & = ((-a) + a) u = 0u = 0 \text{ by 1} \implies \text{first equality}  \\
+					      au+a(-u)   & = a(u+(-u)) = a_{0} = 0 \text{ by 2} \implies \text{second equality}
+				      \end{aligned}
+			      \]
+		      \end{proof}
+	\end{enumerate}
+\end{remark}
+
+\begin{definition}[\textbf{Submodule}]
+	If \( M \) is a left \( R \)-module, a \underline{submodule} of \( M \) is a subset \( N \subseteq
+	M\) which is a subgroup and is \textcolor{blue}{closed} under the scalar multiplication of \( M
+	\): \( a\in R, u\in N \implies au \in N \). In this case, the operations on \( M \) induce
+	operation on \( N \) that make \( N \) a left \( R \)-module, s.t.
+	\begin{align*}
+		i: N & \to N \\
+		i(u) & = u
+	\end{align*}
+	is a morphism of left \( R \)-modules.
+\end{definition}
+
+\begin{eg}
+	\leavevmode
+	\begin{enumerate}
+		\item If we consider \( R \) as a left/right \( R \)-module, it's submodules are left/right
+		      ideals of \( R \).
+		\item If \( f: M \to M' \) is a morphism of left \( R \)-modules, the kernel is a submodule of
+		      \( M \):
+		      \[
+			      \ker(f) \coloneqq  \{u \in M \; | \; f(u) = 0\}
+		      \]
+		      since \( f(u)=0 \implies f(au)=af(u)=a0 = 0 \). Besides, the image is also a submodule of
+		      \( M' \), \( \im(f) \subseteq M' \), since \( af(u) = f(au) \).
+	\end{enumerate}
+\end{eg}
+
+\begin{remark}
+	A morphism of \( R \)-module \( f: M \to N \) of left \( R \)-modules is injective \( \iff \ker(f)
+	= 0\).
+\end{remark}
+
+\begin{remark}
+	Suppose \( R = \ZZ \), if \( M \) is a \( \ZZ \)-module, have
+	\[
+		n\cdot u = \begin{cases}
+			\underbrace{u + u + \cdots + u}_{n\text{ times}}     & n \ge 0 \\
+			\underbrace{-(u + u + \cdots + u)}_{-n\text{ times}} & n < 0
+		\end{cases}
+	\]
+	since \( 1u = u \) + distributivity. Conversely, if \( M \) is an abelian group, we put \( nu \)
+	just the usual notations in abelian groups \( \implies M\) is a \( \ZZ \)-module.
+	\begin{conclusion}
+		\leavevmode
+		\begin{itemize}
+			\item \( \ZZ \)-module \( \iff \) abelian group.
+			\item morphism of \( \ZZ \)-modules \( \iff \) morphism of abelian groups.
+		\end{itemize}
+	\end{conclusion}
+\end{remark}
+
