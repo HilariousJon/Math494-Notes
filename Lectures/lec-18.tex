@@ -1,0 +1,307 @@
+\section{Direct Product of \( R \)-modules}
+
+\begin{definition}[\textbf{Direct Product of \( R \)-modules}]
+	Fix \( R \) ring and a family \( \{M_i\}_{i\in I} \) of left \( R \)-submodules. The
+	\underline{direct product} \( \prod_{i\in I}M_i \) is the \textcolor{blue}{group direct product},
+	i.e. on Cartesian product
+	\[
+		\prod_{i\in I} M_i \rsa (a_i)_i +(b_i)_i = (a+b)_i
+	\]
+	with component-wise scalar multiplication:
+	\[
+		\lambda \cdot (a_i)_i = (\lambda a_i)_i \quad \forall \; \lambda \in R
+	\]
+	It is easy to check that \( \prod_{i\in I} M_i \) is indeed a left \( R \)-module.
+\end{definition}
+
+\begin{remark}
+	\leavevmode
+	\begin{enumerate}
+		\item \( (a_i)_i \in \prod_{i\in I}M_i \) is an element in the direct product, can imagine it as
+		      a \textcolor{blue}{big vector with the i-th entry is \( a_i \in M_i \)}.
+		\item We have the following projection as the morphism of \( R \)-modules.
+		      \[
+			      \begin{aligned}
+				      \pi_j : \prod_{i\in I} M_i & \to M_j     \\
+				      (x_i)_i                    & \mapsto x_j
+			      \end{aligned}
+		      \]
+	\end{enumerate}
+\end{remark}
+
+\begin{proposition}[\textbf{Universal Property of Direct Product of \( R \)-modules}]
+	Given any left \( R \)-module \( M \) and morphism of \( R \)-modules \( f_i: M \to M_i \) for \(
+	i\in I\), there exists a unique morphism of \( R \)-module \( f: M \to \prod_{i\in I} M_i \), s.t.
+	\begin{equation}
+		\label{eq:univ-prop-direct-prod-module}
+		\pi_j \circ f = f_j \quad \forall \; j
+	\end{equation}
+\end{proposition}
+
+\begin{proof}
+	Basically Formula \ref{eq:univ-prop-direct-prod-module} says that
+	\[
+		f(u) = \bace{f_i(u)}_i
+	\]
+	which gives a explicit formula and thus uniqueness is clear. For existence, we need to show that
+	the above definition \( f \) is actually a \textcolor{blue}{morphism of \( R \)-modules}. It is
+	clear
+	\[
+		a(f_i(u))_i = a f(u) \xlongequal{?} f(au) = (f_i(au))_i = \bace{a f_i(u)}_i
+	\]
+	and the sum is basically the same thing. The morphism is basically inherit from the fact that \(
+	f_i \) is a morphism of \( R \)-modules.
+\end{proof}
+
+\section{Direct Sum of \( R \)-modules}
+
+\begin{definition}[\textbf{Direct Sum of \( R \)-modules}]
+	Given a family of left \( R \)-modules \( (M_i)_{i\in I} \), the \underline{direct sum}
+	\[
+		\bigoplus_{i\in I} M_i \subseteq \prod_{i\in I} M_i
+	\]
+	is a submodule of \( \prod_{i\in I}M_i \), such that it is defined as:
+	\[
+		\bigoplus_{i\in I}M_i = \{(a_i)_{i\in I} \; | \; a_i = 0 \text{ for all but
+			\textcolor{red}{finitely} many }i\}
+	\]
+	One can check that this is indeed a submodule.
+\end{definition}
+
+\begin{remark}
+	For each \( j \in I \), we can define the dual notion of projection
+	\[
+		\begin{aligned}
+			\alpha_j : M_j & \to \bigoplus_{i\in I} M_i               \\
+			\alpha_j (u)   & = (u_i)_i                                \\
+			               & \text{where } u_i = \begin{cases}
+				                                     u, \text{ if } i = j \\
+				                                     0, \text{ otherwise}
+			                                     \end{cases}
+		\end{aligned}
+	\]
+\end{remark}
+Note that direct sum is actually a dual notion of direct product
+
+\begin{proposition}[\textbf{Universal Property of Direct Sum}]
+	Given any left \( R \)-module and family of \( R \)-module morphisms \( f_j : M_j \to N \), there
+	exists a unique morphism of \( R \)-module
+	\[
+		f: \bigoplus_{i\in I}M_i \to N
+	\]
+	s.t.
+	\begin{equation}
+		\label{eq:univ-prop-direct-sum-module}
+		f\circ \alpha_j = f_j \quad \forall \l j \in I
+	\end{equation}
+\end{proposition}
+
+\begin{proof}
+	The key point is that given any \( u = (u_i)_{i\in I} \in \bigoplus_{i\in I}M_i \), have
+	\[
+		u = \sum_{i\in I} \alpha_i (u_i)
+	\]
+	which makes sense because of finite sum since only \textcolor{blue}{finitely} many \( u_i \) are
+	non-zero. If \( f \) satisfies formula \ref{eq:univ-prop-direct-sum-module}, then
+	\[
+		f(u) = \sum_{i\in I}f_i(u_i) \quad \forall \; u = (u_i)_i \in \bigoplus_{i\in I}M_i
+	\]
+	this gives us a explicit formula and thus yield uniqueness. For existence, we define \( f \) by
+	this formula and then it is clear that
+	\[
+		f \circ \alpha_j = f_j \quad \forall \; j \in I
+	\]
+	It remains to show that \( f \) is a \textcolor{blue}{morphism} of \( R \)-modules, which is
+	similar as what we done above for universal property of direct product.
+\end{proof}
+
+\begin{note}
+	If \( I \) is finite, then
+	\[
+		\bigoplus_{i\in I} M_i = \prod_{i\in I} M_i
+	\]
+\end{note}
+
+\section{Quotient \( R \)-modules}
+Let \( M \) be a left \( R \)-modules and \( N \subseteq M \) an \( R \)-submodule, in particular:
+\( N \) is a subgroup of \( M \) and as \( M \) is abelian, it is then automatically normal. Hence
+we have a quotient group \( \qo{M}{N} \) which is also an \textcolor{blue}{abelian group}, with
+morphism of abelian groups
+\[
+	\begin{aligned}
+		\pi : M & \to \qo{M}{N} \\
+		\pi(u)  & = u + N
+	\end{aligned}
+\]
+
+\begin{claim}
+	We can make \( \qo{M}{N} \) a left \( R \)-module, s.t. \( \pi \) is \textcolor{blue}{morphism} of
+	\( R \)-modules.
+\end{claim}
+Define:
+\[
+	\begin{aligned}
+		R \times \qo{M}{N} & \to \qo{M}{N}     \\
+		(\lambda, u + N)   & \to \lambda u + N
+	\end{aligned}
+\]
+To check that it is indeed \textcolor{blue}{well-defined}, see that
+\[
+	\underbrace{u + N = u' + N}_{\iff u - u' \in N} \implies \underbrace{\lambda u + N = \lambda u' +
+		N}_{\iff \lambda u - \lambda u'= \lambda (u-u') \in N}
+\]
+which is ok since \( N \) is submodule and thus it is well-defined.
+
+One can easily check that with this scalar multiplication, \( \qo{M}{N} \) becomes an \( R \)-module
+and \( \pi \) is a morphism of \( R \)-module.
+
+\begin{proposition}[\textbf{Universal Property of \( \qo{M}{N} \)}]
+	If \( f: M \to M' \) is a morphism of left \( R \)-module, s.t. \( N \subseteq \ker(f) \), then
+	there exists a unique morphism of \( R \)-modules \( \overline{f}: \qo{M}{N} \to M' \), s.t. the
+	following diagram is commutative
+	\[
+		\begin{tikzcd}
+			M \arrow[r, "f"] \arrow[d, "\pi"'] & M' \\
+			M/N \arrow[ru, "\overline{f}"'] &
+		\end{tikzcd}
+	\]
+	namely
+	\[ \overline{f} \circ \pi = f \].
+\end{proposition}
+
+\begin{proof}
+	We already know this at the level of \textcolor{blue}{abelian groups}:
+	\[
+		\overline{f} : \qo{M}{N} \to M', \quad u + N \mapsto f(u)
+	\]
+	It is only left to show it is indeed morphism of \( R \)-modules:
+	\[
+		\overline{f} (a\cdot (u+N)) \xlongequal{?} a \cdot \overline{f}(u+N) \quad \forall \; a\in R,
+		u\in M
+	\]
+	and see that:
+	\[
+		\begin{aligned}
+			\text{LHS} & = \overline{f} (au + N) = f(au)                                                        \\
+			\text{RHS} & = \underbrace{af(u) = f(au)}_{f \text{ is morphism of } R- \text{module}} = \text{LHS}
+		\end{aligned}
+	\]
+\end{proof}
+
+\begin{theorem}[\textbf{First Isomprhism Theorem}]
+	If \( f: M \to M' \) is a surjective morphism of \( R \)-modules, the universal property of \(
+	\qo{M}{\ker(f)} \implies \) there exists a unique morphism of \( R \)-modules
+	\[
+		\begin{aligned}
+			\qo{M}{\ker(f)}          & \to M'    \\
+			\overline{u}=u + \ker(f) & \mapsto u
+		\end{aligned}
+	\]
+	And this is an isomprhism of \( R \)-modules. It is clear that it is a \underline{bijection} as we
+	know from the case of \textcolor{blue}{abelian groups}.
+\end{theorem}
+
+\subsection{Submodules of \( \qo{M}{N} \)}
+\begin{proposition}
+	If \( N \subseteq M \) is a submodule of a left \( R \)-module, then we have an
+	\textcolor{red}{order preserving bijection} as follow:
+	\[
+		\begin{tikzcd}[column sep=8em]
+			\left\{
+			\begin{tabular}{c}
+				\text{Submodules of} \\
+				$\qo{M}{N}$
+			\end{tabular}
+			\right\}
+			\arrow[r, shift left=1.5ex, "T \subseteq \qo{M}{N} \rsa \pi^{-1}(T)"]
+			&
+			\left\{
+			\begin{tabular}{c}
+				\text{Submodules of } M \\
+				\text{containing } N
+			\end{tabular}
+			\right\}
+			\arrow[l, shift left=1.5ex, "\pi(K) \leftsquigarrow N \subseteq K \subseteq M"]
+		\end{tikzcd}
+	\]
+	where
+	\[
+		\pi: M \to \qo{M}{N}
+	\]
+\end{proposition}
+
+\begin{proof}
+	We know this for abelian groups, it is only left to check they maps \( R \)-modules to \( R
+	\)-modules, namely
+	\begin{enumerate}
+		\item If \( T \subseteq \qo{M}{N} \) be \( R \)-submodule \( \implies \pi^{-1}(T) \subseteq M \)
+		      is an \( R \)-submodule.
+		\item If \( K \subseteq M \) be \( R \)-submodule \( \implies \pi(K) \subseteq \qo{M}{N} \) is an
+		      \( R \)-submodule.
+	\end{enumerate}
+	and we can use some \textcolor{blue}{beautiful tricks} to prove it.
+	\begin{enumerate}
+		\item Have
+		      \[
+			      \pi^{-1}(T) = \ker\bace{M \xrightarrow{\pi} \qo{M}{N} \to \qo{\qo{M}{N}}{T}}
+		      \]
+		\item Have
+		      \[
+            \pi(K) = \im\bace{K \hookrightarrow M \longrightarrow \qo{M}{N}}
+		      \]
+	\end{enumerate}
+\end{proof}
+
+\begin{remark}
+	If \( N \subseteq K \subseteq M \implies \)
+  \[
+    \begin{tikzcd}[row sep=large, column sep=large]
+        K \arrow[r] \arrow[d, equal] & M \arrow[r] & \qo{M}{N} \\
+        K \arrow[rr] & & \pi(K) \arrow[u, phantom, "\rotatebox{90}{$\subseteq$}"]
+    \end{tikzcd}
+ \]
+ and by first isomorphism theorem, we have 
+ \[
+   \pi (K) \cong\; \qo{K}{N}
+ \] 
+\end{remark}
+
+\begin{theorem}[\textbf{Third Isomorphism Theorem}]
+  If \( N \subseteq K \subseteq M \) be an \( R \)-submodule of \( M \), then:
+  \[
+    \qo{\qo{M}{N}}{\qo{K}{N}} \cong \; \qo{M}{K}
+  \] 
+\end{theorem}
+
+\begin{proof}
+  Consider
+  	\[
+		\begin{tikzcd}
+      M \arrow[r] \arrow[d] & \qo{M}{K} \\
+      \qo{M}{N} \arrow[ru, "\vp"'] &
+		\end{tikzcd}
+	\]
+  where 
+  \[
+    \begin{aligned}
+      \qo{M}{N} & \xrightarrow{\vp} \qo{M}{K} \\ 
+          u + N &\mapsto u + K
+    \end{aligned}
+  \] 
+  see that \( \vp \) is surjective, with
+  \[
+    \ker(\vp) = \qo{K}{N}
+  \] 
+  and the first isomorphism theorem yields the result.
+\end{proof}
+
+\begin{exercise}
+  If \( M,N \) are left \( R \)-modules, have
+  \[
+    \Hom_{R} (M, N) = \{f : M \to N \; | \; f \text{ is morphism of } R- \text{modules}\}
+  \]
+  \textcolor{blue}{What structure does \( \Hom_{R}(M,N) \) have? What operations can you put on it?}
+\end{exercise}
+The answer is that it is always an abelian group, sometimes an \( R \)-module (if \( R \) is
+\textcolor{blue}{commutative}!)
+

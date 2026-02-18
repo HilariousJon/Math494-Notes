@@ -164,6 +164,9 @@ Let \( R \) be a UFD, and \( \KK \) is the corresponding fraction field. Which i
 \begin{lemma}
 	\label{lem:gcd-exists}
 	If \( R \) is a UFD, then any such \( a_1,\ldots, a_n \) have a gcd.
+	\begin{note}
+		Note that here \( n \) can goes to \textbf{infinity}.
+	\end{note}
 \end{lemma}
 
 \begin{proof}
@@ -185,8 +188,12 @@ Let \( R \) be a UFD, and \( \KK \) is the corresponding fraction field. Which i
 \end{proof}
 
 \begin{remark}
-	The proof basically implies that if \( a_1,\ldots, a_n \) are as above, and \( b\in \R \backslash
-	\{0\}\), then \( b \cdot \gcd(a_1,\ldots, a_n) \) is a \( \gcd(ba_1,\ldots, ba_n) \).
+	\leavevmode
+	\begin{itemize}
+		\item The proof basically implies that if \( a_1,\ldots, a_n \) are as above, and \( b\in \R \backslash
+		      \{0\}\), then \( b \cdot \gcd(a_1,\ldots, a_n) \) is a \( \gcd(ba_1,\ldots, ba_n) \).
+		\item If the \( n_{ij} \) above are all \( 0 \), then the gcd becomes a \textbf{unit}.
+	\end{itemize}
 \end{remark}
 
 \begin{definition}[\textbf{Primitive Polynomial}]
