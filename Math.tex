@@ -141,6 +141,13 @@
 	{\baceInner{#2}} % normal sized if \bace*
 	{\baceInner*{#2}} % auto resized if \bace
 }
+\DeclarePairedDelimiter{\bracInner}{\{}{\}} % auto resized curly brackets 
+\NewDocumentCommand{\brac}{s m}{
+	\IfBooleanTF{#1}
+	{\bracInner{#2}} % normal sized if \bace*
+	{\bracInner*{#2}} % auto resized if \bace
+}
+
 
 % greek and msic symbols
 \newcommand{\eps}{\varepsilon} % Better looking epsilon
