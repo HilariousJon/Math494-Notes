@@ -247,60 +247,60 @@ and \( \pi \) is a morphism of \( R \)-module.
 		      \]
 		\item Have
 		      \[
-            \pi(K) = \im\bace{K \hookrightarrow M \longrightarrow \qo{M}{N}}
+			      \pi(K) = \im\bace{K \hookrightarrow M \longrightarrow \qo{M}{N}}
 		      \]
 	\end{enumerate}
 \end{proof}
 
 \begin{remark}
 	If \( N \subseteq K \subseteq M \implies \)
-  \[
-    \begin{tikzcd}[row sep=large, column sep=large]
-        K \arrow[r] \arrow[d, equal] & M \arrow[r] & \qo{M}{N} \\
-        K \arrow[rr] & & \pi(K) \arrow[u, phantom, "\rotatebox{90}{$\subseteq$}"]
-    \end{tikzcd}
- \]
- and by first isomorphism theorem, we have 
- \[
-   \pi (K) \cong\; \qo{K}{N}
- \] 
+	\[
+		\begin{tikzcd}[row sep=large, column sep=large]
+			K \arrow[r] \arrow[d, equal] & M \arrow[r] & \qo{M}{N} \\
+			K \arrow[rr] & & \pi(K) \arrow[u, phantom, "\rotatebox{90}{$\subseteq$}"]
+		\end{tikzcd}
+	\]
+	and by first isomorphism theorem, we have
+	\[
+		\pi (K) \cong\; \qo{K}{N}
+	\]
 \end{remark}
 
 \begin{theorem}[\textbf{Third Isomorphism Theorem}]
-  If \( N \subseteq K \subseteq M \) be an \( R \)-submodule of \( M \), then:
-  \[
-    \qo{\qo{M}{N}}{\qo{K}{N}} \cong \; \qo{M}{K}
-  \] 
+	If \( N \subseteq K \subseteq M \) be an \( R \)-submodule of \( M \), then:
+	\[
+		\qo{\qo{M}{N}}{\qo{K}{N}} \cong \; \qo{M}{K}
+	\]
 \end{theorem}
 
 \begin{proof}
-  Consider
-  	\[
+	Consider
+	\[
 		\begin{tikzcd}
-      M \arrow[r] \arrow[d] & \qo{M}{K} \\
-      \qo{M}{N} \arrow[ru, "\vp"'] &
+			M \arrow[r] \arrow[d] & \qo{M}{K} \\
+			\qo{M}{N} \arrow[ru, "\vp"'] &
 		\end{tikzcd}
 	\]
-  where 
-  \[
-    \begin{aligned}
-      \qo{M}{N} & \xrightarrow{\vp} \qo{M}{K} \\ 
-          u + N &\mapsto u + K
-    \end{aligned}
-  \] 
-  see that \( \vp \) is surjective, with
-  \[
-    \ker(\vp) = \qo{K}{N}
-  \] 
-  and the first isomorphism theorem yields the result.
+	where
+	\[
+		\begin{aligned}
+			\qo{M}{N} & \xrightarrow{\vp} \qo{M}{K} \\
+			u + N     & \mapsto u + K
+		\end{aligned}
+	\]
+	see that \( \vp \) is surjective, with
+	\[
+		\ker(\vp) = \qo{K}{N}
+	\]
+	and the first isomorphism theorem yields the result.
 \end{proof}
 
 \begin{exercise}
-  If \( M,N \) are left \( R \)-modules, have
-  \[
-    \Hom_{R} (M, N) = \{f : M \to N \; | \; f \text{ is morphism of } R- \text{modules}\}
-  \]
-  \textcolor{blue}{What structure does \( \Hom_{R}(M,N) \) have? What operations can you put on it?}
+	If \( M,N \) are left \( R \)-modules, have
+	\[
+		\Hom_{R} (M, N) = \{f : M \to N \; | \; f \text{ is morphism of } R- \text{modules}\}
+	\]
+	\textcolor{blue}{What structure does \( \Hom_{R}(M,N) \) have? What operations can you put on it?}
 \end{exercise}
 The answer is that it is always an abelian group, sometimes an \( R \)-module (if \( R \) is
 \textcolor{blue}{commutative}!)

@@ -19,7 +19,9 @@
 \usepackage{stmaryrd}
 \usepackage{systeme}
 \usepackage{pgffor}
-\usepackage{mathabx}
+% \usepackage{mathabx}
+% \usepackage{newtxmath}
+% \usepackage{txfonts}
 \usepackage{extarrows}
 \input{Math.tex}
 
@@ -202,6 +204,36 @@
 		}
 ]{notgrayline}
 
+\declaretheoremstyle[
+	headfont=\bfseries\sffamily\color{BurntOrange!70!black}, bodyfont=\normalfont,
+	mdframed={
+			linewidth=2pt,
+			rightline=false, topline=false, bottomline=false,
+			linecolor=BurntOrange, backgroundcolor=BurntOrange!5,
+			nobreak=false
+		}
+]{thmorangebox}
+
+\declaretheoremstyle[
+	headfont=\bfseries\sffamily\color{Plum!70!black}, bodyfont=\normalfont,
+	mdframed={
+			linewidth=2pt,
+			rightline=false, topline=false, bottomline=false,
+			linecolor=Plum, backgroundcolor=Plum!5,
+			nobreak=false
+		}
+]{thmplumbox}
+
+\declaretheoremstyle[
+	headfont=\bfseries\sffamily\color{Mahogany!70!black}, bodyfont=\normalfont,
+	mdframed={
+			linewidth=2pt,
+			rightline=false, topline=false, bottomline=false,
+			linecolor=Mahogany, backgroundcolor=Mahogany!5,
+			nobreak=false
+		}
+]{thmmahoganybox}
+
 % \declaretheoremstyle[
 % 	headfont=\bfseries\sffamily\color{RawSienna!70!black}, bodyfont=\normalfont,
 % 	numbered=no,
@@ -249,9 +281,9 @@
 \declaretheorem[style=thmgreen2box, name=Definition, numbered=no]{definition*}
 \declaretheorem[style=thmredbox, name=Theorem, numberwithin=section]{theorem}
 \declaretheorem[style=thmred2box, name=Theorem, numbered=no]{theorem*}
-\declaretheorem[style=thmredbox, name=Lemma, numberwithin=section]{lemma}
-\declaretheorem[style=thmredbox, name=Proposition, numberwithin=section]{proposition}
-\declaretheorem[style=thmredbox, name=Corollary, numberwithin=section]{corollary}
+\declaretheorem[style=thmorangebox, name=Lemma, numberwithin=section]{lemma}
+\declaretheorem[style=thmplumbox, name=Proposition, numberwithin=section]{proposition}
+\declaretheorem[style=thmmahoganybox, name=Corollary, numberwithin=section]{corollary}
 \declaretheorem[style=thmpinkbox, name=Problem, numberwithin=section]{problem}
 \declaretheorem[style=thmpinkbox, name=Problem, numbered=no]{problem*}
 \declaretheorem[style=thmblue2box, name=Claim, numbered=no]{claim}
@@ -271,15 +303,32 @@
 \renewcommand\theHconjecture{\thesection.\arabic {conjecture}}
 
 % Redefine proof environment to get a full control.
+% \makeatletter
+% \renewenvironment{proof}[1][\proofname]{\par
+% 	\pushQED{\qed}%
+% 	\normalfont \topsep-2\p@\@plus6\p@\relax
+% 	\trivlist
+% 	\item[\hskip\labelsep
+% 	            \color{RawSienna!70!black}\sffamily\bfseries
+% 	            #1\@addpunct{.}]\ignorespaces
+% 	\begin{mdframed}[linewidth=2pt,rightline=false, topline=false, bottomline=false,linecolor=RawSienna, backgroundcolor=RawSienna!1]
+% 		}{%
+% 		\popQED\endtrivlist\@endpefalse
+% 	\end{mdframed}
+% }
+% \makeatother
+
+% Redefine proof environment to get a full control.
+% Redefine proof environment to get a full control.
 \makeatletter
 \renewenvironment{proof}[1][\proofname]{\par
 	\pushQED{\qed}%
 	\normalfont \topsep-2\p@\@plus6\p@\relax
 	\trivlist
 	\item[\hskip\labelsep
-	            \color{RawSienna!70!black}\sffamily\bfseries
+	            \color{CadetBlue!80!black}\sffamily\bfseries
 	            #1\@addpunct{.}]\ignorespaces
-	\begin{mdframed}[linewidth=2pt,rightline=false, topline=false, bottomline=false,linecolor=RawSienna, backgroundcolor=RawSienna!1]
+	\begin{mdframed}[linewidth=2pt,rightline=false, topline=false, bottomline=false,linecolor=CadetBlue, backgroundcolor=CadetBlue!2]
 		}{%
 		\popQED\endtrivlist\@endpefalse
 	\end{mdframed}

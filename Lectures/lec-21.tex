@@ -1,0 +1,277 @@
+\begin{proposition}
+	\label{prop:noeth-module}
+	If \( M \) is a left \( R \)-module and \( N \subseteq M \) is a submodule, then \( M \) is
+	Noetherian (Artinian) iff \( N \) and \( \qo{M}{N} \) are Noetherian (resp. Artinian).
+\end{proposition}
+
+\begin{proof}
+	We'll treat the Noetherian case, the Artinian case is similar. If \( M \) is Noetherian, this
+	impiles:
+	\begin{itemize}
+		\item \( N \) is Noetherian, since every sequence of submodules of \( N \) is also a sequence of
+		      submodules of \( M \).
+		\item \( qo{M}{N} \) is Noetherian: Let
+		      \[
+			      \pi : M \hookrightarrow \qo{M}{N}
+		      \]
+		      be the canonical morphism. Given a sequence of submodules of \( \qo{M}{N} \) denoted as:
+		      \[
+			      Q_1 \subseteq Q_2 \subseteq \cdots \subseteq \qo{M}{N}
+		      \]
+		      thus have:
+		      \[
+			      \pi^{-1} (Q_1) \subseteq \pi^{-1} (Q_2) \subseteq \cdots \subseteq M
+		      \]
+		      be seuquence of submodules of \( M \). Since \( M \) is Noetherian, then there exists \(
+		      n_0 \), s.t. \( \pi^{-1}(Q_n) = \pi^{-1})(Q_{n+1}) \; \forall \; n \geq n_0 \), thus:
+		      \[
+			      Q_n = \pi (\pi^{-1} (Q_n)) = \pi (\pi^{-1} (Q_{n+1})) = Q_{n+1} \; \forall \; n \geq n_0
+		      \]
+	\end{itemize}
+	Conversely, suppose \( N \) and \( \qo{M}{N} \) are Noetherian, and suppose we have sequence of
+	submodules of \( M \) denoted as:
+	\[
+		P_1 \subseteq P_2 \subseteq \cdots \subseteq M
+	\]
+	thus we have sequence of submoduels of \( N \) denoted as:
+	\[
+		P_1 \cap N \subseteq P_2 \cap N \subseteq \cdots \subseteq N
+	\]
+	Since \( N \) is Noetherian, there exists \( n_1 \), s.t.
+	\begin{equation}
+		\label{eq:noeth-module-1}
+		P_n \cap N = P_{n+1} \cap N \;
+		\forall \; n \geq n_1
+	\end{equation}
+	\( \qo{M}{N} \) is Noetherian implies that \textcolor{red}{after enlarging \( n_1 \)}, may assume:
+	\[
+		\pi(P_n) = \pi(P_{n+1}) \; \forall \; n \geq n_1
+	\]
+	and \textcolor{blue}{note that}:
+	\begin{equation}
+		\label{eq:noeth-module-2}
+		\pi(P_n) = \qo{(P_n + N)}{N} \implies P_n + N = P_{n+1} + N \; \forall \; n \geq n_1
+	\end{equation}
+	where \( P_n + N \) is the smallest submodules of \( M \) conatins both \( P_n \) and \( N \). By
+	\textbf{Equation} \ref{eq:noeth-module-1} and \textbf{Equation} \ref{eq:noeth-module-2}, we have:
+	\[
+		P_n = P_{n+1} \; \forall \; n \geq n_1
+	\]
+	Now if
+	\[
+		\begin{aligned}
+			u \in P_{n+1}  & \xRightarrow{\text{eq } \ref{eq:noeth-module-2}} u = v+w, \; v\in P_n,
+			w\in N
+			\\
+			\text{with } w & = \underbrace{u}_{\in P_{n+1}} - \underbrace{v}_{\in P_n \subseteq P_{n+1}}
+			\implies w \in P_{n+1} \cap N                                                                \\
+			               & \xRightarrow{\text{eq } \ref{eq:noeth-module-1}} w \in P_n \cap N \subseteq
+			P_n                                                                                          \\                                                                         \\
+			\implies u     & = v+w \in P_n
+		\end{aligned}
+	\]
+\end{proof}
+
+
+\begin{note}
+	We have:
+	\[
+		\pi^{-1}(\pi (P_n)) = P_n + N
+	\]
+	the \( \supseteq \) is clear, for \( \subseteq \), see that \( a \in \pi^{-1}(\pi(P_n)) \), then
+	there exists \( b \in P_n, \; a-b \in N \implies a \in P_n + N \).
+\end{note}
+
+\begin{corollary}
+	\label{cor:noeth-module-1}
+	If \( M,N \) are left \( R \)-modules, then \( M\oplus N \) is Noetherian (Artinian) iff both \(
+	M, N \) are Noetherian (Artinian).
+\end{corollary}
+
+\begin{proof}
+	Use the surjective morphism:
+	\[
+		\begin{aligned}
+			M \oplus N & \xrightarrow{p} M \\
+			p(u,v)     & = u
+		\end{aligned}
+	\]
+	see that we have \( \ker(p) \cong\; N \) and by proposition we are done.
+\end{proof}
+Now we want to relate the Noetherian module by Noetherian ring.
+
+\begin{corollary}
+	If \( R \) is left Noetherian ring, then a left \( R \)-module \( M \) is Noetherian iff \( M \)
+	is finitely generated.
+\end{corollary}
+
+\begin{note}
+	It allow us to only need to check itself being Noetherian instead of checking all its submodules.
+\end{note}
+
+\begin{proof}
+	The \( \implies \) part is clear, consider the \( \impliedby \) part. By hypothesis, \( R \) is
+	Notherian as a left \( R \)-module, thus by \textbf{Corollary} \ref{cor:noeth-module-1}
+	and using induction on \( n \), see that:
+	\[
+		R^n \text{ is a Noetherian module. } \bace{\bigoplus_{i=1}^n R}
+	\]
+	If \( M \) is a finitely generated \( R \)-module, and \( u_1,\ldots,u_n \in M \) are its
+	generators, we define;
+	\[
+		\begin{aligned}
+			\vp: R^n & \to M                                                                              \\
+			\vp(e_i) & = u_i \quad \forall \; 1\leq i \leq n                                              \\
+			e_i      & = (0, \ldots, 0, 1, 0, \ldots, 0) \text{ with \( 1 \) at the \( i \)-th position }
+		\end{aligned}
+	\]
+	we can do this since \( \vp \) is a free module, and we only need to specify where its basis goes.
+	Since \( u_1,\ldots,u_n \) generates \( M \) this means \( \vp \) is surjective. Since \( R^n \)
+	is Noetherian \( \xRightarrow{\text{prop } \ref{prop:noeth-module}} \) \( M \) is
+	Noetherian.
+\end{proof}
+
+\begin{exercise}
+	An artinian \( R \)-module might not be finitely generated. Consider
+	\[
+		M \coloneqq  \qo{\CC[x]_x}{\CC[x]}
+	\]
+	being module over \( R:= \CC[x] \), where \( \CC[x]_x \) being \( \CC[x] \) localized over \( x
+	\), being the Laurent polynomials (Poly of the form \( \frac{1}{x^n} \)). Check that \( M \) is Artinian, but not finitely generated.
+\end{exercise}
+
+\section{More Catgeorical Terminology}
+
+\begin{definition}[\textbf{Kernel}]
+	If \( f: M\to N \) be morphism of left \( R \)-module, a \underline{kernel} of \( f \) is a
+	morphism of left \( R \)-modules
+	\[
+		K \xrightarrow{u} M
+	\]
+	such that:
+	\begin{itemize}
+		\item \( f\circ u = 0 \).
+		\item \( u \) is universal with this property. Namely if \( v: Q \to M \) is such that \( f\circ
+		      v = 0\), then there exists a unique morphism \( g: Q \to K \), such that the following diagram
+		      is commutative:
+		      \[
+			      \begin{tikzcd}
+				      K \arrow[r, "u"] & M \\
+				      & Q\arrow[lu, "g", dashed] \arrow[u, "v"]
+			      \end{tikzcd}
+		      \]
+		      As usual, if \( K' \xrightarrow{u'} M \) also satisfies this, then we have:
+		      \[
+			      \begin{tikzcd}
+				      K \arrow[r, "u"] \arrow[d, "\theta", "\sim"' {sloped, allow upside down, pos=0.5}] & M \\
+				      K' \arrow[ur, dashed, "u'"'] &
+			      \end{tikzcd}
+		      \]
+		      there exists a unique isomorphism \( \theta  \), s.t. \( u' \circ \theta = u \).
+	\end{itemize}
+\end{definition}
+
+\begin{claim}
+	Let:
+	\[
+		\ker(f) \xhookrightarrow{i} M \xrightarrow{f} N
+	\]
+	then \( i \) is a kernel of \( f \).
+	\begin{itemize}
+		\item Clearly: \( f\circ i = 0 \).
+		\item if \( v: Q \to M \), s.t. \( f\circ v = 0 \implies \im (f) \subseteq \ker(f) \), thus
+		      existence and uniqueness of \( g \) is clear. Uniqueness yield since \( i \)
+		      is injective.
+	\end{itemize}
+\end{claim}
+
+\begin{definition}[\textbf{Cokernel}]
+	Let \( f: M\to N \) be a morphism of \( R \)-modules. A \underline{cokernel} of \( f \) is a morphism \( p: N \to C \), such that:
+	\begin{itemize}
+		\item \( p\circ f = 0 \).
+		\item \( p \) is universal with this property. Namely, if \( q: N \to Q \) is such that \( q\circ f = 0 \), then there exists a unique morphism \( h: C \to Q \), such that the following diagram commutes:
+		      \[
+			      \begin{tikzcd}
+				      M \arrow[r, "f"] & N \arrow[r, "p"] \arrow[dr, "q"'] & C \arrow[d, dashed, "h"] \\
+				      & & Q
+			      \end{tikzcd}
+		      \]
+		      As usual, if \( p': N \to C' \) also satisfies this property, then we have the following diagram:
+		      \[
+			      \begin{tikzcd}
+				      M \arrow[r, "f"] & N \arrow[r, "p"] \arrow[dr, "p'"'] & C \arrow[d, dashed, "\theta"] \\
+				      & & C'
+			      \end{tikzcd}
+		      \]
+		      where there exists a unique isomorphism \( \theta \), s.t. \( \theta \circ p = p' \).
+	\end{itemize}
+\end{definition}
+
+\begin{claim}
+	The projection morphism:
+	\[
+		p : N \rightarrow \qo{N}{f(M)}
+	\]
+	is a cokernel of \( f \).
+	\begin{itemize}
+		\item Clearly: \( p\circ f = 0 \).
+		\item For any other \( p': N \to C' \) with \( p' \circ f = 0 \), we have the commutative diagram:
+		      \[
+			      \begin{tikzcd}
+				      M \arrow[r, "f"] & N \arrow[r, "p"] \arrow[dr, "p'"'] & \qo{N}{f(M)} \arrow[d, dashed, "g"] \\
+				      & & C'
+			      \end{tikzcd}
+		      \]
+	\end{itemize}
+	See that \( p'\circ f = 0 \implies f(M) \subseteq \ker(p') \implies \) existence + uniqueness of
+	\( g \) follows from the universal property of quotient module.
+\end{claim}
+
+\begin{definition}[\textbf{Exact Sequence}]
+	A sequence of morphisms of \( R \)-modules is \underline{exact at \( A_2 \)} if \( \im(f_1) =
+	\ker(f_2) \):
+	\[
+		\cdots \rightarrow A_1 \xrightarrow{f_1} A_2 \xrightarrow{f_2} A_3 \rightarrow \cdots
+	\]
+	and is \underline{exact} if it is exact everywhere.
+\end{definition}
+
+\begin{definition}[\textbf{Short Exact Sequence}]
+	A \underline{short exact sequence} is a sequence:
+	\[
+		0 \rightarrow M' \xrightarrow{f} M \xrightarrow{g} M'' \rightarrow 0
+	\]
+	which is \underline{exact}, which is equivalent to saying:
+	\[
+		\begin{cases}
+			\ker (f) = 0 \iff f \text{ is injective.} \\
+			\im(f) = \ker(g)                          \\
+			\im(g) = M'' \iff g \text{ is surjective.}
+		\end{cases}
+	\]
+	which is equivalent to saying \( f \) gives an isomorphism of \( M' \) onto a submodule of \( f(M') \) of \( M \)
+	and \( g \) induces an isomorphism:
+	\[
+		\qo{M}{f(M')} \cong \; M''
+	\]
+\end{definition}
+
+\begin{exercise}
+	Given a short exact sequence as follows:
+	\[
+		\begin{tikzcd}
+			0 \arrow[r] & M' \arrow[r, "f"] & M \arrow[r, "g"] \arrow[l, "p", bend left] & M'' \arrow[r] \arrow[l, "i", bend left] & 0
+		\end{tikzcd}
+	\]
+	then \textbf{t.f.a.e.}
+	\begin{enumerate}
+		\item \( \exists \) morphism \( p: M \to M' \), s.t. \( p\circ f = \Id{M'} \).
+		\item \( \exists \) morphism \( i: M'' \to M \), s.t. \( g\circ i == \Id_{M''} \).
+		\item \( \exists \) submodule \( N \subseteq M \), s.t.
+		      \[
+			      M = f(M') \oplus N
+		      \]
+		      and \( g \) induces an isomorphism \( N \cong\; M'' \).
+	\end{enumerate}
+	such a short exact sequence is called \textbf{split exact sequence}.
+\end{exercise}
