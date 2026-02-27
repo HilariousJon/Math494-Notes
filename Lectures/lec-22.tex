@@ -1,0 +1,239 @@
+\section{Rank of a Module}
+
+Suppose \( R \) be a \underline{domain} and \( M \) be a finitely generated \( R \)-module, let \( S
+= R \backslash \{0\}\), thus \( K = \text{Frac}(R) = S^{-1} R \). We have the fraction module
+defined as
+\[
+	S^{-1} M \coloneqq \{\frac{u}{s} \; | \; u \in M, s \in S\}
+\]
+with the equivalence relation defined as
+\[
+	\frac{u}{s} = \frac{v}{t} \iff \exists w \in S, w(tu - sv) = 0
+\]
+See that \( S^{-1} M \) is a module over \( K \) and is finitely generated.
+
+\begin{definition}[\textbf{Rank}]
+	Define:
+	\[
+		\rank(M) \coloneqq \dim_K(S^{-1} M) \in \ZZ_{\geq 0}
+	\]
+\end{definition}
+
+\begin{exercise}
+	If \( u_1,\ldots,u_n \in M \implies u_1,\ldots, u_n \) are linearly independent over \( R \) iff
+	\( \frac{u_1}{1},\ldots, \frac{u_n}{1} \) are linearly independent over \( K \). In particular,
+	\[
+		\rank(M) = \max\{r\; | \; \exists \; u_1,\ldots, u_r \in M \text{ linearly independent over }R\}
+	\]
+\end{exercise}
+
+\begin{exercise}
+	In homework we see that if \( N\subseteq M \) submodule which is finitely generated, we have:
+	\[
+		S^{-1} N \hookrightarrow S^{-1} M
+	\]
+	and thus
+	\[
+		\qo{S^{-1}M}{S^{-1}N} \cong \; S^{-1}\bace{\qo{M}{N}}
+	\]
+	and thus we have
+	\[
+		\rank(M) = \rank(N) + \rank\left(\qo{M}{N}\right)
+	\]
+\end{exercise}
+
+\begin{eg}
+	\leavevmode
+	\begin{enumerate}
+		\item \( \rank(R) = 1 \).
+		\item If \( a \ne 0 \implies \rank(\qo{R}{(a)}) = 0 \).
+		\item \( \rank(M \oplus N) = \rank(M) + \rank(N) \).
+	\end{enumerate}
+\end{eg}
+
+
+\begin{remark}
+	If \( R \) domain, \( M \) be a \( R \)-module, let \( a \in R \backslash \{0\} \), we have
+	\[
+		(a) M = \{au \; | \; u \in M\}
+	\]
+	we have a morphism
+	\[
+		\begin{aligned}
+			M      & \xrightarrow{f} M \\
+			f(u)   & = au              \\
+			\im(f) & = aM
+		\end{aligned}
+	\]
+	is linear since \( R \) is commutative. In particular, we have the isomorphism of \( R \)-modules
+	given as:
+	\[
+		\begin{aligned}
+			R       & \xrightarrow{\sim} (a) \\
+			\lambda & \to \lambda a
+		\end{aligned}
+	\]
+	It is injective since \( R \) is a domain. One should then have:
+	\[
+		\begin{aligned}
+			(a^n)                          & \xrightarrow{\sim} (a^{n+1})                          \\
+			\qo{R}{(a)} \cong \cdots \cong & \qo{(a^n)}{(a^{n+1})} \cong \qo{(a^{n+1})}{(a^{n+2})}
+		\end{aligned}
+	\]
+\end{remark}
+
+\section{Finitely Generated Modules over PIDs}
+In this section, we fix \( R \) a \textbf{\textcolor{red}{PID}}.
+
+\begin{theorem}
+	\label{thm:pid-module-1}
+	If \( F \) is a finitely generated \underline{free} module over \( R \) and \( G \subseteq F \) a
+	submodule \( \implies \exists \) basis \( w_1,\ldots, w_n \) of \( F \), and \( a_1,\ldots,a_m \in
+	R\) nonzero, \( m\leq n \), \( a_1 \mid a_2 \mid \cdots \mid a_m \), such that \( a_1w_1,\ldots,
+	a_m w_m \) is a basis of \( G \). In particular, \( G \) is free.\todo{Proof gives later.}
+\end{theorem}
+
+\begin{theorem}
+	\label{thm:pid-module-2}
+	If \( M \) is a finitely generated module over \( R \), then
+	\[
+		M \cong R^r \oplus \qo{R}{(a_1)} \oplus \cdots \oplus \qo{R}{(a_m)}
+	\]
+	for some \( r \in \ZZ_{\geq 0} \), \( a_1,\ldots, a_m \in R \) nonzero, non-units, s.t. \( a_1\mid
+	a_2 \mid \cdots \mid a_n\).
+\end{theorem}
+
+\begin{proof}
+	Choose a generators \( u_1,\ldots, u_n \) of \( M \), define:
+	\[
+		\begin{aligned}
+			F = R^n             & \xrightarrow{\vp} M      \\
+			\vp(e_i)            & = u_i \quad \forall \; i \\
+			\vp(a_1,\ldots,a_n) & = \sum a_i u_i
+		\end{aligned}
+	\]
+	since \( u_1,\ldots,u_n \) is system of generators, \( \vp \) is surjective. If \( G = \ker(\vp) \implies
+	M \cong \qo{F}{G} \). \textbf{Theorem} \ref{thm:pid-module-1} implies there
+	exists basis \( w_1,\ldots,w_n \) of \( R^n \) and \( a_1,\ldots, a_m \in R \) nonzero, s.t. \(
+	a_1\mid a_2 \mid \cdots \mid a_m \), \( m \leq n \) and \( a_1 w_1,\ldots, a_m w_m \) is a basis
+	of \( G \). Define
+	\[
+		\begin{aligned}
+			\psi: F = R^n                    & \rightarrow \qo{R}{(a_1)} \oplus \cdots \oplus \qo{R}{(a_m)} \oplus R^{n-m} \\
+			\psi \bace{\sum_{i=1}^n b_i w_i} & = \bace{b_1+(a_1), \ldots, b_m +(a_m), b_{m+1}, \ldots, b_n}
+		\end{aligned}
+	\]
+	It is clear that \( \psi \) is linear and surjective. What is the kernel? Given by:
+	\[
+		\begin{aligned}
+			\ker(\psi)                 & = \brac{\sum_{i=1}^n b_i w_i \; | \; b_i \in (a_i) \text{ for } i \leq m, b_i = 0
+			\text{ for } i >m}                                                                                             \\
+			                           & = \angl{a_1 w_1,\ldots a_m w_m} = G                                               \\
+			\implies M \cong \qo{F}{G} & \cong \qo{R}{(a_1)} \oplus \cdots \oplus \qo{R}{(a_m)} \oplus
+			R^{n-m}
+		\end{aligned}
+	\]
+	Since \( a_d \) being unit will implies \( a_{d-1} \) being unit. May assume if \( a_1,\ldots, a_d \)
+	are units and \( a_{d+1} \) is not a unit, then
+	\[
+		\implies \qo{R}{(a_1)} = \{0\} \text{ for } i \leq d
+	\]
+	removing them will yield the proof.
+\end{proof}
+
+\begin{corollary}
+	\label{cor:pid-module-1}
+	If \( M \) is a finitely generated module over \( R \). Then
+	\[
+		M \cong R^r \oplus \qo{R}{(\pi^{n_1}_1)} \oplus \cdots \oplus \qo{R}{(\pi^{n_d}_d)}
+	\]
+	for some \( r\in \ZZ_{\geq 0} \), with prime elements \( \pi_1,\ldots,\pi_d \) and \(
+	n_1,\ldots,n_d \in \ZZ_{\geq 0} \).
+\end{corollary}
+
+\begin{proof}
+	Suppose \( a\in R \) nonzero, non-unit. Since \( R \) is a PID, thus a UFD, write
+	\[
+		a = u \cdot p_1^{m_1}\cdots p_s^{m_s}
+	\]
+	for some unit \( u \), non-associative prime elements \( p_1,\ldots,p_s \) and \( m_1,\ldots,m_s
+	\in \ZZ_{\geq 0} \).
+
+	\begin{note}
+		\leavevmode
+		\begin{itemize}
+			\item \( (p_i^{m_i}) + (p_j^{m_j}) = R \; \forall \; i \ne j \). Since it contains \( (p_i +
+			      p_j)^N = R \) with \( N \gg 0 \), since \( p_i, p_j \) have \( \gcd = 1 \).
+			\item Have
+			      \[
+				      (a) = \bigcap_{i=1}^s (p_i^{m_i})
+			      \]
+			      with \( \subseteq \) clear, and for \( \supseteq \) part, if \( p_i^{m_i} \mid b, b\in
+			      R, \forall \; i \), by considering the irreducible decomposition of \( b \), have
+			      \[
+				      \prod p_i^{m_i} \mid b
+			      \]
+		\end{itemize}
+	\end{note}
+	The generalized version of Chinese Remainder Theorem implies
+	\[
+		\begin{aligned}
+			\qo{R}{(a)} = \qo{R}{\bigcap_{i=1}^s (p_i^{m_i})} & \xrightarrow{\sim} \qo{R}{(p_1^{m_1})} \times
+			\cdots \times \qo{R}{(p_s^{m_s})}                                                                 \\
+			\overline{u}                                      & \xrightarrow{\sim} (u+ (p_1^{m_1}),\ldots,
+			u + (p_s^{m_s})
+		\end{aligned}
+	\]
+	this is a ring isomorphism. Moreover, it is a morhpism of \( R \) modules for obvious reasons.
+	This is then an isomorphism of \( R \)-modules. Because of this, the assertion of the corollary
+	follows from \textbf{Theorem} \ref{thm:pid-module-2}.
+\end{proof}
+
+\begin{remark}
+	We have uniqueness in \textbf{Corollary} \ref{cor:pid-module-1} if
+	\[
+		M \cong R^r \oplus \qo{R}{(\pi_1^{m_1})} \oplus \cdots \oplus \qo{R}{(\pi_s^{m_s})}
+	\]
+	as in Corollary \ref{cor:pid-module-1}, \( \implies r, (\pi_1^{m_1}),\ldots,
+	(\pi_s^{m_s}) \) are uniquely determined up to reordering and taking associations.
+\end{remark}
+
+\begin{proof}
+	Note that \( r = \rank(M) \implies \) independency of such decomposition. If \( \pi \) prime
+	element, then
+	\[
+		\{u \in M \; | \; \pi^n u = 0 \text{ for some } n \geq 1\} \cong \bigoplus_{\pi_i \sim \pi}
+		\qo{R}{(\pi_i^{m_i})}
+	\]
+	Using this \( \implies \) to finish the proof, it is enough to show that if
+	\[
+		\begin{aligned}
+			\qo{R}{(\pi^{n_1})} & \oplus \cdots \oplus \qo{R}{(\pi^{n_r})}  \cong \qo{R}{(\pi^{n'_1})}
+			\oplus \cdots \oplus \qo{R}{(\pi^{n'_s})}                                                  \\
+			                    & \text{s.t. }
+			\begin{cases}
+				n_1\leq \cdots \leq n_r \\
+				n'_1 \leq \cdots \leq n'_s
+			\end{cases}
+			\implies
+			\begin{cases}
+				r = s \\
+				n_i = n'_i \; \forall \; i
+			\end{cases}
+		\end{aligned}
+	\]
+	\todo{Finish the proof next time.}
+\end{proof}
+
+\begin{eg}[\textbf{Main Application}]
+	\leavevmode
+	\begin{enumerate}
+		\item \textbf{Case 1}: \( R = \ZZ \), gives structure theorem for finitely generated abelian
+		      groups.
+		\item \textbf{Case 2}: \( R = k[x] \) with \( k \) field,
+		      \[
+			      R\text{-modules} \longleftrightarrow k\text{-vector spaces }V \text{ with linear morphism } T: V
+			      \to V
+		      \]
+	\end{enumerate}
+\end{eg}
