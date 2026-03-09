@@ -89,8 +89,8 @@ Let's fix \( R \) being a UFD, and \( \KK = \text{Frac}(R) \) being the fraction
 				            \item Say \( f = gh \) where \( g,h \in R[x] \). Since \( f \) is irreducible in
 				                  \( \KK[x] \), then \( g \) or \( h \) have degree \( 0 \) (unit in \( \KK[x] \))
 				                  and since \( g,h \in R[x] \), may assume \( g \in R \). Since \( f \) is
-				                  primitive, and that \( g \) will be a gcd of the coefficients of \(
-				                  f\), this means that \( g \) will be a unit in \( R \), hence unit in \( R[x] \).
+				                  primitive, and that means \( g \) will divided the gcd of the coefficients of \(
+				                  f\) by the definition of primitivity and thus also being a gcd, this means that \( g \) will be a unit in \( R \), hence unit in \( R[x] \).
 			            \end{itemize}
 		      \end{enumerate}
 	\end{itemize}
@@ -107,7 +107,7 @@ reduce the irreducibility of polynomials in \( R[x] \) to the irreducibility of 
 	\begin{itemize}
 		\item Existence of irreducible decomposition: Let \( f \in R[x] \) with \( f \ne 0 \) and \( f \ne  \)
 		      unit, view it as polynomial in \( \KK[x] \) and one can write \( f = c(f) f' \) with \( c(f) \in
-		      R\) and \( f' \) primitive in \( R[x] \). Since \( \KK[x]\) is a UFD, then if \( \deg(f) > 0 \)
+		      R\) and \( f' \) primitive in \( R[x] \). Since \( \KK[x]\) \hl{is a UFD}, then if \( \deg(f) > 0 \)
 		      can write:
 		      \[
 			      \begin{aligned}
@@ -122,8 +122,11 @@ reduce the irreducibility of polynomials in \( R[x] \) to the irreducibility of 
 		      \]
 		      If \( c(f) \ne \) unit, since \( R \) is a UFD, then we can factor it out as:
 		      \[
-			      c(f) = \pi_1 \cdots \pi_s \quad \text{where } \pi_i \in R \text{ are irreducible, hence
-				      irreducible in } R[x] \text{ by Proposition \ref{prop:irred-criterion} }
+			      \begin{aligned}
+				      c(f) & = \pi_1 \cdots \pi_s                                    \\
+				           & \text{where } \pi_i \in R \text{ are irreducible, hence
+					      irreducible in } R[x] \text{ by Proposition \ref{prop:irred-criterion} }
+			      \end{aligned}
 		      \]
 		      thus:
 		      \[
@@ -145,7 +148,11 @@ reduce the irreducibility of polynomials in \( R[x] \) to the irreducibility of 
 			            \]
 			            where \( \qo{R}{(f)}[x]\) is a domain since \( \qo{R}{(f)} \) is a domain. Now what
 			            is the kernel of this ring homomorphism? being \( R[x]f \), see that \( R[x]f \)
-			            is prime ideal since \( \qo{R[x]}{R[x]f} \) is a domain, thus \( f \) is prime
+			            is prime ideal since \( \qo{R[x]}{R[x]f} \) is a domain by the fact
+			            \[
+				            \qo{R[x]}{R[x]f} \cong \qo{R}{(f)}[x]
+			            \]
+			            thus \( f \) is prime
 			            element in \( R[x] \).
 			      \item \textbf{Case 2}: Let \( \deg(f) \geq 1 \) with \( f \) primitive and
 			            irreducible in \( \KK[x] \). \( \KK[x] \) is a UFD, then \( f \) is prime in \(

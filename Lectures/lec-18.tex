@@ -65,8 +65,14 @@
 		\bigoplus_{i\in I}M_i = \{(a_i)_{i\in I} \; | \; a_i = 0 \text{ for all but
 			\textcolor{red}{finitely} many }i\}
 	\]
-	One can check that this is indeed a submodule.
+	One can check that this is indeed a submodule. Namely there is only finitely many entry that is
+	non zero.
 \end{definition}
+
+\begin{remark}
+	In fact when \( I \) is finite, the notion of direct sum and direct product coincide, since the
+	condition of being zero for all but finitely many entries is automatically satisfied.
+\end{remark}
 
 \begin{remark}
 	For each \( j \in I \), we can define the dual notion of projection
@@ -92,7 +98,7 @@ Note that direct sum is actually a dual notion of direct product
 	s.t.
 	\begin{equation}
 		\label{eq:univ-prop-direct-sum-module}
-		f\circ \alpha_j = f_j \quad \forall \l j \in I
+		f\circ \alpha_j = f_j \quad \forall \; j \in I
 	\end{equation}
 \end{proposition}
 
@@ -116,10 +122,11 @@ Note that direct sum is actually a dual notion of direct product
 \end{proof}
 
 \begin{note}
-	If \( I \) is finite, then
-	\[
-		\bigoplus_{i\in I} M_i = \prod_{i\in I} M_i
-	\]
+	\textcolor{red}{If \( I \) is finite, then
+		\[
+			\bigoplus_{i\in I} M_i = \prod_{i\in I} M_i
+		\]
+	}
 \end{note}
 
 \section{Quotient \( R \)-modules}
@@ -298,7 +305,7 @@ and \( \pi \) is a morphism of \( R \)-module.
 \begin{exercise}
 	If \( M,N \) are left \( R \)-modules, have
 	\[
-		\Hom_{R} (M, N) = \{f : M \to N \; | \; f \text{ is morphism of } R- \text{modules}\}
+		\Hom_{R} (M, N) = \{f : M \to N \; | \; f \text{ is morphism of } R \text{-modules}\}
 	\]
 	\textcolor{blue}{What structure does \( \Hom_{R}(M,N) \) have? What operations can you put on it?}
 \end{exercise}
