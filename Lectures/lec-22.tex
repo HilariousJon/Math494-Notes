@@ -10,7 +10,9 @@ with the equivalence relation defined as
 \[
 	\frac{u}{s} = \frac{v}{t} \iff \exists w \in S, w(tu - sv) = 0
 \]
-See that \( S^{-1} M \) is a module over \( K \) and is finitely generated.
+See that \( S^{-1} M \) is a module over \( K \) and is finitely generated. Goal and benefit here is
+we get to work in a module with ring to be a field, thus we can certainly talk about its basis and
+in particular it is free.
 
 \begin{definition}[\textbf{Rank}]
 	Define:
@@ -45,8 +47,10 @@ See that \( S^{-1} M \) is a module over \( K \) and is finitely generated.
 \begin{eg}
 	\leavevmode
 	\begin{enumerate}
-		\item \( \rank(R) = 1 \).
-		\item If \( a \ne 0 \implies \rank(\qo{R}{(a)}) = 0 \).
+		\item \( \rank(R) = 1 \). There is only \( 1 \) linearly independent element in \( R \), can
+		      take \( 1 \), and cannot take more than \( 1 \) since \( R \) is a domian thus commutative.
+		\item If \( a \ne 0 \implies \rank(\qo{R}{(a)}) = 0 \). There is no linear independent element
+		      in \( \qo{R}{(a)} \) since \( \overline{1} \ne 0 \) but \( a\cdot \overline{1} = 0 \).
 		\item \( \rank(M \oplus N) = \rank(M) + \rank(N) \).
 	\end{enumerate}
 \end{eg}
@@ -80,6 +84,10 @@ See that \( S^{-1} M \) is a module over \( K \) and is finitely generated.
 			\qo{R}{(a)} \cong \cdots \cong & \qo{(a^n)}{(a^{n+1})} \cong \qo{(a^{n+1})}{(a^{n+2})}
 		\end{aligned}
 	\]
+	an example here will be taking \( R = \ZZ \) and let \( a = 2 \) and shall have
+	\[
+		\ZZ \cong 2\ZZ
+	\]
 \end{remark}
 
 \section{Finitely Generated Modules over PIDs}
@@ -100,7 +108,7 @@ In this section, we fix \( R \) a \textbf{\textcolor{red}{PID}}.
 		M \cong R^r \oplus \qo{R}{(a_1)} \oplus \cdots \oplus \qo{R}{(a_m)}
 	\]
 	for some \( r \in \ZZ_{\geq 0} \), \( a_1,\ldots, a_m \in R \) nonzero, non-units, s.t. \( a_1\mid
-	a_2 \mid \cdots \mid a_n\).
+	a_2 \mid \cdots \mid a_m\).
 \end{theorem}
 
 \begin{proof}
@@ -138,7 +146,8 @@ In this section, we fix \( R \) a \textbf{\textcolor{red}{PID}}.
 	\[
 		\implies \qo{R}{(a_1)} = \{0\} \text{ for } i \leq d
 	\]
-	removing them will yield the proof.
+	removing them will yield the proof, note that \( r \) in the original statement not necessarily
+	being \( n-m \) as \( m \) here also changes after removing the unit \( a_i \)'s.
 \end{proof}
 
 \begin{corollary}
@@ -162,17 +171,20 @@ In this section, we fix \( R \) a \textbf{\textcolor{red}{PID}}.
 	\begin{note}
 		\leavevmode
 		\begin{itemize}
-			\item \( (p_i^{m_i}) + (p_j^{m_j}) = R \; \forall \; i \ne j \). Since it contains \( (p_i +
-			      p_j)^N = R \) with \( N \gg 0 \), since \( p_i, p_j \) have \( \gcd = 1 \).
+			\item \( (p_i^{m_i}) + (p_j^{m_j}) = R \; \forall \; i \ne j \). Since it contains \( ((p_i +
+			      p_j)^N) = R \) with \( N \gg 0 \), since \( p_i, p_j \) have \( \gcd = 1 \). For example
+			      here take \( N = m_i + m_j \) and take the binomial expansion of it shall see that
+			      either it has \( p_i^{m_i} \) or \( p_j^{m_j} \).
 			\item Have
 			      \[
 				      (a) = \bigcap_{i=1}^s (p_i^{m_i})
 			      \]
-			      with \( \subseteq \) clear, and for \( \supseteq \) part, if \( p_i^{m_i} \mid b, b\in
+			      with \( \subseteq \) clear, and for \( \supseteq \) part, if let \( b \) in the RHS intersection, shall have \( p_i^{m_i} \mid b, b\in
 			      R, \forall \; i \), by considering the irreducible decomposition of \( b \), have
 			      \[
 				      \prod p_i^{m_i} \mid b
 			      \]
+			      and thus \( a\mid b \implies b \in (a) \).
 		\end{itemize}
 	\end{note}
 	The generalized version of Chinese Remainder Theorem implies
@@ -186,7 +198,9 @@ In this section, we fix \( R \) a \textbf{\textcolor{red}{PID}}.
 	\]
 	this is a ring isomorphism. Moreover, it is a morhpism of \( R \) modules for obvious reasons.
 	This is then an isomorphism of \( R \)-modules. Because of this, the assertion of the corollary
-	follows from \textbf{Theorem} \ref{thm:pid-module-2}.
+	follows from \textbf{Theorem} \ref{thm:pid-module-2}. Namely, we apply Chinese
+	Remainder Theorem for each \( \qo{R}{(a_i)} \) and shall yields the result. Please note the
+	\textcolor{red}{difference} of the definition of the \hl{internal direct sum and direct sum}.
 \end{proof}
 
 \begin{remark}
@@ -199,10 +213,11 @@ In this section, we fix \( R \) a \textbf{\textcolor{red}{PID}}.
 \end{remark}
 
 \begin{proof}
-	Note that \( r = \rank(M) \implies \) independency of such decomposition. If \( \pi \) prime
+	Note that \( r = \rank(M) \implies \) independency of such decomposition, the uniqueness of it is
+	trivial literally. Now treat \( u \in M \) as we have coordinate decomposition as right hand side. If \( \pi \) prime
 	element, then
 	\[
-		\{u \in M \; | \; \pi^n u = 0 \text{ for some } n \geq 1\} \cong \bigoplus_{\pi_i \sim \pi}
+		\{u \in M \; | \; \pi^n u = 0 \text{ for some } n \geq 1\} \cong \bigoplus_{\textcolor{red}{\pi_i \sim \pi}}
 		\qo{R}{(\pi_i^{m_i})}
 	\]
 	Using this \( \implies \) to finish the proof, it is enough to show that if
@@ -229,8 +244,11 @@ In this section, we fix \( R \) a \textbf{\textcolor{red}{PID}}.
 	\leavevmode
 	\begin{enumerate}
 		\item \textbf{Case 1}: \( R = \ZZ \), gives structure theorem for finitely generated abelian
-		      groups.
-		\item \textbf{Case 2}: \( R = k[x] \) with \( k \) field,
+		      groups. Namely any finitely generated abelian group is isoomorphic to the direct product
+		      of some infinite cyclic groups and some finite cyclic groups. Infinite cyclic groups are
+		      just \( \ZZ \) and finite cyclic groups are of the form \( \ZZ/n\ZZ \) for some \( n \in
+		      \ZZ_{\geq 1} \).
+		\item \textbf{Case 2}: \( R = k[x] \) with \( k \) field, \todo{Midterm 2}
 		      \[
 			      R\text{-modules} \longleftrightarrow k\text{-vector spaces }V \text{ with linear morphism } T: V
 			      \to V

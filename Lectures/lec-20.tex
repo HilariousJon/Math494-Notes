@@ -1,9 +1,9 @@
 \begin{notation}
 	If \( I \) be a set and \( R \) be a ring, then:
 	\[
-		R^{(I)} \coloneqq \bigoplus_{i\in I}M_i \quad M_i = R \; \forall \; i
+		R^{(I)} \coloneqq \bigoplus_{i\in I}M_i \quad \textcolor{blue}{M_i = R} \; \forall \; i
 	\]
-	and
+	and basis being
 	\[
 		e_i \coloneqq (0, \ldots, 0, \underbrace{1}_{i}, 0, \ldots, 0)
 	\]
@@ -22,7 +22,7 @@ to specify where \( e_i \) goes to secure the whole morphism.
 			      \begin{aligned}
 				      \im(f) & = \brac{\sum a_i u_i \; | \; a_i \in R, \text{ only finitely many } \ne 0} \\
 				             & = \text{submodule } \angl{\brac{u_i \; | \; i \in I}}                      \\
-				             & = \sum_{i\in I} R u_i
+				             & = \textcolor{blue}{\sum_{i\in I} R u_i}
 			      \end{aligned}
 		      \]
 		      \( \implies \{u_i \; | \; i \in I\} \) is system of generator of \( N \) iff \( f \) is
@@ -49,7 +49,8 @@ When over a ring \( R \):
 	      \[
 		      R \cong \; R \oplus R
 	      \]
-	      as left \( R \)-module.
+	      as left \( R \)-module. Namely it can happens that a free module might have two basis with
+	      different cardinality. For example it has basis cardinality to be \( 1 \) or to be \( 2 \).
 \end{itemize}
 The above statements will be proved in \textbf{Practice Set 2}, and supply here later.
 
@@ -60,7 +61,7 @@ of a field.
 \begin{lemma}[\textbf{Nakayama's Lemma}]
 	\label{lem:nakayama}
 	Let's fix \( R, \underline{m} \) a local ring being \( R \ne \{0\} \) is commutative and the only
-	maximal ideal is \( \underline{m} \). If \( M \) is a finitely generated \( R \)-module, such that
+	maximal ideal is \( \underline{m} \). If \( M \) is a \textbf{finitely generated} \( R \)-module, such that
 	\( M = \underline{m} M \), then \( M = \{0\} \).
 \end{lemma}
 One may wonder the \textcolor{blue}{significance of Nakayama's Lemma}, basically it gives us a
@@ -73,48 +74,13 @@ functor
 \]
 While we lose some information when applying \( F \), the lemma says that:
 \[
-	F(M) = \{0\} \implies M = \{0\}
+	F(M) = \{0\} \implies M = \underline{m} M \implies M = \{0\}
 \]
 thus we can recover some of the information.
 
-\begin{corollary}
-	\label{cor:nakayama}
-	If \( M \) is finitely generated over \( R \), and \( (R,\underline{m}) \) is local, have \( N
-	\subseteq M \) be submodule, then \( M = N + \underline{m}M \implies M = N \).
-\end{corollary}
-
-\begin{proof}
-	Apply \textbf{Nakayama's Lemma} to \(\overline{M} = \qo{M}{N} \), which is finitely generated as
-	well, have:
-	\[
-		\begin{aligned}
-			\underline{m} \cdot \qo{M}{N} & = \qo{\bace{\underline{m}M + N}}{N}  = \qo{M}{N} \\
-			\implies \qo{M}{N} = \{0\}    & \implies M = N
-		\end{aligned}
-	\]
-	where \( \underline{m} M + N \) being the smallest submodule containing \( \underline{m}M \) and
-	\( N \).
-\end{proof}
-
-\begin{corollary}
-	If \( M \) is finitely generated over \( R \), and \( (R, \underline{m}) \) being local ring, then
-	\( u_1, \ldots, u_n \in M \) is a system of generators iff \( \overline{u_1}, \ldots,
-	\overline{u_n} \in \qo{M}{\underline{m}M}\) is a system of generators over \( \qo{R}{\underline{m}} \).
-\end{corollary}
-
-\begin{proof}
-	The ``only if'' part is clear. Now suppose that \( \overline{u_1}, \ldots, \overline{u_n} \in
-	\qo{M}{\underline{m}M} \) is a system of generators. Let \( N = \sum_{i=1}^n R u_i \) be submodule
-	of \( M \), thus system of generators gives us:
-	\[
-		M = \underline{m} M + N \xRightarrow{\text{Cor \ref{cor:nakayama}}} N = M
-	\]
-	thus \( u_1, \ldots, u_n \) is system of generators of \( M \).
-\end{proof}
-
 \begin{proof}[\textbf{Proof of Nakayama's Lemma \ref{lem:nakayama}}]
 	Let's choose \( u_1, \ldots, u_n \) be system of generators of \( M \). Have \( M = \underline{m}M
-	\implies \)
+	\implies \) by definition of the sum of modules:
 	\[
 		\forall \; i, u_i = \sum_{j=1}^{d_i} a_{ij} v_{ij} \quad a_{ij} \in \underline{m}, v_{ij} \in M
 	\]
@@ -160,12 +126,54 @@ thus we can recover some of the information.
 		\end{vmatrix} = 1 + \alpha \text{ for some } \alpha \in \underline{m}
 	\]
 	Since \( (R, \underline{m}) \) is local and \( \alpha \in \underline{m} \) with \( \underline{m} \)
-	contains all it's invertible elements, thus \( 1 + \alpha \) is invertible. \todo{Check proof here.}
+	contains all it's \textcolor{blue}{not invertible elements}, thus \( 1 + \alpha \) is invertible
+	since we will have \( 1 + \alpha \not\in \underline{m} \) because \( 1 \) is invertible apparently.
+	Thus
+	\[
+		u_i = (1+\alpha)^{-1} (1+\alpha) u_i = (1+\alpha)^{-1}\cdot 0 = 0\; \forall \; i
+	\]
 	Thus \( u_i = 0 \; \forall \; i \implies M = \{0\} \).
 \end{proof}
 
+
+\begin{corollary}
+	\label{cor:nakayama}
+	If \( M \) is finitely generated over \( R \), and \( (R,\underline{m}) \) is local, have \( N
+	\subseteq M \) be submodule, then \( M = N + \underline{m}M \implies M = N \).
+\end{corollary}
+
+\begin{proof}
+	Apply \textbf{Nakayama's Lemma} to \(\overline{M} = \qo{M}{N} \), which is finitely generated as
+	well, have:
+	\[
+		\begin{aligned}
+			\underline{m} \cdot \qo{M}{N} & = \qo{\bace{\underline{m}M + N}}{N}  = \qo{M}{N} \\
+			\implies \qo{M}{N} = \{0\}    & \implies M = N
+		\end{aligned}
+	\]
+	where \( \underline{m} M + N \) being the \textcolor{blue}{smallest submodule} containing \( \underline{m}M \) and
+	\( N \).
+\end{proof}
+
+\begin{corollary}
+	If \( M \) is finitely generated over \( R \), and \( (R, \underline{m}) \) being local ring, then
+	\( u_1, \ldots, u_n \in M \) is a system of generators iff \( \overline{u_1}, \ldots,
+	\overline{u_n} \in \qo{M}{\underline{m}M}\) is a system of generators over \( \qo{R}{\underline{m}} \).
+\end{corollary}
+
+\begin{proof}
+	The ``only if'' part is clear. Now suppose that \( \overline{u_1}, \ldots, \overline{u_n} \in
+	\qo{M}{\underline{m}M} \) is a system of generators. Let \( N = \sum_{i=1}^n R u_i \) be submodule
+	of \( M \), thus system of generators gives us:
+	\[
+		M = \underline{m} M + N \xRightarrow{\text{Cor \ref{cor:nakayama}}} N = M
+	\]
+	thus \( u_1, \ldots, u_n \) is system of generators of \( M \).
+\end{proof}
+
+
 \begin{definition}[\textbf{Noetherian (Artinian) Module}]
-	\( M \) is a \underline{Noetherian (Artinian)} \( R \)-module if \( \not\exists \) infinitely
+	\( M \) is a \underline{Noetherian (Artinian)} \( R \)-module if \( \nexists \) infinitely
 	\textbf{strictly increasing (resp. decreasing)} sequence of submodules of \( M \).
 \end{definition}
 
@@ -177,11 +185,17 @@ thus we can recover some of the information.
 	For a left \( R \)-module \( M \), \textbf{TFAE}:
 	\begin{enumerate}
 		\item \( M \) is Noetherian.
-		\item Every non-empty family of submodules of \( M \) contains a maximal element w.r.t.
+		\item Every non-empty family of submodules of \( M \) contains a \textcolor{blue}{maximal element} w.r.t.
 		      inclusion.
 		\item Every submodule of \( M \) is finitely generated.
 	\end{enumerate}
 \end{proposition}
+
+\begin{note}
+	Note that the maximal here is interesting, not necessarily meaning the maximum element. For
+	example let \( R = \ZZ \) be a \( R \)-module, and we have \( \{2\ZZ, 3\ZZ\} \), in this case,
+	both \( 2\ZZ \) and \( 3\ZZ \) are maximal elements.
+\end{note}
 
 \begin{proof}
 	Follows the same word by word as for the case \( M = R \). See the proof for \textbf{Proposition}

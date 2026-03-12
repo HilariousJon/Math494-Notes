@@ -10,7 +10,7 @@
 	\begin{itemize}
 		\item \( N \) is Noetherian, since every sequence of submodules of \( N \) is also a sequence of
 		      submodules of \( M \).
-		\item \( qo{M}{N} \) is Noetherian: Let
+		\item \( \qo{M}{N} \) is Noetherian: Let
 		      \[
 			      \pi : M \hookrightarrow \qo{M}{N}
 		      \]
@@ -23,7 +23,8 @@
 			      \pi^{-1} (Q_1) \subseteq \pi^{-1} (Q_2) \subseteq \cdots \subseteq M
 		      \]
 		      be seuquence of submodules of \( M \). Since \( M \) is Noetherian, then there exists \(
-		      n_0 \), s.t. \( \pi^{-1}(Q_n) = \pi^{-1})(Q_{n+1}) \; \forall \; n \geq n_0 \), thus:
+		      n_0 \), s.t. \( \pi^{-1}(Q_n) = \pi^{-1}(Q_{n+1}) \; \forall \; n \geq n_0 \), thus
+		      (operation \( \pi \) here is order preserving bijection):
 		      \[
 			      Q_n = \pi (\pi^{-1} (Q_n)) = \pi (\pi^{-1} (Q_{n+1})) = Q_{n+1} \; \forall \; n \geq n_0
 		      \]
@@ -57,7 +58,7 @@
 	\[
 		P_n = P_{n+1} \; \forall \; n \geq n_1
 	\]
-	Now if
+	Which can be \hl{reasoned as follows}:
 	\[
 		\begin{aligned}
 			u \in P_{n+1}  & \xRightarrow{\text{eq } \ref{eq:noeth-module-2}} u = v+w, \; v\in P_n,
@@ -70,6 +71,7 @@
 			\implies u     & = v+w \in P_n
 		\end{aligned}
 	\]
+	and vice versa.
 \end{proof}
 
 
@@ -84,7 +86,7 @@
 
 \begin{corollary}
 	\label{cor:noeth-module-1}
-	If \( M,N \) are left \( R \)-modules, then \( M\oplus N \) is Noetherian (Artinian) iff both \(
+	If \( M,N \) are left \( R \)-modules, then \( M\oplus N \) is Noetherian (Artinian) \hl{iff both} \(
 	M, N \) are Noetherian (Artinian).
 \end{corollary}
 
@@ -96,7 +98,7 @@
 			p(u,v)     & = u
 		\end{aligned}
 	\]
-	see that we have \( \ker(p) \cong\; N \) and by proposition we are done.
+	see that we have \( \ker(p) \cong N \) and by proposition we are done.
 \end{proof}
 Now we want to relate the Noetherian module by Noetherian ring.
 
@@ -106,7 +108,7 @@ Now we want to relate the Noetherian module by Noetherian ring.
 \end{corollary}
 
 \begin{note}
-	It allow us to only need to check itself being Noetherian instead of checking all its submodules.
+	It allow us to only need to check itself being Noetherian instead of \textcolor{red}{checking all its submodules}.
 \end{note}
 
 \begin{proof}
@@ -125,10 +127,13 @@ Now we want to relate the Noetherian module by Noetherian ring.
 			e_i      & = (0, \ldots, 0, 1, 0, \ldots, 0) \text{ with \( 1 \) at the \( i \)-th position }
 		\end{aligned}
 	\]
-	we can do this since \( \vp \) is a free module, and we only need to specify where its basis goes.
+	we can do this since \( R^n \) is a free module, and we only need to specify where its basis goes.
 	Since \( u_1,\ldots,u_n \) generates \( M \) this means \( \vp \) is surjective. Since \( R^n \)
 	is Noetherian \( \xRightarrow{\text{prop } \ref{prop:noeth-module}} \) \( M \) is
-	Noetherian.
+	Noetherian. We also need the first isomorphism theorem here, so that we see:
+	\[
+		\qo{R^n}{\ker(\vp)} \cong  M
+	\]
 \end{proof}
 
 \begin{exercise}
@@ -210,7 +215,7 @@ Now we want to relate the Noetherian module by Noetherian ring.
 \begin{claim}
 	The projection morphism:
 	\[
-		p : N \rightarrow \qo{N}{f(M)}
+		\textcolor{blue}{p : N \rightarrow \qo{N}{f(M)}}
 	\]
 	is a cokernel of \( f \).
 	\begin{itemize}
@@ -265,8 +270,8 @@ Now we want to relate the Noetherian module by Noetherian ring.
 	\]
 	then \textbf{t.f.a.e.}
 	\begin{enumerate}
-		\item \( \exists \) morphism \( p: M \to M' \), s.t. \( p\circ f = \Id{M'} \).
-		\item \( \exists \) morphism \( i: M'' \to M \), s.t. \( g\circ i == \Id_{M''} \).
+		\item \( \exists \) morphism \( p: M \to M' \), s.t. \( p\circ f = \Id_{M'} \).
+		\item \( \exists \) morphism \( i: M'' \to M \), s.t. \( g\circ i = \Id_{M''} \).
 		\item \( \exists \) submodule \( N \subseteq M \), s.t.
 		      \[
 			      M = f(M') \oplus N
