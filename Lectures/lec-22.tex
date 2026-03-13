@@ -237,7 +237,82 @@ In this section, we fix \( R \) a \textbf{\textcolor{red}{PID}}.
 			\end{cases}
 		\end{aligned}
 	\]
-	\todo{Finish the proof next time.}
+\end{proof}
+
+\begin{proof}[\textbf{Proof of Uniqueness Cont.}]
+	We saw: if \( R \) is a PID, \( M \) is finitely generated module over \( R \), then
+	\[
+		\begin{aligned}
+			M          & \cong R^n \oplus \qo{R}{(a_1)} \oplus \cdots \oplus \qo{R}{(a_d)} \quad a_i \ne 0\text{
+			not invertible } a_1 \mid a_2 \mid \cdots \mid a_d                                                   \\
+			\implies M & \cong \; R^n \oplus \bace{\bigoplus_{(0)\ne \mathfrak p \subset R \text{ prime ideal}}
+			\bigoplus_{i\in \ZZ_{>0}}\bace{\qo{R}{\mathfrak p^i} }^{n_{\mathfrak p,i}}}
+		\end{aligned}
+	\]
+	with only finitely many non-zero \( n_{\mathfrak p,i} \).
+	\begin{claim}
+		\( n \) and the \( n_{\mathfrak p, i} \) are uniquely determined.
+	\end{claim}
+
+	\begin{proof}
+		Let \( n = \rank(M) \), give two such decomposition, for each prime \( frak p = (\pi) \) by taking
+		the submodule annihilated by some power of \( \mathfrak p \), we get an isomorphism as:
+		\begin{equation}
+			\label{eq:pid-module-1}
+			\bigoplus_{i\geq 1} \bace{\qo{R}{\mathfrak p^i}}^{n_i} \cong \bigoplus_{i\geq 1}
+			\bace{\qo{R}{\mathfrak p^i}}^{n'_i}
+		\end{equation}
+		We want to see that \( n_i = n_i' \; \forall \; i \). And argue by induction on \( \max\{i \; |
+		\; n_i \ne 0\} \). This isomorphism induce:
+		\[
+			\pi \cdot \text{LHS} \cong \; \pi \cdot \text{RHS}
+		\]
+		and thus
+		\[
+			\begin{aligned}
+				\qo{(\pi)}{(\pi^j)}                                            & \cong \qo{R}{(\pi^{j-1})} \\
+				\implies \bigoplus_{i \geq 2} \bace{\qo{R}{(\pi^{i-1})}}^{n_i} & \cong \bigoplus_{i
+					\geq 2} \bace{\qo{R}{ (\pi^{i-1})}}^{n'_i}
+			\end{aligned}
+		\]
+		and by induction hypothesis we have \( n_i = n_i' \; \forall \; i \geq 2 \). Also,
+		\textbf{Isomorphism} \ref{eq:pid-module-1} gives an isomorphism that
+		\[
+			\begin{aligned}
+				\{\text{elem. annihilated by $\pi$ on LHS}\} & \cong \{\text{elem. annihilated by $\pi$ on RHS}\}                \\
+				\implies \oplus_{i\geq 1}\underbrace{\bace{\qo{(\pi^{i-1})}{(\pi^i)}}^{n_i}}_{\cong
+				\qo{R}{(\pi)}}                               & \cong \bigoplus_{i\geq 1} \bace{\qo{(\pi^{i-1})}{(\pi^i)}}^{n_i'}
+			\end{aligned}
+		\]
+		on both sides, we have vector spaces over \( \qo{R}{(\pi)} \) of dimension
+		\[
+			\sum n_i = \sum n_i'
+		\]
+		since \( n_i = n_i' \; \forall \; i \geq 2 \implies n_1 = n_1' \).
+	\end{proof}
+
+	\begin{claim}
+		If we write
+		\[
+			M \cong R^n \oplus \qo{R}{(a_1)} \oplus \cdots \oplus \qo{R}{(a_d)}
+		\]
+		with \( a_i \ne 0 \), non-unit, and \( a_1 \mid a_2 \mid \cdots \mid a_d \). This implies the
+		ideal \( (a_i) \) are uniquely determined.
+	\end{claim}
+
+	\begin{note}
+		If we write \( a_i = \text{unit} \cdot \prod \pi_j^{n_{ij}} \) with \( \pi_j \) being
+		irreducible, the uniqueness of the \( a_i \) follows from the fact that the \( (a_i) \) is
+		determined by the \( n_{ij} \), for example:
+		\begin{eg}
+			\leavevmode
+			\begin{align*}
+				a_d     & \sim \prod_{j} \pi_j^{\max_{i}\{n_{ij}\}} \\
+				a_{d-1} & = \prod_{j} \pi_{j}^{m_j}
+			\end{align*}
+			where \( m_j \) is the largest of \( n_{ij} \) after removing \( \max\{i \; | \; n_{ij}\} \).
+		\end{eg}
+	\end{note}
 \end{proof}
 
 \begin{eg}[\textbf{Main Application}]

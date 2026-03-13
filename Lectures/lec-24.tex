@@ -1,0 +1,107 @@
+From now on, suppose \( R = \KK[x] \) with \( \KK \) field, thus \( R \) is a PID, so previous
+results also applies.
+
+\begin{proposition}
+	To give an \( R \)-module \( M \) is equivalent to giving a \( \KK \)-vector space \( V \) and a
+	\( \KK \)-linear map \( T: V \to V \).
+\end{proposition}
+
+\begin{proof}
+	If \( M \) is an \( R \)-module, via the inclusion, we have \( \KK \subseteq \KK[x] \), we get an
+	operation \( \KK \times M \to M \) that makes \( M \) a \( \KK \)-vector space. We get
+	\[
+		\begin{aligned}
+			T: M & \to M \\
+			T(u) & = xu
+		\end{aligned}
+	\]
+	this is \( \KK \)-linear using the fact that \( M \) is a \( \KK[x] \)-module. Conversely: if \( V= \KK \)-vector space
+	and \( T: V \to V \) is a \( \KK \)-linear. We define
+	\begin{align*}
+		R\times V                 & \to V                                                                             \\
+		(\sum_{i=0}^n a_i x^i, u) & \mapsto \sum_{i=0}^n a_i T^i(u)                                                   \\
+		                          & \text{ where } T^i = \underbrace{T \circ T \circ \cdots \circ T}_{i\text{ times}}
+	\end{align*}
+	and it is easy to check that
+	\begin{itemize}
+		\item This makes \( V \) an \( R \)-module.
+		\item The 2 maps we defined are mutual inverses of each other.
+	\end{itemize}
+\end{proof}
+
+\begin{exercise}
+	\leavevmode
+	\begin{enumerate}
+		\item If \( M = (V,T) \), then \( W \subseteq V \) is an \( R \)-module iff
+		      \[
+			      \begin{cases}
+				      W \subseteq V \text{ subspace.} \\
+				      T(w) \subseteq W
+			      \end{cases}
+		      \]
+		\item A morphism of \( R \)-modules \( (V,T) \to (V',T') \) is given by \( f: V \to V' \)
+		      being \( \KK \)-linear, such that the following diagram is commutative:
+		      \[
+			      \begin{tikzcd}
+				      V \arrow[r, "f"] \arrow[d, "T"'] & V' \arrow[d, "T'"] \\
+				      V \arrow[r, "f"]                 & V'
+			      \end{tikzcd}
+		      \]
+		      In particular, we have
+		      \[
+			      (V,T) \cong (V',T') \iff T \sim T'
+		      \]
+		      i.e. there exists \( \KK \)-isomorphism \( f: V \to V \), s.t. \( T' = f\circ T \circ f^{-1} \).
+	\end{enumerate}
+\end{exercise}
+Our goal now is to recover some linear algebra results. We will be interested in studying the case
+of \( V \) and \( T \), s.t. \( \dim_{\KK}(V) < \infty \). If \( M = (V,T) \), we get: \( M \) is
+finitely generated \( R \)-module, since it is finitely generated over \( \KK \), thus apply the
+structural theorem, we have
+\[
+	M \cong \qo{\KK[x]}{(f_1)} \oplus \cdots \oplus \qo{\KK[x]}{(f_r)}
+\]
+for some  \( f_1,\ldots, f_r \in \KK[x] \) with \( \deg(f_i) \geq 1 \), s.t. \( f_1 \mid f_2 \mid
+\cdots \mid f_r \).
+\begin{note}
+	\leavevmode
+	\begin{itemize}
+		\item The \textcolor{red}{key point} here is that we cannot have \( \KK[x] \) factors in \( M \) since
+		      we have \( \dim_{\KK}(\KK[x]) = \infty \).
+		\item If we assume the \( f_i \) are monic, then they are \underline{unique}, monic means
+		      the coefficient of top degree term is \( 1 \). In particular
+		      \[
+			      f = x^n + c_1 x^{n-1} + \cdots + c_n
+		      \]
+	\end{itemize}
+\end{note}
+Now give descriptions of morphism betwen \underline{free modules}. Suppose \( R \) is a commutative
+ring, \( F, G \) are finitely generated \( R \)-modules and are free modules. Let \( T: F \to G \)
+be \( R \)-linear map. We can choose ordered bases
+\[
+	\begin{aligned}
+		\cB_F: & e_1, \ldots, e_n   \\
+		\cB_G: & e_1', \ldots, e_m'
+	\end{aligned}
+\]
+Now if \( T (e_j) = \sum_{i=1}^j a_{ij}e_i'\implies \)
+\[
+	M = M_{\cB_F, \cB_G} (T) = (a_{ij})_{\substack{1 \le i \le m \\ 1 \le j \le n}}
+\]
+We get bijection as follows:
+\[
+	\{R\text{-linear maps } F \to G \} \leftrightarrow M_{m,n}(R)
+\]
+See its behavior under decomposition, say we also have \( H \) to be finitely generated free \( R
+\)-module:
+\[
+	\cB_H: e_1'', \ldots, e_p''
+\]
+thus
+\[
+	F \xrightarrow{T} G \xrightarrow{S} H
+\]
+\( \implies \)
+\[
+	M_{\cB_F, \cB_H}(T\circ S) = M_{\cB_G, \cB_H}(S) \cdot M_{\cB_F, \cB_G}(T)
+\]
