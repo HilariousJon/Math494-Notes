@@ -1,0 +1,166 @@
+\begin{note}
+	The consequence of the above: if \( m = n \), then \( T \) is an isomorphism iff \( M_{\cB_F,\cB_G}(T) \)
+	is invertible. Which is also \textcolor{red}{equivalent} to \( \det(M) \) is invertible, being a
+	unit: which deducess from:
+	\begin{itemize}
+		\item \( \det(AB) = \det(A) \cdot \det(B) \).
+		\item If \( A^* \) is the classical adjoint of \( A  \implies A A^* = A^* A  = \det(A) \cdot I_n\).
+	\end{itemize}
+	This is the only difference with a field.
+\end{note}
+Now what happen if we try to change basis? Actually see that the matrices is dependence on the
+choice of basis, just as vector spaces did. Suppose we have another basis of \( F \):
+\[
+	\tilde{\cB}_F: \tilde{e}_1, \ldots, \tilde{e}_n
+\]
+one can then write
+\[
+	\begin{aligned}
+		\tilde{e}_j     = \sum_{i=1}^n b_{ij} e_i \implies (b_{ij}) & = M_{\tilde{\cB}_F,\cB_F}(\Id)              \\
+		                                                            & =: \textcolor{red}{M_{\tilde{\cB}_F,\cB_F}}
+	\end{aligned}
+\]
+which is the \textcolor{red}{change of basis matrix}, this is of course invertible since \( \Id \)
+is invertible. Now suppose \( T: F \to G \) and we shall have the following commutative diagram:
+\[
+	\begin{tikzcd}
+		F(\tilde{\cB}_F) \arrow[r, "T"] \arrow[d, "\Id"'] & G(\tilde{\cB}_G) \arrow[d, "\Id"] \\
+		F(\cB_F) \arrow[r, "T"]                 & G(\cB_G)
+	\end{tikzcd}
+\]
+Now utilize \textbf{Equation} \ref{eq:matrix-morphism}, we have
+\[
+	M_{\tilde{\cB}_F,\tilde{\cB}_G}(T) =  M_{\cB_F,\cB_G}(T) \cdot M_{\tilde{\cB}_G, \cB_G}
+	= M_{\tilde{\cB}_G, \cB_G} \cdot M_{\tilde{\cB}_F, \tilde{\cB}_G}(T)
+\]
+\begin{conclusion}
+	\leavevmode
+	\begin{equation}
+		\label{eq:matrix-morphism-1}
+		M_{\tilde{\cB}_F,\tilde{\cB}_G}(T) = (M_{\tilde{\cB}_G, \cB_G})^{-1} \cdot M_{\cB_F,\cB_G}(T) \cdot
+		M_{\tilde{\cB}_F, \cB_F}
+	\end{equation}
+\end{conclusion}
+
+\begin{exercise}
+	If \( e_1,\ldots, e_n \) be basis of \( F \) and \( \tilde{e_j} = \sum b_{ij} e_i \), s.t. \(
+	(b_{ij}) \) is invertible, we then have \( \tilde{e_1}, \ldots, \tilde{e_n} \) is a basis of \( F \).
+\end{exercise}
+Suppose now \( F = G\) and \( T: F \to F \) be \( R \)-linear. If we choose the same basis on
+\textcolor{blue}{source \& target}, we get the matrix \( M = (a_{ij}) \), and thus \textbf{Equation}
+\ref{eq:matrix-morphism-1} tells us if we change the basis, then \( M \) gets
+replaced by a \underline{similar matrix} \( M' = B^{-1}M B \), with \( B \) invertible matrix.
+
+\begin{conclusion}
+	If \( f \) is free of rank \( n \), then we have:
+	\[
+		\begin{aligned}
+			\qo{\{ R\text{-linear maps } T: V \to V \}}{\text{similarity}}          & \overset{\text{bij}}{\longleftrightarrow}
+			\qo{M_n(R)}{\text{similarity}}                                                                                                           \\
+			T                                                                       & \rsa M_{\cB, \cB} \text{ w.r.t. some basis } \cB \text{ of } T \\
+			R\text{-linear transformation corresp. to } A \text{ w.r.t. some basis} & \leftsquigarrow A
+		\end{aligned}
+	\]
+\end{conclusion}
+\underline{Bace to our setting}: Let \( \KK \) be a field, and \( V \) be vector space over \( \KK \), with
+\( n = \dim_{\KK} V < \infty \). Let \( T: V \to V \) be linear transformation. We saw previously,
+we can view \( V \) as a module \( M = (V,T) \) over \( R = \KK[x] \) in \textbf{Proposition}
+\ref{prop:module-linear-map}.
+
+\begin{proposition}
+	Let \( u_1, \ldots, u_n \) be a \( \KK \)-bases of \( V \) and let \( A = (a_{ij}) \) the matrix
+	of \( T \) w.r.t. this basis. Then we have \textcolor{red}{a short exact sequence} of \( \KK[x] \)-module as
+	follows:
+	\[
+		0 \to \KK[x]^n \xrightarrow{\vp} \KK[x]^n \xrightarrow{\psi} M \to 0
+	\]
+	where
+	\begin{enumerate}
+		\item \( \psi(e_i) = u_i \) for \( 1\leq i \leq n \) where \( e_1,\ldots, e_n \) be standard
+		      basis of \( \KK[x]^n \).
+		\item The matrix of \( \vp \) w.r.t. the standard basis is \( x\cdot I_n - A \).
+	\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+	Since \( u_1,\ldots, u_n \) generates \( M \) over \( \KK \), thus they also generates it over \(
+	\KK[x] \implies \psi\) is surjective. Now we have
+	\[
+		\begin{aligned}
+			\psi \circ \vp (e_j)                                         & = \psi\bace{xe_j - \sum_{i=1}^n a_{ij}e_j } = T(u_j) - \sum_{i=1}^n
+			a_{ij} u_j = 0                                                                                                                     \\
+			\implies \; \exists \;    \overline{\psi}: \text{Coker}(\vp) & \to M \text{ s.t. }
+			\overline{\psi}(\overline{u}) = \psi(u) \; \forall \; u \in \KK[x]^n                                                               \\
+			\text{where } \psi(xe_j)                                     & = \underbrace{x\underbrace{\psi(e_j)}_{u_j}}_{T(u_j)}
+		\end{aligned}
+	\]
+	To show that
+	\[
+		\ker(\psi) = \im (\vp)
+	\]
+	we need to show \( \psi \) is isomorphism. We already know that \( \psi \) is surjective with \(
+	\dim_{\KK} M = n \). to prove it is an isomorphism of \( \KK \)-vector space, hence of \( R
+	\)-modules, it is enough to show:
+	\[
+		\dim_{\KK} \frac{\KK[x]^n}{\im(\vp)} \leq n
+	\]
+	Hence it is enough to show: \( \overline{e_1}, \ldots, \overline{e_n} \) generate this over \( \KK \).
+	It is clear that \( \{x^j \overline{e_i} \; | \; 1 \leq i \leq m, j \geq 0\} \) generates \(
+	\frac{\KK[x]^n}{\im(\vp)} \) over \( \KK \). Thus it is enough to show by induction on \( j \geq 0 \) that
+	\[
+		x^j \overline{e_i} \in \langle \overline{e_1}, \ldots, \overline{e_i} \in \sum_{l=1}^n \KK
+		\overline{e_l}
+	\]
+	The \textcolor{red}{key point} is that in \( \frac{\KK[x]^n}{\im(\vp)} \) we have
+	\[
+		\begin{aligned}
+			\bace{x\overline{e_i} - \sum_{l=1}^n a_{li}\overline{e_l}} & \in \im(\vp)                                                      \\
+			\implies x\overline{e_i}                                   & \in \sum_{l=1}^n \KK \overline{e_l}                               \\
+			\implies x^j \overline{e_i}                                & \in \sum_{l=1}^n \KK x^{j-1}\overline{e_l} \subseteq \sum_{l=1}^n
+			\KK \overline{e_l}                                                                                                             \\
+			                                                           & \text{where the last inclusion given by induction on }j
+		\end{aligned}
+	\]
+	This completes the proof that \( \im(\vp) = \ker(\psi) \). Let's now show that \( \vp \) is
+	\textcolor{blue}{injective}. We have
+	\[
+		R^n \xrightarrow{\vp} R^n \xrightarrow{\psi} M \to 0
+	\]
+	with \( \ker(\psi) = \im(\vp) \implies \)
+	\[
+		\begin{aligned}
+			M                                   & \cong \qo{R^n}{\im(\vp)} \\
+			\implies \underbrace{\rank(M)}_{=0} & = n - \rank(\im(\vp))    \\
+			\implies \rank(\im(\vp))            & = n                      \\
+		\end{aligned}
+	\]
+	thus
+	\[
+		\begin{aligned}
+			0                          \to \ker(\vp) \to R^n \xrightarrow{\vp} & \im(\vp) \to 0 \\
+			\implies \rank(\ker(\vp))                                          & = 0            \\
+		\end{aligned}
+	\]
+	since \( \ker(\vp) \subseteq  \) free \( R \)-module \( \implies \ker(\vp) = 0 \).
+\end{proof}
+We have that
+\[
+	\vp: \KK[x]^n \hookrightarrow \KK[x]^n
+\]
+the general theorem on submodules of free modules over PIDs tells us that there exists \( A, B_1,
+B_2 \in
+M_n(\KK[x]) \) being invertible, s.t.
+\[
+	B_1 \cdot (x \cdot I_n - A ) \cdot B_2 =
+	\begin{pmatrix}
+		1 &        &   &     &   &        & 0 \\
+		  & \ddots &   &     &   &        &   \\
+		  &        & 1 &     &   &        &   \\
+		  &        &   & f_i &   &        &   \\
+		  &        &   &     & 1 &        &   \\
+		  &        &   &     &   & \ddots &   \\
+		0 &        &   &     &   &        & 1 \\
+	\end{pmatrix}
+\]
+s.t. \( f_1,\ldots, f_r \) are monic polynomials with degree \( geq 1 \) and \( f_1 \mid f_2 \mid
+\cdots \mid f_r \).

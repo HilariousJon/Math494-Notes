@@ -2,6 +2,7 @@ From now on, suppose \( R = \KK[x] \) with \( \KK \) field, thus \( R \) is a PI
 results also applies.
 
 \begin{proposition}
+	\label{prop:module-linear-map}
 	To give an \( R \)-module \( M \) is equivalent to giving a \( \KK \)-vector space \( V \) and a
 	\( \KK \)-linear map \( T: V \to V \).
 \end{proposition}
@@ -75,6 +76,8 @@ for some  \( f_1,\ldots, f_r \in \KK[x] \) with \( \deg(f_i) \geq 1 \), s.t. \( 
 		      \]
 	\end{itemize}
 \end{note}
+
+\section{Morphisms between Free Modules via Matrices}
 Now give descriptions of morphism betwen \underline{free modules}. Suppose \( R \) is a commutative
 ring, \( F, G \) are finitely generated \( R \)-modules and are free modules. Let \( T: F \to G \)
 be \( R \)-linear map. We can choose ordered bases
@@ -102,6 +105,7 @@ thus
 	F \xrightarrow{T} G \xrightarrow{S} H
 \]
 \( \implies \)
-\[
+\begin{equation}
+	\label{eq:matrix-morphism}
 	M_{\cB_F, \cB_H}(T\circ S) = M_{\cB_G, \cB_H}(S) \cdot M_{\cB_F, \cB_G}(T)
-\]
+\end{equation}
