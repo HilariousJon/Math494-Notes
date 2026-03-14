@@ -62,14 +62,14 @@ replaced by a \underline{similar matrix} \( M' = B^{-1}M B \), with \( B \) inve
 		\end{aligned}
 	\]
 \end{conclusion}
-\underline{Bace to our setting}: Let \( \KK \) be a field, and \( V \) be vector space over \( \KK \), with
+\underline{Back to our setting}: Let \( \KK \) be a field, and \( V \) be vector space over \( \KK \), with
 \( n = \dim_{\KK} V < \infty \). Let \( T: V \to V \) be linear transformation. We saw previously,
 we can view \( V \) as a module \( M = (V,T) \) over \( R = \KK[x] \) in \textbf{Proposition}
 \ref{prop:module-linear-map}.
 
 \begin{proposition}
 	Let \( u_1, \ldots, u_n \) be a \( \KK \)-bases of \( V \) and let \( A = (a_{ij}) \) the matrix
-	of \( T \) w.r.t. this basis. Then we have \textcolor{red}{a short exact sequence} of \( \KK[x] \)-module as
+	of \( T \) w.r.t. this basis. Let \( M = (V,T) \). Then we have \textcolor{red}{a short exact sequence} of \( \KK[x] \)-module as
 	follows:
 	\[
 		0 \to \KK[x]^n \xrightarrow{\vp} \KK[x]^n \xrightarrow{\psi} M \to 0
@@ -78,8 +78,12 @@ we can view \( V \) as a module \( M = (V,T) \) over \( R = \KK[x] \) in \textbf
 	\begin{enumerate}
 		\item \( \psi(e_i) = u_i \) for \( 1\leq i \leq n \) where \( e_1,\ldots, e_n \) be standard
 		      basis of \( \KK[x]^n \).
-		\item The matrix of \( \vp \) w.r.t. the standard basis is \( x\cdot I_n - A \).
+		\item The matrix of \( \vp \) w.r.t. the standard basis is \( x\cdot I_n - A \) and \( x \) is
+		      the formal variable in \( \KK[x] \).
 	\end{enumerate}
+	\begin{note}
+		Recall that \( T(u) := x\cdot u \).
+	\end{note}
 \end{proposition}
 
 \begin{proof}
@@ -88,37 +92,51 @@ we can view \( V \) as a module \( M = (V,T) \) over \( R = \KK[x] \) in \textbf
 	\[
 		\begin{aligned}
 			\psi \circ \vp (e_j)                                         & = \psi\bace{xe_j - \sum_{i=1}^n a_{ij}e_j } = T(u_j) - \sum_{i=1}^n
-			a_{ij} u_j = 0                                                                                                                     \\
+			a_{ij} u_j = 0 \text{\todo{by def of matrix}}                                                                                                                                             \\
 			\implies \; \exists \;    \overline{\psi}: \text{Coker}(\vp) & \to M \text{ s.t. }
-			\overline{\psi}(\overline{u}) = \psi(u) \; \forall \; u \in \KK[x]^n                                                               \\
-			\text{where } \psi(xe_j)                                     & = \underbrace{x\underbrace{\psi(e_j)}_{u_j}}_{T(u_j)}
+			\overline{\psi}(\overline{u}) = \psi(u) \; \forall \; u \in \KK[x]^n                                                                                                                      \\
+			                                                             & \text{where } \psi(xe_j)                                             = \underbrace{x\underbrace{\psi(e_j)}_{u_j}}_{T(u_j)}
 		\end{aligned}
 	\]
+	thus \( \im(\vp) \subseteq \ker(\psi)  \).
 	To show that
 	\[
 		\ker(\psi) = \im (\vp)
 	\]
-	we need to show \( \psi \) is isomorphism. We already know that \( \psi \) is surjective with \(
-	\dim_{\KK} M = n \). to prove it is an isomorphism of \( \KK \)-vector space, hence of \( R
+	We already know that \( \psi \) is surjective with \(
+	\dim_{\KK} M = n \). To prove it is an isomorphism of \( \KK \)-vector space, hence of \( R
 	\)-modules, it is enough to show:
 	\[
 		\dim_{\KK} \frac{\KK[x]^n}{\im(\vp)} \leq n
 	\]
+	\begin{note}
+		We already seen that by first isomorphism theorem:
+		\[
+			\frac{\KK[x]^n}{\ker(\vp)} \cong \im(\psi) = M
+		\]
+		and thus if
+		\[
+			\dim_{\KK} \frac{\KK[x]^n}{\im(\vp))} \leq  \dim_{\KK} M = n
+		\]
+		\[
+			\implies \ker(\psi) \subseteq \im(\vp) \implies \ker(\psi) = \im(\vp)
+		\]
+	\end{note}
 	Hence it is enough to show: \( \overline{e_1}, \ldots, \overline{e_n} \) generate this over \( \KK \).
 	It is clear that \( \{x^j \overline{e_i} \; | \; 1 \leq i \leq m, j \geq 0\} \) generates \(
 	\frac{\KK[x]^n}{\im(\vp)} \) over \( \KK \). Thus it is enough to show by induction on \( j \geq 0 \) that
 	\[
-		x^j \overline{e_i} \in \langle \overline{e_1}, \ldots, \overline{e_i} \in \sum_{l=1}^n \KK
+		x^j \overline{e_i} \in \langle \overline{e_1}, \ldots, \overline{e_i} \rangle =  \sum_{l=1}^n \KK
 		\overline{e_l}
 	\]
 	The \textcolor{red}{key point} is that in \( \frac{\KK[x]^n}{\im(\vp)} \) we have
 	\[
 		\begin{aligned}
-			\bace{x\overline{e_i} - \sum_{l=1}^n a_{li}\overline{e_l}} & \in \im(\vp)                                                      \\
-			\implies x\overline{e_i}                                   & \in \sum_{l=1}^n \KK \overline{e_l}                               \\
+			\bace{x\overline{e_i} - \sum_{l=1}^n a_{li}\overline{e_l}} & \in \im(\vp)                                                                \\
+			\implies x\overline{e_i}                                   & \in \sum_{l=1}^n \KK \overline{e_l}                                         \\
 			\implies x^j \overline{e_i}                                & \in \sum_{l=1}^n \KK x^{j-1}\overline{e_l} \subseteq \sum_{l=1}^n
-			\KK \overline{e_l}                                                                                                             \\
-			                                                           & \text{where the last inclusion given by induction on }j
+			\KK \overline{e_l}                                                                                                                       \\
+			                                                           & \text{where the last inclusion given by \textcolor{blue}{induction on $j$}}
 		\end{aligned}
 	\]
 	This completes the proof that \( \im(\vp) = \ker(\psi) \). Let's now show that \( \vp \) is
@@ -138,6 +156,7 @@ we can view \( V \) as a module \( M = (V,T) \) over \( R = \KK[x] \) in \textbf
 	\[
 		\begin{aligned}
 			0                          \to \ker(\vp) \to R^n \xrightarrow{\vp} & \im(\vp) \to 0 \\
+			\qo{R^n}{\ker(\vp)}                                                & \cong \im(\vp) \\
 			\implies \rank(\ker(\vp))                                          & = 0            \\
 		\end{aligned}
 	\]
