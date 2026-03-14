@@ -98,7 +98,7 @@ In this section, we fix \( R \) a \textbf{\textcolor{red}{PID}}.
 	If \( F \) is a finitely generated \underline{free} module over \( R \) and \( G \subseteq F \) a
 	submodule \( \implies \exists \) basis \( w_1,\ldots, w_n \) of \( F \), and \( a_1,\ldots,a_m \in
 	R\) nonzero, \( m\leq n \), \( a_1 \mid a_2 \mid \cdots \mid a_m \), such that \( a_1w_1,\ldots,
-	a_m w_m \) is a basis of \( G \). In particular, \( G \) is free.\todo{Proof gives later.}
+	a_m w_m \) is a basis of \( G \). In particular, \( G \) is free.\todo{Proof gives here \ref{thm:submodule-of-free-module-over-pid}.}
 \end{theorem}
 
 \begin{theorem}
@@ -255,7 +255,7 @@ In this section, we fix \( R \) a \textbf{\textcolor{red}{PID}}.
 	\end{claim}
 
 	\begin{proof}
-		Let \( n = \rank(M) \), give two such decomposition, for each prime \( frak p = (\pi) \) by taking
+		Let \( n = \rank(M) \), give two such decomposition, for each prime \( \mathfrak p = (\pi) \) by taking
 		the submodule annihilated by some power of \( \mathfrak p \), we get an isomorphism as:
 		\begin{equation}
 			\label{eq:pid-module-1}
@@ -265,7 +265,7 @@ In this section, we fix \( R \) a \textbf{\textcolor{red}{PID}}.
 		We want to see that \( n_i = n_i' \; \forall \; i \). And argue by induction on \( \max\{i \; |
 		\; n_i \ne 0\} \). This isomorphism induce:
 		\[
-			\pi \cdot \text{LHS} \cong \; \pi \cdot \text{RHS}
+			\pi \cdot \text{LHS} \cong \pi \cdot \text{RHS}
 		\]
 		and thus
 		\[
@@ -275,13 +275,15 @@ In this section, we fix \( R \) a \textbf{\textcolor{red}{PID}}.
 					\geq 2} \bace{\qo{R}{ (\pi^{i-1})}}^{n'_i}
 			\end{aligned}
 		\]
-		and by induction hypothesis we have \( n_i = n_i' \; \forall \; i \geq 2 \). Also,
+		See that if \( j = 2 \), multiplying \( \pi \) will annihilate \( \qo{R}{(\pi)} \) into \(
+		\qo{(\pi^2)}{(\pi^2)} = 0 \) and thus the implication above holds properly.
+		And by induction hypothesis we have \( n_i = n_i' \; \forall \; i \geq 2 \) as we successfully
+		decrease the exponsion here by \( 1 \). Also,
 		\textbf{Isomorphism} \ref{eq:pid-module-1} gives an isomorphism that
 		\[
 			\begin{aligned}
-				\{\text{elem. annihilated by $\pi$ on LHS}\} & \cong \{\text{elem. annihilated by $\pi$ on RHS}\}                \\
-				\implies \oplus_{i\geq 1}\underbrace{\bace{\qo{(\pi^{i-1})}{(\pi^i)}}^{n_i}}_{\cong
-				\qo{R}{(\pi)}}                               & \cong \bigoplus_{i\geq 1} \bace{\qo{(\pi^{i-1})}{(\pi^i)}}^{n_i'}
+				\{\text{elem. annihilated by } \pi \text{ on LHS}\}                                                      & \cong \{\text{elem. annihilated by } \pi \text{ on RHS}\}           \\
+				\implies \bigoplus_{i\geq 1} \bace{ \underbrace{\qo{(\pi^{i-1})}{(\pi^i)}}_{\cong \qo{R}{(\pi)}} }^{n_i} & \cong \bigoplus_{i\geq 1} \bace{ \qo{(\pi^{i-1})}{(\pi^i)} }^{n_i'}
 			\end{aligned}
 		\]
 		on both sides, we have vector spaces over \( \qo{R}{(\pi)} \) of dimension
@@ -290,6 +292,14 @@ In this section, we fix \( R \) a \textbf{\textcolor{red}{PID}}.
 		\]
 		since \( n_i = n_i' \; \forall \; i \geq 2 \implies n_1 = n_1' \).
 	\end{proof}
+
+	\begin{note}
+		We have for example
+		\[
+			\bigoplus_{i\geq 1} \bace{\qo{R}{(\pi^{i-1})}}^{n_i}
+		\]
+		where the \( n_i \) here denotes the \textcolor{red}{the number of copies of \( \qo{R}{(\pi^{i-1})} \) in the direct sum}.
+	\end{note}
 
 	\begin{claim}
 		If we write
@@ -303,7 +313,8 @@ In this section, we fix \( R \) a \textbf{\textcolor{red}{PID}}.
 	\begin{note}
 		If we write \( a_i = \text{unit} \cdot \prod \pi_j^{n_{ij}} \) with \( \pi_j \) being
 		irreducible, the uniqueness of the \( a_i \) follows from the fact that the \( (a_i) \) is
-		determined by the \( n_{ij} \), for example:
+		determined by the \( n_{ij} \), and the fact that \( n_{ij} \) are uniquely determined by \(
+		n_{\mathfrak p,i} \)for example:
 		\begin{eg}
 			\leavevmode
 			\begin{align*}
@@ -311,6 +322,20 @@ In this section, we fix \( R \) a \textbf{\textcolor{red}{PID}}.
 				a_{d-1} & = \prod_{j} \pi_{j}^{m_j}
 			\end{align*}
 			where \( m_j \) is the largest of \( n_{ij} \) after removing \( \max\{i \; | \; n_{ij}\} \).
+			To be more concretely, say we have the following \( \pi_i^{m_i} \)
+			\[
+				2^1, 2^3, 2^3, 3^2,3^4,5^1
+			\]
+			and now we constuct \( a_k \), first group by prime element \( 2,3,5 \) and then sort out the
+			exponsion for each prime number, with missing one substitude by \( 0 \), shall have
+			\begin{itemize}
+				\item for $2$: \( \{3,3,1\} \).
+				\item for \( 3 \): \( \{4,2,0\} \).
+				\item for \( 5 \): \( \{1,0,0\} \).
+			\end{itemize}
+			now shall have \( a_3 = 2^3 \times 3^4 \times 5^1 = 3240 \), thus remove the previous max in
+			each group and use the second max, shall have \( a_2 = 2^3 \times 3^2 \times 5^0 = 72 \) and
+			thus \( a_1 = 2^1 \times 3^0 \times 5^0 = 2 \).
 		\end{eg}
 	\end{note}
 \end{proof}

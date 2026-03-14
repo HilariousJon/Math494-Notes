@@ -1,4 +1,5 @@
 \begin{theorem}
+	\label{thm:submodule-of-free-module-over-pid}
 	If \( F \) is a finitely generated \underline{free} module over \( R \) and \( G \subseteq F \) a
 	submodule \( \implies \exists \) basis \( w_1,\ldots, w_n \) of \( F \), and \( a_1,\ldots,a_m \in
 	R\) nonzero, \( m\leq n \), \( a_1 \mid a_2 \mid \cdots \mid a_m \), such that \( a_1w_1,\ldots,
@@ -26,22 +27,30 @@
 		      \]
 		      with \( au = 0 \implies \)
 		      \[
-			      \sum_{i}(a\alpha_i) u_i = 0 \implies a\alpha_i = 0 \; \forall \; i
+			      \sum_{i}(a\alpha_i) u_i = 0 \implies a\alpha_i = 0 \; \forall \; i \text{ by linearly
+				      independent}
 		      \]
 		      since \( a \ne 0 \), thus by domain we have \( \alpha_i = 0\; \forall \; i \implies u=0
 		      \). Hence \( G = \{0\} \), and the conclusion is clear.
-		\item Inductive step: Assumpe that \( m > 0 \implies G \ne \{0\} \). Consider the \( R
+		\item Inductive step: Assume that \( m > 0 \implies G \ne \{0\} \). Consider the \( R
 		      \)-linear maps \( \vp : F \to R \), note that this is nonempty as we can take the \( 0 \)
 		      map. Note that \( \vp(G) \) is ideal of \( R \). Since \( R \) is Noetherian, there exists
-		      \( \vp \) such that \( \vp(G) \) is maximal among all such choices of \( \vp \) w.r.t.
-		      inclusion. \( R \) is a PID implies that \( \vp(G) = (a_i) \) for some \( a_i \in R \).
+		      \( \vp \) such that \( \vp(G) \) is \textcolor{red}{maximal} among all such choices of \( \vp \) w.r.t.
+		      inclusion. \( R \) is a PID implies that \( \vp(G) = (a_1) \) for some \( a_1 \in R \).
 		      Can choose \( x_1 \in G \), s.t. \( \vp(x_1) = a_1 \).
+
+		      \begin{intuition}
+			      The ideal is that in a PID, the bigger the ideal, the smaller set of prime element the
+			      generators have, so finding the maximal ideal is literally finding that element who has
+			      least reducible elements from \( G \) to \( R \).
+		      \end{intuition}
+
 		      \begin{claim}
 			      \( a_1 \ne 0 \)
 		      \end{claim}
 		      \begin{proof}
 			      A linear map \( \psi : F \to R \) is uniquely determined by giving \( \psi (u_i), 1 \leq
-			      i \leq n\). In particular, have
+			      i \leq n\). (Here we shall need the universal property of direct product) In particular, have
 			      \[
 				      \begin{aligned}
 					      \pi_j : F  & \to R \\
@@ -52,36 +61,42 @@
 					      \end{cases}
 				      \end{aligned}
 			      \]
-			      if \( a_1 = 0 \), by maximality of \( a_1 \implies \psi(G) = \{0\} \; \forall \; \psi :
+			      if \( a_1 = 0 \), by \textcolor{blue}{maximality} of \( a_1 \implies \psi(G) = \{0\} \; \forall \; \psi :
 			      F \to R\) being \( R \)-linear map. Thus \( \pi_j(G) = \{0\} \; \forall \; j \implies G
 			      = \{0\}\), leading to contradiction with our inductive asssumption \( \lightning \).
 			      Thus \( a_1 \ne 0 \).
 		      \end{proof}
 		      \begin{claim}
-			      If \( \psi: F \to R \) arbitrarily linear map, then \( a_1 \mid \psi(x) \) where \(
-			      \psi(x) = a_1, x \in G \).
+			      If \( \psi: F \to R \) arbitrarily linear map, then \( a_1 \mid \psi(x_1) \) where \(
+			      \vp(x_1) = a_1, x_1 \in G \).
 		      \end{claim}
+
+		      \begin{intuition}
+			      As the above note, the elements we chose, the \( a_1 \) shall have the least number of
+			      irreducible factors.
+		      \end{intuition}
+
 		      \begin{proof}
-			      Let \( b = \gcd\{a_1,\psi(x)\}  \xRightarrow{ R \text{ PID}} b = \alpha \underbrace{a_1}_{\vp(x)} + \beta
-			      \psi(x)\) for some \( \alpha, \beta \in R \). Now if \( \vp' = \alpha \vp + \beta \psi
-			      \implies \vp'(x) = b\) and thus \( b \mid a_1 \implies (\vp'(x)) \supseteq (\vp(x))
-			      \). By maximality: \( (\vp'(x))  = (\vp(x)) = (b) \implies b \sim a_1\) but \( b \mid
-			      \psi(x) \implies a_1 \mid \psi(x)\).
+			      Let \( b = \gcd\{a_1,\psi(x_1)\}  \xRightarrow{ R \text{ PID}} (b) = (a_1, \psi(x_1)) \implies b = \alpha \underbrace{a_1}_{\vp(x_1)} + \beta
+			      \psi(x_1)\) for some \( \alpha, \beta \in R \). Now let \( \vp' = \alpha \vp + \beta \psi
+			      \implies \vp'(x_1) = b\) and with \( b \mid a_1 \implies (a_1) \subseteq (b)
+			      \). Since \( x_1 \in G, b = \vp'(x_1) \implies (b) \subseteq \vp'(G) \implies \vp(G) = (a_1) \subseteq (b) \subseteq \vp'(G) \). By maximality: \( (\vp'(x))  = (\vp(x)) = (b) \implies b \sim a_1\) but \( b \mid
+			      \psi(x_1) \implies a_1 \mid \psi(x_1)\).
 		      \end{proof}
 		      Now apply this for \( \psi = \pi_j \) for each \( j \), we have
 		      \[
-			      \pi_j (x) = a_1 c_j \text{ for some } c_j \in R \; \forall \; j
+			      \pi_j (x_1) = a_1 c_j \text{ for some } c_j \in R \; \forall \; j
 		      \]
 		      and thus
 		      \[
-			      x = \sum_{j=1}^n \pi_j (x) u_j = a_1 \cdot \underbrace{\sum_{j} c_j u_j}_{e_1}
-			      \implies x = a_1 e_1 \text{ for some } e_1 \in F
+			      x_1 = \sum_{j=1}^n \pi_j (x_1) u_j = a_1 \cdot \underbrace{\sum_{j} c_j u_j}_{e_1}
+			      \implies x_1 = a_1 e_1 \text{ for some } e_1 \in F
 		      \]
 		      and thus
 		      \[
-			      a_1 = \vp(x) = \vp(a_1 e_1) = a_1 \vp(e_1)
+			      a_1 = \vp(x_1) = \vp(a_1 e_1) = a_1 \vp(e_1)
 		      \]
-		      by that \( a\ne 0 \) we have \( \vp(e_1) = 1 \).
+		      by that \( a_1\ne 0 \) we have \( \vp(e_1) = 1 \).
 
 		      \begin{claim}
 			      Let \( K = \ker(\vp) \), we have \( F = K \oplus R e_1 \).
@@ -95,43 +110,50 @@
 					            \lambda = \lambda \vp(e_1) = \vp(\lambda e_1) = 0 \implies \lambda e_1 = 0
 				            \]
 				      \item \( K + Re_1 = F \): if \( u \in F \implies u - \vp(u)e_1 \in K \) since \(
-				            \vp(u - \vp(u) e_1) = \vp(u) - \vp(u)\vp(e_1) = 0 \implies F = K + Re_1 \).
+				            \vp(u - \vp(u) e_1) = \vp(u) - \vp(u)\vp(e_1) = 0 \; (\vp(e_1) = 1) \implies F = K + Re_1 \).
 			      \end{itemize}
 		      \end{proof}
 
 		      \begin{claim}
 			      \( G = (K \cap G) \oplus R a_1 e_1 \).
 			      \begin{note}
-				      \( a_1 e_1 = x \in G \).
+				      \( a_1 e_1 = x_1 \in G \).
 			      \end{note}
 		      \end{claim}
 
-		      \begin{itemize}
-			      \item \( (K \cap G) \cap R a_1 e_1 = \{0\} \) is clear by previous reasoning, basically
-			            larger thing already intersect with only \( 0 \).
-			      \item \( G = (K \cap G) + R a_1 e_1 \): have \( \vp(G) = (a_1) \), if \( u \in G \implies  \)
-			            \[
-				            u - \underbrace{\underbrace{\vp(u)}_{(a_1)}e_1}_{\in R a_1 e_1} \in K \cap G
-			            \]
-			            since \( u \in G, a_1 e_1 \in G, u - \vp(e_1) \in K \) as above.
-		      \end{itemize}
+		      \begin{proof}
+			      \leavevmode
+			      \begin{itemize}
+				      \item \( (K \cap G) \cap R a_1 e_1 = \{0\} \) is clear by previous reasoning, basically
+				            \textcolor{red}{larger} thing already intersect with only \( 0 \) \( (K \cap G \subseteq K, Ra_1
+				            e_1 \subseteq R e_1) \).
+				      \item \( G = (K \cap G) + R a_1 e_1 \): have \( \vp(G) = (a_1) \), if \( u \in G \implies  \)
+				            \[
+					            u - \underbrace{\underbrace{\vp(u)}_{\in (a_1)}e_1}_{\in R a_1 e_1} \in K \cap G
+				            \]
+				            since \( u \in G, a_1 e_1 \in G, u - \vp(u)e_1 \in K \) as above.
+			      \end{itemize}
+
+		      \end{proof}
 
 		      \begin{conclusion}
 			      We have
 			      \[
-				      \begin{aligned}
-					      F & = K \oplus R e_1              \\
-					      G & = (K \cap G) \oplus R a_1 e_1
-				      \end{aligned}
+				      \textcolor{red}{
+					      \begin{cases}
+						      F = K \oplus R e_1 \\
+						      G = (K \cap G) \oplus R a_1 e_1
+					      \end{cases}
+				      }
 			      \]
 		      \end{conclusion}
-		      We have that \( a_1 \ne 0, x = a_1 e_1 \implies e_1 \ne 0 \implies \rank(Ra_1 e_1) \ne
+		      We have that \( a_1 \ne 0, x_1 = a_1 e_1 \implies e_1 \ne 0 \implies \rank(Ra_1 e_1) \ne
 		      0\) and actually \( \rank(R a_1 e_1 ) = 1 \). Thus we have
 		      \[
 			      \rank(K \cap G) = \rank(G) - 1 = m - 1
 		      \]
-		      Apply induction on the assertion that ``every submodule of a free finitely generated
-		      \( R \)-module is free'' and have \( K \cap G \) is free of rank \( m - 1 \). By
+		      Apply induction on the assertion that ``\textcolor{blue}{every submodule of a free finitely generated
+			      \( R \)-module is free}'' and have \( K \cap G \) is free of rank \( m - 1 \). By
 		      combining a basis of \( K \cap G \) with \( a_1 e_1 \implies \) get a basis of \( G
 		      \). Hence we know by induction that all submodules of a free finitely generated \( R \)-module
 		      are free. Now let's do induction for the full statement of the thream. Since \( K
@@ -150,7 +172,8 @@
 		      \[
 			      \text{If } m\geq 2 \implies a_1 \mid a_2
 		      \]
-		      Let \( d = \gcd(a_1,a_2) \xRightarrow{R \text{ PID}} d = \gamma a_1 + \delta a_2\). If \(
+		      Let \( d = \gcd(a_1,a_2) \xRightarrow{R \text{ PID}} d = \gamma a_1 + \delta a_2\) for
+		      some \( \gamma, \delta \in R \). If \(
 		      \psi: F \to R\) is s.t.
 		      \[
 			      \begin{cases}
@@ -159,6 +182,10 @@
 				      \psi(e_i) = 0 \text{ for } i > 2
 			      \end{cases}
 		      \]
+
+		      \begin{note}
+			      The definition of \( \psi \) here is legal as \( e_1,\ldots, e_, \) is basis of \( F \).
+		      \end{note}
 		      Have \( \psi(a_1 e_1 + a_2 e_2) = d \implies \psi(G) \supseteq (d)\supseteq (a_1) \) and
 		      since \( d \mid a_1 \implies \) by maximality of \( (a_1) \) we have \( (d) = (a_1)
 		      \implies a_1 \mid a_2 \).
