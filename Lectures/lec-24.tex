@@ -3,12 +3,12 @@ results also applies.
 
 \begin{proposition}
 	\label{prop:module-linear-map}
-	To give an \( R \)-module \( M \) is equivalent to giving a \( \KK \)-vector space \( V \) and a
+	To give an \( R=\KK[x] \)-module \( M \) is equivalent to giving a \( \KK \)-vector space \( V \) and a
 	\( \KK \)-linear map \( T: V \to V \).
 \end{proposition}
 
 \begin{proof}
-	If \( M \) is an \( R \)-module, via the inclusion, we have \( \KK \subseteq \KK[x] \), we get an
+	If \( M \) is an \( R = \KK[x] \)-module, via the inclusion, we have \( \KK \subseteq \KK[x] \), we get an
 	operation \( \KK \times M \to M \) that makes \( M \) a \( \KK \)-vector space. We get
 	\[
 		\begin{aligned}
@@ -73,6 +73,12 @@ for some  \( f_1,\ldots, f_r \in \KK[x] \) with \( \deg(f_i) \geq 1 \), s.t. \( 
 		      the coefficient of top degree term is \( 1 \). In particular
 		      \[
 			      f = x^n + c_1 x^{n-1} + \cdots + c_n
+		      \]
+		\item Notice that by the division algorithm, for \( \qo{\KK[x]}{(f_i)} \), we can write any
+		      polynomial by \( a = q f_i + r \) with \( \deg(r) < \deg(f_i) \), then see that any
+		      element in the quotient space can be written uniquely by
+		      \[
+			      \{1,x,x^2,\ldots,x^{\deg(f_i) - 1}\} \implies \dim_{\KK}\bace{\qo{\KK[x]}{(f_i)}} = \deg(f_i)
 		      \]
 	\end{itemize}
 \end{note}
