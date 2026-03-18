@@ -1,0 +1,195 @@
+\begin{definition}[\textbf{Diagonalizable}]
+	Let \( T: V \to V \) be linear transformation. \( V \) is a finite dimensional vector space over
+	\( \KK \) be a field. Define
+	\begin{enumerate}
+		\item \( T \) is \underline{diagonalizable} if there exists a basis of \( V \), s.t. \( T \) is
+		      given by a diagonal matrix \( A = (a_{ij}): a_{ij} = 0 \) if \( i \ne j \).
+		\item A matrix \( A \in M_n(\KK) \) is \underline{diagonalizable} if there exists \( U \in
+		      M_n(\KK) \) invertible, s.t. \( U A U^{-1} \) is diagonal.
+	\end{enumerate}
+\end{definition}
+
+\begin{proposition}
+	A linear transformation \( T \) is diagonalizable iff \( m_T = (x - \lambda_1) \cdots (x-\lambda_r) \)
+	with \( \lambda_1,\ldots, \lambda_r \) distinct.
+\end{proposition}
+
+\begin{proof}
+	\leavevmode
+	\begin{itemize}
+		\item ``\( \implies \)'': If \( \cB \) is a basis s.t. \( T \) is given by a diagonal matrix \(
+		      A = (a_{ij})\), let \( \lambda_1,\ldots, \lambda_r \) to be the distinct entries on the
+		      diagonal, thus we have
+		      \[
+			      \begin{aligned}
+				      (A - \lambda_1 I_n) \cdots (A - \lambda_r I_n) & = 0 \quad \text{(Block elemination)}
+				      \\
+				      \implies m_T                                   & \mid (x - \lambda_1) \cdots (x-\lambda_r)
+			      \end{aligned}
+		      \]
+		      thus they have to be equal since \( \lambda_i \) are roots of \( c_T \) (\( \lambda_i \)
+		      are eigenvalues), hence they are roots of \( m_T \).
+		\item ``\( \impliedby \)'': If \( m_T = (x-\lambda_1)\cdots (x-\lambda_r) \), recall we have
+		      \( f_1,\ldots,f_d \) monic polynomials s.t. \( \deg(f_i) \geq 1 \) and \( f_1\mid f_2\mid
+		      \cdots \mid f_d\), s.t.
+		      \begin{equation}
+			      \label{eq:27-1}
+			      M \cong \bigoplus_{i=1}^d \qo{\KK[x]}{(f_i)}
+		      \end{equation}
+		      with \( m_T = f_d \) and \( f_i \mid f_d \implies  \) each \( f_i \) is the product of
+		      distinct monic polynomial of degree \( 1 \). The Chinese Remainder Theorem implies that by
+		      \textbf{isomorphism} \ref{eq:27-1}, we have
+		      \[
+			      M \cong \bigoplus_{j=1}^n \frac{\KK[x]}{(x-\alpha_j)}
+		      \]
+		      w.r.t. the basis given by the \( \overline{1} \in \frac{\KK[x]}{(x-\alpha_j)}\), the
+		      matrix of \( T \) is given by
+		      \[
+			      \begin{pmatrix}
+				      \alpha_1 &          &        & 0        \\
+				               & \alpha_2 &        &          \\
+				               &          & \ddots &          \\
+				      0        &          &        & \alpha_n
+			      \end{pmatrix}
+		      \]
+	\end{itemize}
+\end{proof}
+
+\section{Field Extensions}
+We shall first explore the \underline{characteristic} of a field. If \( R \) is any commutative
+ring, we have a unique ring homomorphism
+\[
+	\begin{aligned}
+		\ZZ & \xrightarrow{\alpha} R \\
+		n   & \mapsto n \cdot 1_R
+	\end{aligned}
+\]
+See that \( \ker(\alpha) \subseteq \ZZ \) is an ideal, then
+\begin{itemize}
+	\item Case 1: \( \ker(\alpha) = \{0\} \).
+	\item Case 2: \( \ker(\alpha) = n \ZZ, n \in \ZZ_{>0} \) since \( \ZZ \) is a PID.
+\end{itemize}
+Suppose \( R \) is a field, then by first isomorphism theorem, we have
+\[
+	\qo{\ZZ}{\ker(\alpha)} \hookrightarrow R \text{ domain}
+\]
+thus \( \qo{\ZZ}{\ker(\alpha)} \) is also a domain. If \( \ker(\alpha)  \ne \{0\}\), then it should
+be \( p\ZZ \) with \( p> 0 \) be some prime.
+
+\begin{definition}[\textbf{Characteristic}]
+	If \( \KK \) is a field, its \underline{characteristic}, denoted as \( \text{char}(\KK) \) is
+	\[
+		\begin{cases}
+			0, \text{ if } n \cdot 1_\KK \ne 0_\KK \; \forall \; n \ne 0 \\
+			p, \text{ if } p \cdot 1_\KK = 0_\KK \text{ with } p \text{ be some prime}
+		\end{cases}
+	\]
+\end{definition}
+
+\begin{eg}
+	\( \QQ,\RR,\CC \) have characteristic \( 0 \), \( \FF_q = \qo{\ZZ}{p\ZZ} \), \( \FF_p(t) \) have
+	characteristic \( p \).
+\end{eg}
+
+\begin{note}
+	\leavevmode
+	\begin{itemize}
+		\item If \( \text{char}(\KK) = p \implies \qo{\ZZ}{p\ZZ} \hookrightarrow \KK \).
+		\item If \( \text{char}(\KK) = 0 \implies \exists \; \QQ \hookrightarrow \KK\) by the universal
+		      property of \( \frac(\ZZ) \).
+	\end{itemize}
+\end{note}
+
+\begin{remark}
+	If \( i: \KK \to L \) is a morphism of fields (\( i\ne 0 \) since it take 1 to 1), then \( i \) is
+	injective. We call this a \underline{field extension}. In this case, \( \text{char}(\KK) = \text{char}(L)\).
+\end{remark}
+
+\subsection{Finite and Algebraic Field Extensions}
+Let \( \KK \hookrightarrow L \) be a field extension (morphisms between fields), then \( L \) has a
+natural structure of \( \KK \)-vector space. The \underline{degree} of \( \qo{L}{K} \)\todo{denote
+	field extension.}, denoted as \( \deg(\qo{L}{K}) \) or \( [L:K] \) is \( \dim_\KK(L) \in \ZZ_{>0}
+\cup\{\infty\} \).
+
+\begin{definition}[\textbf{Finite Field Extension}]
+	\( \qo{L}{\KK} \) is finite field extension if \( [L:K] < \infty \).
+\end{definition}
+
+\begin{definition}[\textbf{Algebraic \& Transcendental}]
+	Given a field extension \( \KK \hookrightarrow L \), an element \( a\in L \) is
+	\underline{algebraic} over \( \KK \) if \( \exists \; f \in \KK[x] \smallsetminus \{0\} \), s.t.
+	\( f(a) = 0 \). Otherwise, \( a \) is \underline{transcendental} over \( \KK \).
+\end{definition}
+Suppose \( \KK \hookrightarrow L \) is a field extension, \( a\in L \), consider the \( \KK
+\)-algebra homomorphism
+\[
+	\begin{aligned}
+		\vp: \KK[x]        & \to L  \\
+		\vp(x)             & = a    \\
+		\text{i.e.} \vp(P) & = P(a)
+	\end{aligned}
+\]
+See that \( \ker(\vp) \subseteq \KK[x] \) is an \textbf{ideal}, consider the two cases:
+\begin{itemize}
+	\item Case 1: \( \ker(\vp) = \{0\} \), i.e. \( a \) is transcendental over \( \KK \). In this
+	      case,
+	      \[
+		      \begin{aligned}
+			      \KK[x]               & \cong \KK[a] = \im(\vp) \subseteq L \\
+			      \implies \dim_\KK(L) & \geq \dim_\KK(\KK[x]) = \infty
+		      \end{aligned}
+	      \]
+	      hence we get
+	      \begin{proposition}
+		      If \( \KK \hookrightarrow L \) is a finite field extension \( \implies \) every \( a\in L \) is
+		      algebraic over \( \KK \).
+	      \end{proposition}
+	      \begin{definition}
+		      A field extension \( \KK \hookrightarrow L \) is algebraic if \( \forall \; a \in L \) is
+		      algebraic over \( \KK \).
+	      \end{definition}
+	\item Case 2: \( \ker(\vp) \ne \{0\} \), since \( \KK[x] \) is a PID, then \( \ker(\vp) = (f) \)
+	      with \( f \ne 0 \) and \( f \) being monic. See that
+	      \[
+		      \qo{\KK[x]}{(f)} \xrightarrow{\sim} \K[a] \subseteq L
+	      \]
+	      with \( \KK[a] \) being a domain, then \( (f) \) is prime ideal, then \( f \) is
+	      irreducible, thus \( (f) \) is maximal ideal, \(\implies \KK[a] \) is a field.
+	      \begin{notation}
+		      If \( \KK\hookrightarrow L \) being field extension, \( A \subseteq L \), then
+		      \[
+			      \begin{aligned}
+				      K(A) & \coloneqq \text{ the smallest subfield of } L \text{ containing } A \\
+				           & = \frac(\KK[A])
+			      \end{aligned}
+		      \]
+		      with \( \KK[A] \) be the smallest \( \KK \)-subalgebra containing \( A \), then \( \KK[A] \subseteq
+		      \KK(A) \implies \frac(\KK[A]) \subseteq \KK(A) \) and by universal property of fraction
+		      field they are equal.
+	      \end{notation}
+	      Back to our setting: \( \KK[a] = \KK(a) \), if \( a \) is algebraic over \( \KK \).
+	      \begin{remark}
+		      Since \( \frac{\KK[x]}{(f)}\) has a \( \KK \)-basis given by
+		      \[
+			      \overline{1},\overline{x},\ldots,\overline{x}^{\deg(f)-1}
+		      \]
+		      Thus
+		      \[
+			      [\KK(a): \KK] = \deg(f)
+		      \]
+	      \end{remark}
+\end{itemize}
+
+\begin{definition}
+	If \( a\in L \) is algebraic over \( \KK \), then the monic generator of \( \ker(\KK[x] \to L,
+	p\to p(a) \) is the minimal polynomial of \( a \). This is the monic polynomial \( f \) of
+	smallest degree, s.t. \( f(a) = 0 \).
+\end{definition}
+
+\begin{eg}
+	Let \( \RR \hookrightarrow \CC \) with \( a = i \). Then
+	\[
+		f(x) = x^2 + 1 \implies f(i) = 0
+	\]
+	This has smallest possible degree, otherwise \( i \in \RR \).
+\end{eg}
