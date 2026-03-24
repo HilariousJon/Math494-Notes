@@ -1,0 +1,133 @@
+\part{Bonus Lectures}
+
+\section{Inverse and Direct Limits}
+
+\subsection{Inverse Limits}
+
+\begin{definition}[\textbf{Inverse System}]
+  Fix a category \( \cC \), we view \( (I, \leq) \) as an ordered set, and viewed as a Category. An
+  inverse system in \( \cC \) is a \textbf{functor} 
+  \[
+    (I,\leq) \to \cC^{\text{op}}
+  \] 
+  for some ordered set \( (I,\leq) \). Explicitly, this is given by \( (x_i)_{i\in I} \) with \( x_i
+  \in \ob(\cC)\) + for every \( i\leq j \), a map 
+  \[
+    \begin{aligned}
+      \vp_{ij}: x_j & \to x_i \\ 
+      \vp_{ij} &\in \Hom_{\cC}(x_j,x_i)
+    \end{aligned} 
+  \] 
+  s.t. it is compatible with the morphisms
+  \[
+    \begin{aligned}
+      &
+      \begin{cases}
+        \vp_{ii} = \Id \; \forall \; i \\ 
+        \forall \; i \leq j \leq k 
+      \end{cases} \\ 
+      & x_k \xrightarrow{\vp_{jk}}  x_j \xrightarrow{\vp_{ij}} x_i \\ 
+      &\vp_{ik} = \vp_{ij}\circ \vp_{jk}
+    \end{aligned}
+  \] 
+\end{definition}
+
+\begin{definition}[\textbf{Inverse Limits}]
+  The \underline{inverse limit} (projective limit), denoted as \( \vpl_{i\in I} X_i \) of such an
+  inverse/projective system is given by
+  \[
+    \vpl X_i \xrightarrow{p_i} X_i \quad \forall \; i \in I
+  \] 
+  that satisfies: \( i\leq j \implies \) the following diagram being commutative:
+  \[
+  \begin{tikzcd}
+    \vpl X_i \arrow[r, "p_i"] \arrow[d, "p_j"'] & X_i \\ 
+    X_j \arrow[ru, "\vp_{ij}"'] &
+  \end{tikzcd}
+  \] 
+  and it is universal with this property: \( \forall \; Y \in \ob(\cC) \) with maps \( Y
+  \xrightarrow{q_i} X_i \) that satisfy \( \vp_{ij}\circ q_j = q_i \; \forall \; i \leq j \), there
+  exists a unique morphism \( f \), such that the following diagram is commutative 
+  \[
+    \begin{tikzcd}
+      \vpl X_i \arrow[r, "f"] \arrow[d, "p_i"'] & Y \arrow[ld, "q_i"] \\ 
+      X_i &
+    \end{tikzcd}
+  \] 
+  namely \( q_i \circ f = p_i \; \forall \; i\).
+\end{definition}
+
+\begin{eg}
+  \leavevmode 
+  \begin{enumerate}
+    \item Any \( I \), with \( \leq \) being \( = \), we have 
+      \[
+        (I,=) \to \cC^\text{op}
+      \] 
+      is just a family \( (X_i)_{i\in I} \) and \( \vpl_{i\in I}X_i = \prod_{i\in I} X_i \), which
+      is exactly the direct product.
+    \item Let \( (\ZZ_{\geq 0}, \leq) \) and \( \cC = \{\text{commutative ring}\} \), then let \( R \) be any 
+      ring, we have an inverse system as follows:
+      \[
+        \cdots \twoheadrightarrow \underbrace{\qo{R[x]}{(x^{n+1})}}_{=S_n} \twoheadrightarrow \cdots
+        \twoheadrightarrow \underbrace{\qo{R[x]}{(x^2)}}_{=S_1} \twoheadrightarrow \underbrace{\qo{R[x]}{(x)}}_{=S_0}
+      \] 
+      the inverse limits in the category of the commutative rings.
+  \end{enumerate}
+\end{eg}
+
+\begin{remark}
+  Suppose have the inverse system given by:
+  \[
+    \begin{aligned}
+      (I,\leq) &\to \text{\textit{Rings}} \\ 
+      i &\to R_i \\ 
+      i\leq j &\to \vp_{ij}: R_j \to R_i
+    \end{aligned}
+  \] 
+  with when \( j\leq k \) we have the following diagram being commutative:
+  \[
+    \begin{tikzcd}
+      \vpl R_i \arrow[r] \arrow[d] & R_k \arrow[ld] \\ 
+      R_j &
+    \end{tikzcd}
+  \] 
+  then 
+  \[
+    \vpl_{i\in I} R \coloneqq  \{a = (a_i)_i \in \prod_{i\in I} R_i \; | \; a_i = \vp_{ij}(a_{ij})
+    \; \forall \; i \leq j \} \subseteq \prod_{i\in I} R_i \xrightarrow{\pi_i} R_i
+  \] 
+\end{remark}
+
+\begin{exercise}
+  \leavevmode 
+  \begin{enumerate}
+    \item \( \vpl R_i \subseteq \prod_{i\in I} R_i \) and being a subring. 
+    \item The maps \( p_i = \pi_i \circ \text{incl} \) satisfy: 
+      \[
+        \forall \; i \leq j, p_i = \vp_{ij} \circ p_j
+      \]
+    \item This is universal with these properties: follows from the universal property of \(
+      \prod_{i\in I} R_i \).
+  \end{enumerate}
+\end{exercise}
+
+\begin{eg}
+  \leavevmode 
+  \[
+    \vpl_{n\geq 0} \frac{R[x]}{(x^{n+1})}
+  \] 
+  and 
+  \[
+    \qo{R[x]}{(x^{n+1})} \to \qo{R[x]}{(x^n)} \cong \; \R[[x]]
+  \] 
+  where the maps: 
+  \[
+    R[[x]] \to \qo{R[x]}{(x^n)} \cong \qo{R[[x]]}{(x^n)}
+  \] 
+\end{eg}
+
+\begin{remark}
+  The same construction via direct products works in the category of \underline{Sets}, \( R
+  \)-\underline{mod}, etc.
+\end{remark}
