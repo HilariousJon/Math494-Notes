@@ -1,0 +1,124 @@
+\section{Multiple Roots}
+
+\begin{definition}
+  Let \( K \) be a field, \( 0\ne f \in K[x] \), recall that \( f(a) = 0\iff (x-a) \mid f \). \( a
+  \in K \) is a root of \( f \) with multiplicity \( m \) if \( (x-a)^m \mid f \) and \( (x-a)^{m+1} \nmid f \).
+  \begin{itemize}
+    \item Simple root: root of multiplicity \( 1 \).
+    \item Multiple root: root of multiplicity \( \ge 2 \).
+  \end{itemize}
+\end{definition}
+To check whether it is a simple root, one can use \textbf{derivative}.
+
+\begin{definition}
+  If 
+  \[
+    f = a_n x^n + a_{n-1} x^{n-1} + \cdots + a_2 x^2 + a_1 x + a_0 \in K[x], \quad a_n \ne 0
+  \] 
+  then define 
+  \[
+    f' = n a_n x^{n-1} + (n-1) a_{n-1} x^{n-2} + \cdots + 2 a_2 x + a_1 \in K[x].
+  \] 
+\end{definition}
+
+\begin{remark}[\textbf{Properties}]
+  \leavevmode 
+  \begin{itemize}
+    \item \( f \to f' \) is \( K \)-linear.
+    \item (Leibniz Rule) \( (fg)' = fg' + f'g \).
+  \end{itemize}
+\end{remark}
+
+\begin{proof}
+  \leavevmode 
+  \begin{itemize}
+    \item 1 is easy.
+    \item For 2, consider the following map
+      \[
+        (f,g) \mapsto (fg)' - fg' - f'g
+      \] 
+      is \( K \)-linear in both \( f,g \). Hence it is enough to check it when \( f = x^i,g=x^j \).
+      We have 
+      \[
+        (fg)' = (x^{i+j})' = (i+j)x^{i+j-1}
+      \] 
+      and we have 
+      \[
+        fg' + f'g = x^i (jx^{j-1}) + (ix^{i-1})x^j = (fg)'
+      \] 
+  \end{itemize}
+\end{proof}
+
+\begin{proposition}
+  If \( 0 \ne f \in K[x] \) and \( a \in K \). \( a \) is a multiple root of \( f \) iff \( f(a) =
+  0, f'(a) = 0 \).
+\end{proposition}
+
+\begin{proof}
+  \( f(a) = 0 \) iff \( (x-a) \mid f \). In this case, we can decompose \( f \)
+  \[
+    f = (x-a) g \text{ for some } g \in K[x]
+  \] 
+  then 
+  \[
+    \begin{aligned}
+      f' &= g + (x-a)g' \\ 
+      f'(a) &= g(a) \\ 
+      \implies f(a)& = 0 = f'(a) \\ 
+      \iff f &= (x-a)g \text{ for some } g \text{ and } g(a) = 0 \\ 
+      \iff (x-a)^2 &\mid f
+    \end{aligned}
+  \] 
+\end{proof}
+
+\section{Classification of Finite Fields}
+Suppose that \( K \) is a \textcolor{blue}{finite field}, then \( \text{char}(K) \ne 0 \). Let \( p \) be some 
+prime such that \( \text{char}(K) = p \). Then there exists some \( \FF_p = \qo{\ZZ}{p\ZZ} \), such
+that 
+\[
+  \FF_p \hookrightarrow K
+\] 
+and let \( e = [K: \FF_p] < \infty \), we have \( \abs{K} = p^e \). Thus \( \abs{K^\times} = p^e - 1 \). By Lagrange theorem, 
+\( a^{p^e - 1} = 1 \; \forall \; a\in K, a\ne 0 \). Thus \( a^{p^e} = a, \forall \; a\in K
+\smallsetminus \{0\} \).
+
+\begin{theorem}
+  \leavevmode 
+  \begin{enumerate}
+    \item For every \( e \geq 1 \), \( \exists \) field with \( p^e \) elements.
+    \item Every two such fields are isomorphic.
+  \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+  Let \( \overline{\FF_p} \) be an algebraic closure of \( \FF_p \). Let 
+  \[
+    K = \{a\in \overline{\FF_p} \; | \; a^{p^e} = a\}
+  \] 
+  \begin{claim}
+    \( K \subseteq \overline{\FF_p} \) is a subfield.
+  \end{claim}
+  
+  \begin{proof}
+    It is clear that \( 0,1\in K \) and \( a,b\in K \implies ab \in K \). We saw the frobenius
+    homomorphism \ref{prop:frobenius-hom} that:
+    \[
+      F: \overline{\FF_p} \to \overline{\FF_p}, \quad F(a) = a^p
+    \] 
+    is a ring homomorphism. Thus \( F^e \) is also a ring homomorphism. So 
+    \[
+      \{a \in \overline{\FF_p} \; | \; F^e(a) = a\} \subseteq \overline{\FF_p} \text{ is subgroup.}
+    \] 
+    \( \implies \)
+    \[
+      K \subseteq \overline{\FF_p} \text{ is subring. } (\implies \ne \{0\}, \text{ commutative.})
+    \] 
+    See that \( a \in K^\times \implies a^{p^e-1} = 1 \implies a^{-1} = a^{p^e - 2} \in K \implies K \) is a field.
+    \( K \) has \( p^e \) elements: Let \( f = x^{p^e} = x \) decompose in \( \overline{\FF_p}[x] \)
+    as 
+    \[
+      f= x^{p^e} -x = \prod_{i=1}^{p^e} (x-\alpha_i)
+    \] 
+    with \( f' = -1 \implies \) all roots of \( f \) are simple \( \implies \abs{K} = p^e \).
+  \end{proof}
+\end{proof}
