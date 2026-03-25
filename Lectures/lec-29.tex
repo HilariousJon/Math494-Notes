@@ -101,12 +101,20 @@ with \( c\ne 0 \) and \( \lambda_1,\ldots,\lambda_n \in K \) and \( n = \deg(f) 
 Our goal is to show the uniqueness of \( \overline{K} \).
 
 \begin{proposition}
+  \label{prop:extension-alg}
   Given two field extensions:
+  % \[
+  %   \begin{aligned}
+  %     K &\hookrightarrow L \\ 
+  %     K &\hookrightarrow M 
+  %   \end{aligned}
+  % \] 
   \[
-    \begin{aligned}
-      K &\hookrightarrow L \\ 
-      K &\hookrightarrow M 
-    \end{aligned}
+    \begin{tikzcd}
+      & L \\ 
+      K \arrow[ur, hook] \arrow[dr, hook] & \\ 
+                                          & M
+    \end{tikzcd}
   \] 
   such that 
   \begin{enumerate}
