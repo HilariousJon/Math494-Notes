@@ -51,8 +51,9 @@
 \end{eg}
 
 \begin{eg}[\textbf{Explicit Example}]
+  \label{eg:explicit-example}
   Let \( k \) be any field with characteristic \( p > 0 \), let \( K = k(x) \), \textbf{see that} \( x \in
-  k\smallsetminus k^p \):, if \( x = (\frac{f}{g})^p \; f,g \in k[x] \), then \( xg^p = f^p \), thus
+  k(x)\smallsetminus k(x)^p \): if \( x = (\frac{f}{g})^p \; f,g \in k[x] \), then \( xg^p = f^p \), thus
   \( p\cdot \deg(g) + 1 = p\cdot \deg(f) \), leading to contradiction to the fact that \( p \) is prime number and \( p \geq 2 \) \( \lightning \).
   \begin{note}
     Note that \( k(x) = \text{Frac}(k[x]) \).
@@ -77,17 +78,23 @@
     \item We know in char \( 0 \), every extension is separable, thus every field of characteristic of char
       \( 0 \) is perfect. As in this case \( \gcd(f,f') = 1 \) and thus there is no multiple roots for \( f \).
     \item Suppose now \( \text{char}(K) = p \), if \( K \ne K^p \), by taking \( a\in K
-      \smallsetminus K^p \) and \( b \in \overline{K} \), s.t. \( b^p a \), we saw that \( K
+      \smallsetminus K^p \) and \( b \in \overline{K} \), s.t. \( b^p = a \), we saw that \( K
       \hookrightarrow K(b) \) is algebraic, but not separable, thus \( K \) is not perfect.
       Conversely, suppose now \( K = K^p \), say \( K \hookrightarrow L \) is an algebraic
-      extension, suppose there exitss \( a\in L \), with minimal polynomial \( f \in K[x^p] \):
+      extension, suppose there exitst \( a\in L \), with minimal polynomial \( f \in K[x^p] \) (this
+      is the case where every root of \( f \) are \textcolor{blue}{multiple roots}):
       \[
         f = a_0 + a_1 x^p + a_2 x^{2p} + \cdots + a_n x^{np}
       \]
       with \( K = K^p \implies \forall \; 0\leq i \leq n, a_i = b_i^p \) for some \( b_i \in K \),
       this implies 
       \[
-        f = g^p \text{ with: } g = b_0 + b_1 x + b_2 x^2 + \cdots + b_n x^n \in K[x]
+        \begin{aligned}
+          f &= g^p \text{ with: } g = b_0 + b_1 x + b_2 x^2 + \cdots + b_n x^n \in K[x] \\ 
+          \text{by } f &= b_0^p + b_1^p x^p + b_2^p x^{2p} + \cdots + b_n^p x^{np} \\ 
+                       &= (b_0 + b_1 x + b_2 x^2 + \cdots + b_n x^n)^p \text{ by frobenius homomorphism.} \\ 
+                       &= g^p
+        \end{aligned}
       \] 
       by using the fact that \( u \to u^p \) is ring homomorphism. Since \( p > 1 \), this leads to
       the contradiction with the irreducibility of \( f \) \( \lightning \).
@@ -107,9 +114,10 @@
           F(u) &= u^p 
         \end{align*}
         is a ring homomorphism, and it is injective, thus by finite it is also surjective. By the
-        proposition above, \( K \) is perfect.
+        \textcolor{blue}{proposition above}, \( K \) is perfect.
       \end{proof}
-    \item If \( k \) is any field with char \( p > 0 \), then \( k(x) \ne  \) perfect.
+    \item If \( k \) is any field with char \( p > 0 \), then \( k(x) \ne  \) perfect. By
+      \textbf{Example} \ref{eg:explicit-example}, \( x \in k(x) \smallsetminus k(x)^p \), thus \( k \ne k^p\).
   \end{itemize}
 \end{eg}
 
@@ -135,6 +143,18 @@
   \underline{primitive element}.
 \end{theorem}
 
+\begin{lemma}[\textbf{From Homework}]
+  Let \( R \) be an integral domain, and suppose \( G \) is a finite subgroup of the group \( R^\times \) of units of \( R \),
+  then \( G \) is cyclic.
+\end{lemma}
+
+\begin{lemma}
+  Let \( K \) be a field, and let \( f \) be some irreducible polynomial in \( K[x] \), let \( \alpha \) be any root of \( f \), then we have 
+  \[
+    K(\alpha) \cong \qo{K[x]}{(f)}
+  \] 
+\end{lemma}
+
 \begin{proof}
   \leavevmode 
   \begin{itemize}
@@ -144,7 +164,7 @@
       by induction on \( n\geq 1 \). When \( n = 1 \) it is ok. If we know this for \( n = 2 \),
       then the inductive step is trivial, as 
       \[
-        K(a_1,\ldots, a_{n-1}) = K(b) \text{ by IH } \implies L = K(b,a_n)
+        K(a_1,\ldots, a_{n-1}) = K(b) \text{ \textcolor{blue}{by IH} } \implies L = K(b,a_n)
       \] 
       Suppose \( L = K(b,c) \), we will show: if \( \lambda \in K \) and \( a = b + \lambda c \)
       except for finitely many values of \( \lambda \), we shall get \( L = K(a) \). Now fix \(
@@ -153,11 +173,11 @@
         K \hookrightarrow K(a) \hookrightarrow L
       \] 
       and may assume \( c\not\in K(a) \), otherwise \( b \in K(a) \implies L = K(a) \). Let \( f,g \) be the minimal polynomial 
-      of \( b,c \) respectively over \( K(a) \). The roots are simple since \( \qo{L}{K} \) is separable. Let 
+      of \( b,c \) respectively \textcolor{red}{over \( K(a) \)}. The roots are simple since \( \qo{L}{K} \) is separable. Let 
       \begin{align*}
-        \text{roots of }f: \beta_1=b, \beta_2,\ldots, \beta_n \\ 
-        \text{roots of }g: \gamma_1 = c, \gamma_2,\ldots, \gamma_n \quad (n\geq 2 \text{ since } c
-        \not\in K(a)
+        \text{roots of }f&: \beta_1=b, \beta_2,\ldots, \beta_m \\ 
+        \text{roots of }g&: \gamma_1 = c, \gamma_2,\ldots, \gamma_n \quad (n\geq 2 \text{ since } c
+        \not\in K(a))
       \end{align*}
       Let \( \overline{L} \) be some algebraic closure of \( L \), we have 
       \[
@@ -167,7 +187,7 @@
                                           & & K(a)(\gamma_2) \arrow[hook,r] & \overline{L}
         \end{tikzcd}
       \] 
-      there exists morphism of extension of \( K(a) \)
+      where the isomorphism is given by \( \gamma_1 \to \gamma_2 \). there exists morphism of extension of \( K(a) \)
       \[
         \begin{aligned}
           \sigma: L& \to \overline{L} \\ 
@@ -179,8 +199,10 @@
         \[
           \begin{aligned}
             \sigma|_{K(a)} &= \Id  \\ 
-            \implies \sigma (\underbrace{b + \lambda c}_{=\beta_i + \lambda \gamma _2=\beta _1 + \lambda \gamma _1}) &= 
+            \implies \sigma(b + \lambda c) &= 
             b + \lambda  c \\ 
+            \implies \sigma(b) + \lambda \sigma(c) &= \beta_1 + \lambda \gamma_1 \\ 
+            \implies \beta_i + \lambda \gamma_2 &= \beta_1 + \lambda \gamma_1 \\
             \implies \lambda &= \frac{\beta _i -\beta _1}{\gamma _1 - \gamma _2} \quad \text{by }
             \gamma _1 \ne \gamma _2
           \end{aligned}
