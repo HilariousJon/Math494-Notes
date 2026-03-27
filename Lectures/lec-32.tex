@@ -1,0 +1,195 @@
+\begin{remark}
+  \( a \) is not a simple root \( \iff (x-a)\mid f, (x-a)\mid f' \implies \gcd(f,f') \ne 1 \implies
+  f\mid f'\) since \( f \) is minimal polynomial and thus irreducible. And see that \( f \mid f'
+  \implies a \) is not simple root of \( f \). Now see that 
+  \begin{align*}
+    f&= \sum_{i=0 }^n a_i x^i \\ 
+    f'&=\sum_{i=1}^n ia_i x^{i-1} 
+  \end{align*}
+  the degree of \( f' \) certainly goes down, then either \( f' = 0 \) or \( \deg(f') < \deg(f) \).
+  Hence \( f\mid f' \iff f' = 0 \), by the fact that
+  \[
+    ia_i = \underbrace{i 1_K}_{=\vp(i) : \vp: \ZZ \to K} a_i
+  \] 
+  then see that \( f'= 0 \iff \forall\; i,  \), if \( a_i \ne 0 \implies \vp(i) = 0 \iff \text{char}(K) = p > 0 
+  \) and \( f \in K[x^p] \).
+\end{remark}
+
+\begin{eg}
+  Suppose that \( \text{char}(K) = p \), with \( a \in K \smallsetminus K^p \), define the polynomial
+  \[
+    f = x^p - a \in K[x]
+  \] 
+  with a root \( b \) in some algebraic closure \( \overline{K} \) of \( K \), with \( b \not\in K \). Here 
+  \( b \) being a root means \( b^p = a \).
+  \begin{claim}
+    \( f \) is the minimal polynomial of \( b \).
+  \end{claim}
+  \begin{proof}
+    We already know that \( f(b) = 0 \), so it is enough to show that \( f \) is \textcolor{blue}{irreducible}. 
+    Consider in \( K(b)[x] \), we have 
+    \[
+      f = x^p - a = x^p - b^p = (x-b)^p
+    \] 
+    If \( f \) is not irreducible in \( K[x] \), then there exists \( g \mid f \), with \( 1 \leq \deg(g) < p \),
+    where \( g \in K[x] \). Now consider putting \( g \) in \( K(b)[x] \), it is clear that to make
+    \( g \) divides \( f \) there will be only one case:
+    \[
+      \begin{aligned}
+        g & = (x-b)^i \quad 1 \leq i \leq p-1 \\ 
+          &= x^i - ib x^{i-1} + \cdots 
+      \end{aligned}
+    \] 
+    this implies that \( ib \in K \) where \( i \) is invertible in \( K \) since \( i < p \implies b \in K \),
+    leading to contradiction \( \lightning \).
+  \end{proof}
+
+  \begin{conclusion}
+    \( b \) is not separable over \( K \). As its minimal polynomial is \( f = x^p - a \), but \( f'
+    = 0\), and thus \( b \) is not a simple root.
+  \end{conclusion}
+\end{eg}
+
+\begin{eg}[\textbf{Explicit Example}]
+  Let \( k \) be any field with characteristic \( p > 0 \), let \( K = k(x) \), \textbf{see that} \( x \in
+  k\smallsetminus k^p \):, if \( x = (\frac{f}{g})^p \; f,g \in k[x] \), then \( xg^p = f^p \), thus
+  \( p\cdot \deg(g) + 1 = p\cdot \deg(f) \), leading to contradiction to the fact that \( p \) is prime number and \( p \geq 2 \) \( \lightning \).
+  \begin{note}
+    Note that \( k(x) = \text{Frac}(k[x]) \).
+  \end{note}
+\end{eg}
+
+\begin{definition}[\textbf{Perfect Extension}]
+  A field \( K \) is \underline{perfect} if every algebraic extension \( K \hookrightarrow L \) is separable.
+\end{definition}
+
+\begin{proposition}
+  A field \( K \) is perfect iff 
+  \begin{itemize}
+    \item either \( \text{char}(K) = 0 \).
+    \item or \( \text{char}(K) = p > 0 \) and \( K = K^p \).
+  \end{itemize}
+\end{proposition}
+
+\begin{proof}
+  \leavevmode 
+  \begin{itemize}
+    \item We know in char \( 0 \), every extension is separable, thus every field of characteristic of char
+      \( 0 \) is perfect. As in this case \( \gcd(f,f') = 1 \) and thus there is no multiple roots for \( f \).
+    \item Suppose now \( \text{char}(K) = p \), if \( K \ne K^p \), by taking \( a\in K
+      \smallsetminus K^p \) and \( b \in \overline{K} \), s.t. \( b^p a \), we saw that \( K
+      \hookrightarrow K(b) \) is algebraic, but not separable, thus \( K \) is not perfect.
+      Conversely, suppose now \( K = K^p \), say \( K \hookrightarrow L \) is an algebraic
+      extension, suppose there exitss \( a\in L \), with minimal polynomial \( f \in K[x^p] \):
+      \[
+        f = a_0 + a_1 x^p + a_2 x^{2p} + \cdots + a_n x^{np}
+      \]
+      with \( K = K^p \implies \forall \; 0\leq i \leq n, a_i = b_i^p \) for some \( b_i \in K \),
+      this implies 
+      \[
+        f = g^p \text{ with: } g = b_0 + b_1 x + b_2 x^2 + \cdots + b_n x^n \in K[x]
+      \] 
+      by using the fact that \( u \to u^p \) is ring homomorphism. Since \( p > 1 \), this leads to
+      the contradiction with the irreducibility of \( f \) \( \lightning \).
+  \end{itemize}
+\end{proof}
+
+
+\begin{eg}
+  \leavevmode 
+  \begin{itemize}
+    \item If \( K \) is algebraically closed, then \( K \) is perfect (no non-trivial algebraic extension.)
+    \item If \( K \) is a finite field, then \( K \) is perfect. 
+      \begin{proof}
+        If \( \text{char}(K) = p > 0 \), see 
+        \begin{align*}
+          F :K &\to K \\ 
+          F(u) &= u^p 
+        \end{align*}
+        is a ring homomorphism, and it is injective, thus by finite it is also surjective. By the
+        proposition above, \( K \) is perfect.
+      \end{proof}
+    \item If \( k \) is any field with char \( p > 0 \), then \( k(x) \ne  \) perfect.
+  \end{itemize}
+\end{eg}
+
+\begin{remark}
+  If \( K \hookrightarrow K_1 \hookrightarrow K_2 \) are algebraic extensions. Then \( \qo{K_2}{K} \) separable \( \implies \)
+  \( \qo{K_1}{K} \) is separable (clear) and \( \qo{K_2}{K_1} \) is separable (if \( f,g \) are
+  minimal polynomial of \( a \in K_2 \) over \( K, K_1 \) respectively, then \( g \mid f \) since \(
+  f \in K_1[x], f(a) = 0 \implies g \) has no multi roots since \( f \) has no multi roots.)
+\end{remark}
+
+\begin{fact}
+  If \( \qo{K_1}{K} \) and \( \qo{K_2}{K_1} \) are separable, then \( \qo{K_2}{K} \) is separable. \todo{Proof later.}
+\end{fact}
+
+\begin{remark}
+  Also, we will need to prove that if \( L = K(a_1,\ldots, a_n) \) and \( a_1,\ldots, a_n \) are
+  separable over \( K \), then \( \qo{L}{K} \) is separable.
+\end{remark}
+
+\begin{theorem}[\textbf{Primitive Element Theorem}]
+  If \( K \hookrightarrow L \) is finite separable extension, then it is a \underline{simple}
+  extension, i.e. \( \exists \; a \in L \), s.t. \( L = K(a) \). Here \( a \) is called a
+  \underline{primitive element}.
+\end{theorem}
+
+\begin{proof}
+  \leavevmode 
+  \begin{itemize}
+    \item If \( K \) is finite, then \( L \) is finite, by our homework problem, \( L^\times \) is cyclic,
+      so we can take \( a \) to be a generator of \( L^\times \).
+    \item Suppose \( K \) is infinite, and \( \qo{L}{K} \) is finite, then \( L = K(a_1,\ldots, a_n) \). We shall argue 
+      by induction on \( n\geq 1 \). When \( n = 1 \) it is ok. If we know this for \( n = 2 \),
+      then the inductive step is trivial, as 
+      \[
+        K(a_1,\ldots, a_{n-1}) = K(b) \text{ by IH } \implies L = K(b,a_n)
+      \] 
+      Suppose \( L = K(b,c) \), we will show: if \( \lambda \in K \) and \( a = b + \lambda c \)
+      except for finitely many values of \( \lambda \), we shall get \( L = K(a) \). Now fix \(
+      \lambda \in K \) and let \( a = b + \lambda c \), we have 
+      \[
+        K \hookrightarrow K(a) \hookrightarrow L
+      \] 
+      and may assume \( c\not\in K(a) \), otherwise \( b \in K(a) \implies L = K(a) \). Let \( f,g \) be the minimal polynomial 
+      of \( b,c \) respectively over \( K(a) \). The roots are simple since \( \qo{L}{K} \) is separable. Let 
+      \begin{align*}
+        \text{roots of }f: \beta_1=b, \beta_2,\ldots, \beta_n \\ 
+        \text{roots of }g: \gamma_1 = c, \gamma_2,\ldots, \gamma_n \quad (n\geq 2 \text{ since } c
+        \not\in K(a)
+      \end{align*}
+      Let \( \overline{L} \) be some algebraic closure of \( L \), we have 
+      \[
+        \begin{tikzcd}
+          K\arrow[hook, r] & K(a) \arrow[hook, r] \arrow[hook,rd] & K(a)(\gamma_1)
+          \arrow[hook,r]\arrow[d, "\sim"] & L \arrow[dashed, "\sigma", d] \\ 
+                                          & & K(a)(\gamma_2) \arrow[hook,r] & \overline{L}
+        \end{tikzcd}
+      \] 
+      there exists morphism of extension of \( K(a) \)
+      \[
+        \begin{aligned}
+          \sigma: L& \to \overline{L} \\ 
+          \sigma(\gamma _1) &= \gamma _2
+        \end{aligned}
+      \] 
+      \begin{note}
+        \( \sigma(\beta_1 = b) = \beta_i \) for some \( i \), but note that 
+        \[
+          \begin{aligned}
+            \sigma|_{K(a)} &= \Id  \\ 
+            \implies \sigma (\underbrace{b + \lambda c}_{=\beta_i + \lambda \gamma _2=\beta _1 + \lambda \gamma _1}) &= 
+            b + \lambda  c \\ 
+            \implies \lambda &= \frac{\beta _i -\beta _1}{\gamma _1 - \gamma _2} \quad \text{by }
+            \gamma _1 \ne \gamma _2
+          \end{aligned}
+        \] 
+        Since \( f \) and \( g \) divide the minimal polynomial of \( b \) and \( c \) respectively
+        over \( K \), then only finitely many choices for \( \beta_i, \gamma_j \implies \) only
+        finitely many choices for \( \lambda \). If \( \lambda \ne  \) finitely many choices \(
+        \implies  L = K(a) \).
+      \end{note}
+  \end{itemize}
+\end{proof}
+
