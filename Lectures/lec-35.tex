@@ -1,0 +1,123 @@
+\begin{remark}
+  Let \( K \hookrightarrow L \) be a field extension, let \( a\in L \) be algebraic over \( K \).
+  Let \( f \) be the minimal polynomial of \( a \) over \( K \). If \( b \) is some other root of \( f \) in some algebraic 
+  closure \( \overline{L} \) of \( L \), then \( f \) is also minimal polynomial of \( b \): We need
+  to see that \( f(b) = 0 \), \( f \) monic, and irreducible.
+  \begin{proof}
+    By the fact that 
+    \[
+      \begin{aligned}
+        K(a) \cong &\frac{K[x]}{(f)} \cong K(b) \\ 
+        a \leftarrow & \; \; \; \overline{x}\; \; \;  \rightarrow b
+      \end{aligned}
+    \] 
+    then there exists an isomorphism of extension of \( K \):
+    \[
+      \begin{aligned}
+        \sigma: K(a) & \xrightarrow{\sim} K(b) \\ 
+        \sigma(a) &= b
+      \end{aligned}
+    \] 
+  \end{proof}
+\end{remark}
+
+\begin{remark}
+  The tensor product of \( K \)-algebra can be used to show the following:
+  if \( K \hookrightarrow K_1 \) and \( K \hookrightarrow K_2 \) are two field extensions, then
+  there exists a field \( K' \) with a commutative diagram of ring as follows:
+  \[
+    \begin{tikzcd}
+      & K_1 \arrow[rd, hook] & \\ 
+      K \arrow[ru, hook] \arrow[rd, hook] & & K' \\ 
+                                          &K_2 \arrow[ru, hook] & 
+    \end{tikzcd}
+  \] 
+  \begin{proof}
+    We know that we have a commutative diagram of rings, given as follows:
+    \[
+      \begin{tikzcd}
+      & K_1 \arrow[rd, hook] & \\ 
+        K \arrow[ru, hook] \arrow[rd, hook] & & K_1\otimes_K K_2 \\ 
+                                            &K_2 \arrow[ru, hook] & 
+      \end{tikzcd}
+    \] 
+    with the morphism given by 
+    \[
+      \begin{aligned}
+        K_1 &\hookrightarrow K_1\otimes_K K_2 \\ 
+        u &\mapsto u\otimes 1 \\ 
+        K_2 &\hookrightarrow K_1\otimes_K K_2 \\ 
+        v &\mapsto 1\otimes v
+      \end{aligned}
+    \] 
+    Notice that \( K_1 \otimes_K K_2 \ne 0 \), namely it is non-trivial ring, since we know the
+    basis of it over \( K \) as \( K_1 \) and \( K_2 \) is free over \( K \). Thus there exists a
+    maximal ideal \( M \) in \( K_1 \otimes_K K_2 \). Thus one can take 
+    \[
+      K' \coloneqq \qo{K_1\otimes_K K_2}{M}
+    \] 
+    which is a field intended, and the morhpism directly induced by the canonical morphism of
+    quotient ring.
+  \end{proof}
+\end{remark}
+
+\section{The Fundemental Theorem of Galois Theory}
+We introduce the setup first, let \( K \hookrightarrow L \) be a finite Galois field extension,
+namely it is normal and separable and algebraic. Now let 
+\[
+  G \coloneqq G\bace{\qo{L}{K}} = \{\sigma : L \to L \in \Aut(L) \; | \; \sigma|_K = \Id_K\}
+\] 
+and we have seen that 
+\[
+  \abs{G} = [L:K] < \infty
+\] 
+Out goal in this section is to \textbf{establish} a bijective correspondence between subextensions
+\( K \hookrightarrow L' \hookrightarrow L \) and the subgroups of \( G \). We can make some simple
+observations first:
+\begin{itemize}
+  \item If \( K \hookrightarrow L' \hookrightarrow L \) being a subextension, clearly 
+    \[
+      G(\qo{L}{L'}) \leq G(\qo{L}{K})
+    \] 
+    being subrgoup. \( \qo{L}{K} \) being a Galois extension \( \implies \qo{L}{L'} \) is \textbf{also} a Galois extension, thus
+    \[
+      \abs{G(\qo{L}{L'})} = [L:L'] < \infty
+    \] 
+  \item If \( H \leq G \) being a subgroup, define 
+    \[
+      L^H \coloneqq  \{u\in L \; | \; \sigma(u) = u \; \forall \; \sigma \in H\}
+    \]
+    now since \( \sigma \) is a ring automorphism, we have \( 1 \in L^H \) and if \( u_1,u_2\in L^H \implies u_1 - u_2 
+    \in L^H, u_1u_2 \in L^H \implies L^H \subseteq L\) being a subring. If \( u\in L^H
+    \smallsetminus \{0\} \implies u^{-1} \in L \implies u^{-1} \in L^H \) by the fact that \(
+    \sigma(u) = u \implies u^{-1} = (\sigma(u))^{-1} = \sigma(u^{-1}) \). Now it is easy to see that
+    \( K \subseteq L^H \) since \( \sigma \in G \implies \sigma|_K = \Id_K \implies \sigma(u) = u \;
+    \forall \; u \in K \implies \)
+    \[
+      K \hookrightarrow L^H \hookrightarrow L
+    \] 
+    is a subextension.
+\end{itemize}
+
+\begin{theorem}[\textbf{Fundemental Theorem of Galois Theory}]
+  Given in the finite extension setting:
+  \begin{enumerate}
+    \item These two maps describe above gives \textcolor{red}{mutual inverse order-reversing bijection} between 
+      subextension of \( K \hookrightarrow L \) and subgroups of \( G \).
+    \item The subgroup \( H \) of \( G \) is a normal subgroup of \( G \) iff \( K \hookrightarrow
+      L^H \) is a normal extension. In this case, we have an isormorphism:
+      \[
+        \qo{G}{H} \cong G\bace{\qo{L^H}{K}}
+      \] 
+  \end{enumerate}
+\end{theorem}
+
+\begin{note}
+  This is probably the reason why people invent group. People can in this way describe the group
+  structures completely with fields.
+\end{note}
+
+\begin{remark}
+  Both maps we defined reverse inclusion, we illustrate what is \textcolor{red}{inverse
+  order-reversing bijection} here:
+\end{remark}
