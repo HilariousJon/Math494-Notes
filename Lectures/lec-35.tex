@@ -120,4 +120,130 @@ observations first:
 \begin{remark}
   Both maps we defined reverse inclusion, we illustrate what is \textcolor{red}{inverse
   order-reversing bijection} here:
+  \begin{enumerate}
+    \item If \( H_1 \subseteq H_2 \subseteq G(\qo{L}{K}) \implies L^{H_2} \subseteq L^{H_1} \).
+    \item If \( K \hookrightarrow L_1 \hookrightarrow L_2 \hookrightarrow L \), then 
+      \[
+        G\bace{\qo{L}{L_2}} \subseteq G\bace{\qo{L}{L_1}}
+      \] 
+  \end{enumerate}
 \end{remark}
+
+\begin{remark}
+  For \textbf{1} in the \textbf{theorem}, we need to show:
+  \begin{enumerate}
+    \item If \( K \hookrightarrow L' \hookrightarrow L \implies L^{G(\qo{L}{L'})} = L' \).
+    \item If \( H \leq G \) being subrgoup, then \( G(\qo{L}{L^H}) = H \).
+  \end{enumerate}
+\end{remark}
+
+\begin{note}
+  Notice that both ``\( \supseteq \)'' part is trivial follows from the definition.
+\end{note}
+We will then need to show in some sense both sides will have the same size/dimension:
+\begin{itemize}
+  \item For 1: 
+    \[
+      [L : L^{G(\qo{L}{L'})}] = [L: L'] 
+    \] 
+  \item For 2:
+    \[
+      \abs{G(\qo{L}{L^H})} = \abs{H}
+    \] 
+\end{itemize}
+And we then only need to show that for all \( H \leq G \), we have 
+\[
+  [L:L^H] = \abs{H}
+\] 
+We will need some preparations for it. Fix a field \( L \), if \( A \) be any set \( \Fun(A,L) = \{f: A \to L\} \) 
+being a \( L \)-vector space. By that 
+\[
+  (\lambda f + \mu g) (a) = \lambda f(a) + \mu g(a) \quad \forall \; \lambda ,\mu \in L, f,g \in
+  \Fun(A,L)
+\] 
+\begin{theorem}[\textbf{Linear Independence of Characters}]
+  If \( L \) is a field, \( H \) is a group and let
+  \[
+    \sigma _1,\ldots,\sigma _n : H \to L^\times
+  \] 
+  be pairwise distinct group homomorphisms, then \( \sigma_1,\ldots, \sigma_n \in \Fun(H,L) \) are
+  linearly independent over \( L \).
+\end{theorem}
+
+\begin{proof}
+  Suppose there exists a relation \( a_1\sigma_1 + \cdots + a_n \sigma_n = 0 \), with not all \( a_i
+  = 0\). WLOG, We can choose such relation with minimal \( n \), \( (\implies a_i \ne 0 \; \forall
+  \; i) \). And we shall reason it through induction:
+  \begin{itemize}
+    \item If \( n = 1 \): \( a_1\sigma_1 = 0 \), leading to contradiction with \( a_1 \ne 0 \) and
+      \( \im(\sigma_1) \subseteq L \smallsetminus \{0\} = L^\times \).
+    \item Suppose now \( n \geq 2 \): then by pairwise distinct, \( \sigma_1 \ne \sigma_2 \implies
+      \exists \; h \in H \), s.t. \( \sigma_1 (h) \ne \sigma_2 (h) \).
+      \[
+        \begin{aligned}
+          \text{Hypothesis} \implies \sum_{i=1}^n a_i \sigma_i (g) &= 0 \quad \forall \; g \in H \\ 
+          \implies \sum_{i=1}^n a_i \sigma_i (gh) &= 0 \quad \forall \; g \in H \\ 
+          \implies \sum_{i=1}^n a_i \sigma_i (g) \sigma_i (h) &= 0
+        \end{aligned}
+      \] 
+      Now multiply the first line with \( \sigma_1(h) \), we get 
+      \[
+        \begin{aligned}
+          \implies \sum_{i=1}^n a_i \sigma_i (g) \sigma_1(h) &= 0 \quad \forall \; g \in H \\ 
+          \implies \sum_{i=2}^n a_i \underbrace{\sigma_i (h) - \sigma_1(h)}_{\ne 0 \text{ for } i = 2} \sigma_i &= 0
+        \end{aligned}
+      \] 
+      Thus we get a non-trivial relation with smaller \( n \), which contradicts to the minimality
+      of \( n \).
+  \end{itemize}
+\end{proof}
+
+\begin{corollary}
+  If \( L \) is any field, then the element of \( \Aut(L) \) are linearly independent over \( L \).
+\end{corollary}
+
+\begin{proof}
+  If \( \sigma_1,\ldots, \sigma_n \in \Aut(L) \) are distinct, then apply the theorem for 
+  \[
+    \begin{aligned}
+      \sigma_1 |_{L^\times} ,&
+      \ldots, \sigma_n |_{L^\times} \quad H = L^\times \\ 
+      \implies \sigma _1|_{L^\times} ,&\ldots,  \sigma_n |_{L^\times} \text{ are linearly independent}
+      \\ 
+      \implies \sigma_1,&\ldots, \sigma _n \in \Fun(L,L) \text{ are linearly independent.}
+    \end{aligned}
+  \] 
+\end{proof}
+
+\begin{proposition}
+  Given a field \( L \), \( A \subseteq \Aut(L) \), let 
+  \[
+    L' = \{u\in L \; | \; \sigma (u) = u \; \forall \; \sigma  \in A\}
+  \] 
+  then 
+  \[
+    [L: L'] \geq \# A
+  \] 
+\end{proposition}
+
+\begin{proof}
+  May assume \( [L: L'] = n < \infty\) and there exists \( \sigma_1,\ldots,
+  \sigma_{n+1} \in A \) are pairwise distinct. And we shall reason by contradiction. Suppose \(
+  u_1,\ldots, u_n \in L \) is basis over \( L' \), consider the following linear system:
+  \[
+    \sum_{i=1}^{n+1} \underbrace{\sigma_i (u_j)}_{\in L} x_i = 0 \text{ for } 1 \leq j \leq n
+  \] 
+  there are \( n \) equations with \( n+1 \) unknown variables, then there exists a solution \(
+  (a_1,\ldots, a_{n+1}) \in L^{n+1} \), which is \( \ne (0,\ldots,0) \). Then 
+  \[
+    \begin{aligned}
+      \implies \sum_{i=1}^{n+1} a_i \sigma_i (u_j) &= 0 \quad \forall \; j \\ 
+      \implies \bace{\sum_{i=1}^{n+1} a_i \sigma_i} (u) &= 0 \quad \forall \; u \in L \text{ since }
+      \sigma_i \text{ are } L'\text{-linear}
+    \end{aligned}
+  \] 
+  As we have \( \sigma_i (au) = \sigma_i (a)\sigma_i (u) = a\sigma_i(u) \) if \( a\in L' \).
+  Thus we have \( \sigma_1,\ldots, \sigma_{n+1} \) are \textbf{\textcolor{blue}{linearly
+  dependent}},
+  contradicting to the corollary above.
+\end{proof}
