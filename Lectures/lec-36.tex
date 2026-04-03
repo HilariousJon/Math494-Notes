@@ -1,0 +1,202 @@
+\begin{proposition}
+	\label{prop:upperbound-automorphisms}
+	If \( A \subseteq \Aut(L) \) is a subgroup, then \( [L:L'] \leq \# A \).
+\end{proposition}
+
+\begin{proof}
+	We argue by contradiction. Suppose that \( [L:L'] > \# A \). Say we have \( \# A = n \), and that
+	\( u_1,\ldots, u_{n+1} \in L \) being linearly independent over \( L' \). Consider the system of
+	linear equations:
+	\[
+		\sum_{i=1}^{n+1} \underbrace{\sigma(u_i)}_{\in L}  x_i = 0 \quad \forall \; \sigma \in A
+	\]
+	since \# equations < \# variables, then there exists \( a_1,\ldots, a_{n+1} \in L \) which are not
+	all \( 0 \), s.t.
+	\[
+		\sum_{i=1}^{n+1} a_i \sigma (u_i) = 0 \quad \forall \; \sigma  \in A
+	\]
+	Let \( q \leq n+1 \) be minimal, such that we have
+	\[
+		\sum_{i=1}^q b_i \sigma (v_i) = 0 \quad \forall \; \sigma \in A \text{ for some } v_1,\ldots,
+		v_q \in L \text{ being linearly independent over } L'
+	\]
+	such that not all \( b_i \) are \( 0 \). By minimality of \( q \), all \( b_i \ne 0 \), one can
+	replace all \( b_i \) by \( b_i / b_1 \) and thus may assume \( b_1 = 1 \). We want to then get a
+	shorter such relation:
+	\begin{itemize}
+		\item If \( q = 1 \): we have \( \sigma(v_1) = 0 \), leading to contradiction with the fact that
+		      \( \sigma \) is injective and \( v_1 \ne 0 \).
+		\item May assume that \( q \geq 2 \), let \( \sigma = \Id \) in the this case, we thus have:
+		      \[
+			      \sum_{i=1}^q b_i v_i = 0
+		      \]
+		      As the \( v_i \) are linearly independent over \( L' \implies \exists \; i \geq 2 \), s.t.
+		      \( b_i \not\in L' \), otherwise it will be \( 0 \). After reordering, may assume such \( i = 2 \). We
+		      have that \( b_2 \not\in L' \implies \exists \; \tau \in A \), s.t. \( \tau (b_2) \ne b_2 \), now apply
+		      \( \tau \) to the equation, we have:
+		      \[
+			      \sum_{i=1}^q \tau(b_i) \tau \sigma (v_i) = 0 \quad \forall \; \sigma \in A
+		      \]
+		      Since \( A \) is a subgroup, see that \( \tau \sigma \in A \), by letting \( \sigma = \tau
+		      \sigma\), we have:
+		      \[
+			      \sum_{i=1}^q b_i \tau \sigma (v_i) = 0 \quad \forall \; \sigma \in A
+		      \]
+		      We then subtract the two things, and get
+		      \[
+			      \begin{aligned}
+				      \sum_{i=1}^q (\tau (b_i) - b_i) \tau \sigma (v_i) & = 0 \quad \forall \; \sigma  \in A
+				      \\
+				      \implies \sum_{i=1}^q \underbrace{(\tau (b_i) - b_i)}_{\substack{=0 \text{ if } i = 1  \\ \ne 0 \text{
+				      if } i = 2}} \sigma (v_i)                         & = 0 \forall \; \sigma \in A
+			      \end{aligned}
+		      \]
+		      thus we get a shorter relation, contradicting to the minimality of \( q \) \( \lightning \).
+	\end{itemize}
+\end{proof}
+
+\begin{theorem}[\textbf{Fundemental Theorem of Galois Theory}]
+	Given in the finite extension setting, let \( K \hookrightarrow L \) be a finite Galois extension:
+	\begin{enumerate}
+		\item These two maps describe above gives \textcolor{red}{mutual inverse order-reversing bijection} between
+		      subextension of \( K \hookrightarrow L \) and subgroups of \( G \).
+		\item The subgroup \( H \) of \( G \) is a normal subgroup of \( G \) iff \( K \hookrightarrow
+		      L^H \) is a normal extension. In this case, we have an isormorphism:
+		      \[
+			      \qo{G}{H} \cong G\bace{\qo{L^H}{K}}
+		      \]
+	\end{enumerate}
+\end{theorem}
+
+\begin{proof}[\textbf{Proof of Fundemental Theorem of Galois Theory}]
+	\leavevmode
+	\begin{enumerate}
+		\item If \( K \hookrightarrow L' \hookrightarrow L \) being a subextension, with \( [L:L'] = m \), since
+		      \( \qo{L}{L'} \) is Galois extension, see that \( \abs{G(\qo{L}{L'})} = m \). By \textbf{Proposition} \ref{prop:upperbound-automorphisms}
+		      and \ref{prop:lowerbound-automorphisms}, see that
+		      \[
+			      [L:L^{G(\qo{L}{L'})}] = \abs{G(\qo{L}{L'})} = m
+		      \]
+		      and we have the trivial inclusion:
+		      \[
+			      \underbrace{L' \subseteq \underbrace{L^{G(\qo{L}{L'})} \subseteq L}}_{\text{same degree}} \implies L^{G(\qo{L'}{L})} = L'
+		      \]
+		      and similarly: if \( H \leq G(\qo{L}{K}) \), let \( \abs{H} = q \), by
+		      \textbf{Proposition} \ref{prop:upperbound-automorphisms} and
+		      \ref{prop:lowerbound-automorphisms}, see that
+		      \[
+			      [L:L^H] = m \implies \abs{G\bace{\qo{L}{L^H}}} = m
+		      \]
+		      and trivially we have:
+		      \[
+			      H\leq G\bace{\qo{L}{L^H}}
+		      \]
+		      and they have the same order, thus \( H = G(\qo{L}{L^H}) \).
+		\item Now suppose \( K \hookrightarrow L' \hookrightarrow L \) be a subextension, s.t. \(
+		      \qo{L'}{K} \) is normal extension. If \( \sigma \in G(\qo{L}{K}) \), since \( \qo{L'}{K} \) is normal, then
+		      \[
+			      \sigma(L') \subseteq L' \implies \sigma |_{L'} \in G\bace{\qo{L'}{K}}
+		      \]
+		      we thus get a natrual map as follow, which is in fact a group homomorphism:
+		      \[
+			      \begin{aligned}
+				      vp: G\bace{\qo{L}{K}} & \to G\bace{\qo{L'}{K}} \\
+				      \sigma                & \rsa \sigma |_{L'}
+			      \end{aligned}
+		      \]
+		      One can see that \( \ker(\vp) = G(\qo{L}{L'}) \implies G(\qo{L}{L'}) \) is a normal subgroup
+		      of \( G \), thus we have:
+		      \[
+			      \qo{G}{\ker(\vp)} \xrightarrow{\sim} \im(\vp) \xhookrightarrow{\sim} G\bace{\qo{L'}{K}}
+		      \]
+		      by that the order of \( \qo{G}{\ker(\vp)}) \) is given by:
+		      \[
+			      \abs{\qo{G}{\ker(\vp)}} = \frac{\abs{G}}{\abs{G\bace{\qo{L}{L'}}}} = \frac{[L:K]}{[L:L']}
+			      = [L':K] = \abs{G\bace{\qo{L'}{K}}}
+		      \]
+		      thus the isomorphism holds:
+		      \[
+			      \qo{G}{G\bace{\qo{L}{L'}}} \cong G\bace{\qo{L'}{K}}
+		      \]
+		      Suppose now \( K \hookrightarrow L' \hookrightarrow L \) and let \( H = G(\qo{L}{L'}) \)
+		      and that \( H \trianglelefteq G \). We want to see that \( \qo{L'}{K} \) is a normal extension.
+		      \[
+			      \begin{tikzcd}
+				      K \arrow[r,hook] \arrow[rd, hook] & L' \arrow[r,hook] \arrow[rrd, "\alpha"] & L
+				      \arrow[dashed, rd, "\tilde{\alpha}"] & \\
+				      & L' \arrow[r,hook] & L \arrow[r,hook] &
+				      \overline{L}
+			      \end{tikzcd}
+		      \]
+		      We need to show: \( \forall \) morphism of \( K \)-extension \( \alpha: L' \to \overline{L} \), we have
+		      that \( \alpha(L') \subseteq L' \). Since \( \qo{L}{L'} \) is algebraic, we can get an
+		      extension of \( \alpha \) by \( \tilde{\alpha} \). Since \( \qo{L}{K} \) is normal, then
+		      \( \tilde{\alpha}(L) \subseteq L \implies \sigma\coloneqq  \tilde{\alpha}|_{L} \in G(\qo{L}{K})  \). We
+		      need to show: \( \sigma(L') \subseteq L' \). \textbf{By 1}, we already know: \( L' = L^H \), hence we need to
+		      show: if \( u \in L^H \implies \sigma(u) \in L^H \). Which is equivalent to show:
+		      \[
+			      \begin{aligned}
+				      \forall \; \tau \in H,              \quad  \tau \sigma (u) & = \sigma (u) \\
+				      \iff (\sigma ^{-1}\tau \sigma )(u)                         & = u
+			      \end{aligned}
+		      \]
+		      with \( \sigma^{-1} \tau \sigma \in H \) since \( H \trianglelefteq G \). Thus \( u\in L^H
+		      \implies \sigma^{-1} \tau \sigma(u) = u\).
+	\end{enumerate}
+\end{proof}
+
+\begin{eg}
+	Let \( \qo{L}{\QQ} \) be the splitting field of \( x^3 - 2 \), where
+	\[
+		L = \QQ(\sqrt[3]{2}, \omega) \quad \omega^2 + \omega + 1 = 0
+	\]
+	\begin{remark}
+		In general, if \( \qo{L}{K} \) is a splitting field of a polynomial \( f \) (\( \deg(f) = n \)),
+		let \( \text{char}(K) = 0 \), and define:
+		\[
+			K \hookrightarrow L = K(\alpha_1,\ldots, \alpha_n)
+		\]
+		where \( \alpha_1,\ldots, \alpha_n \) are roots of \( f \). Given \( \sigma \in G(\qo{L}{K})
+		\implies \forall \; i, \; \sigma(\alpha_i) = \alpha_j \) for some \( j \). Thus we have the map:
+		\[
+			\begin{aligned}
+				G(\qo{L}{K}) & \to \fS_n                                                 \\
+				\sigma       & \rsa (i \to j \text{ if } \sigma (\alpha _i) = \alpha _j)
+			\end{aligned}
+		\]
+		this is a group homomorphism, and injective since \( L = K(\alpha_1,\ldots, \alpha_n) \). In
+		general this is very far from surjective.
+	\end{remark}
+	In this case, we in fact have a surjective and thus bijective homomorphism:
+	\[
+		G\bace{\qo{L}{\QQ}} \hookrightarrow \fS_3
+	\]
+	this has to be an isomorphism, since otherwise, \( \qo{L}{\QQ} \) would have no non-trivial
+	subextension, and thus \( \fS_3 \) have no non-trivial subgroup, but it has.
+
+	Alternatively, we have:
+	\[
+		\underbrace{\QQ \hookrightarrow}_{\deg = 3} \QQ(\sqrt[3]{2}) \underbrace{\hookrightarrow
+			L}_{\deg = 2}
+	\]
+	with the latter one given by the fact that \( \omega \not \in \QQ(\sqrt[3]{2}) \) and \( \omega^2
+	+ \omega + 1 = 0\). Thus \( \qo{L}{\QQ} \) has degree to be \( 6 \), the corresponding group
+	should either be \( \qo{\ZZ}{6\ZZ} \) or \( \qo{\ZZ}{2\ZZ} \times \qo{\ZZ}{3\ZZ} \) or \( \fS_3
+	\). But then since \( \qo{\QQ(\sqrt[3]{2})}{\QQ} \) is \textbf{not normal}, thus \( G(\qo{L}{\QQ}) \ne \)
+	abelian group, thus
+	\[
+		G\bace{\qo{L}{\QQ}} \cong \fS_3
+	\]
+	One can view in this way:
+	\( \fS_3 \) has an index \( 2 \) subgroup, \( 3 \) subgroups of order \( 2 \), which \textbf{\textcolor{blue}{correponds to}}
+	\[
+		\begin{tikzcd}
+			\QQ \arrow[r,hook] \arrow[rd, "\deg = 3"',hook] \arrow[rdd, hook,"\deg=3"'] \arrow[rddd, hook,
+				"\deg = 3"'] & \QQ(\omega) \arrow[r,hook] & L \\
+			& \QQ(\sqrt[3]{2}) \arrow[ru,hook, "\deg=2"'] & \\
+			& \QQ(\sqrt[3]{2}\omega) \arrow[ruu, hook, "\deg=2"'] & \\
+			& \QQ(\sqrt[3]{2}\omega^2) \arrow[ruuu, hook, "\deg=2"'] &
+		\end{tikzcd}
+	\]
+\end{eg}
+

@@ -1,249 +1,250 @@
 \begin{remark}
-  Let \( K \hookrightarrow L \) be a field extension, let \( a\in L \) be algebraic over \( K \).
-  Let \( f \) be the minimal polynomial of \( a \) over \( K \). If \( b \) is some other root of \( f \) in some algebraic 
-  closure \( \overline{L} \) of \( L \), then \( f \) is also minimal polynomial of \( b \): We need
-  to see that \( f(b) = 0 \), \( f \) monic, and irreducible.
-  \begin{proof}
-    By the fact that 
-    \[
-      \begin{aligned}
-        K(a) \cong &\frac{K[x]}{(f)} \cong K(b) \\ 
-        a \leftarrow & \; \; \; \overline{x}\; \; \;  \rightarrow b
-      \end{aligned}
-    \] 
-    then there exists an isomorphism of extension of \( K \):
-    \[
-      \begin{aligned}
-        \sigma: K(a) & \xrightarrow{\sim} K(b) \\ 
-        \sigma(a) &= b
-      \end{aligned}
-    \] 
-  \end{proof}
+	Let \( K \hookrightarrow L \) be a field extension, let \( a\in L \) be algebraic over \( K \).
+	Let \( f \) be the minimal polynomial of \( a \) over \( K \). If \( b \) is some other root of \( f \) in some algebraic
+	closure \( \overline{L} \) of \( L \), then \( f \) is also minimal polynomial of \( b \): We need
+	to see that \( f(b) = 0 \), \( f \) monic, and irreducible.
+	\begin{proof}
+		By the fact that
+		\[
+			\begin{aligned}
+				K(a) \cong   & \frac{K[x]}{(f)} \cong K(b)                  \\
+				a \leftarrow & \; \; \; \overline{x}\; \; \;  \rightarrow b
+			\end{aligned}
+		\]
+		then there exists an isomorphism of extension of \( K \):
+		\[
+			\begin{aligned}
+				\sigma: K(a) & \xrightarrow{\sim} K(b) \\
+				\sigma(a)    & = b
+			\end{aligned}
+		\]
+	\end{proof}
 \end{remark}
 
 \begin{remark}
-  The tensor product of \( K \)-algebra can be used to show the following:
-  if \( K \hookrightarrow K_1 \) and \( K \hookrightarrow K_2 \) are two field extensions, then
-  there exists a field \( K' \) with a commutative diagram of ring as follows:
-  \[
-    \begin{tikzcd}
-      & K_1 \arrow[rd, hook] & \\ 
-      K \arrow[ru, hook] \arrow[rd, hook] & & K' \\ 
-                                          &K_2 \arrow[ru, hook] & 
-    \end{tikzcd}
-  \] 
-  \begin{proof}
-    We know that we have a commutative diagram of rings, given as follows:
-    \[
-      \begin{tikzcd}
-      & K_1 \arrow[rd, hook] & \\ 
-        K \arrow[ru, hook] \arrow[rd, hook] & & K_1\otimes_K K_2 \\ 
-                                            &K_2 \arrow[ru, hook] & 
-      \end{tikzcd}
-    \] 
-    with the morphism given by 
-    \[
-      \begin{aligned}
-        K_1 &\hookrightarrow K_1\otimes_K K_2 \\ 
-        u &\mapsto u\otimes 1 \\ 
-        K_2 &\hookrightarrow K_1\otimes_K K_2 \\ 
-        v &\mapsto 1\otimes v
-      \end{aligned}
-    \] 
-    Notice that \( K_1 \otimes_K K_2 \ne 0 \), namely it is non-trivial ring, since we know the
-    basis of it over \( K \) as \( K_1 \) and \( K_2 \) is free over \( K \). Thus there exists a
-    maximal ideal \( M \) in \( K_1 \otimes_K K_2 \). Thus one can take 
-    \[
-      K' \coloneqq \qo{K_1\otimes_K K_2}{M}
-    \] 
-    which is a field intended, and the morhpism directly induced by the canonical morphism of
-    quotient ring.
-  \end{proof}
+	The tensor product of \( K \)-algebra can be used to show the following:
+	if \( K \hookrightarrow K_1 \) and \( K \hookrightarrow K_2 \) are two field extensions, then
+	there exists a field \( K' \) with a commutative diagram of ring as follows:
+	\[
+		\begin{tikzcd}
+			& K_1 \arrow[rd, hook] & \\
+			K \arrow[ru, hook] \arrow[rd, hook] & & K' \\
+			&K_2 \arrow[ru, hook] &
+		\end{tikzcd}
+	\]
+	\begin{proof}
+		We know that we have a commutative diagram of rings, given as follows:
+		\[
+			\begin{tikzcd}
+				& K_1 \arrow[rd, hook] & \\
+				K \arrow[ru, hook] \arrow[rd, hook] & & K_1\otimes_K K_2 \\
+				&K_2 \arrow[ru, hook] &
+			\end{tikzcd}
+		\]
+		with the morphism given by
+		\[
+			\begin{aligned}
+				K_1 & \hookrightarrow K_1\otimes_K K_2 \\
+				u   & \mapsto u\otimes 1               \\
+				K_2 & \hookrightarrow K_1\otimes_K K_2 \\
+				v   & \mapsto 1\otimes v
+			\end{aligned}
+		\]
+		Notice that \( K_1 \otimes_K K_2 \ne 0 \), namely it is non-trivial ring, since we know the
+		basis of it over \( K \) as \( K_1 \) and \( K_2 \) is free over \( K \). Thus there exists a
+		maximal ideal \( M \) in \( K_1 \otimes_K K_2 \). Thus one can take
+		\[
+			K' \coloneqq \qo{K_1\otimes_K K_2}{M}
+		\]
+		which is a field intended, and the morhpism directly induced by the canonical morphism of
+		quotient ring.
+	\end{proof}
 \end{remark}
 
 \section{The Fundemental Theorem of Galois Theory}
 We introduce the setup first, let \( K \hookrightarrow L \) be a finite Galois field extension,
-namely it is normal and separable and algebraic. Now let 
+namely it is normal and separable and algebraic. Now let
 \[
-  G \coloneqq G\bace{\qo{L}{K}} = \{\sigma : L \to L \in \Aut(L) \; | \; \sigma|_K = \Id_K\}
-\] 
-and we have seen that 
+	G \coloneqq G\bace{\qo{L}{K}} = \{\sigma : L \to L \in \Aut(L) \; | \; \sigma|_K = \Id_K\}
+\]
+and we have seen that
 \[
-  \abs{G} = [L:K] < \infty
-\] 
+	\abs{G} = [L:K] < \infty
+\]
 Out goal in this section is to \textbf{establish} a bijective correspondence between subextensions
 \( K \hookrightarrow L' \hookrightarrow L \) and the subgroups of \( G \). We can make some simple
 observations first:
 \begin{itemize}
-  \item If \( K \hookrightarrow L' \hookrightarrow L \) being a subextension, clearly 
-    \[
-      G(\qo{L}{L'}) \leq G(\qo{L}{K})
-    \] 
-    being subrgoup. \( \qo{L}{K} \) being a Galois extension \( \implies \qo{L}{L'} \) is \textbf{also} a Galois extension, thus
-    \[
-      \abs{G(\qo{L}{L'})} = [L:L'] < \infty
-    \] 
-  \item If \( H \leq G \) being a subgroup, define 
-    \[
-      L^H \coloneqq  \{u\in L \; | \; \sigma(u) = u \; \forall \; \sigma \in H\}
-    \]
-    now since \( \sigma \) is a ring automorphism, we have \( 1 \in L^H \) and if \( u_1,u_2\in L^H \implies u_1 - u_2 
-    \in L^H, u_1u_2 \in L^H \implies L^H \subseteq L\) being a subring. If \( u\in L^H
-    \smallsetminus \{0\} \implies u^{-1} \in L \implies u^{-1} \in L^H \) by the fact that \(
-    \sigma(u) = u \implies u^{-1} = (\sigma(u))^{-1} = \sigma(u^{-1}) \). Now it is easy to see that
-    \( K \subseteq L^H \) since \( \sigma \in G \implies \sigma|_K = \Id_K \implies \sigma(u) = u \;
-    \forall \; u \in K \implies \)
-    \[
-      K \hookrightarrow L^H \hookrightarrow L
-    \] 
-    is a subextension.
+	\item If \( K \hookrightarrow L' \hookrightarrow L \) being a subextension, clearly
+	      \[
+		      G(\qo{L}{L'}) \leq G(\qo{L}{K})
+	      \]
+	      being subrgoup. \( \qo{L}{K} \) being a Galois extension \( \implies \qo{L}{L'} \) is \textbf{also} a Galois extension, thus
+	      \[
+		      \abs{G(\qo{L}{L'})} = [L:L'] < \infty
+	      \]
+	\item If \( H \leq G \) being a subgroup, define
+	      \[
+		      L^H \coloneqq  \{u\in L \; | \; \sigma(u) = u \; \forall \; \sigma \in H\}
+	      \]
+	      now since \( \sigma \) is a ring automorphism, we have \( 1 \in L^H \) and if \( u_1,u_2\in L^H \implies u_1 - u_2
+	      \in L^H, u_1u_2 \in L^H \implies L^H \subseteq L\) being a subring. If \( u\in L^H
+	      \smallsetminus \{0\} \implies u^{-1} \in L \implies u^{-1} \in L^H \) by the fact that \(
+	      \sigma(u) = u \implies u^{-1} = (\sigma(u))^{-1} = \sigma(u^{-1}) \). Now it is easy to see that
+	      \( K \subseteq L^H \) since \( \sigma \in G \implies \sigma|_K = \Id_K \implies \sigma(u) = u \;
+	      \forall \; u \in K \implies \)
+	      \[
+		      K \hookrightarrow L^H \hookrightarrow L
+	      \]
+	      is a subextension.
 \end{itemize}
 
 \begin{theorem}[\textbf{Fundemental Theorem of Galois Theory}]
-  Given in the finite extension setting:
-  \begin{enumerate}
-    \item These two maps describe above gives \textcolor{red}{mutual inverse order-reversing bijection} between 
-      subextension of \( K \hookrightarrow L \) and subgroups of \( G \).
-    \item The subgroup \( H \) of \( G \) is a normal subgroup of \( G \) iff \( K \hookrightarrow
-      L^H \) is a normal extension. In this case, we have an isormorphism:
-      \[
-        \qo{G}{H} \cong G\bace{\qo{L^H}{K}}
-      \] 
-  \end{enumerate}
+	Given in the finite extension setting:
+	\begin{enumerate}
+		\item These two maps describe above gives \textcolor{red}{mutual inverse order-reversing bijection} between
+		      subextension of \( K \hookrightarrow L \) and subgroups of \( G \).
+		\item The subgroup \( H \) of \( G \) is a normal subgroup of \( G \) iff \( K \hookrightarrow
+		      L^H \) is a normal extension. In this case, we have an isormorphism:
+		      \[
+			      \qo{G}{H} \cong G\bace{\qo{L^H}{K}}
+		      \]
+	\end{enumerate}
 \end{theorem}
 
 \begin{note}
-  This is probably the reason why people invent group. People can in this way describe the group
-  structures completely with fields.
+	This is probably the reason why people invent group. People can in this way describe the group
+	structures completely with fields.
 \end{note}
 
 \begin{remark}
-  Both maps we defined reverse inclusion, we illustrate what is \textcolor{red}{inverse
-  order-reversing bijection} here:
-  \begin{enumerate}
-    \item If \( H_1 \subseteq H_2 \subseteq G(\qo{L}{K}) \implies L^{H_2} \subseteq L^{H_1} \).
-    \item If \( K \hookrightarrow L_1 \hookrightarrow L_2 \hookrightarrow L \), then 
-      \[
-        G\bace{\qo{L}{L_2}} \subseteq G\bace{\qo{L}{L_1}}
-      \] 
-  \end{enumerate}
+	Both maps we defined reverse inclusion, we illustrate what is \textcolor{red}{inverse
+		order-reversing bijection} here:
+	\begin{enumerate}
+		\item If \( H_1 \subseteq H_2 \subseteq G(\qo{L}{K}) \implies L^{H_2} \subseteq L^{H_1} \).
+		\item If \( K \hookrightarrow L_1 \hookrightarrow L_2 \hookrightarrow L \), then
+		      \[
+			      G\bace{\qo{L}{L_2}} \subseteq G\bace{\qo{L}{L_1}}
+		      \]
+	\end{enumerate}
 \end{remark}
 
 \begin{remark}
-  For \textbf{1} in the \textbf{theorem}, we need to show:
-  \begin{enumerate}
-    \item If \( K \hookrightarrow L' \hookrightarrow L \implies L^{G(\qo{L}{L'})} = L' \).
-    \item If \( H \leq G \) being subrgoup, then \( G(\qo{L}{L^H}) = H \).
-  \end{enumerate}
+	For \textbf{1} in the \textbf{theorem}, we need to show:
+	\begin{enumerate}
+		\item If \( K \hookrightarrow L' \hookrightarrow L \implies L^{G(\qo{L}{L'})} = L' \).
+		\item If \( H \leq G \) being subrgoup, then \( G(\qo{L}{L^H}) = H \).
+	\end{enumerate}
 \end{remark}
 
 \begin{note}
-  Notice that both ``\( \supseteq \)'' part is trivial follows from the definition.
+	Notice that both ``\( \supseteq \)'' part is trivial follows from the definition.
 \end{note}
 We will then need to show in some sense both sides will have the same size/dimension:
 \begin{itemize}
-  \item For 1: 
-    \[
-      [L : L^{G(\qo{L}{L'})}] = [L: L'] 
-    \] 
-  \item For 2:
-    \[
-      \abs{G(\qo{L}{L^H})} = \abs{H}
-    \] 
+	\item For 1:
+	      \[
+		      [L : L^{G(\qo{L}{L'})}] = [L: L']
+	      \]
+	\item For 2:
+	      \[
+		      \abs{G(\qo{L}{L^H})} = \abs{H}
+	      \]
 \end{itemize}
-And we then only need to show that for all \( H \leq G \), we have 
+And we then only need to show that for all \( H \leq G \), we have
 \[
-  [L:L^H] = \abs{H}
-\] 
-We will need some preparations for it. Fix a field \( L \), if \( A \) be any set \( \Fun(A,L) = \{f: A \to L\} \) 
-being a \( L \)-vector space. By that 
+	[L:L^H] = \abs{H}
+\]
+We will need some preparations for it. Fix a field \( L \), if \( A \) be any set \( \Fun(A,L) = \{f: A \to L\} \)
+being a \( L \)-vector space. By that
 \[
-  (\lambda f + \mu g) (a) = \lambda f(a) + \mu g(a) \quad \forall \; \lambda ,\mu \in L, f,g \in
-  \Fun(A,L)
-\] 
+	(\lambda f + \mu g) (a) = \lambda f(a) + \mu g(a) \quad \forall \; \lambda ,\mu \in L, f,g \in
+	\Fun(A,L)
+\]
 \begin{theorem}[\textbf{Linear Independence of Characters}]
-  If \( L \) is a field, \( H \) is a group and let
-  \[
-    \sigma _1,\ldots,\sigma _n : H \to L^\times
-  \] 
-  be pairwise distinct group homomorphisms, then \( \sigma_1,\ldots, \sigma_n \in \Fun(H,L) \) are
-  linearly independent over \( L \).
+	If \( L \) is a field, \( H \) is a group and let
+	\[
+		\sigma _1,\ldots,\sigma _n : H \to L^\times
+	\]
+	be pairwise distinct group homomorphisms, then \( \sigma_1,\ldots, \sigma_n \in \Fun(H,L) \) are
+	linearly independent over \( L \).
 \end{theorem}
 
 \begin{proof}
-  Suppose there exists a relation \( a_1\sigma_1 + \cdots + a_n \sigma_n = 0 \), with not all \( a_i
-  = 0\). WLOG, We can choose such relation with minimal \( n \), \( (\implies a_i \ne 0 \; \forall
-  \; i) \). And we shall reason it through induction:
-  \begin{itemize}
-    \item If \( n = 1 \): \( a_1\sigma_1 = 0 \), leading to contradiction with \( a_1 \ne 0 \) and
-      \( \im(\sigma_1) \subseteq L \smallsetminus \{0\} = L^\times \).
-    \item Suppose now \( n \geq 2 \): then by pairwise distinct, \( \sigma_1 \ne \sigma_2 \implies
-      \exists \; h \in H \), s.t. \( \sigma_1 (h) \ne \sigma_2 (h) \).
-      \[
-        \begin{aligned}
-          \text{Hypothesis} \implies \sum_{i=1}^n a_i \sigma_i (g) &= 0 \quad \forall \; g \in H \\ 
-          \implies \sum_{i=1}^n a_i \sigma_i (gh) &= 0 \quad \forall \; g \in H \\ 
-          \implies \sum_{i=1}^n a_i \sigma_i (g) \sigma_i (h) &= 0
-        \end{aligned}
-      \] 
-      Now multiply the first line with \( \sigma_1(h) \), we get 
-      \[
-        \begin{aligned}
-          \implies \sum_{i=1}^n a_i \sigma_i (g) \sigma_1(h) &= 0 \quad \forall \; g \in H \\ 
-          \implies \sum_{i=2}^n a_i \underbrace{\sigma_i (h) - \sigma_1(h)}_{\ne 0 \text{ for } i = 2} \sigma_i &= 0
-        \end{aligned}
-      \] 
-      Thus we get a non-trivial relation with smaller \( n \), which contradicts to the minimality
-      of \( n \).
-  \end{itemize}
+	Suppose there exists a relation \( a_1\sigma_1 + \cdots + a_n \sigma_n = 0 \), with not all \( a_i
+	= 0\). WLOG, We can choose such relation with minimal \( n \), \( (\implies a_i \ne 0 \; \forall
+	\; i) \). And we shall reason it through induction:
+	\begin{itemize}
+		\item If \( n = 1 \): \( a_1\sigma_1 = 0 \), leading to contradiction with \( a_1 \ne 0 \) and
+		      \( \im(\sigma_1) \subseteq L \smallsetminus \{0\} = L^\times \).
+		\item Suppose now \( n \geq 2 \): then by pairwise distinct, \( \sigma_1 \ne \sigma_2 \implies
+		      \exists \; h \in H \), s.t. \( \sigma_1 (h) \ne \sigma_2 (h) \).
+		      \[
+			      \begin{aligned}
+				      \text{Hypothesis} \implies \sum_{i=1}^n a_i \sigma_i (g) & = 0 \quad \forall \; g \in H \\
+				      \implies \sum_{i=1}^n a_i \sigma_i (gh)                  & = 0 \quad \forall \; g \in H \\
+				      \implies \sum_{i=1}^n a_i \sigma_i (g) \sigma_i (h)      & = 0
+			      \end{aligned}
+		      \]
+		      Now multiply the first line with \( \sigma_1(h) \), we get
+		      \[
+			      \begin{aligned}
+				      \implies \sum_{i=1}^n a_i \sigma_i (g) \sigma_1(h)                                                    & = 0 \quad \forall \; g \in H \\
+				      \implies \sum_{i=2}^n a_i \underbrace{\sigma_i (h) - \sigma_1(h)}_{\ne 0 \text{ for } i = 2} \sigma_i & = 0
+			      \end{aligned}
+		      \]
+		      Thus we get a non-trivial relation with smaller \( n \), which contradicts to the minimality
+		      of \( n \).
+	\end{itemize}
 \end{proof}
 
 \begin{corollary}
-  If \( L \) is any field, then the element of \( \Aut(L) \) are linearly independent over \( L \).
+	If \( L \) is any field, then the element of \( \Aut(L) \) are linearly independent over \( L \).
 \end{corollary}
 
 \begin{proof}
-  If \( \sigma_1,\ldots, \sigma_n \in \Aut(L) \) are distinct, then apply the theorem for 
-  \[
-    \begin{aligned}
-      \sigma_1 |_{L^\times} ,&
-      \ldots, \sigma_n |_{L^\times} \quad H = L^\times \\ 
-      \implies \sigma _1|_{L^\times} ,&\ldots,  \sigma_n |_{L^\times} \text{ are linearly independent}
-      \\ 
-      \implies \sigma_1,&\ldots, \sigma _n \in \Fun(L,L) \text{ are linearly independent.}
-    \end{aligned}
-  \] 
+	If \( \sigma_1,\ldots, \sigma_n \in \Aut(L) \) are distinct, then apply the theorem for
+	\[
+		\begin{aligned}
+			\sigma_1 |_{L^\times} ,          &
+			\ldots, \sigma_n |_{L^\times} \quad H = L^\times                                                     \\
+			\implies \sigma _1|_{L^\times} , & \ldots,  \sigma_n |_{L^\times} \text{ are linearly independent}
+			\\
+			\implies \sigma_1,               & \ldots, \sigma _n \in \Fun(L,L) \text{ are linearly independent.}
+		\end{aligned}
+	\]
 \end{proof}
 
 \begin{proposition}
-  Given a field \( L \), \( A \subseteq \Aut(L) \), let 
-  \[
-    L' = \{u\in L \; | \; \sigma (u) = u \; \forall \; \sigma  \in A\}
-  \] 
-  then 
-  \[
-    [L: L'] \geq \# A
-  \] 
+	\label{prop:lowerbound-automorphisms}
+	Given a field \( L \), \( A \subseteq \Aut(L) \), let
+	\[
+		L' = \{u\in L \; | \; \sigma (u) = u \; \forall \; \sigma  \in A\}
+	\]
+	then
+	\[
+		[L: L'] \geq \# A
+	\]
 \end{proposition}
 
 \begin{proof}
-  May assume \( [L: L'] = n < \infty\) and there exists \( \sigma_1,\ldots,
-  \sigma_{n+1} \in A \) are pairwise distinct. And we shall reason by contradiction. Suppose \(
-  u_1,\ldots, u_n \in L \) is basis over \( L' \), consider the following linear system:
-  \[
-    \sum_{i=1}^{n+1} \underbrace{\sigma_i (u_j)}_{\in L} x_i = 0 \text{ for } 1 \leq j \leq n
-  \] 
-  there are \( n \) equations with \( n+1 \) unknown variables, then there exists a solution \(
-  (a_1,\ldots, a_{n+1}) \in L^{n+1} \), which is \( \ne (0,\ldots,0) \). Then 
-  \[
-    \begin{aligned}
-      \implies \sum_{i=1}^{n+1} a_i \sigma_i (u_j) &= 0 \quad \forall \; j \\ 
-      \implies \bace{\sum_{i=1}^{n+1} a_i \sigma_i} (u) &= 0 \quad \forall \; u \in L \text{ since }
-      \sigma_i \text{ are } L'\text{-linear}
-    \end{aligned}
-  \] 
-  As we have \( \sigma_i (au) = \sigma_i (a)\sigma_i (u) = a\sigma_i(u) \) if \( a\in L' \).
-  Thus we have \( \sigma_1,\ldots, \sigma_{n+1} \) are \textbf{\textcolor{blue}{linearly
-  dependent}},
-  contradicting to the corollary above.
+	May assume \( [L: L'] = n < \infty\) and there exists \( \sigma_1,\ldots,
+	\sigma_{n+1} \in A \) are pairwise distinct. And we shall reason by contradiction. Suppose \(
+	u_1,\ldots, u_n \in L \) is basis over \( L' \), consider the following linear system:
+	\[
+		\sum_{i=1}^{n+1} \underbrace{\sigma_i (u_j)}_{\in L} x_i = 0 \text{ for } 1 \leq j \leq n
+	\]
+	there are \( n \) equations with \( n+1 \) unknown variables, then there exists a solution \(
+	(a_1,\ldots, a_{n+1}) \in L^{n+1} \), which is \( \ne (0,\ldots,0) \). Then
+	\[
+		\begin{aligned}
+			\implies \sum_{i=1}^{n+1} a_i \sigma_i (u_j)      & = 0 \quad \forall \; j                      \\
+			\implies \bace{\sum_{i=1}^{n+1} a_i \sigma_i} (u) & = 0 \quad \forall \; u \in L \text{ since }
+			\sigma_i \text{ are } L'\text{-linear}
+		\end{aligned}
+	\]
+	As we have \( \sigma_i (au) = \sigma_i (a)\sigma_i (u) = a\sigma_i(u) \) if \( a\in L' \).
+	Thus we have \( \sigma_1,\ldots, \sigma_{n+1} \) are \textbf{\textcolor{blue}{linearly
+			dependent}},
+	contradicting to the corollary above.
 \end{proof}
