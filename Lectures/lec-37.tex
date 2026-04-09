@@ -1,0 +1,199 @@
+\section{Cyclotomic Fields}
+
+\begin{definition}[\textbf{Primitive \( n \)-th root}]
+	Suppose \( n > 0 \) and \( \mu_n \subseteq \CC^\times \), and
+	\[
+		\begin{aligned}
+			\mu_n & = \{\zeta \in \CC^\times \; | \; \zeta^n = 1\}                                  \\
+			      & = \{\cos(\frac{2k\pi}{n}) + i\sin(\frac{2k \pi}{n}) \; | \; 0 \leq k \leq n-1\}
+		\end{aligned}
+	\]
+	being a cyclic group. A \underline{primitive \( n \)-th root} of \( 1 \) is \( \zeta \) is a
+	generator of this group.
+\end{definition}
+The goal is to understand the field extension \( \QQ \hookrightarrow \QQ(\mu_n) = \QQ(\zeta) \)
+where \( \zeta \) is the primitive \( n \)-th root of the splittiing field of \( x^n-1 \).
+
+\begin{definition}[\textbf{\( n \)-th Cyclotomic Polynomial}]
+	The \( n \)-th cyclotomic polynomial \( \Phi_n \) is given by
+	\[
+		\Phi_n = \prod_{\zeta = n\text{-th primitive root of 1}} (x-\zeta) \in \CC[x]
+	\]
+	which is monic.
+\end{definition}
+
+\begin{note}
+	If \( \zeta \) is the \( n \)-th primitive root of \( 1 \), then the primitive \( n \)-th root of
+	\( 1 \) is given by:
+	\[
+		\{\zeta^l \; | \; 1 \leq l \leq n, \gcd(l,n) = 1\}
+	\]
+	which can be computed by Euler's formula. In particular:
+	\[
+		\deg (\Phi_n) = \vp(n) = \# \{l \; | \; 1\leq l \leq n, \gcd(l,n) = 1\}
+	\]
+\end{note}
+
+\begin{eg}
+	If \( p > 0 \) is prime, then the degree of \( \Phi_n = p - 1 \), and we have:
+	\[
+		\Phi_n (x) = \frac{x^p - 1}{x - 1} = x^{p-1} + \cdots + x - 1 \in \ZZ[x]
+	\]
+\end{eg}
+
+\begin{proposition}[\textbf{General Properties of \( \Phi_n \)}]
+	\leavevmode
+	\begin{enumerate}
+		\item \( x^n - 1 = \prod_{d \mid n} \Phi_d(x) \)
+		      \begin{proof}
+			      For \( x^n - 1 \) there is clearly no multiple roots. See that
+			      \[
+				      x^n - 1 = \prod_{\zeta \in \mu_n} (x - \zeta)
+			      \]
+			      with
+			      \[
+				      \mu_n = \bigsqcup_{d\mid n} \{\text{primitive } d \text{-th root of 1}\}
+			      \]
+		      \end{proof}
+		\item \( \Phi_n \in \ZZ[x] \; \forall \; n \geq 1 \)
+		      \begin{proof}
+			      Argue by induction on \( n \geq 1 \).
+			      \begin{itemize}
+				      \item \( n = 1 \): \( \Phi_1 = x - 1 \) which is ok.
+				      \item Inductive step:
+				            \[
+					            x^n  -1 = \prod_{d\mid n} \Phi_d(x) \implies \Phi_n(x) \cdot \underbrace{\prod_{d\mid n, n\ne
+							            n} \Phi_d(x)}_{\in \ZZ[x] \text{ by induction}} = x^n -1 \in \ZZ[x]
+				            \]
+				            Then it is enough to show the following:
+				            \begin{proposition}
+					            Let \( S \) be commutative ring, and \( R \subseteq S \) being a subring, if
+					            \( f,g,h \) are monic polynomials in \( S[x] \), such that \( f=gh \) and \(
+					            f,g \in R[x] \), then \( h \in R[x] \).
+				            \end{proposition}
+
+				            \begin{proof}
+					            Denote:
+					            \[
+						            \begin{aligned}
+							            g & = x^m + b_1 x^{m-1} + \cdots + b_m \\
+							            h & = x^n + c_1 x^{n-1} + \cdots + c_n
+						            \end{aligned}
+					            \]
+					            See that the coefficient of \( x^{i + m + n} \) in \( f \) lies in \( R \) for
+					            \( 1 \leq i \leq n \), which is actually
+					            \[
+						            c_i + \underbrace{c_{i-1}b_1 + \cdots + c_1 b_{i-1} + b_i}_{\in R \text{ by
+								            induction on $i$, since \( b_j \in R \; \forall \; j \)}} \implies c_i \in R
+					            \]
+				            \end{proof}
+			      \end{itemize}
+		      \end{proof}
+		\item \( \Phi_n(x) \) is irreducible ($\implies \Phi_n(x)$ is the minimal polynomial of any
+		      primitive \( n \)-th root of \( 1 \))
+		      \begin{proof}
+			      Let \( \zeta \) be the primitive \( n \)-th root of \( 1 \) and let \( f\in \QQ[x] \) be
+			      the minimal polynomial of \( \zeta \) over \( \QQ \). Since \( \Phi_n(\zeta) = 0
+			      \implies f \mid \Phi_n \). Now let \( \Phi_n = f g \) for some \( g \in \QQ[x] \), then
+			      \( f, \Phi_n \) is monic \( \implies g \) is monic.
+			      \begin{claim}
+				      \( f,g \in \ZZ[x] \).
+			      \end{claim}
+			      \begin{proof}
+				      Recall that if \( P \in \QQ[x] \) is any non-zero polynomial, then \( P = c(P) \cdot P' \) with
+				      \( c(P) \in \QQ \) and \( P' \in \ZZ[x] \) being primitive. Thus
+				      \[
+					      1 = c(\Phi_n) \sim c(f) c(g) \implies 1 = c(\Phi_n) = \pm  c(f) \cdot c(g)
+				      \]
+				      \begin{note}
+					      \( f,g \) being monic \( \implies \frac{1}{c(f)} \cdot \frac{1}{c(g)} \in \ZZ \)
+				      \end{note}
+				      If \( a \in \ZZ_{>0} \), s.t. \( a f \in \ZZ[x] \), then \( ac(f) = c(af) =
+				      \gcd(\text{coefficient of } af) \mid a \implies \exists \; q \in \ZZ \), s.t. \( a c(f) \cdot q = a \implies
+				      c(f) = \frac{1}{q}\), hence \( c(f), c(g) = \pm 1 \implies f,g \in \ZZ[x] \).
+			      \end{proof}
+
+			      \begin{claim}
+				      Fix prime \( p \), s.t. \( p\nmid n \). If \( \alpha \) is a root of \( f \implies
+				      \alpha^p \) is a root of \( f \). This implies that \( f = \Phi_n \), and hence \( \Phi_n \) is
+				      irreducible. Why is that? Given our root \( \zeta \) of \( f \), every root of \( \Phi_n \) is
+				      of the form \( \zeta^m \) where \( \gcd(m,n) = 1 \).
+
+				      Now if \( m = p_1\cdots p_k \) where \( p_i \) is prime, this claim + induction on \( i \) implies that
+				      \( \zeta^{p_1\cdots p_i} \) are root of \( f \) for \( 1\leq i \leq k \implies \zeta^m \) is root
+				      of \( f \). This holds for all primitive \( n \)-th root of \( 1 \implies f = \Phi_n \), and hence
+				      \( \Phi_n \) is irreducible.
+			      \end{claim}
+
+			      \begin{proof}
+				      We use the ring homomorphism:
+				      \[
+					      \begin{aligned}
+						      \ZZ[x]           & \to \bace{\qo{\ZZ}{p\ZZ}}[x]                   \\
+						      x                & \mapsto x                                      \\
+						      \sum a_i x^i = Q & \mapsto \overline{Q} = \sum \overline{a_i} x^i
+					      \end{aligned}
+				      \]
+				      We argue by contradiction, suppose \( \alpha \) is a root of \( f \), such that \(
+				      \alpha^p  \ne \) root of \( f  \implies  g(\alpha^p) = 0\) by the fact that \( \Phi_n
+				      = fg\). Thus
+				      \[
+					      f(x) \mid g(x^p) \text{ in } \QQ[x] (f \text{ irreducible } \implies f \text{
+						      minimal polynomial of } \alpha^p)
+				      \]
+				      by the fact that \( g(x^p) = f(x) \cdot h(x), h(x) \in \QQ[x] \implies \) by monic \(
+				      \implies h \in \ZZ[x] \). Now \( \Phi_n = fg \implies \) In \( \qo{\ZZ}{p\ZZ}[x] \):
+				      \( \overline{\Phi_n}(x) = \overline{f}(x) \cdot \overline{g}(x) \), thus
+				      \[
+					      \begin{aligned}
+						      (\overline{\Phi_n}(x))^p = \overline{\Phi_n}(x^p) & = \overline{f} (x^p) \cdot
+						      \overline{g}(x^p)                                                                   \\
+						                                                        & = \overline{f}(x^p) \cdot
+						      \overline{f} (x) \cdot
+						      \overline{h} (x)                                                                    \\
+						                                                        & = (\overline{f}(x))^p \cdot
+						      \overline{f}(x) \cdot
+						      \overline{h}(x)                                                                     \\
+						                                                        & = (\overline{f}(x))^{p+1} \cdot
+						      \overline{h}(x)
+					      \end{aligned}
+				      \]
+				      where we have that \( \overline{f} (x^p) = (\overline{f}(x))^p \) since \( a^p = a \;
+				      \forall \; a \in \qo{\ZZ}{p\ZZ}\) and \( u \mapsto u^p \) is a ring homomorphism.
+				      \begin{note}
+					      \( \overline{\Phi_n} \) doesn't have multiple roots.
+				      \end{note}
+				      Since \( \overline{\Phi_n} \mid x^n - 1 \) in \( \qo{\ZZ}{p\ZZ} \) and since \( (x^n -
+				      1)' = nx^{n-1} \ne 0 \) has only root \( x = 0 \) and \( x = 0 \) not root of \( x^n -
+				      1 \implies \overline{\Phi_n}\) has only simple root.
+
+				      Hence, all roots of \( (\overline{\Phi_n})^p \) have multiplicity being \( p \), but
+				      \( (\overline{f})^{p+1} \) has roots of multiplicity \( \geq p + 1 \), leading to
+				      contradiction \( \lightning \).
+			      \end{proof}
+		      \end{proof}
+	\end{enumerate}
+\end{proposition}
+
+\begin{conclusion}
+	\leavevmode
+	\begin{itemize}
+		\item \( [\QQ(\zeta) : \QQ] = \vp(n) \) and the minimal polynomial of \( \zeta \) is \( \Phi_n(x) \), where
+		      \( \zeta \) is the primitive \( n \)-th root of \( 1 \).
+		\item \( \QQ \hookrightarrow \QQ(\zeta) \) is splitting field of \( x^n - 1 \), and it is
+		      normal, separable(by that char\( (\QQ) = 0\)) \( \implies \) it is a finite Galois extension.
+
+		      Then what iis the Galois group?
+		      \[
+			      \begin{aligned}
+				      G \bace{\qo{\QQ(\zeta)}{\QQ}} & \to \bace{\qo{\ZZ}{n\ZZ}}^\times             \\
+				      \sigma                        & \mapsto l                                    \\
+				      \text{where } \sigma(\zeta)   & = \zeta^l \text{ for some } l, \gcd(l,n) = 1
+			      \end{aligned}
+		      \]
+		      this is a group homomorphism, it is injective since \( \zeta \) generates \( \QQ(\zeta) \)
+		      over \( \QQ \). Now both sides have \( \vp(n) \) elements, and therefore being an isomorphism.
+	\end{itemize}
+\end{conclusion}
+
+
