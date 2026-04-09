@@ -1,0 +1,201 @@
+\section{Trace and Norm}
+
+\begin{definition}[\textbf{Trace and Norm}]
+	Fix a field \( K \), let \( A \) being a commutative \( K \)-algebra, with \( K \to A \), s.t. \(
+	\dim_K(A) < \infty \). Given \( a \in A \), let
+	\[
+		\begin{aligned}
+			\vp_a : A & \to A \\
+			\vp_a(b)  & = ab
+		\end{aligned}
+	\]
+	this is a \( K \)-linear map.
+	\begin{itemize}
+		\item The \underline{trace} \( \Tr_{\qo{A}{K}}(a) \) is trace(\( \vp_a \)) \( \in K \).
+		\item The \underline{norm} \( N_{\qo{A}{K}}(a) \) is \( \det(\vp_a) \in K \).
+	\end{itemize}
+\end{definition}
+
+\begin{eg}
+	\leavevmode
+	\begin{enumerate}
+		\item If \( a \in K \implies \) w.r.t. any basis of \( A \), \( \vp_a \) correspond to \( a I_n
+		      \implies \)
+		      \[
+			      \begin{aligned}
+				      \Tr_{\qo{A}{K}}(a) & = na  \\
+				      N_{\qo{A}{K}}(a)   & = a^n
+			      \end{aligned}
+		      \]
+		      with \( n = \dim_{K}(A) \).
+		\item Let \( QQ \hookrightarrow L = \QQ(\sqrt{d}) \) with \( d \in \ZZ \) not a square. We
+		      have basis \( \qo{L}{\QQ} \) being \( 1, \sqrt{d} \). Now if \( a = a_1 + a_2 \sqrt{d} \),
+		      we have:
+		      \[
+			      \begin{aligned}
+				      \begin{cases}
+					      a\cdot 1 = a_1 + a_2 \sqrt{d} \\
+					      a\cdot \sqrt{d} = d a_2 + a_1 \sqrt{d}
+				      \end{cases}
+				       & \implies
+				      \begin{pmatrix}
+					      a_1  & a_2 \\
+					      da_2 & a_1
+				      \end{pmatrix} \\
+				       & \implies
+				      \begin{cases}
+					      \Tr_{\qo{L}{\QQ}}(a) = 2a_1 \\
+					      N_{\qo{L}{\QQ}}(a) = a_1^2 -da_2^2 = (a_1 + \sqrt{d}a_2) (a_1 - \sqrt{d}a_2)
+				      \end{cases}
+			      \end{aligned}
+		      \]
+	\end{enumerate}
+\end{eg}
+
+\begin{proposition}[\textbf{Easy Properties}]
+	\leavevmode
+	\begin{enumerate}
+		\item \( \Tr_{\qo{A}{K}}: A \to K \) is a \( K \)-linear map.
+		      \begin{proof}
+			      Have
+			      \[
+				      \vp_{\lambda_1 a_1 + \lambda _2 a_2} = \lambda _1 \vp_{a_1} + \lambda _2 \vp_{a_2} \quad
+				      a_1,a_2 \in A, \lambda _1, \lambda _2 \in K
+			      \]
+			      and trace(-) is a \( K \)-linear map.
+		      \end{proof}
+		\item \( N_{\qo{A}{K}}(ab) = N_{\qo{A}{K}}(a) N_{\qo{A}{K}}(b) \; \forall \; a,b \in A \).
+		      \begin{proof}
+			      See that
+			      \[
+				      \vp_{ab} = \vp_a \circ \vp_b
+			      \]
+			      and \( \det(-) \) is multiplicative.
+		      \end{proof}
+		\item (Transitivity) \( \underbrace{k\hookrightarrow }_{\text{finite ext.}} K \to A \)
+		      \begin{itemize}
+			      \item \( \Tr_{\qo{A}{K}}(a) = \Tr_{\qo{K}{k}}(\Tr_{\qo{A}{K}} (a)) \).
+			      \item \( N_{\qo{A}{k}}(a) = N_{\qo{K}{k}}(N_{\qo{A}{K}}(a)) \).
+		      \end{itemize}
+		      We only prove for the first, the second is similar.
+		      \begin{proof}
+			      Say
+			      \[
+				      \begin{aligned}
+					      e_1, & \ldots, e_n \text{ basis of } \qo{A}{K} \\
+					      f_1, & \ldots, f_m \text{ basis of } \qo{K}{k}
+				      \end{aligned}
+			      \]
+			      we have a basis given by
+			      \[
+				      \{e_i f_j \; | \; i \leq n, j \leq m\}
+			      \]
+			      for \( \qo{A}{k} \).\todo{chech this.} Now given \( a\in A \), have:
+			      \[
+				      \begin{aligned}
+					      a e_i                                         & = \sum_{j=1}^n \alpha_{ji} e_j \quad \alpha_{ji} \in K \\
+					      \alpha_{ji} f_p                               & = \sum_{q=1}^m \underbrace{\gamma_{jiqp}}_{\in k} f_q  \\
+					      \implies a e_i f_p                            & = \sum_{\substack{j = 1 \sim n                         \\ q = 1\sim m}}
+					      \gamma_{jiqp} e_j f_p \implies \Tr_{\qo{A}{k}}(a) = \sum_{\substack{j = 1 \sim n                       \\
+					      q = 1 \sim m}} \gamma_{jiqp}                                                                           \\
+					      \Tr_{\qo{A}{K}}(a)                            & = \sum_{j=1}^n \alpha_{jj}                             \\
+					      \implies \Tr_{\qo{K}{k}}(\Tr_{\qo{A}{K}} (a)) & = \sum_{j=1}^n
+					      \Tr_{\qo{K}{k}}(\alpha_{jj})                                                                           \\
+					                                                    & = \sum_{j=1}^n \sum_{q=1}^m \gamma_{jjqq}
+				      \end{aligned}
+			      \]
+			      which completes the proof.
+		      \end{proof}
+		\item Suppose the following diagram:
+		      \[
+			      \begin{tikzcd}
+				      K \arrow[r] \arrow[d, hook] & A \arrow[d] \\
+				      L \arrow[r] & A_L = A \otimes_K L
+			      \end{tikzcd}
+		      \]
+		      let \( a\in A \implies \)
+		      \begin{itemize}
+			      \item \( \Tr_{\qo{A}{K}}(a) = \Tr_{\qo{A_L}{L}}(a\otimes 1) \).
+			      \item \( N_{\qo{A}{K}}(a) = N_{\qo{A_L}{L}}(a\otimes 1) \).
+		      \end{itemize}
+
+		      \begin{proof}
+			      If \( e_1,\ldots, e_n \) be basis of \( \qo{A}{K} \), then \( e_1\otimes 1,\ldots, e_n
+			      \otimes 1 \) is basis of \( \qo{A_L}{L} \) \todo{check this!}. Notice that
+			      \[
+				      (a\otimes 1)(e_i \otimes 1) = ae_i \otimes 1
+			      \]
+			      multiply by \( a \), resp \( a\otimes 1 \) is given by the same matrix.
+		      \end{proof}
+		\item If \( A = A_1 \times A_2 \), then
+		      \begin{itemize}
+			      \item \( \Tr_{\qo{A}{K}}(a_1,a_2) = \Tr_{\qo{A_1}{K}}(a_1) + \Tr_{\qo{A_2}{K}}(a_2) \).
+			      \item \( N_{\qo{A}{K}}(a_1,a_2) = N_{\qo{A_1}{K}}(a_1) \cdot N_{\qo{A_2}{K}}(a_2) \).
+		      \end{itemize}
+
+		      \begin{proof}
+			      Given basis for \( A_1,A_2 \rsa \) basis for \( A_1\times A_2 \). If \( M_1, M_2 \) are
+			      matrices corresponds to multiplication by \( a_1,a_2 \) in \( A_1,A_2 \) respectively,
+			      then the matrix of multiplication by \( (a_1,a_2) \) is given by
+			      \[
+				      \begin{pmatrix}
+					      M_1 & 0   \\
+					      0   & M_2
+				      \end{pmatrix}
+			      \]
+		      \end{proof}
+	\end{enumerate}
+\end{proposition}
+Now we want to discuss how the notion of trace and norm related to separable extension?
+
+\begin{lemma}
+	If \( K \hookrightarrow L \) being field extension, \( a \in L \) is algebraic and separable over
+	\( K \), let \( K' = K(a) \), then
+	\[
+		\Tr_{\qo{K'}{K}}: K' \to K \text{ is nonzero, hence surjective.}
+	\]
+\end{lemma}
+
+\begin{proof}
+	Let \( \overline{K} \) be the algebraic closure of \( K \), it is enough to show that
+	\[
+		\Tr_{\qo{A_{\overline K}}{\overline K}} \ne 0
+	\]
+	have
+	\[
+		\begin{tikzcd}
+			K \arrow[r, hook] \arrow[d, hook] & K' = A \arrow[d] \\
+			\overline{K} \arrow[r, hook] & A_{\overline{K}} = \overline{K} \otimes_K A
+		\end{tikzcd}
+	\]
+	This follows since by properties 1 and 4 above:
+	\[
+		\Tr_{\qo{A_{\overline K}}{\overline K}} \bace{\sum_{i=1}^m a_i \otimes b_i} = \sum_{i=1}^n a_i
+		\Tr_{\qo{K'}{K}}(b_i)
+	\]
+	suppose \( f \) is the minimal polynomial of \( a \) over \( K \), then
+	\[
+		\begin{aligned}
+			K'              & \cong \qo{K[x]}{(f)}                                                                 \\
+			A_{\overline K} & = \overline{K} \otimes_K K' \cong \qo{\overline{K}[x]}{(f)}\text{\todo{check this!}}
+		\end{aligned}
+	\]
+	In \( \overline{K}[x] \), we have \( f = (x-\lambda_1)\cdots (x-\lambda_n) \), since \( a \) is
+	separable, then \( \lambda_i \ne \lambda_j \) if \( i \ne j \), thus
+	\[
+		\qo{\overline{K}[x]}{(x-\lambda_1)\cdots(x-\lambda_n)} \cong \prod_{i=1}^n \frac{\overline{K}[x]}{(x-\lambda_i)}
+		\cong \overline K \times \cdots \times \overline K
+	\]
+	By property 5, we have
+	\[
+		\Tr_{\qo{A_{\overline{K}}}{\overline K}} (a_1,\ldots, a_n) = a_1 + \cdots a_n \ne 0
+	\]
+\end{proof}
+
+\begin{lemma}
+	If \( K \hookrightarrow K' = K(a) \), where \( a^p \in K, a\not\in K \), then
+	\[
+		\Tr_{\qo{K'}{K}}: K' \to K \text{ is the 0 map.}
+	\]
+\end{lemma}
+
