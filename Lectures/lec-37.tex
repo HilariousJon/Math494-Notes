@@ -186,14 +186,49 @@ where \( \zeta \) is the primitive \( n \)-th root of the splittiing field of \(
 		      Then what iis the Galois group?
 		      \[
 			      \begin{aligned}
-				      G \bace{\qo{\QQ(\zeta)}{\QQ}} & \to \bace{\qo{\ZZ}{n\ZZ}}^\times             \\
-				      \sigma                        & \mapsto l                                    \\
+				      G \bace{\qo{\QQ(\zeta)}{\QQ}} & \xrightarrow{\sim} \bace{\qo{\ZZ}{n\ZZ}}^\times \\
+				      \sigma                        & \mapsto l                                       \\
 				      \text{where } \sigma(\zeta)   & = \zeta^l \text{ for some } l, \gcd(l,n) = 1
 			      \end{aligned}
 		      \]
 		      this is a group homomorphism, it is injective since \( \zeta \) generates \( \QQ(\zeta) \)
 		      over \( \QQ \). Now both sides have \( \vp(n) \) elements, and therefore being an isomorphism.
+
+		      In particular, the galois group \( G \) is abelian. Thus \( \forall \; \QQ \hookrightarrow
+		      K \hookrightarrow \QQ(\zeta)\) with the first extension being normal, see that \(
+		      G(\qo{K}{\QQ}) \) is abelian.
 	\end{itemize}
 \end{conclusion}
 
+\begin{theorem}[\textbf{Kroneckr-Weber Theorem}]
+	If \( \qo{K}{\QQ} \) is finite Galois extension s.t. \( G(\qo{K}{\QQ}) \) is abelian, then there
+	exists \( n \), s.t. \( K \hookrightarrow \QQ(\mu_n) \).
+\end{theorem}
+
+\begin{remark}[\textbf{Open problem}]
+	Is it true that every finite group \( G \) is isomorphic to \( G(\qo{K}{\QQ}) \) for some finite
+	Galois extension \( \QQ \hookrightarrow K \)?
+\end{remark}
+
+\begin{note}
+	We can use the description of Galois groups of cyclotomic field to treat the case \( G \) is abelian.
+
+	Suppose
+	\[
+		G \cong \qo{\ZZ}{n_1\ZZ} \times \cdots \times \qo{\ZZ}{n_r\ZZ}
+	\]
+	choose \( p_1,\ldots, p_r \) being distinct primes, s.t. \( p_i \equiv 1 \pmod{n_i} \; \forall \; i \), this is a
+	consequence of Dirichlet's Theorem about primes in arithmetic progression. Take \( n = p_1\cdots p_r \), by the
+	Chinese Remainder Theorem, we have:
+	\[
+		\qo{\ZZ}{n\ZZ} \cong \prod_{i=1}^r \qo{\ZZ}{p_i \ZZ} \rsa \bace{\qo{\ZZ}{n\ZZ}}^\times \cong
+		\prod_{i=1}^r \underbrace{\bace{\qo{\ZZ}{p_i \ZZ}}^\times}_{\text{cyclic, }\cong \qo{\ZZ}{(p_i-1)\ZZ}} \text{ be group isomorphism.}
+	\]
+	thus there exists a surjective morphism \( (\qo{\ZZ}{n\ZZ})^\times \twoheadrightarrow G \implies
+	\exists \QQ \hookrightarrow K \hookrightarrow \QQ(\mu_n) \) where the first extension is Galois,
+	such that
+	\[
+		G\bace{\qo{K}{\QQ}} \cong G
+	\]
+\end{note}
 
