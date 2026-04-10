@@ -1,0 +1,188 @@
+\begin{proof}
+	We saw that if \( b = a^p \in K \), then the minimal polynomial of \( a \) over \( K \) is \( x^p
+	- b\). Then the basis of \( K(a) \) over \( K \) is given by:
+	\[
+		1, a, \ldots, a^{p-1}
+	\]
+	Since \( \Tr_{\qo{K(a)}{K}} \) is \( K \)-linear, then it is enough to show that:
+	\[
+		\Tr_{\qo{K(a)}{K}} (a^i) = 0 \quad \forall \; 0 \leq i \leq p-1
+	\]
+	for \( 0 \leq j \leq p-1 \): see that
+	\[
+		a^i \cdot a^j =
+		\begin{cases}
+			a^{i+j}     & \text{ if } i+j \leq p-1 \\
+			b a^{i+j-p} & \text{ if } i+j \geq p
+		\end{cases}
+	\]
+	we get contradiction to trace if
+	\begin{itemize}
+		\item either \( j = i+j \) and \( i + j \leq p-1 \iff i = 0 \)
+		\item or \( j = i+j - p \) and \( i+j \geq p \), which cannot happen since \( i+j \geq p \).
+	\end{itemize}
+	thus for the case \( i > 0 \implies  \) no nonzero entry on the diagonal, thus the trace is \( 0 \). For
+	\( i = 0 \implies \) we have \( \Id_p \implies \) trace \( =p = 0 \).
+\end{proof}
+
+\begin{theorem}
+	\label{thm:theorem}
+	Let \( \text{char}(K) = p > 0 \). A finite field extension \( K \hookrightarrow L \) is separable iff \( \Tr_{\qo{L}{K}} \ne 0\) (\( \iff \) surjective).
+\end{theorem}
+
+\begin{proof}
+	If \( K \hookrightarrow L \) is separable, by primitive element theorem, \( L = K(a) \) for some
+	\( a \in L \). Since \( a \) is separable over \( K \), by \textbf{Lemma} \ref{lem:1}, we
+	have \( \Tr_{\qo{L}{K}} \ne 0 \). If \( K \hookrightarrow L \) is not separable, then \(
+	\Tr_{\qo{L}{K}} = 0 \). Since the extension is not separable, then there exists some \( a\in L \),
+	such that \( a \) is not separable over \( K \). Since \( \text{char}(K) = p > 0 \), if \( f \) is
+	the minimal polynomial of \( a \) over \( K \), then \( f \in K[x^p] \) and see that \( f = g(x^p) \)
+	for some \( g \in K[x] \). Consider
+	\[
+		\underbrace{\underbrace{K \hookrightarrow}_{\deg \leq \frac{1}{p}\deg(f)} K(a^p) \hookrightarrow}_{\deg(f)}
+		K(a) \hookrightarrow L
+	\]
+	this implies that \( a\not\in K(a^p) \implies \Tr_{\qo{K(a)}{K(a^p)}} = 0 \). By the
+	\textbf{Transitivity of trace}:
+	\[
+		\begin{aligned}
+			\Tr_{\qo{L}{K}} & = \Tr_{\qo{K(a^p)}{K}} \circ \underbrace{\Tr_{\qo{K(a)}{K(a^p)}}}_{= 0 \text{ by lem \ref{lem:2}}} \circ \Tr_{\qo{L}{K(a)}}
+			\\
+			                & = 0
+		\end{aligned}
+	\]
+\end{proof}
+
+\begin{corollary}
+	\label{cor:1}
+	If \( K \hookrightarrow L \hookrightarrow L' \) be finite extensions, let \( \qo{L}{K} \) and \(
+	\qo{L'}{L} \) being separable, then \( \qo{L'}{K} \) is separable.
+\end{corollary}
+
+\begin{proof}
+	By the transitivity of trace
+	\[
+		\Tr_{\qo{L'}{K}} = \underbrace{\Tr_{\qo{L}{K}}}_{\text{surj}} \circ \underbrace{\Tr_{\qo{L'}{L}}}_{\text{surj}}
+	\]
+	where the surjective is yield by the theorem since the extension are separable. Thus \(
+	\Tr_{\qo{L'}{K}} \) is surjective and therefore separable.
+\end{proof}
+
+\begin{exercise}
+	Use this to deduce the same assertion if the 2 extensions are algebraic instead of finite.
+\end{exercise}
+
+\begin{corollary}
+	\label{cor:2}
+	If \( K \hookrightarrow L = K(a_{i} \; ; \; i\in I) \) being field extension, s.t. all \( a_i \) are
+	algebraic and separable over \( K \implies \qo{L}{K} \) is algebraic + separable.
+\end{corollary}
+
+\begin{proof}
+	We already know that \( \qo{L}{K} \) is algebraic, we need to show that every \( a\in L \) is
+	separable over \( K \). Notice that
+	\[
+		\begin{aligned}
+			L & = K (a_i \; ; \; i \in I)           \\
+			  & = \bigcup_{\substack{I' \subseteq I \\ I' \text{ finite}}} K(a_i \; ; \; i \in I')
+		\end{aligned}
+	\]
+	thus it is enough to prove the corollary when \( I \) is finite. We proceed by induction on \( n =
+	\# I\).
+	\begin{itemize}
+		\item \( n = 1 \): Let \( K \hookrightarrow L = K(a) \) where \( a \) is separable and algebraic
+		      over \( K \), then by \textbf{Lemma} \ref{lem:1}, we have \( \Tr_{\qo{L}{K}}
+		      \ne 0 \), then by \textbf{Theorem} \ref{thm:theorem}, $K \hookrightarrow
+			      L$ is separable.
+		\item Inductive step: Consider
+		      \[
+			      \begin{tikzcd}
+				      K  \arrow[r, hook] \arrow[rd, hook] & L = K(a_1,\ldots, a_n, a_{n+1}) \\
+				      & K' = K(a_1,\ldots, a_n) \arrow[u, hook]
+			      \end{tikzcd}
+		      \]
+		      where \( K \hookrightarrow K' \) is separable by inductive hypoethesis. Since \( a_{n+1} \) is separable
+		      over \( K \), of course it is separable over the bigger field, thus \( a_{n+1} \) is
+		      separable over \( K' \), then \( \qo{L}{K'} \) is separable by the base case of the
+		      induction, thus by \textbf{Corollary} \ref{cor:2}, \( \qo{L}{K} \) is
+		      separable, \( \implies \) Q.E.D.
+	\end{itemize}
+\end{proof}
+
+\begin{remark}[\textbf{Remark about arbitary algebraic extensions}]
+	Suppose \( K \hookrightarrow L \) is an algebraic extension, and define
+	\[
+		L' = \{u \in L \; | \; u \text{ is separable over }K\}
+	\]
+	and we have
+	\[
+		\begin{tikzcd}
+			K \arrow[r,hook] \arrow[rd, hook] & L \\
+			& L' \arrow[u, hook]
+		\end{tikzcd}
+	\]
+	See that \( L' \) is clearly a \textcolor{blue}{subfield}, since \( u_1, u_2 \in L' \implies K
+	\hookrightarrow K(u_1,u_2) \) is separable by \textbf{Corollary} \ref{cor:2},
+	then see that \( K(u_1,u_2) \subseteq L' \implies u_1+u_2, u_1u_2, u_1^{-1} \in L' \) if \( u_1\ne
+	0\). It is then clear that \( K \hookrightarrow L' \) is separable. Then \( L' \hookrightarrow L \) is
+	\underline{purely inseparable}, meaning, \( \forall \; a\in L \smallsetminus L' \), \( a\ne \)
+	separable over \( L' \). Since otherwise, \( L'(a) \) will be separable over \( K \) by
+	\textbf{Corollary} \ref{cor:2}, which leads to contradiction \( \lightning \).
+	This \( \implies \forall \; a\in L, \exists \; n \geq 0 \), s.t. \( a^{p^n} \in L' \).
+	\begin{proof}
+		Given \( a \in L \), if \( f \) is the minimal polynomial of \( a \) over \( K \), then say
+		\[
+			f \in K[x^{p^l}] \smallsetminus K[x^{p^{l+1}}]
+		\]
+		see \( f = g(x^{p^l}), g \not\in K[x^p] \implies a^{p^l} \) is separable over \( K \implies
+		a^{p^l} \in L'\).
+	\end{proof}
+	This applies for example for
+	\[
+		\begin{tikzcd}
+			K \arrow[r,hook] \arrow[rd, hook] & \overline{K} \\
+			& K^s = \{u\in \overline{K} \; | \; u \text{ separable over }K\}\arrow[u, hook]
+		\end{tikzcd}
+	\]
+	where \( K^s \) is called the separable closure of \( K \).
+\end{remark}
+
+\section{Algebraic Independence and Transcendence Degree}
+The goal of this section is that given an arabitrary field extension \( K \hookrightarrow L \),
+\textbf{\textcolor{blue}{not necessarily algebraic}}, we want to associate with an invariant called
+the \underline{transcendent degree}, denoted as \( \trdeg(\qo{L}{K}) \in \ZZ_{\geq 0} \cup \{\infty\} \), which
+``measures'' \textbf{how far the extension is being from algebraic}. In general, it satisfies:
+\begin{itemize}
+	\item \( \trdeg(\qo{L}{K}) = 0 \) iff \( K \hookrightarrow L \) is algebraic.
+	\item \( \trdeg(\qo{K(x_1,\ldots, x_n)}{K}) = n \) where
+	      \[
+		      K (x_1,\ldots, x_n) = \text{Frac}(K[x_1, \ldots, x_n])
+	      \]
+	\item If \( K \hookrightarrow L \hookrightarrow L' \) be field extensions, then
+	      \[
+		      \trdeg\bace{\qo{L'}{K}} = \trdeg\bace{\qo{L'}{L}} + \trdeg\bace{\qo{L}{K}}
+	      \]
+\end{itemize}
+
+\begin{definition}[\textbf{Algebraically Independence}]
+	Given a field extension \( K \hookrightarrow L \), a subset \( A \subseteq L \) is
+	\underline{algebraically independence} if \( \forall \; n \geq 1, \; \forall \) distinct elements \(
+	a_1,\ldots, a_n \in A \), \( \forall \; f\in K[x_1,\ldots, x_n] \), s.t. \( f(a_1,\ldots, a_n) = 0
+	\implies  f= 0\). Otherwise, \( A \) is \underline{algebraically dependent}.
+\end{definition}
+
+\begin{eg}
+	\( A = \{a\} \), then \( A \) is algebraically dependent iff \( a \) is algebraic over \( K \).
+\end{eg}
+
+\begin{remark}
+	Given \( n \) elements \( a_1,\ldots, a_n \in L \), these area algebraically independent over \( K \) iff
+	\[
+		\begin{aligned}
+			K[x_1,\ldots, x_n] & \to K[a_1,\ldots, a_n]     \\
+			p                  & \mapsto p(a_1,\ldots, a_n)
+		\end{aligned}
+	\]
+	is an \textbf{isomorphism}.
+\end{remark}
+

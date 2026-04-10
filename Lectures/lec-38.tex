@@ -149,6 +149,7 @@
 Now we want to discuss how the notion of trace and norm related to separable extension?
 
 \begin{lemma}
+	\label{lem:1}
 	If \( K \hookrightarrow L \) being field extension, \( a \in L \) is algebraic and separable over
 	\( K \), let \( K' = K(a) \), then
 	\[
@@ -173,11 +174,11 @@ Now we want to discuss how the notion of trace and norm related to separable ext
 		\Tr_{\qo{A_{\overline K}}{\overline K}} \bace{\sum_{i=1}^m a_i \otimes b_i} = \sum_{i=1}^n a_i
 		\Tr_{\qo{K'}{K}}(b_i)
 	\]
-	suppose \( f \) is the minimal polynomial of \( a \) over \( K \), then
+	suppose \( f \) is the minimal polynomial of \( a \) over \( K \), then \todo{check this!}
 	\[
 		\begin{aligned}
-			K'              & \cong \qo{K[x]}{(f)}                                                                 \\
-			A_{\overline K} & = \overline{K} \otimes_K K' \cong \qo{\overline{K}[x]}{(f)}\text{\todo{check this!}}
+			K'              & \cong \qo{K[x]}{(f)}                                        \\
+			A_{\overline K} & = \overline{K} \otimes_K K' \cong \qo{\overline{K}[x]}{(f)}
 		\end{aligned}
 	\]
 	In \( \overline{K}[x] \), we have \( f = (x-\lambda_1)\cdots (x-\lambda_n) \), since \( a \) is
@@ -193,7 +194,8 @@ Now we want to discuss how the notion of trace and norm related to separable ext
 \end{proof}
 
 \begin{lemma}
-	If \( K \hookrightarrow K' = K(a) \), where \( a^p \in K, a\not\in K \), then
+	\label{lem:2}
+	Let \( \text{char}(K) = p > 0 \). If \( K \hookrightarrow K' = K(a) \), where \( a^p \in K, a\not\in K \), then
 	\[
 		\Tr_{\qo{K'}{K}}: K' \to K \text{ is the 0 map.}
 	\]
