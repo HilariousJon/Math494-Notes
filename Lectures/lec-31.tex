@@ -1,212 +1,212 @@
 \section{Multiple Roots}
 
 \begin{definition}
-  Let \( K \) be a field, \( 0\ne f \in K[x] \), recall that \( f(a) = 0\iff (x-a) \mid f \). \( a
-  \in K \) is a root of \( f \) with multiplicity \( m \) if \( (x-a)^m \mid f \) and \( (x-a)^{m+1} \nmid f \).
-  \begin{itemize}
-    \item Simple root: root of multiplicity \( 1 \).
-    \item Multiple root: root of multiplicity \( \ge 2 \).
-  \end{itemize}
+	Let \( K \) be a field, \( 0\ne f \in K[x] \), recall that \( f(a) = 0\iff (x-a) \mid f \). \( a
+	\in K \) is a root of \( f \) with multiplicity \( m \) if \( (x-a)^m \mid f \) and \( (x-a)^{m+1} \nmid f \).
+	\begin{itemize}
+		\item Simple root: root of multiplicity \( 1 \).
+		\item Multiple root: root of multiplicity \( \ge 2 \).
+	\end{itemize}
 \end{definition}
 To check whether it is a simple root, one can use \textbf{derivative}.
 
 \begin{definition}
-  If 
-  \[
-    f = a_n x^n + a_{n-1} x^{n-1} + \cdots + a_2 x^2 + a_1 x + a_0 \in K[x], \quad a_n \ne 0
-  \] 
-  then define 
-  \[
-    f' = n a_n x^{n-1} + (n-1) a_{n-1} x^{n-2} + \cdots + 2 a_2 x + a_1 \in K[x].
-  \] 
+	If
+	\[
+		f = a_n x^n + a_{n-1} x^{n-1} + \cdots + a_2 x^2 + a_1 x + a_0 \in K[x], \quad a_n \ne 0
+	\]
+	then define
+	\[
+		f' = n a_n x^{n-1} + (n-1) a_{n-1} x^{n-2} + \cdots + 2 a_2 x + a_1 \in K[x].
+	\]
 \end{definition}
 
 \begin{remark}[\textbf{Properties}]
-  \leavevmode 
-  \begin{itemize}
-    \item \( f \to f' \) is \( K \)-linear.
-    \item (Leibniz Rule) \( (fg)' = fg' + f'g \).
-  \end{itemize}
+	\leavevmode
+	\begin{itemize}
+		\item \( f \to f' \) is \( K \)-linear.
+		\item (Leibniz Rule) \( (fg)' = fg' + f'g \).
+	\end{itemize}
 \end{remark}
 
 \begin{proof}
-  \leavevmode 
-  \begin{itemize}
-    \item 1 is easy.
-    \item For 2, consider the following map
-      \[
-        (f,g) \mapsto (fg)' - fg' - f'g
-      \] 
-      is \( K \)-linear in both \( f,g \). Hence it is enough to check it when \( f = x^i,g=x^j \).
-      We have 
-      \[
-        (fg)' = (x^{i+j})' = (i+j)x^{i+j-1}
-      \] 
-      and we have 
-      \[
-        fg' + f'g = x^i (jx^{j-1}) + (ix^{i-1})x^j = (fg)'
-      \] 
-  \end{itemize}
+	\leavevmode
+	\begin{itemize}
+		\item 1 is easy.
+		\item For 2, consider the following map
+		      \[
+			      (f,g) \mapsto (fg)' - fg' - f'g
+		      \]
+		      is \( K \)-linear in both \( f,g \). Hence it is enough to check it when \( f = x^i,g=x^j \).
+		      We have
+		      \[
+			      (fg)' = (x^{i+j})' = (i+j)x^{i+j-1}
+		      \]
+		      and we have
+		      \[
+			      fg' + f'g = x^i (jx^{j-1}) + (ix^{i-1})x^j = (fg)'
+		      \]
+	\end{itemize}
 \end{proof}
 
 \begin{proposition}
-  If \( 0 \ne f \in K[x] \) and \( a \in K \). \( a \) is a multiple root of \( f \) iff \( f(a) =
-  0, f'(a) = 0 \).
+	If \( 0 \ne f \in K[x] \) and \( a \in K \). \( a \) is a multiple root of \( f \) iff \( f(a) =
+	0, f'(a) = 0 \).
 \end{proposition}
 
 \begin{proof}
-  \( f(a) = 0 \) iff \( (x-a) \mid f \). In this case, we can decompose \( f \)
-  \[
-    f = (x-a) g \text{ for some } g \in K[x]
-  \] 
-  then 
-  \[
-    \begin{aligned}
-      f' &= g + (x-a)g' \\ 
-      f'(a) &= g(a) \\ 
-      \implies f(a)& = 0 = f'(a) \\ 
-      \iff f &= (x-a)g \text{ for some } g \text{ and } g(a) = 0 \\ 
-      \iff (x-a)^2 &\mid f
-    \end{aligned}
-  \] 
+	\( f(a) = 0 \) iff \( (x-a) \mid f \). In this case, we can decompose \( f \)
+	\[
+		f = (x-a) g \text{ for some } g \in K[x]
+	\]
+	then
+	\[
+		\begin{aligned}
+			f'            & = g + (x-a)g'                                      \\
+			f'(a)         & = g(a)                                             \\
+			\implies f(a) & = 0 = f'(a)                                        \\
+			\iff f        & = (x-a)g \text{ for some } g \text{ and } g(a) = 0 \\
+			\iff (x-a)^2  & \mid f
+		\end{aligned}
+	\]
 \end{proof}
 
 \section{Classification of Finite Fields}
-Suppose that \( K \) is a \textcolor{blue}{finite field}, then \( \text{char}(K) \ne 0 \). Let \( p \) be some 
+Suppose that \( K \) is a \textcolor{blue}{finite field}, then \( \text{char}(K) \ne 0 \). Let \( p \) be some
 prime such that \( \text{char}(K) = p \). Then there exists some \( \FF_p = \qo{\ZZ}{p\ZZ} \), such
-that 
+that
 \[
-  \FF_p \hookrightarrow K
-\] 
-and let \( e = [K: \FF_p] < \infty \), we have \( \abs{K} = p^e \). Thus \( \abs{K^\times} = p^e - 1 \). By Lagrange theorem, 
+	\FF_p \hookrightarrow K
+\]
+and let \( e = [K: \FF_p] < \infty \), we have \( \abs{K} = p^e \). Thus \( \abs{K^\times} = p^e - 1 \). By Lagrange theorem,
 \( a^{p^e - 1} = 1 \; \forall \; a\in K, a\ne 0 \). Thus \( a^{p^e} = a, \forall \; a\in K
 \smallsetminus \{0\} \).
 
 \begin{theorem}
-  \leavevmode 
-  \begin{enumerate}
-    \item For every \( e \geq 1 \), \( \exists \) field with \( p^e \) elements.
-    \item Every two such fields are isomorphic.
-  \end{enumerate}
+	\leavevmode
+	\begin{enumerate}
+		\item For every \( e \geq 1 \), \( \exists \) field with \( p^e \) elements.
+		\item Every two such fields are isomorphic.
+	\end{enumerate}
 \end{theorem}
 
 \begin{proof}
-  Let \( \overline{\FF_p} \) be an algebraic closure of \( \FF_p \). Let 
-  \[
-    K = \{a\in \overline{\FF_p} \; | \; a^{p^e} - a= 0\}
-  \] 
-  \begin{claim}
-    \( K \subseteq \overline{\FF_p} \) is a subfield.
-  \end{claim}
-  
-  \begin{proof}
-    It is clear that \( 0,1\in K \) and \( a,b\in K \implies ab \in K \). We saw the frobenius
-    homomorphism \ref{prop:frobenius-hom} that:
-    \[
-      F: \overline{\FF_p} \to \overline{\FF_p}, \quad F(a) = a^p
-    \] 
-    is a ring homomorphism. Thus \( F^e \) is also a ring homomorphism. So 
-    \[
-      \{a \in \overline{\FF_p} \; | \; F^e(a) = a\} \subseteq \overline{\FF_p} \text{ is subgroup.}
-    \] 
-    \( \implies \)
-    \[
-      K \subseteq \overline{\FF_p} \text{ is subring. } (\implies \ne \{0\}, \text{ commutative.})
-    \] 
-    See that \( a \in K^\times \implies a^{p^e-1} = 1 \implies a^{-1} = a^{p^e - 2} \in K \implies K \) is a field.
-    \( K \) has \( p^e \) elements: Let \( f = x^{p^e} - x \) decompose in \( \overline{\FF_p}[x] \)
-    as 
-    \[
-      \begin{aligned}
-        f&= x^{p^e} -x = \prod_{i=1}^{p^e} (x-\alpha_i)\\ 
-        f' &= p^e x^{p^e-1} - 1 = -1 \text{ with } p^e \equiv 0 \; (\bmod{p})
-      \end{aligned}
-    \] 
-    with \( f' = -1 \implies \) all roots of \( f \) are simple \( \implies \abs{K} = p^e \). This
-    follows from the definition of \( K \), which are the elements in \( \overline{\FF_p} \) that
-    makes the roots of polynomial \( f \).
-  \end{proof}
-  \textbf{Uniqueness:} Suppose \( L \) be a field with \( p^e \) elements. Have 
-  \[
-    \begin{tikzcd}
-      & L \arrow[dashed, rdd, "\vp" ] & \\ 
-      \FF_p \arrow[ru, hook] \arrow[rd, hook] & \\ 
-                                              & K \arrow[r, hook] & \overline{\FF_p}
-    \end{tikzcd}
-  \] 
-  with \( \qo{L}{\FF_p} \) being algebraic since it is finite, thus by \textbf{Proposition}
-  \ref{prop:extension-alg}, there exists a morphism of \( \FF_p \)-algebra \( \vp: L \to
-  \overline{\FF_p} \). Since \( a^{p^e} = a \; \forall \; a\in L \) (since \( \abs{L^\times} = p^e -
-  1\)), then \( \vp(a)^{p^e} = \vp(a) \; \forall \; a\in L \implies \vp: L \hookrightarrow K
-  \implies \abs{L} = \abs{K} \) and the fact that \( \vp \) is injective, this is isomorphism.
+	Let \( \overline{\FF_p} \) be an algebraic closure of \( \FF_p \). Let
+	\[
+		K = \{a\in \overline{\FF_p} \; | \; a^{p^e} - a= 0\}
+	\]
+	\begin{claim}
+		\( K \subseteq \overline{\FF_p} \) is a subfield.
+	\end{claim}
+
+	\begin{proof}
+		It is clear that \( 0,1\in K \) and \( a,b\in K \implies ab \in K \). We saw the frobenius
+		homomorphism \ref{prop:frobenius-hom} that:
+		\[
+			F: \overline{\FF_p} \to \overline{\FF_p}, \quad F(a) = a^p
+		\]
+		is a ring homomorphism. Thus \( F^e \) is also a ring homomorphism. So
+		\[
+			\{a \in \overline{\FF_p} \; | \; F^e(a) = a\} \subseteq \overline{\FF_p} \text{ is subgroup.}
+		\]
+		\( \implies \)
+		\[
+			K \subseteq \overline{\FF_p} \text{ is subring. } (\implies \ne \{0\}, \text{ commutative.})
+		\]
+		See that \( a \in K^\times \implies a^{p^e-1} = 1 \implies a^{-1} = a^{p^e - 2} \in K \implies K \) is a field.
+		\( K \) has \( p^e \) elements: Let \( f = x^{p^e} - x \) decompose in \( \overline{\FF_p}[x] \)
+		as
+		\[
+			\begin{aligned}
+				f  & = x^{p^e} -x = \prod_{i=1}^{p^e} (x-\alpha_i)                     \\
+				f' & = p^e x^{p^e-1} - 1 = -1 \text{ with } p^e \equiv 0 \; (\bmod{p})
+			\end{aligned}
+		\]
+		with \( f' = -1 \implies \) all roots of \( f \) are simple \( \implies \abs{K} = p^e \). This
+		follows from the definition of \( K \), which are the elements in \( \overline{\FF_p} \) that
+		makes the roots of polynomial \( f \).
+	\end{proof}
+	\textbf{Uniqueness:} Suppose \( L \) be a field with \( p^e \) elements. Have
+	\[
+		\begin{tikzcd}
+			& L \arrow[dashed, rdd, "\vp" ] & \\
+			\FF_p \arrow[ru, hook] \arrow[rd, hook] & \\
+			& K \arrow[r, hook] & \overline{\FF_p}
+		\end{tikzcd}
+	\]
+	with \( \qo{L}{\FF_p} \) being algebraic since it is finite, thus by \textbf{Proposition}
+	\ref{prop:extension-alg}, there exists a morphism of \( \FF_p \)-algebra \( \vp: L \to
+	\overline{\FF_p} \). Since \( a^{p^e} = a \; \forall \; a\in L \) (since \( \abs{L^\times} = p^e -
+	1\)), then \( \vp(a)^{p^e} = \vp(a) \; \forall \; a\in L \implies \vp: L \hookrightarrow K
+	\implies \abs{L} = \abs{K} \) and the fact that \( \vp \) is injective, this is isomorphism.
 \end{proof}
 
 \section{Splitting Fields}
 
 \begin{definition}[\textbf{Splitting Fields}]
-  Let \( K \) be a field, \( f\in K[x] \) of degree \( \ge 1 \). A \underline{splitting field} of \( f \) over 
-  \( K \) is a field extension \( K \hookrightarrow L \), such that 
-  \begin{enumerate}
-    \item \( f \) splits as a product of degree \( 1 \) polynomial in \( L[x] \).
-    \item This does not hold for every \( K \subseteq L' \subsetneq L \) with \( L' \) be a
-      subextension of \( L \).
-  \end{enumerate}
-  \textbf{Equivalently}, we have 
-  \[
-    f = c(x-\alpha_1)\cdots (x-\alpha_n)
-  \] 
-  and 
-  \[
-    L = K(\alpha_1,\ldots,\alpha_n)
-  \] 
+	Let \( K \) be a field, \( f\in K[x] \) of degree \( \ge 1 \). A \underline{splitting field} of \( f \) over
+	\( K \) is a field extension \( K \hookrightarrow L \), such that
+	\begin{enumerate}
+		\item \( f \) splits as a product of degree \( 1 \) polynomial in \( L[x] \).
+		\item This does not hold for every \( K \subseteq L' \subsetneq L \) with \( L' \) be a
+		      subextension of \( L \).
+	\end{enumerate}
+	\textbf{Equivalently}, we have
+	\[
+		f = c(x-\alpha_1)\cdots (x-\alpha_n)
+	\]
+	and
+	\[
+		\textcolor{blue}{L = K(\alpha_1,\ldots,\alpha_n)}
+	\]
 \end{definition}
 
 \begin{eg}
-  Let \( f = x^3 - 2 \). Its roots in \( \CC \) are \( \sqrt[3]{2}, \sqrt[3]{2}\omega, \sqrt[3]{2}\omega^2 \) where 
-  \( \omega = \cos \frac{2\pi}{3} + i\sin\frac{2\pi}{3} \). Here a splitting field for \( f \) over
-  \( \QQ \) is \( \QQ(\sqrt[3]{2}, \omega) \).
+	Let \( f = x^3 - 2 \). Its roots in \( \CC \) are \( \sqrt[3]{2}, \sqrt[3]{2}\omega, \sqrt[3]{2}\omega^2 \) where
+	\( \omega = \cos \frac{2\pi}{3} + i\sin\frac{2\pi}{3} \). Here a splitting field for \( f \) over
+	\( \QQ \) is \( \QQ(\sqrt[3]{2}, \omega) \).
 \end{eg}
 
 \begin{proposition}
-  If \( f \in K[x] \) has degree \( \ge 1 \), then 
-  \begin{enumerate}
-    \item \( f \) has a splitting field over \( K \).
-    \item Any two such splitting field are isomorphic as extensions of \( K \).
-  \end{enumerate}
+	If \( f \in K[x] \) has degree \( \ge 1 \), then
+	\begin{enumerate}
+		\item \( f \) has a splitting field over \( K \).
+		\item Any two such splitting field are isomorphic as extensions of \( K \).
+	\end{enumerate}
 \end{proposition}
 
 \begin{proof}
-  \leavevmode 
-  \begin{enumerate}
-    \item Consider an algerbaic closure \( \overline{K} \) of \( K\).
-      \[
-        f = c (x-\alpha_1)\cdots (x-\alpha _n) \quad \alpha _1,\ldots,\alpha_n \in \overline{K},
-        c\in K
-      \] 
-      See that \( K(\alpha_1, \ldots,\alpha_n) \) is a splitting field of \( f \) over \( K \) and
-      yields the existence.
-    \item Suppose \( L \) is another splitting field of \( f \) over \( K \), we have 
-      \[
-        f = c (x-\beta_1)\cdots (x-\beta_n) \quad \beta_1,\ldots,\beta_n \in L
-      \] 
-      thus we have 
-      \[
-        \begin{tikzcd}
-          & L = K(\beta_1,\ldots, \beta_n) \arrow[dashed, rdd, "\vp" ] & \\ 
-          K \arrow[ru,hook] \arrow[rd,hook ] & & \\ 
-                                             & K(\alpha_1,\ldots, \alpha_n) \arrow[r,hook] &
-                                             \overline{K}
-        \end{tikzcd}
-      \] 
-      with \( \qo{L}{K} \) algebraic since it is genrated by a bunch of algerbaic elements. By
-      \textbf{Proposition} \ref{prop:extension-alg}, \( \vp \) exists. See that
-      \( f(\beta_i) = 0 \; \forall \; i \implies f(\vp(\beta_i)) = 0 \implies \vp(\beta_i) \in \{\alpha_1,\ldots,\alpha_n\} \).
-      \[
-        \implies \vp : L \hookrightarrow K(\alpha_1,\ldots,\alpha_n) 
-      \] 
-      This is isomorphism since \( f \) can't be split over any proper subextension of \(
-      K(\alpha_1,\ldots,\alpha_n) \) by the definition of splitting field.
-  \end{enumerate}
+	\leavevmode
+	\begin{enumerate}
+		\item Consider an algerbaic closure \( \overline{K} \) of \( K\).
+		      \[
+			      f = c (x-\alpha_1)\cdots (x-\alpha _n) \quad \alpha _1,\ldots,\alpha_n \in \overline{K},
+			      c\in K
+		      \]
+		      See that \( K(\alpha_1, \ldots,\alpha_n) \) is a splitting field of \( f \) over \( K \) and
+		      yields the existence.
+		\item Suppose \( L \) is another splitting field of \( f \) over \( K \), we have
+		      \[
+			      f = c (x-\beta_1)\cdots (x-\beta_n) \quad \beta_1,\ldots,\beta_n \in L
+		      \]
+		      thus we have
+		      \[
+			      \begin{tikzcd}
+				      & L = K(\beta_1,\ldots, \beta_n) \arrow[dashed, rdd, "\vp" ] & \\
+				      K \arrow[ru,hook] \arrow[rd,hook ] & & \\
+				      & K(\alpha_1,\ldots, \alpha_n) \arrow[r,hook] &
+				      \overline{K}
+			      \end{tikzcd}
+		      \]
+		      with \( \qo{L}{K} \) algebraic since it is genrated by a bunch of algerbaic elements. By
+		      \textbf{Proposition} \ref{prop:extension-alg}, \( \vp \) exists. See that
+		      \( f(\beta_i) = 0 \; \forall \; i \implies f(\vp(\beta_i)) = 0 \implies \vp(\beta_i) \in \{\alpha_1,\ldots,\alpha_n\} \).
+		      \[
+			      \implies \vp : L \hookrightarrow K(\alpha_1,\ldots,\alpha_n)
+		      \]
+		      This is isomorphism since \( f \) can't be split over any proper subextension of \(
+		      K(\alpha_1,\ldots,\alpha_n) \) by the definition of splitting field.
+	\end{enumerate}
 \end{proof}
 
 \section{Separable Extensions}
@@ -215,23 +215,23 @@ f\in K[x] \) be its minimal polynomial. Consider \( q = \gcd(f,f') \) with \( f'
 derivative of \( f \). \( f \) is the minimal polynomial meaning that \( f \) is irreducible in \(
 K[x] \). Then there are two cases for \( q \):
 \begin{itemize}
-  \item \( q \sim f \implies f\mid f' \), but see that \( \deg(f') < \deg(f) \implies f' = 0 \).
-    This holds iff \( \text{char}(K) = p >0 \) and \( f \in K[x^p] \). In this case, every root of \( f \) is a multiple root (\( f' = 0 \)).
-  \item \( q \sim 1 \implies \exists \; u,v \in K[x] \), such that 
-    \[
-      uf + vf' = 1
-    \] 
-    \( \implies f, f' \) have no common root in any extension of \( K \), otherwise contradict to
-    the above equation (\( 0=1 \)), thus all roots of \( f \) are simple.
+	\item \( q \sim f \implies f\mid f' \), but see that \( \deg(f') < \deg(f) \implies f' = 0 \).
+	      This holds iff \( \text{char}(K) = p >0 \) and \( f \in K[x^p] \). In this case, every root of \( f \) is a multiple root (\( f' = 0 \)).
+	\item \( q \sim 1 \implies \exists \; u,v \in K[x] \), such that
+	      \[
+		      uf + vf' = 1
+	      \]
+	      \( \implies f, f' \) have no common root in any extension of \( K \), otherwise contradict to
+	      the above equation (\( 0=1 \)), thus all roots of \( f \) are simple.
 \end{itemize}
 
 \begin{definition}[\textbf{Separable}]
-  \leavevmode 
-  \begin{enumerate}
-    \item \( a\in L \) is \underline{separable} over \( K \) if \( a \) is a simple root of
-      its minimal polynomial over \( K \).
-    \item \( \qo{L}{K} \) algerbaic is separable if \( \forall \; a \in L \), \( a \) is separable
-      over \( K \).
-  \end{enumerate}
+	\leavevmode
+	\begin{enumerate}
+		\item \( a\in L \) is \underline{separable} over \( K \) if \( a \) is a simple root of
+		      its minimal polynomial over \( K \).
+		\item \( \qo{L}{K} \) algerbaic is separable if \( \forall \; a \in L \), \( a \) is separable
+		      over \( K \).
+	\end{enumerate}
 \end{definition}
 
