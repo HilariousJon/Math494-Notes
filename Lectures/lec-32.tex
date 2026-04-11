@@ -1,3 +1,30 @@
+\begin{proposition}
+	There is no multiple root for any irreducible polynomial \( f \) on a ring of charatcertistic
+	being \( 0 \).
+\end{proposition}
+
+\begin{proof}
+	Suppose that we have
+	\[
+		f = a_n x^{n} + \cdots + a_1 x + a_0 \in K[x]
+	\]
+	with \( a_n \ne 0 \). Suppose that \( f \) has a multiple root, then it means that \( (x-a) \mid f \)
+	and \( (x-a) \mid f' \), in particular, this means that \( \gcd(f, f') \ne 1 \). But then since \( f \) is irreducible,
+	the only possiblity is then that \( f \mid f' \) with \( f \ne\sim 1 \). But then look at
+	\[
+		f' = n a_n x^{n-1} + \cdots + 2 a_2 x + a_1
+	\]
+	which attains \( \deg(f') < \deg(f) \), then the only possibility is that \( f'= 0 \) so that one
+	can have \( f\mid f' \). But to make it a zero polynomial, we shall need \( n \cdot a_n = 0 \),
+	but which is never happen in a field of characteristic \( 0 \), then this means that we cannot
+	have \( f' = 0 \), which is then means \( \gcd(f,f') = 1 \), which then means there is no multiple
+	root for \( f \).
+\end{proof}
+
+\begin{conclusion}
+	For a field \( K \) of characteristic \( 0 \), any element within is separarble over \( K \).
+\end{conclusion}
+
 \begin{remark}
 	\( a \) is not a simple root \( \iff (x-a)\mid f, (x-a)\mid f' \implies \gcd(f,f') \ne 1 \implies
 	f\mid f'\) since \( f \) is minimal polynomial and thus irreducible. And see that \( f \mid f'
@@ -36,8 +63,8 @@
 		\( g \) divides \( f \) there will be only one case:
 		\[
 			\begin{aligned}
-				g & = (x-b)^i \quad 1 \leq i \leq p-1 \\
-				  & = x^i - ib x^{i-1} + \cdots
+				g & = (x-b)^i \quad 1 \leq i \leq p-1    \\
+				  & = x^i - ib x^{i-1} + \cdots \in K[x]
 			\end{aligned}
 		\]
 		this implies that \( ib \in K \) where \( i \) is invertible in \( K \) since \( i < p \implies b \in K \),
@@ -46,7 +73,7 @@
 
 	\begin{conclusion}
 		\( b \) is not separable over \( K \). As its minimal polynomial is \( f = x^p - a \), but \( f'
-		= 0\), and thus \( b \) is not a simple root.
+		= px^{p-1} = 0 \cdot x^{p-1}= 0\), and thus \( b \) is not a simple root.
 	\end{conclusion}
 \end{eg}
 
@@ -81,7 +108,7 @@
 		      \smallsetminus K^p \) and \( b \in \overline{K} \), s.t. \( b^p = a \), we saw that \( K
 		      \hookrightarrow K(b) \) is algebraic, but not separable, thus \( K \) is not perfect.
 		      Conversely, suppose now \( K = K^p \), say \( K \hookrightarrow L \) is an algebraic
-		      extension, suppose there exitst \( a\in L \), with minimal polynomial \( f \in K[x^p] \) (this
+		      extension, suppose there exists \( a\in L \), with minimal polynomial \( f \in K[x^p] \) (this
 		      is the case where every root of \( f \) are \textcolor{blue}{multiple roots}):
 		      \[
 			      f = a_0 + a_1 x^p + a_2 x^{2p} + \cdots + a_n x^{np}
@@ -96,8 +123,8 @@
 				                   & = g^p
 			      \end{aligned}
 		      \]
-		      by using the fact that \( u \to u^p \) is ring homomorphism. Since \( p > 1 \), this leads to
-		      the contradiction with the irreducibility of \( f \) \( \lightning \).
+		      by using the fact that \( u \to u^p \) is ring homomorphism in a commutative ring of char \( p \). Since \( p > 1 \), this leads to
+		      the contradiction with the \textcolor{blue}{irreducibility of \( f \)} \( \lightning \).
 	\end{itemize}
 \end{proof}
 
@@ -106,6 +133,11 @@
 	\leavevmode
 	\begin{itemize}
 		\item If \( K \) is algebraically closed, then \( K \) is perfect (no non-trivial algebraic extension.)
+		      \begin{proof}
+			      For field of char \( 0 \) things are proved. For field of char \( p > 0 \), for any element
+			      \( a \in K \), can construct a polynomial \( f = x^p - a \) with root \( b^p = a \) since
+			      algebraically closed, and thus see that \( K = K^p \) \( \implies \) Q.E.D.
+		      \end{proof}
 		\item If \( K \) is a finite field, then \( K \) is perfect.
 		      \begin{proof}
 			      If \( \text{char}(K) = p > 0 \), see

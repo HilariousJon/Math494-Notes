@@ -159,6 +159,9 @@ and let \( e = [K: \FF_p] < \infty \), we have \( \abs{K} = p^e \). Thus \( \abs
 	\[
 		\textcolor{blue}{L = K(\alpha_1,\ldots,\alpha_n)}
 	\]
+	\begin{note}
+		Note that there can be some \( \alpha_i = \alpha_j, \; i \ne j \).
+	\end{note}
 \end{definition}
 
 \begin{eg}
@@ -173,7 +176,9 @@ and let \( e = [K: \FF_p] < \infty \), we have \( \abs{K} = p^e \). Thus \( \abs
 		\item \( f \) has a splitting field over \( K \).
 		\item Any two such splitting field are isomorphic as extensions of \( K \).
 	\end{enumerate}
+	In particular, this shows that the splitting field of a given polynomial \( f \) is unique up to isomorphism.
 \end{proposition}
+
 
 \begin{proof}
 	\leavevmode
@@ -211,7 +216,7 @@ and let \( e = [K: \FF_p] < \infty \), we have \( \abs{K} = p^e \). Thus \( \abs
 \section{Separable Extensions}
 Let \( K \hookrightarrow L \) be field extension, \( a\in L \) is algerbaic over \( K \) with \(
 f\in K[x] \) be its minimal polynomial. Consider \( q = \gcd(f,f') \) with \( f' \) be the
-derivative of \( f \). \( f \) is the minimal polynomial meaning that \( f \) is irreducible in \(
+derivative of \( f \). \( f \) is the minimal polynomial meaning that \( f \) is \textcolor{red}{irreducible} in \(
 K[x] \). Then there are two cases for \( q \):
 \begin{itemize}
 	\item \( q \sim f \implies f\mid f' \), but see that \( \deg(f') < \deg(f) \implies f' = 0 \).
@@ -224,10 +229,21 @@ K[x] \). Then there are two cases for \( q \):
 	      the above equation (\( 0=1 \)), thus all roots of \( f \) are simple.
 \end{itemize}
 
+\begin{conclusion}
+	For an \textbf{algebraic element} in a field extension, its minimal polynomial either has all roots to be
+	multiple roots or has all roots to be simple roots.
+\end{conclusion}
+
+\begin{note}
+	Note that here it is not necesssary to discuss the case where \( a \) is not algebraic, since if
+	it is transcendental, it doesn't even attend a minimal polynomial, not to mention discuss whether
+	it is a simple root or multiple root.
+\end{note}
+
 \begin{definition}[\textbf{Separable}]
 	\leavevmode
 	\begin{enumerate}
-		\item \( a\in L \) is \underline{separable} over \( K \) if \( a \) is a simple root of
+		\item Let \( a\in L \) be algebraic elements. \( a\in L \) is \underline{separable} over \( K \) if \( a \) is a simple root of
 		      its minimal polynomial over \( K \).
 		\item \( \qo{L}{K} \) algerbaic is separable if \( \forall \; a \in L \), \( a \) is separable
 		      over \( K \).

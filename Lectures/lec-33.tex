@@ -68,7 +68,12 @@
 \begin{remark}
 	If \( \qo{L}{K} \) is finite, then the proof of \( 1\implies 2 \) above says we can take \( I \)
 	to be finite. If \( f=\prod_{i\in I}f_i \implies \qo{L}{K} \) is splitting field of \( f \).
+	Please note the difference between the splitting field over a polynomial and the splitting field
+	over a family of polynomials, the former one is \textbf{\textcolor{blue}{more strict}} while the second one ensemble all the
+	roots of the polynomials within the family. In particular, if it is splitting field for a family
+	of polynomials, it is not necessarily the splitting field for one of the polynomials within the family.
 \end{remark}
+
 
 \begin{definition}[\textbf{Normal Field Extension}]
 	Let \( \qo{L}{K} \) be an algebraic field extension that satisfies the condition in the \textbf{above} proposition, then
@@ -102,7 +107,7 @@
 			      \qo{\QQ(\sqrt[3]{2})}{\QQ}
 		      \]
 		      is not nomral, here we use \textbf{Condition 1}. Since the other \( 2 \) roots of \( x^3 - 2 \not\in \QQ(\sqrt[3]{2}) \subseteq
-		      \RR\). But \( \qo{\QQ(\sqrt[3]{2}, \omega)}{\QQ} \) is normal since it is the splitting field
+		      \RR\), so \( x^3 - 2 \) doesn't splits on \( \QQ(\sqrt[3]{2}) \). But \( \qo{\QQ(\sqrt[3]{2}, \omega)}{\QQ} \) is normal since it is the splitting field
 		      of \( x^3-2 \).
 	\end{enumerate}
 \end{eg}
@@ -135,7 +140,7 @@
 
 \begin{proposition}
 	If \( K \hookrightarrow L_1 \hookrightarrow L_2 \) is algebraic extension and \( \qo{L_2}{K} \) is
-	normal, then \( \qo{L_1}{L_2} \) is normal.
+	normal, then \( \qo{L_2}{L_1} \) is normal.
 \end{proposition}
 
 \begin{proof}
