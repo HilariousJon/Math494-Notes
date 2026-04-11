@@ -96,7 +96,7 @@ be \( p\ZZ \) with \( p> 0 \) be some prime.
 	\begin{itemize}
 		\item If \( \text{char}(\KK) = p \implies \qo{\ZZ}{p\ZZ} \hookrightarrow \KK \).
 		\item If \( \text{char}(\KK) = 0 \implies \exists \; \QQ \hookrightarrow \KK\) by the universal
-      property of \( \text{Frac}(\ZZ) \).
+		      property of \( \text{Frac}(\ZZ) \).
 	\end{itemize}
 \end{note}
 
@@ -160,12 +160,18 @@ See that \( \ker(\vp) \subseteq \KK[x] \) is an \textbf{ideal}, consider the two
 		      \[
 			      \begin{aligned}
 				      K(A) & \coloneqq \text{ the smallest subfield of } L \text{ containing } A \\
-                   & = \text{Frac}(\KK[A])
+				           & = \text{Frac}(\KK[A])
 			      \end{aligned}
 		      \]
 		      with \( \KK[A] \) be the smallest \( \KK \)-subalgebra containing \( A \), then \( \KK[A] \subseteq
-          \KK(A) \implies \text{Frac}(\KK[A]) \subseteq \KK(A) \) and by universal property of fraction
+		      \KK(A) \implies \text{Frac}(\KK[A]) \subseteq \KK(A) \) and by universal property of fraction
 		      field they are equal.
+		      \begin{note}
+			      We have the following definition:
+			      \[
+				      K[A] = \{f(a_1,\ldots, a_n) \; | \; f\in K[x_1,\ldots, x_n], \; a_i \in A\}
+			      \]
+		      \end{note}
 	      \end{notation}
 	      Back to our setting: \( \KK[a] = \KK(a) \), if \( a \) is algebraic over \( \KK \).
 	      \begin{remark}
