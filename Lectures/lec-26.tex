@@ -1,204 +1,204 @@
 \begin{note}
-  \leavevmode
-  \begin{equation}
-    \label{eq:decomposition}
-    (V,T) \cong \qo{\KK[x]}{(f_1)} \oplus \cdots \oplus \qo{\KK[x]}{(f_r)}
-  \end{equation}
+	\leavevmode
+	\begin{equation}
+		\label{eq:decomposition}
+		(V,T) \cong \qo{\KK[x]}{(f_1)} \oplus \cdots \oplus \qo{\KK[x]}{(f_r)}
+	\end{equation}
 \end{note}
 
 \begin{remark}
-  One can compute the Smith Normal Form effectively using rows and column operations, to use the
-  \textbf{division algorithm}, which really require that we're in an Euclidean domain. (\( \KK \)
-  field \( \implies \KK[x] \) Euclidean Domain). In particular for PID case there is also a
-  generalized version of Smith Normal Form.
+	One can compute the Smith Normal Form effectively using rows and column operations, to use the
+	\textbf{division algorithm}, which really require that we're in an Euclidean domain. (\( \KK \)
+	field \( \implies \KK[x] \) Euclidean Domain). In particular for PID case there is also a
+	generalized version of Smith Normal Form.
 \end{remark}
 
 \begin{conclusion}
-  \leavevmode
-  \begin{enumerate}
-    \item Using \textbf{Formula} \ref{eq:decomposition}, we get a basis for \( V \), such that
-      the matrix of \( T \) is given as following block decomposition:
-      \[
-        \begin{pmatrix}
-          \cC_{f_1} &           &        & 0         \\
-                    & \cC_{f_2} &        &           \\
-                    &           & \ddots &           \\
-          0         &           &        & \cC_{f_r}
-        \end{pmatrix}
-      \]
-      where \( f_i = x_i^{d_i} + a_{i,1}x^{d_i - 1} + \cdots + a_{i,d_i} \) and we choose the
-      basis of \( \qo{\KK[x]}{(f_i)} \) given by \( \overline{1}, \overline{x},\ldots,
-      \overline{x}^{d_i - 1} \) and see that
-      \[
-        \cC_{f_i} =
-        \begin{pmatrix}
-          0      & 0      &       \cdots & 0      & -a_{i,d_i}     \\
-          1      & 0      &       \cdots  & 0      & -a_{i,d_i - 1} \\
-          0      & 1      &  \cdots      & \vdots & \vdots         \\
-          \vdots & \vdots & \cdots & \vdots & \vdots         \\
-          0      & 0      &    \cdots    & 1      & -a_{i,1}
-        \end{pmatrix} \text{ for } 1 \leq i \leq r
-      \]
-    \item See that
-      \[
-        B_1 \cdot (xI - A ) \cdot B_2 =
-        \begin{pmatrix}
-          1 &        &   &     &     &        & 0   \\
-            & \ddots &   &     &     &        &     \\
-            &        & 1 &     &     &        &     \\
-            &        &   & f_1 &     &        &     \\
-            &        &   &     & f_2 &        &     \\
-            &        &   &     &     & \ddots &     \\
-          0 &        &   &     &     &        & f_r \\
-        \end{pmatrix}
-      \]
-      take determinant on both sides, we get
-      \[
-        \underbrace{\det(B_1)}_{\in \KK^{\times}} \cdot \det(xI - A) \cdot \underbrace{\det(B_2)}_{\in \KK^\times}
-        = \prod_{i=1}^r f_i
-      \]
-      which is by the fact that
-      \[
-        \det (I_n - A) =
-        \begin{vmatrix}
-          x-a_{11} & - a_{12} & \cdots & -a_{1n}  \\
-          -a_{21}  & x-a_{22} & \cdots & -a_{2n}  \\
-                   &          & \ddots &          \\
-          -a_{n 1} & -a_{n 2} & \cdots & x-a_{nn}
-        \end{vmatrix} = x^n + \text{l.o.t.} \implies \text{monic}
-      \]
-      note that \( f_1,\ldots, f_r \) being monic \( \implies \det(xI - A) = \prod_{i=1}^r f_i \implies
-      \det(B_1) \cdot \det(B_2) = 1\).
+	\leavevmode
+	\begin{enumerate}
+		\item Using \textbf{Formula} \ref{eq:decomposition}, we get a basis for \( V \), such that
+		      the matrix of \( T \) is given as following block decomposition:
+		      \[
+			      \begin{pmatrix}
+				      \cC_{f_1} &           &        & 0         \\
+				                & \cC_{f_2} &        &           \\
+				                &           & \ddots &           \\
+				      0         &           &        & \cC_{f_r}
+			      \end{pmatrix}
+		      \]
+		      where \( f_i = x_i^{d_i} + a_{i,1}x^{d_i - 1} + \cdots + a_{i,d_i} \) and we choose the
+		      basis of \( \qo{\KK[x]}{(f_i)} \) given by \( \overline{1}, \overline{x},\ldots,
+		      \overline{x}^{d_i - 1} \) and see that
+		      \[
+			      \cC_{f_i} =
+			      \begin{pmatrix}
+				      0      & 0      & \cdots & 0      & -a_{i,d_i}     \\
+				      1      & 0      & \cdots & 0      & -a_{i,d_i - 1} \\
+				      0      & 1      & \cdots & \vdots & \vdots         \\
+				      \vdots & \vdots & \cdots & \vdots & \vdots         \\
+				      0      & 0      & \cdots & 1      & -a_{i,1}
+			      \end{pmatrix} \text{ for } 1 \leq i \leq r
+		      \]
+		\item See that
+		      \[
+			      B_1 \cdot (xI - A ) \cdot B_2 =
+			      \begin{pmatrix}
+				      1 &        &   &     &     &        & 0   \\
+				        & \ddots &   &     &     &        &     \\
+				        &        & 1 &     &     &        &     \\
+				        &        &   & f_1 &     &        &     \\
+				        &        &   &     & f_2 &        &     \\
+				        &        &   &     &     & \ddots &     \\
+				      0 &        &   &     &     &        & f_r \\
+			      \end{pmatrix}
+		      \]
+		      take determinant on both sides, we get
+		      \[
+			      \underbrace{\det(B_1)}_{\in \KK^{\times}} \cdot \det(xI - A) \cdot \underbrace{\det(B_2)}_{\in \KK^\times}
+			      = \prod_{i=1}^r f_i
+		      \]
+		      which is by the fact that
+		      \[
+			      \det (I_n - A) =
+			      \begin{vmatrix}
+				      x-a_{11} & - a_{12} & \cdots & -a_{1n}  \\
+				      -a_{21}  & x-a_{22} & \cdots & -a_{2n}  \\
+				               &          & \ddots &          \\
+				      -a_{n 1} & -a_{n 2} & \cdots & x-a_{nn}
+			      \end{vmatrix} = x^n + \text{l.o.t.} \implies \text{monic}
+		      \]
+		      note that \( f_1,\ldots, f_r \) being monic \( \implies \det(xI - A) = \prod_{i=1}^r f_i \implies
+		      \det(B_1) \cdot \det(B_2) = 1\).
 
-      \begin{remark}
-        Simple fact:
-        \[
-          c_T (x) = x^n - x^{n-1}\underbrace{(a_{11} + \cdots + a_{nn})}_{\tr(A)} + \cdots +
-          (-1)^n \det(A)
-        \]
-      \end{remark}
-  \end{enumerate}
+		      \begin{remark}
+			      Simple fact:
+			      \[
+				      c_T (x) = x^n - x^{n-1}\underbrace{(a_{11} + \cdots + a_{nn})}_{\tr(A)} + \cdots +
+				      (-1)^n \det(A)
+			      \]
+		      \end{remark}
+	\end{enumerate}
 \end{conclusion}
 
 \begin{definition}{Characteristic Polynomial}
-  The \underline{\textbf{characteristic polynomial}} of \( T \) is defined as
-  \[
-    c_T(x) = \det(xI_n - A)
-  \]
+	The \underline{\textbf{characteristic polynomial}} of \( T \) is defined as
+	\[
+		c_T(x) = \det(xI_n - A)
+	\]
 \end{definition}
 
 \begin{note}
-  This is independent of the choice of bases, the matrix for a different basis is \( BAB^{-1} \)
-  with \( B \) being invertible, thus
-  \[
-    \det(xI - BAB^{-1}) = \det(B(xI - A)B^{-1}) = \det(B) \cdot \det(xI - A) \cdot \det(B^{-1}) =
-    \det(xI - A)
-  \]
+	This is independent of the choice of bases, the matrix for a different basis is \( BAB^{-1} \)
+	with \( B \) being invertible, thus
+	\[
+		\det(xI - BAB^{-1}) = \det(B(xI - A)B^{-1}) = \det(B) \cdot \det(xI - A) \cdot \det(B^{-1}) =
+		\det(xI - A)
+	\]
 \end{note}
 
 \begin{conclusion}
-  \leavevmode
-  \[
-    c_T(x) = \prod_{i=1}^r f_i
-  \]
+	\leavevmode
+	\[
+		c_T(x) = \prod_{i=1}^r f_i
+	\]
 \end{conclusion}
 Now consider the set
 \[
-  \{g \in \KK[x] \; | \; g(T) = 0 \text{ on } V\} = \ann_R(M)
+	\{g \in \KK[x] \; | \; g(T) = 0 \text{ on } V\} = \ann_R(M)
 \]
 is an ideal in \( \KK[x] \) and recall that as we have \( g(T)(v) = g(x) \cdot v \).
 
 \begin{claim}
-  This is \underline{non-zero}, its monic genertator is the \underline{minimal polynomial} \( m_T(x) \)
-  of \( T \). \( \iff m_T(x)\)  is the monic polynomial of smallest degree, s.t. \( m_T(T) = 0 \).
+	This is \underline{non-zero}, its monic genertator is the \underline{minimal polynomial} \( m_T(x) \)
+	of \( T \). \( \iff m_T(x)\)  is the monic polynomial of smallest degree, s.t. \( m_T(T) = 0 \).
 \end{claim}
 Since
 \[
-  M \cong \qo{\KK[x]}{(f_1)} \oplus \cdots \oplus \qo{\KK[x]}{(f_r)}
+	M \cong \qo{\KK[x]}{(f_1)} \oplus \cdots \oplus \qo{\KK[x]}{(f_r)}
 \]
 let \( f\in \KK[x] \implies f\cdot (0,\ldots, 0,\overline{1}, 0,\ldots, 0) = 0 \) iff \( f\in (f_i) \; \forall \; i \)
 where \( \overline{1} \) is at the i-th position. Hence \( \ann_R(M) = (f_r) \) since \( f_1\mid
 f_2\mid \cdots \mid f_r \implies m_T(x) = f_r \).
 
 \begin{conclusion}
-  \leavevmode
-  \begin{enumerate}
-    \item \( m_T \mid c_T \implies c_T(T) = 0 \), which is the \textcolor{blue}{Cayley-Hamilton
-      Theorem}.
-    \item Since \( f_1\mid f_2 \mid \cdots \mid f_r \implies m_T \) and \( c_T \) has the same
-      irreducible factors.
-  \end{enumerate}
+	\leavevmode
+	\begin{enumerate}
+		\item \( m_T \mid c_T \implies c_T(T) = 0 \), which is the \textcolor{blue}{Cayley-Hamilton
+			      Theorem}.
+		\item Since \( f_1\mid f_2 \mid \cdots \mid f_r \implies m_T \) and \( c_T \) has the same
+		      irreducible factors.
+	\end{enumerate}
 \end{conclusion}
 
 \begin{note}
-  \leavevmode
-  \begin{enumerate}
-    \item Two similar linear transformation have the same minimal polynomial (the corresponding
-      module are isomorphic \( \implies \) they have the same annihilator).
-    \item Can define \( m_A, c_T \) when \( A \) is a matrix by taking the correspoinding linear
-      transformation.
-    \item \( \lambda \in \KK \) is an \underline{eigenvalue} of \( T \) if \( \exists \; v \in V
-      \smallsetminus \{0\}\) (called \underline{eigenvector}), s.t. \( T(v) = \lambda v \iff
-      (\lambda \Id - T) \) not injective \( \iff \det(\lambda \Id - T) = 0 \iff c_T(\lambda) = 0\).
-  \end{enumerate}
+	\leavevmode
+	\begin{enumerate}
+		\item Two similar linear transformation have the same minimal polynomial (the corresponding
+		      module are isomorphic \( \implies \) they have the same annihilator).
+		\item Can define \( m_A, c_T \) when \( A \) is a matrix by taking the correspoinding linear
+		      transformation.
+		\item \( \lambda \in \KK \) is an \underline{eigenvalue} of \( T \) if \( \exists \; v \in V
+		      \smallsetminus \{0\}\) (called \underline{eigenvector}), s.t. \( T(v) = \lambda v \iff
+		      (\lambda \Id - T) \) not injective \( \iff \det(\lambda \Id - T) = 0 \iff c_T(\lambda) = 0\).
+	\end{enumerate}
 \end{note}
 
 \begin{note}[\textbf{Regarding Computation}]
-  \leavevmode
-  \begin{enumerate}
-    \item \( c_T(x) \) is easiest to compute.
-    \item If can factor \( c_T \) as product of irreducible polynomials, then can find the minimal
-      polynomial by ``trial and error'' (evaluate \( T \)) and get \( 0 \).
-    \item Sometimes this is enough (e.g. if \( \deg\bace{\frac{c_T(x)}{m_T(x)}} \leq 1 \)), it's
-      easy to calculate.
-    \item In general, need to compute the SNF of \( xI -A \) to determine all \( f_i \).
-  \end{enumerate}
+	\leavevmode
+	\begin{enumerate}
+		\item \( c_T(x) \) is easiest to compute.
+		\item If can factor \( c_T \) as product of irreducible polynomials, then can find the minimal
+		      polynomial by ``trial and error'' (evaluate \( T \)) and get \( 0 \).
+		\item Sometimes this is enough (e.g. if \( \deg\bace{\frac{c_T(x)}{m_T(x)}} \leq 1 \)), it's
+		      easy to calculate.
+		\item In general, need to compute the SNF of \( xI -A \) to determine all \( f_i \).
+	\end{enumerate}
 \end{note}
 We now switch our focus to the case when \( \KK \) is an \textbf{\textcolor{blue}{algebraically
-closed field}}. Then we obtain the famous \underline{Jordan Canonical Form} of \( T \). Suppose
+		closed field}}. Then we obtain the famous \underline{Jordan Canonical Form} of \( T \). Suppose
 now \( \KK \) is algebraically closed, e.g. \( \KK = \CC \), then each \( f_i \) can be factored
 as a product of \( (x-\lambda_i)^{d_i} \), then
 \[
-  M \cong \text{direct sum of terms of the form } \qo{\KK[x]}{(x-\lambda)^m}
+	M \cong \text{direct sum of terms of the form } \qo{\KK[x]}{(x-\lambda)^m}
 \]
 Let's now consider for such a factor, the basis given by
 \[
-  v_1 \coloneqq \overline{(x-\lambda)^{m-1}}, v_2 \coloneqq  \overline{(x-\lambda)^{m-2}}, \ldots, v_{m-1}\coloneqq  \overline{(x-\lambda)},
-  v_m \coloneqq  \overline{1}
+	v_1 \coloneqq \overline{(x-\lambda)^{m-1}}, v_2 \coloneqq  \overline{(x-\lambda)^{m-2}}, \ldots, v_{m-1}\coloneqq  \overline{(x-\lambda)},
+	v_m \coloneqq  \overline{1}
 \]
 thus the matrix of \( T \) w.r.t. this basis is given by:
 \[
-  \begin{pmatrix}
-    \lambda & 1       &        &        & 0         \\
-            & \lambda & \ddots &        &           \\
-            &         & \ddots & \ddots &         & \\
-            &         &        & \ddots & 1         \\
-    0       &         &        &        & \lambda
-  \end{pmatrix}
+	\begin{pmatrix}
+		\lambda & 1       &        &        & 0         \\
+		        & \lambda & \ddots &        &           \\
+		        &         & \ddots & \ddots &         & \\
+		        &         &        & \ddots & 1         \\
+		0       &         &        &        & \lambda
+	\end{pmatrix}
 \]
 This is a \underline{size-\( m \)} Jordan block correspoinding to \( \lambda \). Which is by the
 fact that
 \[
-  \begin{aligned}
-    T(v)   & = x \cdot v                                                                              \\
-    T(v_1) & = x \cdot \overline{(x-\lambda^{m-1})}                                                   \\
-           & = (x-\lambda + \lambda) \cdot \overline{(x-\lambda)^{m-1}}                               \\
-           & = \underbrace{\overline{x(x-\lambda)^{m-1}}}_{=0} + \lambda \overline{(x-\lambda)^{m-1}}
-           \\
-           & = \lambda\overline{(x-\lambda)^{m-1}} = \lambda v_1                                      \\
-    T(v_i) & = x\cdot \overline{(x-\lambda)^{m-i}}                                                    \\
-           & = (x-\lambda + \lambda) \cdot \overline{(x-\lambda)^{m-i}}                               \\
-           & = \overline{(x-\lambda)^{m-(i-1)}} + \lambda\overline{(x-\lambda)^{m-i}} = v_{i-1} +
-           \lambda {v_i}
-  \end{aligned}
+	\begin{aligned}
+		T(v)   & = x \cdot v                                                                              \\
+		T(v_1) & = x \cdot \overline{(x-\lambda^{m-1})}                                                   \\
+		       & = (x-\lambda + \lambda) \cdot \overline{(x-\lambda)^{m-1}}                               \\
+		       & = \underbrace{\overline{x(x-\lambda)^{m-1}}}_{=0} + \lambda \overline{(x-\lambda)^{m-1}}
+		\\
+		       & = \lambda\overline{(x-\lambda)^{m-1}} = \lambda v_1                                      \\
+		T(v_i) & = x\cdot \overline{(x-\lambda)^{m-i}}                                                    \\
+		       & = (x-\lambda + \lambda) \cdot \overline{(x-\lambda)^{m-i}}                               \\
+		       & = \overline{(x-\lambda)^{m-(i-1)}} + \lambda\overline{(x-\lambda)^{m-i}} = v_{i-1} +
+		\lambda {v_i}
+	\end{aligned}
 \]
 The \textbf{Upshot}: we get a basis of \( V \), s.t. \( T \) is given by
 \[
-  \begin{pmatrix}
-    J_1 &        &     \\
-        & \ddots &     \\
-        &        & J_q
-  \end{pmatrix}
+	\begin{pmatrix}
+		J_1 &        &     \\
+		    & \ddots &     \\
+		    &        & J_q
+	\end{pmatrix}
 \]
 where \( J_i \) is the Jordan blocks. This is the Jordan canonical form of \( T \) (or \( A \)). The
 uniqueness in the structural theorem for modules over PIDs implies that \( \forall \; \lambda,

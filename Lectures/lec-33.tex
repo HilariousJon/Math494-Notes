@@ -1,201 +1,201 @@
 \section{Normal Field Extensions}
 
 \begin{proposition}
-  Suppose \( K \hookrightarrow L \) is an algebraic field extension, then t.f.a.e.
-  \begin{enumerate}
-    \item If \( f \in K[x] \) is irreducible, which has a root in \( L \implies f \) splits as a
-      product of degree \( 1 \) polynomial in \( L[x] \).
-    \item \( \exists \) a family of polynomial \( (f_i)_{i\in I} \), with \( f_i \in K[x] \), s.t. \( L \) is the 
-      splitting field of this family. Namely, all \( f_i \) splits as product of degree \( 1 \)
-      polynomial in \( L[x] \) and there is no \( K \hookrightarrow L' \hookrightarrow L \), s.t. \(
-      L' \ne L \) with the same property. In particular, \( L \) is the smallest.
-    \item If \( L \hookrightarrow \overline{L} \) is an algebraic closure of \( L \) and \( \sigma :
-      L \to \overline{L}\) is morphism of extension of \( K \implies \sigma(L) \subseteq L \).
-  \end{enumerate}
+	Suppose \( K \hookrightarrow L \) is an algebraic field extension, then t.f.a.e.
+	\begin{enumerate}
+		\item If \( f \in K[x] \) is irreducible, which has a root in \( L \implies f \) splits as a
+		      product of degree \( 1 \) polynomial in \( L[x] \).
+		\item \( \exists \) a family of polynomial \( (f_i)_{i\in I} \), with \( f_i \in K[x] \), s.t. \( L \) is the
+		      splitting field of this family. Namely, all \( f_i \) splits as product of degree \( 1 \)
+		      polynomial in \( L[x] \) and there is no \( K \hookrightarrow L' \hookrightarrow L \), s.t. \(
+		      L' \ne L \) with the same property. In particular, \( L \) is the smallest.
+		\item If \( L \hookrightarrow \overline{L} \) is an algebraic closure of \( L \) and \( \sigma :
+		      L \to \overline{L}\) is morphism of extension of \( K \implies \sigma(L) \subseteq L \).
+	\end{enumerate}
 \end{proposition}
 
 \begin{proof}
-  \leavevmode 
-  \begin{itemize}
-    \item \( 1\implies 2 \): Say \( L = K(a_i \; | \; i \in I) \), such exists as one can even take
-      all elements of \( L \). Let \( f_i \in K[x] \) be the minimal polynomial of \( a_i \) over \( K \). By 
-      \( 1 \), the \( f_i \) splits as a product of linear polynomial in \( L[x] \). Now if \( K
-      \hookrightarrow L' \hookrightarrow L \) and \( f_i \) splits in \( L'[x] \implies a_i \in L' \implies L = L' \) because 
-      \( L = K(a_i \; | \; i \in I) \), thus \( L \) is a splitting field for \( (f_i)_{i\in I} \).
-    \item \( 2 \implies 3 \): Given such a family \( (f_i)_{i\in I} \), we have 
-      \[
-        f_i = c_i (x-\alpha_{i 1}) \cdots (x-\alpha_{i d_i}) \quad \alpha_{ij} \in L 
-      \] 
-      since \( L \) is  splitting field of this family, then 
-      \[
-        L = K(\alpha_{ij} \; | \; i \in I, 1\leq j \leq d_i)
-      \] 
-      Given that 
-      \[
-        \begin{tikzcd}
-          L \arrow[r, hook] \arrow[d,hook] & L \arrow[d, "\sigma"] \\ 
-          L \arrow[r,hook] & \overline{L}
-        \end{tikzcd}
-      \] 
-      since \( \sigma|_{K} = \Id_{K} \), it shall preserve the coefficients, and thus maps root to
-      root, we have \( \forall \; i,j \), \( \sigma(\alpha_{ij}) \in \{\alpha_{ik} \; | \; 1 \leq k
-      \leq d_i\} \implies \sigma(\alpha_{ij}) \in L \; \forall \; i,j \) by definition of \( L \). Now 
-      \[
-        K \hookrightarrow \alpha_{ij} \in \sigma^{-1} (L)
-      \] 
-      \( \implies L = K(\alpha_{ij} \; | \; i,j) \subseteq \sigma^{-1}(L) \implies \sigma(L)
-      \subseteq L \).
-    \item \( 3 \implies 1 \): Let \( f \in K[x] \) being irreducible and having a root \( a  \in
-      L\), choose \( L \hookrightarrow \overline{L} \) to be the algebraic closure. We want to see
-      that \( a_i\in L \; \forall \; i \). See that 
-      \[
-        K(a) \cong \qo{K[x]}{(f)} \cong K(a_i)
-      \] 
-      as \( K \)-algebras, then we have 
-      \[
-        \begin{tikzcd}
-          K \arrow[r,hook]\arrow[rd,hook] & K(a) \arrow[d,"\sim"] \arrow[r,hook] & L \arrow[dashed,
-          d, "\sigma"] \\ 
-                                          & K(a_i) \arrow[r,hook] & \overline{L}
-        \end{tikzcd}
-      \] 
-      where the isomorphism is given by \( K \)-extension. Then there exists \( \sigma : L \to
-      \overline{L} \) be extension of \( K \), such that \( \sigma(a) = a_i \). Now that we have \(
-      \sigma(L) \subseteq L \implies a_i \in L \; \forall \; i\) since \( a_i\in \sigma(L) \).
-  \end{itemize}
+	\leavevmode
+	\begin{itemize}
+		\item \( 1\implies 2 \): Say \( L = K(a_i \; | \; i \in I) \), such exists as one can even take
+		      all elements of \( L \). Let \( f_i \in K[x] \) be the minimal polynomial of \( a_i \) over \( K \). By
+		      \( 1 \), the \( f_i \) splits as a product of linear polynomial in \( L[x] \). Now if \( K
+		      \hookrightarrow L' \hookrightarrow L \) and \( f_i \) splits in \( L'[x] \implies a_i \in L' \implies L = L' \) because
+		      \( L = K(a_i \; | \; i \in I) \), thus \( L \) is a splitting field for \( (f_i)_{i\in I} \).
+		\item \( 2 \implies 3 \): Given such a family \( (f_i)_{i\in I} \), we have
+		      \[
+			      f_i = c_i (x-\alpha_{i 1}) \cdots (x-\alpha_{i d_i}) \quad \alpha_{ij} \in L
+		      \]
+		      since \( L \) is  splitting field of this family, then
+		      \[
+			      L = K(\alpha_{ij} \; | \; i \in I, 1\leq j \leq d_i)
+		      \]
+		      Given that
+		      \[
+			      \begin{tikzcd}
+				      L \arrow[r, hook] \arrow[d,hook] & L \arrow[d, "\sigma"] \\
+				      L \arrow[r,hook] & \overline{L}
+			      \end{tikzcd}
+		      \]
+		      since \( \sigma|_{K} = \Id_{K} \), it shall preserve the coefficients, and thus maps root to
+		      root, we have \( \forall \; i,j \), \( \sigma(\alpha_{ij}) \in \{\alpha_{ik} \; | \; 1 \leq k
+		      \leq d_i\} \implies \sigma(\alpha_{ij}) \in L \; \forall \; i,j \) by definition of \( L \). Now
+		      \[
+			      K \hookrightarrow \alpha_{ij} \in \sigma^{-1} (L)
+		      \]
+		      \( \implies L = K(\alpha_{ij} \; | \; i,j) \subseteq \sigma^{-1}(L) \implies \sigma(L)
+		      \subseteq L \).
+		\item \( 3 \implies 1 \): Let \( f \in K[x] \) being irreducible and having a root \( a  \in
+		      L\), choose \( L \hookrightarrow \overline{L} \) to be the algebraic closure. We want to see
+		      that \( a_i\in L \; \forall \; i \). See that
+		      \[
+			      K(a) \cong \qo{K[x]}{(f)} \cong K(a_i)
+		      \]
+		      as \( K \)-algebras, then we have
+		      \[
+			      \begin{tikzcd}
+				      K \arrow[r,hook]\arrow[rd,hook] & K(a) \arrow[d,"\sim"] \arrow[r,hook] & L \arrow[dashed,
+					      d, "\sigma"] \\
+				      & K(a_i) \arrow[r,hook] & \overline{L}
+			      \end{tikzcd}
+		      \]
+		      where the isomorphism is given by \( K \)-extension. Then there exists \( \sigma : L \to
+		      \overline{L} \) be extension of \( K \), such that \( \sigma(a) = a_i \). Now that we have \(
+		      \sigma(L) \subseteq L \implies a_i \in L \; \forall \; i\) since \( a_i\in \sigma(L) \).
+	\end{itemize}
 \end{proof}
 
 \begin{remark}
-  If \( \qo{L}{K} \) is finite, then the proof of \( 1\implies 2 \) above says we can take \( I \)
-  to be finite. If \( f=\prod_{i\in I}f_i \implies \qo{L}{K} \) is splitting field of \( f \).
+	If \( \qo{L}{K} \) is finite, then the proof of \( 1\implies 2 \) above says we can take \( I \)
+	to be finite. If \( f=\prod_{i\in I}f_i \implies \qo{L}{K} \) is splitting field of \( f \).
 \end{remark}
 
 \begin{definition}[\textbf{Normal Field Extension}]
-  Let \( \qo{L}{K} \) be an algebraic field extension that satisfies the condition in the \textbf{above} proposition, then
-  such field extension is called \underline{normal field extension}.
+	Let \( \qo{L}{K} \) be an algebraic field extension that satisfies the condition in the \textbf{above} proposition, then
+	such field extension is called \underline{normal field extension}.
 \end{definition}
 
 \begin{eg}
-  \leavevmode 
-  \begin{enumerate}
-    \item \( K \hookrightarrow \overline{K} \) be algebraic closure \( \implies \qo{\overline{K}}{K} \) is normal. 
-      Such is clear as \( f \) will splits on \( \overline{K} \) for sure.
-    \item Every degree \( 2 \) extension \( K \hookrightarrow L \) is normal (\( [L:K] = 2 \)),
-      which is somewhat like the results in normal subgroup.
-      \begin{proof}
-        Let \( a\in L \smallsetminus K \implies L = K(a) \). Let \( f \) be the minimal polynomial
-        of \( a \) over \( K \implies \deg(f) = 2 \). Now we have 
-        \[
-          (x-a) \mid f \implies f = (x-a)(x-b) \quad b \in K
-        \] 
-        \( \implies L\) is the splitting field of \( f \implies \qo{L}{K} \) is normal.
-      \end{proof}
-    \item If \( p > 0 \) be prime integer. Have 
-      \[
-        \FF_p \hookrightarrow k = \FF_{p^e} \hookrightarrow \overline{\FF_p}
-      \] 
-      Note that \( \FF_{p^e} \) is the unique field with \( p^e \) elements, which is \( \{u \; | \;
-      u^{p^e} = u\} \implies k \) is the splitting field of \( x^{p^e} - x \implies \qo{k}{\FF_p} \)
-      is normal. Here we use \textbf{Condition 2} in the proposition.
-    \item
-      \[
-        \qo{\QQ(\sqrt[3]{2})}{\QQ}
-      \] 
-      is not nomral, here we use \textbf{Condition 1}. Since the other \( 2 \) roots of \( x^3 - 2 \not\in \QQ(\sqrt[3]{2}) \subseteq
-      \RR\). But \( \qo{\QQ(\sqrt[3]{2}, \omega)}{\QQ} \) is normal since it is the splitting field
-      of \( x^3-2 \).
-  \end{enumerate}
+	\leavevmode
+	\begin{enumerate}
+		\item \( K \hookrightarrow \overline{K} \) be algebraic closure \( \implies \qo{\overline{K}}{K} \) is normal.
+		      Such is clear as \( f \) will splits on \( \overline{K} \) for sure.
+		\item Every degree \( 2 \) extension \( K \hookrightarrow L \) is normal (\( [L:K] = 2 \)),
+		      which is somewhat like the results in normal subgroup.
+		      \begin{proof}
+			      Let \( a\in L \smallsetminus K \implies L = K(a) \). Let \( f \) be the minimal polynomial
+			      of \( a \) over \( K \implies \deg(f) = 2 \). Now we have
+			      \[
+				      (x-a) \mid f \implies f = (x-a)(x-b) \quad b \in K
+			      \]
+			      \( \implies L\) is the splitting field of \( f \implies \qo{L}{K} \) is normal.
+		      \end{proof}
+		\item If \( p > 0 \) be prime integer. Have
+		      \[
+			      \FF_p \hookrightarrow k = \FF_{p^e} \hookrightarrow \overline{\FF_p}
+		      \]
+		      Note that \( \FF_{p^e} \) is the unique field with \( p^e \) elements, which is \( \{u \; | \;
+		      u^{p^e} = u\} \implies k \) is the splitting field of \( x^{p^e} - x \implies \qo{k}{\FF_p} \)
+		      is normal. Here we use \textbf{Condition 2} in the proposition.
+		\item
+		      \[
+			      \qo{\QQ(\sqrt[3]{2})}{\QQ}
+		      \]
+		      is not nomral, here we use \textbf{Condition 1}. Since the other \( 2 \) roots of \( x^3 - 2 \not\in \QQ(\sqrt[3]{2}) \subseteq
+		      \RR\). But \( \qo{\QQ(\sqrt[3]{2}, \omega)}{\QQ} \) is normal since it is the splitting field
+		      of \( x^3-2 \).
+	\end{enumerate}
 \end{eg}
 
 \begin{proposition}
-  If \( K \hookrightarrow L \) is any algebraic field extension and \( L \hookrightarrow L' \) is
-  algebraic extension, s.t. \( \qo{L'}{K} \) is normal (e.g. \( L' \) is the algebraic closure of \(
-  L\) and hence of \( K \)), then there exists a \textbf{smallest extension} 
-  \[
-    K \hookrightarrow L \hookrightarrow L''\hookrightarrow L' 
-  \] 
-  s.t. \( \qo{L''}{K} \) is normal (the normal closure of \( L \) in \( L' \)).
+	If \( K \hookrightarrow L \) is any algebraic field extension and \( L \hookrightarrow L' \) is
+	algebraic extension, s.t. \( \qo{L'}{K} \) is normal (e.g. \( L' \) is the algebraic closure of \(
+	L\) and hence of \( K \)), then there exists a \textbf{smallest extension}
+	\[
+		K \hookrightarrow L \hookrightarrow L''\hookrightarrow L'
+	\]
+	s.t. \( \qo{L''}{K} \) is normal (the normal closure of \( L \) in \( L' \)).
 \end{proposition}
 
 \begin{proof}
-  Say \( L = K(a_i \; | \; i \in I) \), now let \( f_i \in K[x] \) be the minimal polynomial of \( a_i \) over \( K \)
-  thus \( f_i \) is irreducible. Now \( \qo{L'}{K} \) is normal implies that 
-  \[
-    f_i = (x-\alpha_{i 1}) \cdots (x - \alpha_{i d_i}) \quad \alpha_{i 1} = a_i , \alpha_{ij} \in L'
-  \] 
-  now see that \( K(\alpha_{ij} \; | \; i \in I, 1\leq j \leq d_i) \) is the splitting field of the
-  family \( (f_i)_{i\in I} \) annd is the smallest normal subextension of \( L' \) which contains \(
-  L\).
+	Say \( L = K(a_i \; | \; i \in I) \), now let \( f_i \in K[x] \) be the minimal polynomial of \( a_i \) over \( K \)
+	thus \( f_i \) is irreducible. Now \( \qo{L'}{K} \) is normal implies that
+	\[
+		f_i = (x-\alpha_{i 1}) \cdots (x - \alpha_{i d_i}) \quad \alpha_{i 1} = a_i , \alpha_{ij} \in L'
+	\]
+	now see that \( K(\alpha_{ij} \; | \; i \in I, 1\leq j \leq d_i) \) is the splitting field of the
+	family \( (f_i)_{i\in I} \) annd is the smallest normal subextension of \( L' \) which contains \(
+	L\).
 \end{proof}
 
 \begin{eg}
-  \( \QQ \hookrightarrow \QQ(\sqrt[3]{2}) \hookrightarrow \overline{\QQ} \) and see that the normal
-  closure of \( \QQ(\sqrt[3]{2}) \) is \( \QQ(\sqrt[3]{2}, \omega) \).
+	\( \QQ \hookrightarrow \QQ(\sqrt[3]{2}) \hookrightarrow \overline{\QQ} \) and see that the normal
+	closure of \( \QQ(\sqrt[3]{2}) \) is \( \QQ(\sqrt[3]{2}, \omega) \).
 \end{eg}
 
 \begin{proposition}
-  If \( K \hookrightarrow L_1 \hookrightarrow L_2 \) is algebraic extension and \( \qo{L_2}{K} \) is
-  normal, then \( \qo{L_1}{L_2} \) is normal.
+	If \( K \hookrightarrow L_1 \hookrightarrow L_2 \) is algebraic extension and \( \qo{L_2}{K} \) is
+	normal, then \( \qo{L_1}{L_2} \) is normal.
 \end{proposition}
 
 \begin{proof}
-  If \( (f_i)_{i\in I} \) is family of polynomial in \( K[x] \) such that \( L_2 \) is the splitting
-  field over \( K \), then \( L_2 \) is also its splitting field over \( L_2 \implies \qo{L_2}{L_1} \)
-  is normal.
+	If \( (f_i)_{i\in I} \) is family of polynomial in \( K[x] \) such that \( L_2 \) is the splitting
+	field over \( K \), then \( L_2 \) is also its splitting field over \( L_2 \implies \qo{L_2}{L_1} \)
+	is normal.
 \end{proof}
 
 \begin{definition}[\textbf{Galois Field Extension}]
-  A \underline{Galois field extension} \( K \hookrightarrow L \) is a field extension which is
-  \textbf{algebraic, separable, and normal}. (Mainly discuss for finite extension case).
+	A \underline{Galois field extension} \( K \hookrightarrow L \) is a field extension which is
+	\textbf{algebraic, separable, and normal}. (Mainly discuss for finite extension case).
 \end{definition}
 
 \begin{proposition}
-  If \( \qo{L}{K} \) is finite Galois extension, then 
-  \[
-    \abs{G\bace{\qo{L}{K}}} = [L:K]
-  \] 
+	If \( \qo{L}{K} \) is finite Galois extension, then
+	\[
+		\abs{G\bace{\qo{L}{K}}} = [L:K]
+	\]
 \end{proposition}
 
 \begin{proof}
-  See that \( \qo{L}{K} \) is finite + separable \( \xRightarrow{\text{Primitive Element Thm \ref{thm:primitive-element-theorem}}} \) 
-  \( \exists \; a\in L \), s.t. \( L = K(a) \). Let \( f \in K[x] \) be the minimal polynomial of \(
-  a \implies \deg(f) = [L:K] =: n \). Now \( \qo{L}{K} \) is normal \( \implies  \)
-  \[
-    f = (x-a_1)\cdots (x-a_n) \quad a_1 = a, a_i \in L \; \forall \; i
-  \] 
-  Since \( \qo{L}{K} \) is separable, then all the \( a_i \) are pairwise distinct. Consider the map 
-  \[
-    \begin{aligned}
-      \vp: G(\qo{L}{K}) &\to \{a_1,\ldots, a_n\} \\ 
-      \vp(\sigma) &= \sigma(a_1)
-    \end{aligned}
-  \] 
-  \begin{claim}
-    \( \vp \) is a \textbf{bijection}.
-  \end{claim}
+	See that \( \qo{L}{K} \) is finite + separable \( \xRightarrow{\text{Primitive Element Thm \ref{thm:primitive-element-theorem}}} \)
+	\( \exists \; a\in L \), s.t. \( L = K(a) \). Let \( f \in K[x] \) be the minimal polynomial of \(
+	a \implies \deg(f) = [L:K] =: n \). Now \( \qo{L}{K} \) is normal \( \implies  \)
+	\[
+		f = (x-a_1)\cdots (x-a_n) \quad a_1 = a, a_i \in L \; \forall \; i
+	\]
+	Since \( \qo{L}{K} \) is separable, then all the \( a_i \) are pairwise distinct. Consider the map
+	\[
+		\begin{aligned}
+			\vp: G(\qo{L}{K}) & \to \{a_1,\ldots, a_n\} \\
+			\vp(\sigma)       & = \sigma(a_1)
+		\end{aligned}
+	\]
+	\begin{claim}
+		\( \vp \) is a \textbf{bijection}.
+	\end{claim}
 
-  \begin{proof}
-    \leavevmode 
-    \begin{itemize}
-      \item Injectivity: If \( \sigma_1, \sigma_2 \in G(\qo{L}{K}) \), s.t. \( \sigma_1(a) =
-        \sigma_2(a) \), then 
-        \[
-          K \hookrightarrow \{u \in L \; | \; \sigma_1(u) = \sigma_2(u)\} \subseteq L
-        \] 
-        the middle part is a subfield containing \( a \) by the fact that \( \sigma_1, \sigma_2 \) 
-        are automorphism, then by definition of \( L \) it is equal to \( L
-        \implies \sigma_1 = \sigma_2 \).
-      \item Surjectivity: for \( 1\leq i \leq n \), we have 
-        \[
-          \begin{tikzcd}
-            K \arrow[r,hook]\arrow[rd, hook] & K(a_1) = L \arrow[d, "\sim"] \arrow[rd, dashed, hook, "\sigma"] &\\ 
-                                             & K(a_i) \subseteq L \arrow[r,hook] & L
-          \end{tikzcd}
-        \] 
-        then there exists \( \sigma: L \to L \) morphisms of \( K \)-algebra, s.t. \( \sigma(a) =
-        a_i \). See that \( \sigma \) is clearly injective, and since \( [K(a_i) : K] = [K(a) : K] = n \implies 
-        [L: K(a_i)] = 1 \implies \sigma \) is surjective, hence \( \sigma \in G(\qo{L}{K}) \).
-    \end{itemize}
-  \end{proof}
+	\begin{proof}
+		\leavevmode
+		\begin{itemize}
+			\item Injectivity: If \( \sigma_1, \sigma_2 \in G(\qo{L}{K}) \), s.t. \( \sigma_1(a) =
+			      \sigma_2(a) \), then
+			      \[
+				      K \hookrightarrow \{u \in L \; | \; \sigma_1(u) = \sigma_2(u)\} \subseteq L
+			      \]
+			      the middle part is a subfield containing \( a \) by the fact that \( \sigma_1, \sigma_2 \)
+			      are automorphism, then by definition of \( L \) it is equal to \( L
+			      \implies \sigma_1 = \sigma_2 \).
+			\item Surjectivity: for \( 1\leq i \leq n \), we have
+			      \[
+				      \begin{tikzcd}
+					      K \arrow[r,hook]\arrow[rd, hook] & K(a_1) = L \arrow[d, "\sim"] \arrow[rd, dashed, hook, "\sigma"] &\\
+					      & K(a_i) \subseteq L \arrow[r,hook] & L
+				      \end{tikzcd}
+			      \]
+			      then there exists \( \sigma: L \to L \) morphisms of \( K \)-algebra, s.t. \( \sigma(a) =
+			      a_i \). See that \( \sigma \) is clearly injective, and since \( [K(a_i) : K] = [K(a) : K] = n \implies
+			      [L: K(a_i)] = 1 \implies \sigma \) is surjective, hence \( \sigma \in G(\qo{L}{K}) \).
+		\end{itemize}
+	\end{proof}
 \end{proof}
 
