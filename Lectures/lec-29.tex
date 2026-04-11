@@ -78,7 +78,7 @@
 \end{eg}
 
 \section{Algebraic Closure}
-Recall that A field \( K \) is algebraically closed if \( \forall \; f\in K[x], \deg(f)\geq 1 \),
+Recall that a field \( K \) is algebraically closed if \( \forall \; f\in K[x], \deg(f)\geq 1 \),
 there exists \( a\in K \), s.t. \( f(a) = 0 \). Which is also equivalent to \( \forall \; f \in K[x], \deg(f) \geq 1 \)
 with decomposition
 \[
@@ -148,14 +148,14 @@ Our goal is to show the uniqueness of \( \overline{K} \).
 			      \[
 				      \tilde{K} = \bigcup_{i\in I} K_i \text{ is a subextension of } L
 			      \]
-			      \( \implies \) If \( \vp: \tilde{K} \to M \) is defined by \( \tilde{\vp}|_{K_i} = \vp_i \),
+			      \( \implies \) If \( \tilde\vp: \tilde{K} \to M \) is defined by \( \tilde{\vp}|_{K_i} = \vp_i \),
 			      then
 			      \begin{itemize}
 				      \item This is well-defined. Meaning the union \( \tilde{K} \) is indeed a field and the
 				            map \( \vp \) is well-defined.
 				      \item It is a morphism of \( K \)-algebra.
 			      \end{itemize}
-			\item \( (K_i,\vp_i) \leq (\tilde{K},\vp_i) \; \forall \; i \).
+			\item \( (K_i,\vp_i) \leq (\tilde{K},\tilde\vp) \; \forall \; i \).
 		\end{enumerate}
 	\end{exercise}
 	Now one can apply the \textbf{Zorn's Lemma} \ref{lem:zorn}
@@ -163,7 +163,7 @@ Our goal is to show the uniqueness of \( \overline{K} \).
 	\[
 		\begin{tikzcd}
 			K \arrow[r,  hook] \arrow[dr] & K_1 \arrow[d, "\vp_1"] \arrow[r,hook] & L \\
-			&L_2
+			&M
 		\end{tikzcd}
 	\]
 	s.t. \( (K_1,\vp_1) \) is a maximal element of \( \cP \). The goal here is to show that there is
@@ -176,7 +176,7 @@ Our goal is to show the uniqueness of \( \overline{K} \).
 	\begin{proof}[\textbf{Proof of Claim}]
 		If \( K_1 \ne L \implies \exists \; a \in L \smallsetminus K_1 \), with \( a \) is algebraic
 		over \( K \implies a \) is algebraic over \( K_1 \) as \( K_1 \) is the larger field. Let \( f \) be the minimal
-		polynomial of \( a \) over \( K_1 \), we have
+		polynomial of \( a \) over \( K_1 \), we have with \( K_1 \subsetneq K_1(a) \)
 		\[
 			\begin{aligned}
 				 & K_1 \hookrightarrow K_1(a) \cong \qo{K_1[x]}{(f)} \\
@@ -190,6 +190,14 @@ Our goal is to show the uniqueness of \( \overline{K} \).
 				\exists ! \psi: \qo{K_1[x]}{(f)} & \to M     \\
 				\overline{a}                     & \mapsto b \\
 			\end{aligned}
+		\]
+		by the universal property that:
+		\[
+			\begin{tikzcd}
+				K_1 \arrow[d, "\vp_1"] \arrow[r, hook, "i_1"] & K_1[x] \arrow[dashed, hook, ld ,"\psi_0"] \arrow[r,
+					hook, "i_2"] & \qo{K_1[x]}{(f)} \arrow[lld, hook, dashed, "\psi"] \\
+				M & &
+			\end{tikzcd}
 		\]
 		which contradicts to the maximality of \( (K_1,\vp_1) \) \( \lightning \).
 	\end{proof}
