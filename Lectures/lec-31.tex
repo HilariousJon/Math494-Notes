@@ -88,6 +88,7 @@ and let \( e = [K: \FF_p] < \infty \), we have \( \abs{K} = p^e \). Thus \( \abs
 		\item For every \( e \geq 1 \), \( \exists \) field with \( p^e \) elements.
 		\item Every two such fields are isomorphic.
 	\end{enumerate}
+	Hence this gives complete description of the classification of finite fields.
 \end{theorem}
 
 \begin{proof}
@@ -129,8 +130,7 @@ and let \( e = [K: \FF_p] < \infty \), we have \( \abs{K} = p^e \). Thus \( \abs
 	\textbf{Uniqueness:} Suppose \( L \) be a field with \( p^e \) elements. Have
 	\[
 		\begin{tikzcd}
-			& L \arrow[dashed, rdd, "\vp" ] & \\
-			\FF_p \arrow[ru, hook] \arrow[rd, hook] & \\
+			\FF_p \arrow[r, hook] \arrow[rd, hook]& L \arrow[dashed, rd, "\vp" ]  \\
 			& K \arrow[r, hook] & \overline{\FF_p}
 		\end{tikzcd}
 	\]
@@ -192,8 +192,7 @@ and let \( e = [K: \FF_p] < \infty \), we have \( \abs{K} = p^e \). Thus \( \abs
 		      thus we have
 		      \[
 			      \begin{tikzcd}
-				      & L = K(\beta_1,\ldots, \beta_n) \arrow[dashed, rdd, "\vp" ] & \\
-				      K \arrow[ru,hook] \arrow[rd,hook ] & & \\
+				      K \arrow[r,hook] \arrow[rd,hook ] & L = K(\beta_1,\ldots, \beta_n) \arrow[dashed, rd, "\vp" ] & \\
 				      & K(\alpha_1,\ldots, \alpha_n) \arrow[r,hook] &
 				      \overline{K}
 			      \end{tikzcd}

@@ -205,18 +205,24 @@ Our goal is to show the uniqueness of \( \overline{K} \).
 
 \begin{corollary}
 	If we have
+	% \[
+	% 	\begin{aligned}
+	% 		K & \hookrightarrow K_1 \\
+	% 		K & \hookrightarrow K_2
+	% 	\end{aligned}
+	% \]
 	\[
-		\begin{aligned}
-			K & \hookrightarrow K_1 \\
-			K & \hookrightarrow K_2
-		\end{aligned}
+		\begin{tikzcd}
+			K \arrow[r,hook] \arrow[rd,hook] & K_1 \arrow[d, dashed, "\vp"] \\
+			& K_2
+		\end{tikzcd}
 	\]
 	are algebraically closures of \( K \), then there exists an \textbf{isomorphism} of \( K \)-extension:
 	\[
 		\vp: K_1 \cong K_2
 	\]
 	\begin{note}
-		In particular, this yields us the uniqueness of algebraic closure up to isomorphism.
+		In particular, this yields us the \textcolor{blue}{uniqueness} of algebraic closure up to isomorphism.
 	\end{note}
 \end{corollary}
 
@@ -234,7 +240,8 @@ Our goal is to show the uniqueness of \( \overline{K} \).
 		K\hookrightarrow K_1 \xhookrightarrow{\vp} K_2
 	\]
 	If there exists \( a \in K_2 \smallsetminus K_1 \), with \( a \) is algebraic over \( K \implies a \)
-	is algebraic over \( K_1 \), which contradicts to the fact that \( K_1 \) is algebraically closed.
+	is algebraic over \( K_1 \), which contradicts to the fact that \( K_1 \) is algebraically closed
+	\( \lightning \).
 	Thus \( \vp \) is surjection and being isomorphism.
 \end{proof}
 
@@ -246,12 +253,12 @@ Suppose \( R \) is a ring of characteristic \( p > 0 \) with \( p \) prime integ
 
 \begin{eg}
 	Any field \( K \) of characteristic \( p \) or \( K[x_1,\ldots,x_n] \) with \( K \)-field of
-	characteristic \( p \).
+	characteristic \( p \) can define the following frobenius homomorphism.
 \end{eg}
 
 \begin{proposition}
 	\label{prop:frobenius-hom}
-	If \( R \) is a commutative ring of char \( p \), \( p \) prime integer. If
+	If \( R \) is a commutative ring of \textcolor{blue}{char \( p \)}, \( p \) prime integer. If
 	\[
 		\begin{aligned}
 			F: R & \to R \\
