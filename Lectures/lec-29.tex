@@ -1,272 +1,273 @@
 \begin{remark}
-  If \( \qo{L}{K} \) is finite, then any morphism of \( K \)-algebra \( L \to L \) are isomorphism. 
-  \begin{itemize}
-    \item It is automatically injective.
-    \item We have
-      \[
-        K \subseteq \sigma(L) \subseteq L \implies \sigma (L) = L
-      \] 
-      as it preserve the dimension of vector space by injectivity. See that \( \sigma: L \to
-      \sigma(L) \) is also an isomorphism of \( K \)-vector space.
-  \end{itemize}
+	If \( \qo{L}{K} \) is finite, then any morphism of \( K \)-algebra \( L \to L \) are isomorphism.
+	\begin{itemize}
+		\item It is automatically injective.
+		\item We have
+		      \[
+			      K \subseteq \sigma(L) \subseteq L \implies \sigma (L) = L
+		      \]
+		      as it preserve the dimension of vector space by injectivity. See that \( \sigma: L \to
+		      \sigma(L) \) is also an isomorphism of \( K \)-vector space.
+	\end{itemize}
 \end{remark}
 
 \begin{eg}
-  Have \( \QQ \hookrightarrow \QQ[\sqrt{d}] \) with \( d\in\ZZ \) not a square. Have 
-  \[
-    \begin{aligned}
-      \sigma: \QQ[\sqrt{d}] &\to \QQ[\sqrt{d}] \\ 
-      (\sqrt{d})^2 &=d \implies \sigma(\sqrt{d})^2 = \sigma(d) = d \\ 
-      \implies \sigma(\sqrt{d}) &= \pm \sqrt{d}
-    \end{aligned}
-  \] 
-  thus there are only two possibilities:
-  \begin{itemize}
-    \item \( \sigma = \Id \).
-    \item \( \sigma(a+b\sqrt{d}) = a - b\sqrt{d} \)
-  \end{itemize}
-  one may also need to check that this is indeed a ring homomorphism.
+	Have \( \QQ \hookrightarrow \QQ[\sqrt{d}] \) with \( d\in\ZZ \) not a square. Have
+	\[
+		\begin{aligned}
+			\sigma: \QQ[\sqrt{d}]     & \to \QQ[\sqrt{d}]                              \\
+			(\sqrt{d})^2              & =d \implies \sigma(\sqrt{d})^2 = \sigma(d) = d \\
+			\implies \sigma(\sqrt{d}) & = \pm \sqrt{d}
+		\end{aligned}
+	\]
+	thus there are only two possibilities:
+	\begin{itemize}
+		\item \( \sigma = \Id \).
+		\item \( \sigma(a+b\sqrt{d}) = a - b\sqrt{d} \)
+	\end{itemize}
+	one may also need to check that this is indeed a ring homomorphism.
 \end{eg}
 
 \begin{proposition}
-  If \( \qo{L}{K} \) is a finite field extension, then \( G(\qo{L}{K}) \) is a finite group.
+	If \( \qo{L}{K} \) is a finite field extension, then \( G(\qo{L}{K}) \) is a finite group.
 \end{proposition}
 
 \begin{proof}
-  Let \( a_1,\ldots, a_n \) such that \( L = K(a_1,\ldots,a_n) \). See that \( a_i \) is \textcolor{blue}{algebraic} over 
-  \( K \) since \( qo{L}{K} \) is finite. Let 
-  \[
-    f = x^d + c_{d-1} x^{d-1} + \cdots + c_0 \in K[x]
-  \] 
-  be the minimal polynomial of \( a_i \), by definition we shall have 
-  \[
-    a_i^d + c_{d-1} a_i^{d-1} + \cdots + c_0 = 0
-  \] 
-  If then \( \sigma \in G(\qo{L}{K}) \), then 
-  \[
-    \sigma(a_i)^d + c_{d-1} \sigma(a_i)^{d-1} + \cdots + c_0 = \sigma(a_i^d + c_{d-1} a_i^{d-1} +
-    \cdots + c_0) = 0
-  \] 
-  \( \implies \sigma(a_i) \) is a root of \( f \), thus there are only finitely many possibilities
-  for \( \sigma(a_i) \) to choose. Finitely many possibilities for \( a_i \) and finitely many
-  possibilties for each of them to map to with the fact that \( \sigma \) is totally determined by 
-  \[
-    \sigma(a_1),\ldots, \sigma(a_n)
-  \] 
-  then only finitely man such \( \sigma \).
+	Let \( a_1,\ldots, a_n \) such that \( L = K(a_1,\ldots,a_n) \). See that \( a_i \) is \textcolor{blue}{algebraic} over
+	\( K \) since \( \qo{L}{K} \) is finite. Let
+	\[
+		f = x^d + c_{d-1} x^{d-1} + \cdots + c_0 \in K[x]
+	\]
+	be the minimal polynomial of \( a_i \), by definition we shall have
+	\[
+		a_i^d + c_{d-1} a_i^{d-1} + \cdots + c_0 = 0
+	\]
+	If then \( \sigma \in G(\qo{L}{K}) \), then
+	\[
+		\sigma(a_i)^d + c_{d-1} \sigma(a_i)^{d-1} + \cdots + c_0 = \sigma(a_i^d + c_{d-1} a_i^{d-1} +
+		\cdots + c_0) = 0
+	\]
+	\( \implies \sigma(a_i) \) is a root of \( f \), thus there are only finitely many possibilities
+	for \( \sigma(a_i) \) to choose. Finitely many possibilities for \( a_i \) and finitely many
+	possibilties for each of them to map to with the fact that \( \sigma \) is totally determined by
+	\[
+		\sigma(a_1),\ldots, \sigma(a_n)
+	\]
+	then only finitely man such \( \sigma \).
 \end{proof}
 
 \begin{remark}
-  Suppose \( L = K(a) \) for some \( a \) which is algebraic over \( K \). If \( f \) be the minimal
-  polynomial of \( a \implies \deg(f) = [L:K] \). If \( \sigma \in G(\qo{L}{K}) \implies \sigma(a) \) is a root 
-  of \( f \implies \# \) distinct roots of \( f \leq \deg(f) \implies \)
-  \[
-    \abs{G\bace{\qo{L}{K}}} \leq [L:K]
-  \] 
-  for the equality we need to impose some assumption here. But this in general already give us some
-  idea on the cardinality of galois group.
+	Suppose \( L = K(a) \) for some \( a \) which is algebraic over \( K \). If \( f \) be the minimal
+	polynomial of \( a \implies \deg(f) = [L:K] \). \textcolor{blue}{If \( \sigma \in G(\qo{L}{K}) \implies \sigma(a) \) is a root
+		of \( f \implies \# \) distinct roots of \( f \leq \deg(f) \implies \)}
+	\[
+		\abs{G\bace{\qo{L}{K}}} \leq [L:K]
+	\]
+	for the equality we need to impose some assumption here. But this in general already give us some
+	idea on the cardinality of galois group.
 \end{remark}
 
 \begin{eg}
-  What is 
-  \[
-    G\bace{\qo{\QQ(\sqrt[3]{2})}{\QQ}}?
-  \] 
-  Consider that \( \QQ(\sqrt[3]{2}) \subseteq \RR \) while the other two roots of \( x^3 - 2 \) do
-  not lie in \( \RR \) see that it is only the identity map.
+	What is
+	\[
+		G\bace{\qo{\QQ(\sqrt[3]{2})}{\QQ}}?
+	\]
+	Consider that \( \QQ(\sqrt[3]{2}) \subseteq \RR \) while the other two roots of \( x^3 - 2 \) do
+	not lie in \( \RR \) see that it is only the identity map. In short, the element of the Galois
+	group is just permuting the roots within the same minimal polynomial.
 \end{eg}
 
 \section{Algebraic Closure}
 Recall that A field \( K \) is algebraically closed if \( \forall \; f\in K[x], \deg(f)\geq 1 \),
 there exists \( a\in K \), s.t. \( f(a) = 0 \). Which is also equivalent to \( \forall \; f \in K[x], \deg(f) \geq 1 \)
-with decomposition 
+with decomposition
 \[
-  f = c(x-\lambda_1)\cdots(x-\lambda_n) 
-\] 
+	f = c(x-\lambda_1)\cdots(x-\lambda_n)
+\]
 with \( c\ne 0 \) and \( \lambda_1,\ldots,\lambda_n \in K \) and \( n = \deg(f) \).
 
 \begin{exercise}
-  This is also equivalent to: \( \forall \) field extension \( K \hookrightarrow L \), if \( a \in
-  L\smallsetminus K \implies a \) is not algebraic over \( K \).
+	This is also equivalent to: \( \forall \) field extension \( K \hookrightarrow L \), if \( a \in
+	L\smallsetminus K \implies a \) is not algebraic over \( K \).
 \end{exercise}
 
 \begin{theorem}
-  For every field \( K \), there is an algberaic extension \( K \hookrightarrow \overline{K} \),
-  such that \( \overline{K} \) is algebraically closed. 
+	For every field \( K \), there is an algberaic extension \( K \hookrightarrow \overline{K} \),
+	such that \( \overline{K} \) is algebraically closed.
 \end{theorem}
 
 \begin{definition}[\textbf{Algebraic Closure}]
-  \( \overline{K} \) is called the algebraic closure of \( K \).
+	\( \overline{K} \) is called the algebraic closure of \( K \).
 \end{definition}
 Our goal is to show the uniqueness of \( \overline{K} \).
 
 \begin{proposition}
-  \label{prop:extension-alg}
-  Given two field extensions:
-  % \[
-  %   \begin{aligned}
-  %     K &\hookrightarrow L \\ 
-  %     K &\hookrightarrow M 
-  %   \end{aligned}
-  % \] 
-  \[
-    \begin{tikzcd}
-      & L \\ 
-      K \arrow[ur, hook] \arrow[dr, hook] & \\ 
-                                          & M
-    \end{tikzcd}
-  \] 
-  such that 
-  \begin{enumerate}
-    \item \( \qo{L}{K} \) is algebraic. 
-    \item \( M \) is algebraic closed.
-  \end{enumerate}
-  \( \implies \exists \) morphism of field extensions of \( K \), \( L \to M \). 
-  \begin{note}
-    Such morphism \( L \to K \) is not unique in general.
-  \end{note}
+	\label{prop:extension-alg}
+	Given two field extensions:
+	% \[
+	%   \begin{aligned}
+	%     K &\hookrightarrow L \\ 
+	%     K &\hookrightarrow M 
+	%   \end{aligned}
+	% \] 
+	\[
+		\begin{tikzcd}
+			& L \\
+			K \arrow[ur, hook] \arrow[dr, hook] & \\
+			& M
+		\end{tikzcd}
+	\]
+	such that
+	\begin{enumerate}
+		\item \( \qo{L}{K} \) is algebraic.
+		\item \( M \) is algebraic closed.
+	\end{enumerate}
+	\( \implies \exists \) morphism of field extensions of \( K \), \( L \to M \).
+	\begin{note}
+		Such morphism \( L \to K \) is not unique in general.
+	\end{note}
 \end{proposition}
 
 \begin{proof}
-  Define 
-  \[
-    \cP = \{(K',\vp') \; |\; K \hookrightarrow K' \hookrightarrow L \text{ subfield}, \vp': K' \to M
-    \text{ morphism of } K \text{-algebra.}\}
-  \] 
-  And we define the order on \( \cP \) by \( (K',\vp')\leq (K'',\vp'') \) if \( K'\subseteq K'' \)
-  and \( \vp''|_{K'} = \vp' \). The goal here is to show first that we can apply the Zorn's Lemma on
-  \( \cP \).
+	Define
+	\[
+		\cP = \{(K',\vp') \; |\; K \hookrightarrow K' \hookrightarrow L \text{ subfield}, \vp': K' \to M
+		\text{ morphism of } K \text{-algebra.}\}
+	\]
+	And we define the order on \( \cP \) by \( (K',\vp')\leq (K'',\vp'') \) if \( K'\subseteq K'' \)
+	and \( \vp''|_{K'} = \vp' \). The goal here is to show first that we can apply the Zorn's Lemma on
+	\( \cP \).
 
-  \begin{exercise}
-    Check that 
-    \begin{enumerate}
-      \item This is indeed an order relation. Meaning that it is reflexive, antisymmetric and
-        transitive.
-      \item If \( (K_i,\vp_i)_{i\in I} \) is a family of elements of \( \cP \), s.t. any two of them
-        are comparable, then 
-        \[
-          \tilde{K} = \bigcup_{i\in I} K_i \text{ is a subextension of } L
-        \] 
-        \( \implies \) If \( \vp: \tilde{K} \to M \) is defined by \( \tilde{\vp}|_{K_i} = \vp_i \),
-        then 
-        \begin{itemize}
-          \item This is well-defined. Meaning the union \( \tilde{K} \) is indeed a field and the
-            map \( \vp \) is well-defined.
-          \item It is a morphism of \( K \)-algebra.
-        \end{itemize}
-      \item \( (K_i,\vp_i) \leq (\tilde{K},\vp_i) \; \forall \; i \).
-    \end{enumerate}
-  \end{exercise}
-  Now one can apply the \textbf{Zorn's Lemma} \ref{lem:zorn}
-  to see that there exists: 
-  \[
- 		\begin{tikzcd}
-      K \arrow[r,  hook] \arrow[dr] & K_1 \arrow[d, "\vp_1"] \arrow[r,hook] & L \\
-                                                  &L_2 
+	\begin{exercise}
+		Check that
+		\begin{enumerate}
+			\item This is indeed an order relation. Meaning that it is reflexive, antisymmetric and
+			      transitive.
+			\item If \( (K_i,\vp_i)_{i\in I} \) is a family of elements of \( \cP \), s.t. any two of them
+			      are comparable, then
+			      \[
+				      \tilde{K} = \bigcup_{i\in I} K_i \text{ is a subextension of } L
+			      \]
+			      \( \implies \) If \( \vp: \tilde{K} \to M \) is defined by \( \tilde{\vp}|_{K_i} = \vp_i \),
+			      then
+			      \begin{itemize}
+				      \item This is well-defined. Meaning the union \( \tilde{K} \) is indeed a field and the
+				            map \( \vp \) is well-defined.
+				      \item It is a morphism of \( K \)-algebra.
+			      \end{itemize}
+			\item \( (K_i,\vp_i) \leq (\tilde{K},\vp_i) \; \forall \; i \).
+		\end{enumerate}
+	\end{exercise}
+	Now one can apply the \textbf{Zorn's Lemma} \ref{lem:zorn}
+	to see that there exists:
+	\[
+		\begin{tikzcd}
+			K \arrow[r,  hook] \arrow[dr] & K_1 \arrow[d, "\vp_1"] \arrow[r,hook] & L \\
+			&L_2
 		\end{tikzcd}
-  \] 
-  s.t. \( (K_1,\vp_1) \) is a maximal element of \( \cP \). The goal here is to show that there is
-  nothing in between \( K_1 \) and \( L \) otherwise contradicts with the maximality of \(
-  (K_1,\vp_1) \).
-  \begin{claim}
-    \( K_1 = L \) (\( \implies \) QED).
-  \end{claim}
+	\]
+	s.t. \( (K_1,\vp_1) \) is a maximal element of \( \cP \). The goal here is to show that there is
+	nothing in between \( K_1 \) and \( L \) otherwise contradicts with the maximality of \(
+	(K_1,\vp_1) \).
+	\begin{claim}
+		\( K_1 = L \) (\( \implies \) QED).
+	\end{claim}
 
-  \begin{proof}[\textbf{Proof of Claim}]
-    If \( K_1 \ne L \implies \exists \; a \in L \smallsetminus K_1 \), with \( a \) is algebraic
-    over \( K \implies a \) is algebraic over \( K_1 \) as \( K_1 \) is the larger field. Let \( f \) be the minimal 
-    polynomial of \( a \) over \( K_1 \), we have 
-    \[
-      \begin{aligned}
-        &K_1 \hookrightarrow K_1(a) \cong \qo{K_1[x]}{(f)} \\ 
-        &K_1\xhookrightarrow{\vp_1} M
-      \end{aligned}
-    \] 
-    since \( f\in K_1[x] \), \( M \) is algebraically closed, then there exists \( b \in M \), s.t.
-    \( f(b) = 0 \). By the universal property of \( K_1[x] \) and of quotient ring, we have 
-    \[
-      \begin{aligned}
-        \exists ! \psi: \qo{K_1[x]}{(f)} &\to M \\ 
-        \overline{a} &\mapsto b \\
-      \end{aligned}
-    \] 
-    which contradicts to the maximality of \( (K_1,\vp_1) \) \( \lightning \).
-  \end{proof}
+	\begin{proof}[\textbf{Proof of Claim}]
+		If \( K_1 \ne L \implies \exists \; a \in L \smallsetminus K_1 \), with \( a \) is algebraic
+		over \( K \implies a \) is algebraic over \( K_1 \) as \( K_1 \) is the larger field. Let \( f \) be the minimal
+		polynomial of \( a \) over \( K_1 \), we have
+		\[
+			\begin{aligned}
+				 & K_1 \hookrightarrow K_1(a) \cong \qo{K_1[x]}{(f)} \\
+				 & K_1\xhookrightarrow{\vp_1} M
+			\end{aligned}
+		\]
+		since \( f\in K_1[x] \), \( M \) is algebraically closed, then there exists \( b \in M \), s.t.
+		\( f(b) = 0 \). By the universal property of \( K_1[x] \) and of quotient ring, we have
+		\[
+			\begin{aligned}
+				\exists ! \psi: \qo{K_1[x]}{(f)} & \to M     \\
+				\overline{a}                     & \mapsto b \\
+			\end{aligned}
+		\]
+		which contradicts to the maximality of \( (K_1,\vp_1) \) \( \lightning \).
+	\end{proof}
 \end{proof}
 
 \begin{corollary}
-  If we have
-  \[
-    \begin{aligned}
-      K &\hookrightarrow K_1 \\ 
-      K &\hookrightarrow K_2
-    \end{aligned}
-  \] 
-  are algebraically closures of \( K \), then there exists an \textbf{isomorphism} of \( K \)-extension: 
-  \[
-    \vp: K_1 \cong K_2
-  \] 
-  \begin{note} 
-    In particular, this yields us the uniqueness of algebraic closure up to isomorphism.
-  \end{note}
+	If we have
+	\[
+		\begin{aligned}
+			K & \hookrightarrow K_1 \\
+			K & \hookrightarrow K_2
+		\end{aligned}
+	\]
+	are algebraically closures of \( K \), then there exists an \textbf{isomorphism} of \( K \)-extension:
+	\[
+		\vp: K_1 \cong K_2
+	\]
+	\begin{note}
+		In particular, this yields us the uniqueness of algebraic closure up to isomorphism.
+	\end{note}
 \end{corollary}
 
 \begin{proof}
-  We have 
-  \[
-    \begin{cases}
-      \qo{K_1}{K} \text{ algebraic} \\ 
-      \qo{K_2}{K} \text{ algebraically closed}
-    \end{cases}
-    \implies \exists \text{ morphism of } K \text{-extension } \vp: K_1 \hookrightarrow K_2
-  \] 
-  with the implication given by proposition above. Such morphism is clearly injective, and thus we have 
-  \[
-    K\hookrightarrow K_1 \xhookrightarrow{\vp} K_2
-  \] 
-  If there exists \( a \in K_2 \smallsetminus K_1 \), with \( a \) is algebraic over \( K \implies a \)
-  is algebraic over \( K_1 \), which contradicts to the fact that \( K_1 \) is algebraically closed.
-  Thus \( \vp \) is surjection and being isomorphism.
+	We have
+	\[
+		\begin{cases}
+			\qo{K_1}{K} \text{ algebraic} \\
+			\qo{K_2}{K} \text{ algebraically closed}
+		\end{cases}
+		\implies \exists \text{ morphism of } K \text{-extension } \vp: K_1 \hookrightarrow K_2
+	\]
+	with the implication given by proposition above. Such morphism is clearly injective, and thus we have
+	\[
+		K\hookrightarrow K_1 \xhookrightarrow{\vp} K_2
+	\]
+	If there exists \( a \in K_2 \smallsetminus K_1 \), with \( a \) is algebraic over \( K \implies a \)
+	is algebraic over \( K_1 \), which contradicts to the fact that \( K_1 \) is algebraically closed.
+	Thus \( \vp \) is surjection and being isomorphism.
 \end{proof}
 
 \section{Frobenius Homomorphism}
-Suppose \( R \) is a ring of characteristic \( p > 0 \) with \( p \) prime integer: 
+Suppose \( R \) is a ring of characteristic \( p > 0 \) with \( p \) prime integer:
 \[
-  p \cdot 1_R = 0 \iff \exists \text{ morphism } \qo{\ZZ}{p\ZZ} \hookrightarrow R
-\] 
+	p \cdot 1_R = 0 \iff \exists \text{ morphism } \qo{\ZZ}{p\ZZ} \hookrightarrow R
+\]
 
 \begin{eg}
-  Any field \( K \) of characteristic \( p \) or \( K[x_1,\ldots,x_n] \) with \( K \)-field of
-  characteristic \( p \).
+	Any field \( K \) of characteristic \( p \) or \( K[x_1,\ldots,x_n] \) with \( K \)-field of
+	characteristic \( p \).
 \end{eg}
 
 \begin{proposition}
-  \label{prop:frobenius-hom}
-  If \( R \) is a commutative ring of char \( p \), \( p \) prime integer. If 
-  \[
-    \begin{aligned}
-      F: R & \to R \\ 
-      F(u) &= u^p
-    \end{aligned}
-  \] 
-  then \( F \) is a ring homomorphism.
+	\label{prop:frobenius-hom}
+	If \( R \) is a commutative ring of char \( p \), \( p \) prime integer. If
+	\[
+		\begin{aligned}
+			F: R & \to R \\
+			F(u) & = u^p
+		\end{aligned}
+	\]
+	then \( F \) is a ring homomorphism.
 \end{proposition}
 
 \begin{proof}
-  Clearly 
-  \begin{itemize}
-    \item \( F(1) = 1 \).
-    \item \( F(uv) = F(u)F(v) \).
-  \end{itemize}
-  And 
-  \[
-    F(a+b) = (a+b)^p = a^p + b^p +\sum_{i=1}^{p-1}\binom{p}{i} a^i b^{p-i} = a^p + b^p = F(a) + F(b)
-  \] 
-  with 
-  \[
-    \binom{p}{i} = \frac{p!}{i!(p-i)!} = \frac{p(p-1)\cdots(p-i+1)}{i!} \equiv 0 \; (\bmod{p}) \quad
-    \forall \; 1
-    \leq i \leq p-1
-  \] 
-  thus vanishes.
+	Clearly
+	\begin{itemize}
+		\item \( F(1) = 1 \).
+		\item \( F(uv) = F(u)F(v) \).
+	\end{itemize}
+	And
+	\[
+		F(a+b) = (a+b)^p = a^p + b^p +\sum_{i=1}^{p-1}\binom{p}{i} a^i b^{p-i} = a^p + b^p = F(a) + F(b)
+	\]
+	with
+	\[
+		\binom{p}{i} = \frac{p!}{i!(p-i)!} = \frac{p(p-1)\cdots(p-i+1)}{i!} \equiv 0 \; (\bmod{p}) \quad
+		\forall \; 1
+		\leq i \leq p-1
+	\]
+	thus vanishes.
 \end{proof}
