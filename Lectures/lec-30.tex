@@ -131,3 +131,215 @@
 	The same construction via direct products works in the category of \underline{Sets}, \( R
 	\)-\underline{mod}, etc.
 \end{remark}
+
+\subsection{Direct Limits}
+
+\begin{definition}[\textbf{Direct System}]
+	A \underline{direct system} in a category \( \cC \) is a functor \( I \xrightarrow{F} \cC \). Explicitly:
+	\[
+		\begin{aligned}
+			i \in I & \rsa X_i \in \ob(\cC)                               \\
+			i\leq j & \rsa \vp_{ij}: X_i \to X_j \in \Hom_{\cC}(X_i, X_j)
+		\end{aligned}
+	\]
+	s.t.
+	\begin{itemize}
+		\item \( \vp_{ij} = \Id \; \forall \; i \).
+		\item \( i\leq j \leq k \implies \vp_{jk} \circ \vp_{ij} = \vp_{ik} \).
+	\end{itemize}
+\end{definition}
+
+\begin{definition}[\textbf{Direct Limit}]
+	The \underline{direct limit} (injective limit), denoted as \( \varinjlim_{i \in I} X_i \) is the
+	dual notion of that of inverse limit: namely \( \forall \; i \), s.t. for \( i\leq j \), the following diagram is commutative:
+	\[
+		\begin{tikzcd}
+			X_i \arrow[r, "f_i"] \arrow[d, "\vp_{ij}"] & \varinjlim_{i\in I} X_i \\
+			X_j \arrow[ru, "f_j"] &
+		\end{tikzcd}
+	\]
+	and this is universal: \( \forall \; Y \) with \( X_i \xrightarrow{g_i} Y \) that satisfy the same
+	compatible condition,
+	\[
+		\exists \; ! \; u_i: \varinjlim X_i \to Y \; \text{ s.t. } u\circ f_i = g_i \quad \forall \; i
+	\]
+\end{definition}
+
+\begin{eg}
+	If \( \cC = \) \( R \)-\underline{mod}, and \( ``\leq''\) is \( ``='' \), then we have seen that
+	this is \( \bigoplus_{i\in I} M_i \). Direct limits are easier to handle and have better
+	properties if \( (I, \leq) \) is \underline{filtering}: \( \forall \; i,j \in I, \; \exists\; k
+	\in I \), s.t. \( i,j \leq k \).
+	\begin{eg}
+		If \( A \) be any set, then
+		\[
+			(I = \{B \subseteq A \; | \; B \text{ finite. }\}, \subseteq) \text{ is filtering.}
+		\]
+	\end{eg}
+\end{eg}
+
+\begin{proposition}
+	Filtering direct limits exist in the category of rings.
+\end{proposition}
+
+\begin{proof}
+	Given a direct system \( (R_i)_{i\in I} \) and \( \vp_{ij} : R_i \to R_j \) for \( i \leq j \), we
+	define
+	\[
+		\varinjlim_{i\in I} R_i \coloneqq  \bigsqcup_{i\in I} \qo{R_i}{\sim}
+	\]
+	where \( a\in R_{j_1}\sim b \in R_{j_2} \)  iff \( \exists\; k \), s.t. \( j_1, j_2 \leq k \) and
+	\[
+		\vp_{j_1 k}(a) = \vp_{j_{2}k} (a)
+	\]
+	We can define \( (+) \) and \( (\cdot) \) as follows: if \( a\in R_{j_1} \) and \( b\in R_{j_2}
+	\), then
+	\[
+		\overline{a} + \overline{b} \coloneqq \vp_{j_1 k} (a) + \vp_{j_2 k} (b)
+	\]
+	where \( k\) is s.t. \( j_1, j_2 \leq k \), and
+	\[
+		\overline{a} \cdot \overline{b} \coloneqq \vp_{j_1 k} (a) \vp_{j_2 k} (b)
+	\]
+	\begin{exercise}
+		\leavevmode
+		\begin{enumerate}
+			\item Check the well-definedness and this make \( \varinjlim_{i\in I} R_i \) a ring.
+			\item This satisfy the universal property.
+		\end{enumerate}
+	\end{exercise}
+	We have the induce maps:
+	\[
+		\begin{tikzcd}
+			R_j \arrow[r] \arrow[rd, "f_j"] & \bigsqcup_{i\in I} R_i \arrow[d]\\
+			& \varinjlim R_i
+		\end{tikzcd}
+	\]
+	when is \( f_j(a) = 0 \)? see that \( f_j (a) = 0 \iff \exists \; k, j \leq k \), s.t. \( \vp_{jk} (a) = 0 \). In particular,
+	if all \( \vp_{jk} \) are injective \( \implies  \) all \( f_j \) are injective \( \implies
+	\varinjlim_{i\in I} R_i = \bigcup_{i\in I} R_i \).
+\end{proof}
+
+\begin{eg}
+	Fix commutative ring \( R \), suppose \( A \) is a set, and
+	\[
+		I = \{B \subseteq A \; | \; B \text{ finite.}\}
+	\]
+	For every \( B \in I, B \subseteq B' \) in \( I \rsa \)
+	\[
+		R[x_b \; ; \; b \in B] \hookrightarrow R[x_b \; ; \; b \in B']
+	\]
+	this is a direct system and \( I \) is filtering. Have
+	\[
+		R[x_b \; ; \; b\in A] \coloneqq \varinjlim_{\substack{B \subseteq A \\ \text{ finite }}} R [x_b
+				\; ; \; b \in B] = ``\bigcup_{\substack{B \subseteq A \\ \text{ finite }}}'' R[x_b \; ; \; b \in
+				B]
+	\]
+	Have the universal property of \( R[x_b \; ; \; b \in A] \): \( \forall \) commutative \( R
+	\)-algebra \( S \), and every map \( f: A \to S \), \( \exists \;! R \)-algebra homomorphism
+	\[
+		\begin{aligned}
+			u : R[x_b \; ; \; b \in A] & \to S                           \\
+			\text{s.t. } u(x_b)        & = f(b) \quad \forall \; b \in A
+		\end{aligned}
+	\]
+	this follows similar property for finite \( A \) + universal property of \( \varinjlim \).
+\end{eg}
+
+\begin{remark}
+	In the category of \( R \)-\underline{mod} where \( R \) is any ring, one can use a similar
+	construction. There is another one that works for \underline{all} \( I \). If \( (M_i)_{i\in I}
+	\), and \( M_i \xrightarrow{\vp_{ij}} M_j \) is a direct system of \( R \)-\underline{mod}, then take
+	\[
+		\begin{tikzcd}
+			\bigoplus_{i\in I} M_i \arrow[r] & \qo{\bigoplus_{i\in I} M_i}{\angl{\alpha_k (\vp_{jk}(a)) -
+					\alpha_j (a) \; | \; j \leq k, a\in M_j}} \\
+			M_j \arrow[u, "\alpha_j"] \arrow[ru, "f_j"]&
+		\end{tikzcd}
+	\]
+	it is easy to check: this satisfy the definition of \( \varinjlim_{i\in I} M_i \).
+\end{remark}
+
+\begin{theorem}
+	For every field \( K \), \( \exists \) algebraic extension \( K \hookrightarrow \overline{K} \),
+	s.t. \( \overline{K} \) is algebraically closed.
+\end{theorem}
+
+\begin{proof}
+	\leavevmode
+	\begin{itemize}
+		\item Step 1: construct an algebraic extension \( K \hookrightarrow K_1 \), s.t. every \( f\in
+		      K[x] \) of degree \( \geq 1 \) has a root in \( K_1 \), define
+		      \[
+			      A = \{f\in K[x] \; | \; \deg(f) \geq 1\}
+		      \]
+		      Take \( R = K[y_f \; | \; f\in A] \) and take \( J = (f_{(y_f)} \; | \; f \in A) \)
+		      \begin{claim}
+			      \( J \neq R \).
+		      \end{claim}
+		      Suppose \( J = R \implies \)
+		      \[
+			      \begin{aligned}
+				      \exists \; f_1                       & , \ldots, f_r \in A \\
+				      g_1                                  & , \ldots, g_r \in A \\
+				      \text{ s.t. } \sum g_i f_i (y_{f_i}) & = 1
+			      \end{aligned}
+		      \]
+		      we say: there exists \( K \hookrightarrow L_1 \hookrightarrow L_2 \cdots L_r \), s.t. \( f_1 \) has a root in \( L_1 \),
+		      \( f_2 \) has a root in \( L_2 \), so \( \exists \; a_1,\ldots, a_r \in L_r \), s.t. \(
+		      f_i (a_i) = 0 \; \forall \; i \). By the universal property of \( R \), \( \exists \)
+		      morphism of \( K \)-algebra
+		      \[
+			      \begin{aligned}
+				      R = K[y_f \; | \; f \in A]     & \to L_r \\
+				      y_{f_i}                        & \to a_i \\
+				      g \ne f_1, \ldots, f_r, \; y_g & \to 0
+			      \end{aligned}
+		      \]
+		      and we apply this to the above equation, and in \( L_r \) we shall have \( 1 = 0 \),
+		      leading to a contradiction \( \lightning \). Thus we have the conclusion.
+		      \begin{conclusion}
+			      \( J = (f_{(y_f)} \; | \; f \in A) \ne R  \implies \exists\) maximal ideal \( M \) in \( R \), s.t.
+			      \( J \subseteq M \). Thus
+			      \[
+				      \begin{aligned}
+					      K                 & \hookrightarrow K_1 = \qo{R}{M} \text{ field.} \\
+					      f(\overline{y_f}) & = 0 \text{ in } K_1
+				      \end{aligned}
+			      \]
+		      \end{conclusion}
+
+		      \begin{note}
+			      \( \qo{K_1}{K} \) is algebraic. By the following:
+			      \[
+				      \begin{cases}
+					      K_1 = K(\overline{y_f} \; ; \; f \in A) \\
+					      \text{Each } \overline{y_f} \text{ is algebraic over } K
+				      \end{cases}
+				      \implies \qo{K_1}{K} \text{ is algebraic.}
+			      \]
+		      \end{note}
+		\item Step 2: Repeat this construction to get field extension:
+		      \[
+			      K_0 = K \hookrightarrow K_1 \hookrightarrow K_2 \hookrightarrow \cdots
+		      \]
+		      s.t.
+		      \begin{itemize}
+			      \item \( \qo{K_{n+1}}{K_n} \) is algebraic \( \forall \; n \geq 0 \).
+			      \item \( \forall \; n \geq 0, \forall \; f \in K_n[X] \) of degree \( \geq 1 \), \( f \)
+			            has a root in \( K_{n+1} \).
+		      \end{itemize}
+		      Take \( \overline{K} = \varinjlim_{i\geq 0} K_i \), have \( K_i \hookrightarrow
+		      \overline{K} \), s.t. \( \overline{K} = \bigcup_{i \geq 0} K_i \).
+		      \begin{itemize}
+			      \item \( \overline{K} \) is a field since each \( K_i \) is a field and \( \overline{K} = \bigcup_{i\geq 0} K_i \).
+			      \item \( \qo{\overline{K}}{K} \) is \underline{algebraic}: \( \forall \; a \in \overline
+			            K\), \( \exists \; i \), s.t. \( a\in K_i \) and \( \qo{K_i}{K} \) is algebraic by
+			            induction on \( i \) since \( \qo{K_j}{K_{j-1}} \) is algebraic.
+			      \item \( \overline K \) is \underline{algebraically closed}: \( \forall \; f \in
+			            \overline K[x] \), \( \exists \; i \geq 0 \), s.t. \( f\in K_i [x]  \implies f\) has a
+			            root in \( K_{i+1} \subseteq \overline K \).
+		      \end{itemize}
+	\end{itemize}
+\end{proof}
+
