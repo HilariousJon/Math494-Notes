@@ -239,5 +239,143 @@ For simplicity, consider \( R \) as commutative ring. If \( M,N,P \) are \( R \)
 \end{eg}
 
 \begin{eg}
-
+	\leavevmode
+	\begin{enumerate}
+		\item If \( I \subset R \) is an ideal, let \( R \to S = \qo{R}{I} \) be the canonical
+		      surjection, and let \( M \) be an \( R \)-module, then
+		      \[
+			      \qo{R}{I} \otimes_R M \cong \qo{M}{IM}
+		      \]
+		      \begin{note}
+			      This implies that
+			      \[
+				      \qo{\ZZ}{2\ZZ} \otimes_\ZZ \qo{\ZZ}{3\ZZ} \cong \qo{\qo{\ZZ}{3\ZZ}}{\bace{2\cdot \qo{\ZZ}{3\ZZ} = \qo{\ZZ}{3\ZZ}}}
+				      = \{0\}
+			      \]
+		      \end{note}
+		\item If \( S \subseteq R \) be a multiplicative system, let \( R \xrightarrow{f} S^{-1} R \). If \( M \)
+		      is an \( R \)-module, then
+		      \[
+			      S^{-1}R \otimes_R M \cong S^{-1} M
+		      \]
+	\end{enumerate}
 \end{eg}
+
+\subsection{Application to \( R \)-algebras}
+Fix \( R \) be commutative ring, let \( S_1, S_2 \) are \( R \)-algebras: namely
+\[
+	\vp_i : R \to S_i
+\]
+and \( \vp_i(R), S_i \) are commutative. Recall that \( S_1, S_2 \) are actually \( R \)-modules, then
+\[
+	S_1 \otimes_R S_2
+\]
+is also an \( R \)-module.
+\begin{claim}
+	\( \exists \; ! \) product \( S_1 \otimes_R S_2 \), s.t.
+	\[
+		(a_1\otimes a_2) \cdot (b_1\otimes b_2) = (a_1b_1) \otimes (a_2 b_2) \quad \forall \; a_1,b_1\in
+		S_1, a_2,b_2 \in S_2
+	\]
+\end{claim}
+
+\begin{proof}
+	We need to give
+	\[
+		(S_1 \otimes_R S_2) \times (S_1 \otimes_R S_2) \to S_1 \otimes_R S_2
+	\]
+	And we have:
+	\[
+		\begin{aligned}
+			(S_1 \otimes_R S_2) \times (S_1 \otimes_R S_2)
+			 & \to (S_1 \otimes_R S_2) \otimes_R (S_1 \otimes_R S_2)
+			 & \xrightarrow{\sim} (S_1 \otimes_R S_1) \otimes_R (S_2 \otimes_R S_2) \\
+			(a_1 \otimes a_2, b_1 \otimes b_2)
+			 & \to (a_1 \otimes b_1) \otimes (a_2 \otimes b_2)
+			 & \to (a_1 b_1) \otimes (a_2 b_2)
+		\end{aligned}
+	\]
+	since \( S_1, S_2 \) are \( R \)-algebras, we have multiplicative maps
+	\[
+		S_i \times S_i \to S_i
+	\]
+	they are \( R \)-bilinear, thus they induce \( R \)-linear maps as follows:
+	\[
+		\mu_i : S_i \otimes_R S_i \to S_i
+	\]
+	thus we have the map given as:
+	\[
+		\mu_1 \otimes \mu_2 : (S_1\otimes_R S_1) \otimes_R (S_2 \otimes_R S_2) \to S_1 \otimes_R S_2
+	\]
+	Once we have this map, it is easy to check that this makes \( S_1 \otimes_R S_2 \) a ring, as we
+	have the ring homomorphism:
+	\[
+		\begin{tikzcd}
+			S_1 \arrow[r] & S_1 \otimes_R S_2 \\
+			R \arrow[r] \arrow[u] & S_2 \arrow[u]
+		\end{tikzcd}
+	\]
+	where the maps are given by
+	\[
+		\begin{aligned}
+			R   & \xrightarrow{f_i} S_i \\
+			a_1 & \to a_1 \otimes 1     \\
+			a_2 & \to 1\otimes a_2
+		\end{aligned}
+	\]
+	respectively. The diagram is then commutative for \( a \in R \)
+	\[
+		\begin{tikzcd}
+			\vp_q (a) \arrow[r] & \vp_1 (a) \otimes 1 \\
+			a \arrow[u] \arrow[r] & \vp_2 (a) \arrow[u]
+		\end{tikzcd}
+	\]
+	where
+	\[
+		\begin{aligned}
+			R & \to S_1 \otimes S_2      \\
+			a & \to a\cdot (1 \otimes 1)
+		\end{aligned}
+	\]
+	makes \( S_1 \otimes_R S_2 \) an \( R \)-algebra, s.t. \( \alpha_1, \alpha_2 \) are morphisms of \( R \)-algebra.
+\end{proof}
+Now why is this useful? If \( S_1, S_2 \) are commutative \( R \)-algebras, then
+\[
+	\begin{tikzcd}
+		S_1 \arrow[r, "f_1"] & S_1 \otimes_R S_2 \\
+		& S_2 \arrow[u, "f_2"]
+	\end{tikzcd}
+\]
+make \( S_1\otimes_R S_2 \) the ``direct sum'' of \( S_1, S_2 \) in the category of commutative \( R \)-algebra. This means:
+\( \forall \; R \)-algebra homomorphism
+\[
+	\begin{tikzcd}
+		S_1 \arrow[r, "g_1"] & T \\
+		& S_2 \arrow[u, "g_2"]
+	\end{tikzcd}
+\]
+\( \exists \; ! R\)-algebra homomorphism
+\[
+	\begin{aligned}
+		S_1 \otimes_R S_2       & \xrightarrow{h} T \\
+		\text{s.t. } h\circ f_1 & = g_1             \\
+		h \circ f_2             & = g_2
+	\end{aligned}
+\]
+for such \( h \), we satisfy
+\[
+	h(a\otimes b) = h((a\otimes 1) \cdot (1\otimes b)) = h(a\otimes 1) h(1\otimes b) = g_1 (a) g_2(b)
+\]
+this yields uniqueness. For existence, consider
+\[
+	\begin{aligned}
+		S_1 \times S_2 & \to T                     \\
+		(a_1, a_2)     & \mapsto g_1(a_1) g_2(a_2)
+	\end{aligned}
+\]
+this is \( R \)-linear, then there exists \( R \)-linear map
+\[
+	g: S_1 \otimes_R S_2 \to T
+\]
+one can check that this is multiplicative.
+
